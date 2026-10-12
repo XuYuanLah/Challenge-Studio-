@@ -1,0 +1,1 @@
+Stated problem : WESA designed to address the issue by providing a lightweight audit tool for individual devices. It focuses on a limited set of win sec features. checks whether in expected secure state. to identify potential sec issues. 
