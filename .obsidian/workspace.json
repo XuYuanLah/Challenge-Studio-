@@ -188,15 +188,19 @@
       "bases:Create new base": false
     }
   },
-  "active": "8d551ef4c3186ea9",
+  "active": "1dedd74fccb2fe7f",
   "lastOpenFiles": [
+    "07-Presentation/placeholder",
+    "05-Work Summary/placeholder",
+    "04-Contribution Table/placeholder",
+    "03-Result/placeholder",
+    "02-Code/placeholder",
+    "01-Subject Report/placeholder",
     "01-Subject Report/Untitled.md",
     "07-Presentation",
     "06-Peer Review",
     "05-Work Summary",
     "04-Contribution Table",
-    "03-Result",
-    "02-Code",
-    "01-Subject Report"
+    "03-Result"
   ]
 }
