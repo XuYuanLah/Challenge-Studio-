@@ -1,0 +1,11 @@
+Chain FORWARD (policy ACCEPT 3431 packets, 909K bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+  175 11742 ACCEPT     all  --  r1-eth2 r1-eth1  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
+  561 34154 ACCEPT     udp  --  r1-eth2 r1-eth1  0.0.0.0/0            192.168.0.8          udp dpt:53
+   16   960 ACCEPT     tcp  --  r1-eth2 r1-eth1  0.0.0.0/0            192.168.0.8          tcp dpt:53
+    8   672 ACCEPT     icmp --  r1-eth2 r1-eth1  0.0.0.0/0            0.0.0.0/0            icmptype 8
+  736 50104 ACCEPT     all  --  r1-eth1 r1-eth2  0.0.0.0/0            0.0.0.0/0           
+   45  9212 LOG        all  --  r1-eth2 r1-eth1  0.0.0.0/0            0.0.0.0/0            limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_TO_LAN_DROP "
+ 3548  725K DROP       all  --  r1-eth2 r1-eth1  0.0.0.0/0            0.0.0.0/0           
+    0     0 LOG        tcp  --  r1-eth2 *       0.0.0.0/0            0.0.0.0/0            tcp dpt:853 limit: avg 5/min burst 5 LOG flags 0 level 4 prefix "DOT_DROP "
+    0     0 DROP       tcp  --  r1-eth2 *       0.0.0.0/0            0.0.0.0/0            tcp dpt:853

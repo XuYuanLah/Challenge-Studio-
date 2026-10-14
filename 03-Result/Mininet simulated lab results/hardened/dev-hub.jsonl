@@ -1,0 +1,2 @@
+{"ts":1791944901.997,"device":"hub","kind":"device_start","profile":"controller","mb_per_hour":0.09,"speed":60.0,"jobs":["mdns"]}
+{"ts":1791945051.862,"device":"hub","kind":"mdns","count":200,"service":"_matter._tcp.local"}

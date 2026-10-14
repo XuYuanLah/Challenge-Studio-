@@ -1,0 +1,308 @@
+{
+  "label": "iotcam",
+  "mode": "flat",
+  "iface": "iotcam-eth0",
+  "my_ip": "192.168.0.101",
+  "listen_seconds": 60.0,
+  "ts": 1791944509.621,
+  "reachable": {
+    "dns": {
+      "ip": "192.168.0.8",
+      "role": "main",
+      "ping": true,
+      "open_tcp": [
+        53
+      ]
+    },
+    "hub": {
+      "ip": "192.168.0.10",
+      "role": "main",
+      "ping": true,
+      "open_tcp": [
+        80,
+        5540
+      ]
+    },
+    "pc": {
+      "ip": "192.168.0.20",
+      "role": "main",
+      "ping": true,
+      "open_tcp": [
+        22,
+        445
+      ]
+    },
+    "nas": {
+      "ip": "192.168.0.30",
+      "role": "main",
+      "ping": true,
+      "open_tcp": [
+        22,
+        445,
+        8200
+      ]
+    },
+    "iotcam": {
+      "ip": "192.168.0.101",
+      "role": "iot",
+      "ping": true,
+      "open_tcp": [
+        80
+      ]
+    },
+    "iothub": {
+      "ip": "192.168.0.102",
+      "role": "iot",
+      "ping": true,
+      "open_tcp": [
+        80
+      ]
+    },
+    "iotplug": {
+      "ip": "192.168.0.103",
+      "role": "iot",
+      "ping": true,
+      "open_tcp": []
+    },
+    "iotsens": {
+      "ip": "192.168.0.104",
+      "role": "iot",
+      "ping": true,
+      "open_tcp": []
+    },
+    "iottherm": {
+      "ip": "192.168.0.105",
+      "role": "iot",
+      "ping": true,
+      "open_tcp": []
+    },
+    "router-main": {
+      "ip": "192.168.0.1",
+      "role": "router",
+      "ping": true,
+      "open_tcp": [
+        22,
+        53,
+        81,
+        8200
+      ]
+    },
+    "cloud": {
+      "ip": "203.0.113.10",
+      "role": "wan",
+      "ping": true,
+      "open_tcp": [
+        80,
+        443,
+        8883
+      ]
+    }
+  },
+  "dns_redirect_active": false,
+  "dns_redirect_decoy": null,
+  "passive": {
+    "frames": 2000,
+    "bytes": 363256,
+    "distinct_src_macs": 10,
+    "distinct_src_ips": 9,
+    "src_macs": [
+      [
+        "00:00:00:00:00:08",
+        1153
+      ],
+      [
+        "00:00:00:00:00:07",
+        394
+      ],
+      [
+        "fe:13:d8:06:ac:3d",
+        121
+      ],
+      [
+        "00:00:00:00:00:04",
+        91
+      ],
+      [
+        "00:00:00:00:00:09",
+        81
+      ],
+      [
+        "00:00:00:00:00:0a",
+        59
+      ],
+      [
+        "00:00:00:00:00:05",
+        40
+      ],
+      [
+        "00:00:00:00:00:0b",
+        30
+      ],
+      [
+        "00:00:00:00:00:03",
+        30
+      ],
+      [
+        "7e:bb:f6:b5:13:02",
+        1
+      ]
+    ],
+    "src_ips": [
+      [
+        "192.168.0.102",
+        1153
+      ],
+      [
+        "192.168.0.101",
+        387
+      ],
+      [
+        "203.0.113.10",
+        121
+      ],
+      [
+        "192.168.0.10",
+        87
+      ],
+      [
+        "192.168.0.103",
+        81
+      ],
+      [
+        "192.168.0.104",
+        59
+      ],
+      [
+        "192.168.0.20",
+        40
+      ],
+      [
+        "192.168.0.105",
+        30
+      ],
+      [
+        "192.168.0.8",
+        27
+      ]
+    ],
+    "subnets_seen": {
+      "192.168.0.0/24": 1864,
+      "203.0.113.0/24": 121
+    },
+    "foreign_subnet_frames": 0,
+    "foreign_segment_broadcast_frames": 0,
+    "foreign_segment_broadcast_sources": [],
+    "main_lan_hosts_seen": [
+      "192.168.0.10",
+      "192.168.0.20",
+      "192.168.0.8"
+    ],
+    "main_lan_hosts_seen_count": 3,
+    "main_lan_broadcast_frames": 121,
+    "main_lan_broadcasters": [
+      "192.168.0.10",
+      "192.168.0.20"
+    ],
+    "main_lan_broadcasters_count": 2,
+    "vlan_tagged_frames": 0,
+    "vlan_ids_seen": {},
+    "broadcast_frames": 0,
+    "multicast_frames": 1565,
+    "mdns_frames": 1564,
+    "mdns_service_types": [
+      "_hap._tcp",
+      "_matter._tcp",
+      "_rtsp._tcp",
+      "_smb._tcp"
+    ],
+    "mdns_service_type_count": 4,
+    "protocols": {
+      "UDP": 1684,
+      "0x86dd": 1,
+      "TCP": 295,
+      "ICMP": 6,
+      "ARP": 14
+    },
+    "top_dst_ports": [
+      [
+        5353,
+        1564
+      ],
+      [
+        443,
+        174
+      ],
+      [
+        5540,
+        66
+      ],
+      [
+        48172,
+        41
+      ],
+      [
+        37046,
+        41
+      ],
+      [
+        41208,
+        39
+      ],
+      [
+        53,
+        27
+      ],
+      [
+        47542,
+        1
+      ],
+      [
+        54657,
+        1
+      ],
+      [
+        60033,
+        1
+      ],
+      [
+        44771,
+        1
+      ],
+      [
+        44520,
+        1
+      ],
+      [
+        46363,
+        1
+      ],
+      [
+        41947,
+        1
+      ],
+      [
+        59724,
+        1
+      ]
+    ]
+  },
+  "summary": {
+    "hosts_reachable": 11,
+    "main_lan_hosts_reachable": 4,
+    "main_lan_tcp_services_reachable": 8,
+    "router_ports_reachable": [
+      22,
+      53,
+      81,
+      8200
+    ],
+    "total_open_tcp_ports": 17,
+    "devices_visible_passively": 10,
+    "foreign_subnet_frames": 0,
+    "leaked_broadcast_frames": 0,
+    "main_lan_hosts_visible": 3,
+    "main_lan_broadcasters_visible": 2,
+    "main_lan_broadcast_frames": 121,
+    "mdns_service_types": 4
+  }
+}
