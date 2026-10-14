@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///opt/local/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.991 scan initiated Sun Oct 11 21:58:41 2026 as: nmap -e en0 -n -Pn -sU -p 53,123,137,161,1900,5353,5540 -&#45;max-retries 1 -&#45;reason -oA 3_lan_udp 192.168.0.1,2,8,13,22 -->
+<nmaprun scanner="nmap" args="nmap -e en0 -n -Pn -sU -p 53,123,137,161,1900,5353,5540 -&#45;max-retries 1 -&#45;reason -oA 3_lan_udp 192.168.0.1,2,8,13,22" start="1791716321" startstr="Sun Oct 11 21:58:41 2026" version="7.991" xmloutputversion="1.05">
+<scaninfo type="udp" protocol="udp" numservices="7" services="53,123,137,161,1900,5353,5540"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1791716321" endtime="1791716326"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.0.1" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="53"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="open" reason="udp-response" reason_ttl="64"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="137"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="netbios-ns" method="table" conf="3"/></port>
+<port protocol="udp" portid="161"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+<port protocol="udp" portid="5540"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="sdxauthd" method="table" conf="3"/></port>
+</ports>
+<times srtt="15250" rttvar="15250" to="100000"/>
+</host>
+<host starttime="1791716321" endtime="1791716326"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.0.2" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="53"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="137"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="netbios-ns" method="table" conf="3"/></port>
+<port protocol="udp" portid="161"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+<port protocol="udp" portid="5540"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="sdxauthd" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1791716321" endtime="1791716326"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.0.8" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="53"><state state="open" reason="udp-response" reason_ttl="63"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="137"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="netbios-ns" method="table" conf="3"/></port>
+<port protocol="udp" portid="161"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+<port protocol="udp" portid="5540"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="sdxauthd" method="table" conf="3"/></port>
+</ports>
+<times srtt="35678" rttvar="35678" to="178390"/>
+</host>
+<host starttime="1791716321" endtime="1791716326"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.0.13" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="53"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="137"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="netbios-ns" method="table" conf="3"/></port>
+<port protocol="udp" portid="161"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+<port protocol="udp" portid="5540"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="sdxauthd" method="table" conf="3"/></port>
+</ports>
+</host>
+<host starttime="1791716321" endtime="1791716326"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.0.22" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="53"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="137"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="netbios-ns" method="table" conf="3"/></port>
+<port protocol="udp" portid="161"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+<port protocol="udp" portid="5540"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="sdxauthd" method="table" conf="3"/></port>
+</ports>
+</host>
+<runstats><finished time="1791716326" timestr="Sun Oct 11 21:58:46 2026" summary="Nmap done at Sun Oct 11 21:58:46 2026; 5 IP addresses (5 hosts up) scanned in 5.51 seconds" elapsed="5.51" exit="success"/><hosts up="5" down="0" total="5"/>
+</runstats>
+</nmaprun>

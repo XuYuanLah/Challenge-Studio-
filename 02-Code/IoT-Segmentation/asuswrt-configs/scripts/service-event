@@ -1,0 +1,17 @@
+#!/bin/sh
+
+LOGGER_TAG=$(basename $0)
+
+logger -t "$LOGGER_TAG" -s "Called with $@" 2>&1
+#date >> /jffs/calls
+#echo "$LOGGER_TAG called with $1 $2" >> /jffs/calls
+
+if ([ "$1" = "start" ] || [ "$1" = "restart" ]) && [ "$2" = "dnsmasq" ]; then
+    # Before dnsmasq starts, so it finds the ULAs it advertises
+    /jffs/scripts/ula_assign.sh
+fi
+
+if ([ "$1" = "start" ] || [ "$1" = "restart" ]) && [ "$2" = "wireless" ]; then
+    nvram set wl1_auth_mode_x=sae
+    nvram set wl0_auth_mode_x=sae
+fi

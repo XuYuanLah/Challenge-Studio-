@@ -1,0 +1,8 @@
+Chain SDN_FI (1 references)
+num   pkts bytes target     prot opt in     out     source               destination         
+1        0     0 ACCEPT     udp  --  br52   *       0.0.0.0/0            0.0.0.0/0            multiport dports 53,67,68
+2        0     0 DROP       all  --  br52   *       0.0.0.0/0            192.168.0.1         
+3       32  5162 ACCEPT     all  --  br52   *       0.0.0.0/0            0.0.0.0/0            state NEW
+4        0     0 ACCEPT     udp  --  br56   *       0.0.0.0/0            0.0.0.0/0            multiport dports 53,67,68
+5        0     0 DROP       all  --  br56   *       0.0.0.0/0            192.168.0.1         
+6       33  4854 ACCEPT     all  --  br56   *       0.0.0.0/0            0.0.0.0/0            state NEW

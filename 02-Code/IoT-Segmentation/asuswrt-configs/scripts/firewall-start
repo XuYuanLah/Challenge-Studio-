@@ -1,0 +1,155 @@
+#!/bin/sh
+
+WAN_IF=$(nvram get wan0_gw_ifname)
+. /jffs/scripts/vlan_config.env
+# Gets LAN_ULA_* (main LAN ULA hosts below are "$LAN_ULA_PREFIX"<host>)
+. /jffs/scripts/lan_ula_config.env
+
+# ONT route and rules (main LAN only; dropped from every VLAN). First, so every later insert lands above them
+/jffs/scripts/ONT_Route.sh
+
+# STP section (also re-applied by service-event-end after bridge rebuilds)
+/jffs/scripts/bridge_stp.sh
+
+# IPv6 Port Forwarding section
+alias ipv6pf=/jffs/scripts/IPv6_PF.sh
+#      EXT_PORT DEV_PORT DEV_IP                   PROT [SRC_IP]
+# Open WebUI (Mac mini Server)
+ipv6pf 38443    38443    "$LAN_ULA_PREFIX"13      tcp
+# SSH (Mac mini Server)
+ipv6pf 20022    22       "$LAN_ULA_PREFIX"13      tcp
+# SSH (Raspberry Pi)
+ipv6pf 10022    22       "$LAN_ULA_PREFIX"8       tcp
+# WireGuard (Raspberry Pi)
+ipv6pf 51820    51820    "$LAN_ULA_PREFIX"8       udp
+# WireGuard UI (Raspberry Pi)
+ipv6pf 5443     5443     "$LAN_ULA_PREFIX"8       tcp
+# Filebrowser (Mac mini Server)
+ipv6pf 18443    8443    "$LAN_ULA_PREFIX"13      tcp
+# Filebrowser (Mac Studio)
+ipv6pf 18443    8443    "$LAN_ULA_PREFIX"2       tcp
+# v2ray VLESS (Raspberry Pi)
+ipv6pf 8443     8443     "$LAN_ULA_PREFIX"8       tcp
+# v2ray Vmess (Raspberry Pi)
+ipv6pf 9443     9443     "$LAN_ULA_PREFIX"8       tcp
+# SSH (Mac Studio)
+ipv6pf 2222     22       "$LAN_ULA_PREFIX"2       tcp
+# OpenSpeedTest (Mac mini Server)
+ipv6pf 3000     3000     "$LAN_ULA_PREFIX"13      tcp
+ipv6pf 3001     3001     "$LAN_ULA_PREFIX"13      tcp
+# Nginx HLS (Mac mini Server)
+ipv6pf 58088    18088    "$LAN_ULA_PREFIX"13      tcp
+ipv6pf 58443    18443    "$LAN_ULA_PREFIX"13      tcp
+# qBittorrent (Mac mini Server)
+ipv6pf 48443    48443    "$LAN_ULA_PREFIX"13      tcp
+# SoftEther L2TP (Raspberry Pi)
+ipv6pf 500      500      "$LAN_ULA_PREFIX"8       udp
+ipv6pf 1701     1701     "$LAN_ULA_PREFIX"8       udp
+ipv6pf 4500     4500     "$LAN_ULA_PREFIX"8       udp
+# SoftEther OVPN (Raspberry Pi)
+ipv6pf 41185    41185    "$LAN_ULA_PREFIX"8       udp
+# SoftEther Mgmt (Raspberry Pi)
+ipv6pf 5555     5555     "$LAN_ULA_PREFIX"8       tcp
+# SoftEther SSTP (Raspberry Pi)
+ipv6pf 443      443      "$LAN_ULA_PREFIX"8       tcp
+# Splunk (Mac mini Server)
+ipv6pf 10443    10443    "$LAN_ULA_PREFIX"13      tcp
+ipv6pf 11443    11443    "$LAN_ULA_PREFIX"13      tcp
+# Anisette Server (Mac mini Server)
+ipv6pf 16969    16969    "$LAN_ULA_PREFIX"13      tcp
+
+# VLAN IPv6 NAT section
+for VID in $RM_VLAN_ID $IOT_VLAN_ID; do
+    . /jffs/scripts/vlan_info.sh $VID
+    ip6tables -t nat -A POSTROUTING -s $VLAN_ULA_PREFIX_CIDR -o "$WAN_IF" -j MASQUERADE
+    ip6tables -I FORWARD -s $VLAN_ULA_PREFIX_CIDR -o "$WAN_IF" -j ACCEPT
+    ip6tables -I FORWARD -i "$WAN_IF" -d $VLAN_ULA_PREFIX_CIDR -m state --state ESTABLISHED,RELATED -j ACCEPT
+done
+
+# NTP from every VLAN to the router (served per bridge by ntpd_vlan.sh while the local NTP server is on)
+# Any router address (option 42 advertises each VLAN's own gateway address)
+for VID in $(/jffs/scripts/vlan_ids.sh); do
+    . /jffs/scripts/vlan_info.sh $VID
+    iptables -I INPUT -i $VLAN_BR -p udp --dport 123 -j ACCEPT
+    ip6tables -I INPUT -i $VLAN_BR -p udp --dport 123 -j ACCEPT
+done
+
+# SSH to the router only from the main LAN (and WAN): drop it on every VLAN bridge.
+# Inserted at the top, above the firmware's interface-less accept (sshd_enable=1, LAN & WAN)
+SSH_PORT=$(nvram get sshd_port); [ -n "$SSH_PORT" ] || SSH_PORT=22
+for VID in $(/jffs/scripts/vlan_ids.sh); do
+    . /jffs/scripts/vlan_info.sh $VID
+    iptables -I INPUT -i $VLAN_BR -p tcp --dport $SSH_PORT -j DROP
+    ip6tables -I INPUT -i $VLAN_BR -p tcp --dport $SSH_PORT -j DROP
+done
+
+# Roommate VLAN
+. /jffs/scripts/vlan_info.sh $RM_VLAN_ID
+# Allow DHCPv6 (IoT VLAN is SLAAC only, not needed there)
+ip6tables -I INPUT -i $VLAN_BR -p udp --dport 547 -j ACCEPT
+# Optional: isolate from main LAN network
+#ip6tables -I FORWARD -i $VLAN_BR -o br0 -j DROP
+#ip6tables -I FORWARD -i br0 -o $VLAN_BR -j DROP
+
+# IoT VLAN
+. /jffs/scripts/vlan_info.sh $IOT_VLAN_ID
+# Main-LAN DNS server (Pi-hole, host .8 / ::8); IPv4 prefix from the router's LAN address (/24)
+LAN_IP=$(nvram get lan_ipaddr)
+LAN_DNS_V4="${LAN_IP%.*}".8
+LAN_DNS_V6="$LAN_ULA_PREFIX"8
+# Router access from the IoT VLAN: only what IoT devices need, everything else logged and dropped
+# (SSH, router DNS, DLNA, haproxy, UPnP...). DNS to any address is redirected to Pi-hole below,
+# so it never reaches the router.
+for IPT in iptables ip6tables; do
+    $IPT -N IOT_INPUT 2>/dev/null
+    $IPT -F IOT_INPUT
+    $IPT -A IOT_INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+    $IPT -A IOT_INPUT -p udp --dport 123 -j ACCEPT      # NTP (ntpd_vlan.sh)
+    $IPT -A IOT_INPUT -p udp --dport 5353 -j ACCEPT     # mDNS (avahi reflector)
+done
+iptables -A IOT_INPUT -p udp --dport 67 -j ACCEPT       # DHCP
+iptables -A IOT_INPUT -p icmp -j ACCEPT                 # ping, errors
+iptables -A IOT_INPUT -p igmp -j ACCEPT                 # multicast group membership
+ip6tables -A IOT_INPUT -p icmpv6 -j ACCEPT              # ND, RS, MLD, ping
+for IPT in iptables ip6tables; do
+    $IPT -A IOT_INPUT -m pkttype ! --pkt-type unicast -j DROP    # other multicast/broadcast (SSDP etc.), not logged
+    $IPT -A IOT_INPUT -m limit --limit 10/min -j LOG --log-prefix "IOT_TO_ROUTER_DROP "
+    $IPT -A IOT_INPUT -j DROP
+    $IPT -D INPUT -i $VLAN_BR -j IOT_INPUT 2>/dev/null
+    $IPT -I INPUT -i $VLAN_BR -j IOT_INPUT
+done
+# DNS enforcement: redirect DNS to anything other than Pi-hole (internet resolvers, the router) to Pi-hole,
+# logging each redirect (rate-limited) so bypass attempts stay visible
+for PROTO in udp tcp; do
+    iptables -t nat -I PREROUTING -i $VLAN_BR -p $PROTO --dport 53 ! -d $LAN_DNS_V4 -j DNAT --to-destination $LAN_DNS_V4
+    iptables -t nat -I PREROUTING -i $VLAN_BR -p $PROTO --dport 53 ! -d $LAN_DNS_V4 -m limit --limit 10/min -j LOG --log-prefix "IOT_DNS_REDIRECT "
+    ip6tables -t nat -I PREROUTING -i $VLAN_BR -p $PROTO --dport 53 ! -d $LAN_DNS_V6 -j DNAT --to-destination $LAN_DNS_V6
+    ip6tables -t nat -I PREROUTING -i $VLAN_BR -p $PROTO --dport 53 ! -d $LAN_DNS_V6 -m limit --limit 10/min -j LOG --log-prefix "IOT_DNS_REDIRECT "
+done
+# Intranet access, GUI has no "Access Intranet" option for IoT networks
+# Main LAN -> IoT: allowed, HomeKit/Matter controllers initiate
+# IoT -> main LAN: replies and Pi-hole DNS only, everything else logged and dropped
+for IPT in iptables ip6tables; do
+    $IPT -I FORWARD -i $VLAN_BR -o br0 -j DROP
+    $IPT -I FORWARD -i $VLAN_BR -o br0 -m limit --limit 10/min -j LOG --log-prefix "IOT_TO_LAN_DROP "
+    $IPT -I FORWARD -i $VLAN_BR -o br0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+    $IPT -I FORWARD -i br0 -o $VLAN_BR -j ACCEPT
+done
+iptables -I FORWARD -i $VLAN_BR -o br0 -d $LAN_DNS_V4 -p udp --dport 53 -j ACCEPT
+iptables -I FORWARD -i $VLAN_BR -o br0 -d $LAN_DNS_V4 -p tcp --dport 53 -j ACCEPT
+ip6tables -I FORWARD -i $VLAN_BR -o br0 -d $LAN_DNS_V6 -p udp --dport 53 -j ACCEPT
+ip6tables -I FORWARD -i $VLAN_BR -o br0 -d $LAN_DNS_V6 -p tcp --dport 53 -j ACCEPT
+# Allow ping to main LAN for troubleshooting
+iptables -I FORWARD -i $VLAN_BR -o br0 -p icmp --icmp-type echo-request -j ACCEPT
+ip6tables -I FORWARD -i $VLAN_BR -o br0 -p icmpv6 --icmpv6-type echo-request -j ACCEPT
+# Block encrypted DNS by port (DoT TCP 853, DoQ UDP 853); DoH on 443 can't be blocked by port.
+# Inserted before the WAN LOG rule below, so attempts are still logged as IOT_TO_WAN_NEW
+for IPT in iptables ip6tables; do
+    $IPT -I FORWARD -i $VLAN_BR -o "$WAN_IF" -p tcp --dport 853 -j DROP
+    $IPT -I FORWARD -i $VLAN_BR -o "$WAN_IF" -p udp --dport 853 -j DROP
+done
+# Log new IoT -> WAN connections (phone-home visibility), log only, no verdict
+# Interface match covers IPv4 and NAT6 alike, inserted last so it sits above all accept rules
+for IPT in iptables ip6tables; do
+    $IPT -I FORWARD -i $VLAN_BR -o "$WAN_IF" -m state --state NEW -m limit --limit 30/min --limit-burst 60 -j LOG --log-prefix "IOT_TO_WAN_NEW "
+done

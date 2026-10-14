@@ -1,0 +1,15 @@
+2        0     0 DROP       udp  --  br52   eth1    0.0.0.0/0            0.0.0.0/0            udp dpt:853
+3        0     0 DROP       tcp  --  br52   eth1    0.0.0.0/0            0.0.0.0/0            tcp dpt:853
+11      23  1932 DROP       all  --  br52   *       0.0.0.0/0            192.168.255.0/30    
+12       0     0 DROP       all  --  br56   *       0.0.0.0/0            192.168.255.0/30    
+13      26  2184 ACCEPT     all  --  br0    *       0.0.0.0/0            192.168.255.0/30    
+Chain PREROUTING (policy ACCEPT 723 packets, 98522 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    2   168 LOG        tcp      br52   *       ::/0                !fd00:d:e:f::8/128    tcp dpt:53 limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_DNS_REDIRECT "
+    2   168 DNAT       tcp      br52   *       ::/0                !fd00:d:e:f::8/128    tcp dpt:53 to:fd00:d:e:f::8
+    0     0 LOG        udp      br52   *       ::/0                !fd00:d:e:f::8/128    udp dpt:53 limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_DNS_REDIRECT "
+    0     0 DNAT       udp      br52   *       ::/0                !fd00:d:e:f::8/128    udp dpt:53 to:fd00:d:e:f::8
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   30  2960 LOG        all      br52   eth1    ::/0                 ::/0                 state NEW limit: avg 30/min burst 60 LOG flags 0 level 4 prefix "IOT_TO_WAN_NEW "
+    0     0 DROP       udp      br52   eth1    ::/0                 ::/0                 udp dpt:853

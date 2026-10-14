@@ -1,0 +1,22 @@
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1     2934  993K ACCEPT     udp  --  br52   *       0.0.0.0/0            0.0.0.0/0            udp dpt:5353
+2       38  2888 ACCEPT     udp  --  br52   *       0.0.0.0/0            0.0.0.0/0            udp dpt:123
+3        8   608 ACCEPT     udp  --  br56   *       0.0.0.0/0            0.0.0.0/0            udp dpt:123
+4       10   570 URLFI      udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53
+5     4334 1092K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+6      152 12176 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            state INVALID
+7     248K   12M PTCSRVWAN  all  --  !br0   *       0.0.0.0/0            0.0.0.0/0           
+8     4449 1332K PTCSRVLAN  all  --  br0    *       0.0.0.0/0            0.0.0.0/0           
+9        4   176 DROP       tcp  --  !lo    *       0.0.0.0/0            0.0.0.0/0            tcp dpt:5152
+10    4449 1332K ACCEPT     all  --  br0    *       0.0.0.0/0            0.0.0.0/0            state NEW
+11    3644  968K ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0            state NEW
+12       0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:67 dpt:68
+13      25  1148 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:22
+14      96 10456 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+15    245K   11M WGSI       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+16    245K   11M WGCI       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+17    245K   11M OVPNSI     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+18    245K   11M OVPNCI     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+19    245K   11M SDN_FI     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+20    3488  314K DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           

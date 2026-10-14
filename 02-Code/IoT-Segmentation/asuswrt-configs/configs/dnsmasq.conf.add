@@ -1,0 +1,46 @@
+
+
+### Custom config in jffs
+dhcp-rapid-commit
+strict-order
+dhcp-range=set:ula6,fd00:d:e:f::1,fd00:d:e:f::ff,64,1440m
+dhcp-option=ula6,option6:23,[fd00:d:e:f::8]
+conf-file=/jffs/configs/rfc6761.conf
+
+# IPv6 ULA reservations
+# Mac Studio
+dhcp-host=bc:89:c1:d9:60:9c,set:bc:89:c1:d9:60:9c,192.168.0.2,[fd00:d:e:f::2]
+# MacBook Pro
+#dhcp-host=74:D7:53:E1:FF:FF,set:74:D7:53:E1:FF:FF,192.168.0.4,[fd00:d:e:f::4]
+dhcp-host=88:c9:b3:be:f5:3f,set:88:c9:b3:be:f5:3f,192.168.0.4,[fd00:d:e:f::4]
+# Raspberry Pi
+dhcp-host=D8:3A:DD:DD:7F:61,set:D8:3A:DD:DD:7F:61,192.168.0.8,[fd00:d:e:f::8]
+# Mac mini Server
+dhcp-host=c8:80:6d:30:8b:a4,set:c8:80:6d:30:8b:a4,192.168.0.13,[fd00:d:e:f::13]
+# iKOOLCORE-R2
+dhcp-host=00:90:27:F5:71:0E,set:00:90:27:F5:71:0E,192.168.0.14,[fd00:d:e:f::14]
+
+# Controls DNS-SD PTR query loop while using Pi-hole conditional forwarding
+address=/_dns-sd._udp.0.0.168.192.in-addr.arpa/
+#address=/0.0.168.192.in-addr.arpa/
+
+# Controls SOA spam
+#address=/local/
+
+# PXE IPv4
+dhcp-vendorclass=BIOS,PXEClient:Arch:00000
+dhcp-vendorclass=UEFI32,PXEClient:Arch:00006
+dhcp-vendorclass=UEFI,PXEClient:Arch:00007
+dhcp-vendorclass=UEFIA64,PXEClient:Arch:00009
+dhcp-boot=net:UEFI32,iventoy_loader_16000_ia32,,192.168.0.14
+dhcp-boot=net:UEFI,iventoy_loader_16000_uefi,,192.168.0.14
+dhcp-boot=net:UEFIA64,iventoy_loader_16000_aa64,,192.168.0.14
+dhcp-boot=net:BIOS,iventoy_loader_16000_bios,,192.168.0.14
+
+#PXE IPv6
+#dhcp-match=set:UEFI,option6:arch-type,7
+#dhcp-match=set:UEFI32,option6:arch-type,6
+#dhcp-match=set:UEFIA64,option6:arch-type,9
+#dhcp-option=tag:UEFI,option6:bootfile-url,tftp://[fd00:d:e:f::14]/iventoy_loader_16000_uefi
+#dhcp-option=tag:UEFI32,option6:bootfile-url,tftp://[fd00:d:e:f::14]/iventoy_loader_16000_ia32
+#dhcp-option=tag:UEFIA64,option6:bootfile-url,tftp://[fd00:d:e:f::14]/iventoy_loader_16000_aa64

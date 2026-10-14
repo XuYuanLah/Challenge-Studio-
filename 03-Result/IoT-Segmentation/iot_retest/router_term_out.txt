@@ -1,0 +1,116 @@
+bridge name	bridge id		STP enabled	interfaces
+br0		000a.cc28aa2b3960	yes		eth0
+							eth2
+							eth3
+							eth4
+							eth5
+							eth6
+							eth8
+							eth9
+							wl0.0
+							wl0.1
+							wl0.4
+							wl1.0
+							wl1.1
+							wl1.2
+br52		8000.9228aa2b3962	no		eth0.107
+							eth2.107
+							eth3.107
+							eth4.107
+							eth5.107
+							eth6.107
+							eth7
+							eth8.107
+							eth9.107
+							wl0.107
+							wl0.2
+							wl1.107
+br56		000a.cc28aa2b3960	yes		eth0.114
+							eth2.114
+							eth3.114
+							eth4.114
+							eth5.114
+							eth6.114
+							eth8.114
+							eth9.114
+							wl0.114
+							wl1.114
+br0 1
+br52 0
+br56 1
+
+Done.
+br0 1
+br52 0
+br56 1
+    inet6 fd00:d:e:6b::1/64 scope global 
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1      705  202K IOT_INPUT  all  --  br52   *       0.0.0.0/0            0.0.0.0/0           
+2        0     0 DROP       tcp  --  br52   *       0.0.0.0/0            0.0.0.0/0            tcp dpt:22
+3        0     0 DROP       tcp  --  br56   *       0.0.0.0/0            0.0.0.0/0            tcp dpt:22
+4        0     0 ACCEPT     udp  --  br52   *       0.0.0.0/0            0.0.0.0/0            udp dpt:123
+5        0     0 ACCEPT     udp  --  br56   *       0.0.0.0/0            0.0.0.0/0            udp dpt:123
+6        0     0 URLFI      udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53
+7     2244  553K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+8       34  2753 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            state INVALID
+9     2155  437K PTCSRVWAN  all  --  !br0   *       0.0.0.0/0            0.0.0.0/0           
+10     725  210K PTCSRVLAN  all  --  br0    *       0.0.0.0/0            0.0.0.0/0           
+Chain IOT_INPUT (1 references)
+num   pkts bytes target     prot opt in     out     source               destination         
+1       60  5540 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+2        3   228 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:123
+3      534  183K ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:5353
+4       18  5992 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:67
+5        4   572 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+6        6   192 ACCEPT     2    --  *      *       0.0.0.0/0            0.0.0.0/0           
+7       24  1924 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_TO_ROUTER_DROP "
+8       80  6470 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+Chain IOT_INPUT (1 references)
+num   pkts bytes target     prot opt in     out     source               destination         
+1       84  8736 ACCEPT     all      *      *       ::/0                 ::/0                 state RELATED,ESTABLISHED
+2        0     0 ACCEPT     udp      *      *       ::/0                 ::/0                 udp dpt:123
+3      508  203K ACCEPT     udp      *      *       ::/0                 ::/0                 udp dpt:5353
+4       87  6992 ACCEPT     icmpv6    *      *       ::/0                 ::/0                
+5       17  1428 LOG        all      *      *       ::/0                 ::/0                 limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_TO_ROUTER_DROP "
+6       31  2604 DROP       all      *      *       ::/0                 ::/0                
+1        0     0 LOG        tcp  --  br52   *       0.0.0.0/0           !192.168.0.8          tcp dpt:53 limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_DNS_REDIRECT "
+2        0     0 DNAT       tcp  --  br52   *       0.0.0.0/0           !192.168.0.8          tcp dpt:53 to:192.168.0.8
+3        0     0 LOG        udp  --  br52   *       0.0.0.0/0           !192.168.0.8          udp dpt:53 limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_DNS_REDIRECT "
+4        0     0 DNAT       udp  --  br52   *       0.0.0.0/0           !192.168.0.8          udp dpt:53 to:192.168.0.8
+1        0     0 LOG        tcp      br52   *       ::/0                !fd00:d:e:f::8/128    tcp dpt:53 limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_DNS_REDIRECT "
+2        0     0 DNAT       tcp      br52   *       ::/0                !fd00:d:e:f::8/128    tcp dpt:53 to:fd00:d:e:f::8
+3        0     0 LOG        udp      br52   *       ::/0                !fd00:d:e:f::8/128    udp dpt:53 limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_DNS_REDIRECT "
+4        0     0 DNAT       udp      br52   *       ::/0                !fd00:d:e:f::8/128    udp dpt:53 to:fd00:d:e:f::8
+5        0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:38443 to:[fd00:d:e:f::13]:38443
+6        0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:20022 to:[fd00:d:e:f::13]:22
+7        0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:10022 to:[fd00:d:e:f::8]:22
+8        0     0 DNAT       udp      eth1   *       ::/0                 ::/0                 udp dpt:51820 to:[fd00:d:e:f::8]:51820
+9        0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:5443 to:[fd00:d:e:f::8]:5443
+10       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:18443 to:[fd00:d:e:f::13]:8443
+11       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:18443 to:[fd00:d:e:f::2]:8443
+12       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:8443 to:[fd00:d:e:f::8]:8443
+13       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:9443 to:[fd00:d:e:f::8]:9443
+14       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:2222 to:[fd00:d:e:f::2]:22
+15       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:3000 to:[fd00:d:e:f::13]:3000
+16       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:3001 to:[fd00:d:e:f::13]:3001
+17       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:58088 to:[fd00:d:e:f::13]:18088
+18       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:58443 to:[fd00:d:e:f::13]:18443
+19       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:48443 to:[fd00:d:e:f::13]:48443
+20       0     0 DNAT       udp      eth1   *       ::/0                 ::/0                 udp dpt:500 to:[fd00:d:e:f::8]:500
+21       0     0 DNAT       udp      eth1   *       ::/0                 ::/0                 udp dpt:1701 to:[fd00:d:e:f::8]:1701
+22       0     0 DNAT       udp      eth1   *       ::/0                 ::/0                 udp dpt:4500 to:[fd00:d:e:f::8]:4500
+23       0     0 DNAT       udp      eth1   *       ::/0                 ::/0                 udp dpt:41185 to:[fd00:d:e:f::8]:41185
+24       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:5555 to:[fd00:d:e:f::8]:5555
+25       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:443 to:[fd00:d:e:f::8]:443
+26       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:10443 to:[fd00:d:e:f::13]:10443
+27       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:11443 to:[fd00:d:e:f::13]:11443
+28       0     0 DNAT       tcp      eth1   *       ::/0                 ::/0                 tcp dpt:16969 to:[fd00:d:e:f::13]:16969
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1      165 29023 LOG        all  --  br52   eth1    0.0.0.0/0            0.0.0.0/0            state NEW limit: avg 30/min burst 60 LOG flags 0 level 4 prefix "IOT_TO_WAN_NEW "
+2        0     0 DROP       udp  --  br52   eth1    0.0.0.0/0            0.0.0.0/0            udp dpt:853
+3        0     0 DROP       tcp  --  br52   eth1    0.0.0.0/0            0.0.0.0/0            tcp dpt:853
+4       94  7896 ACCEPT     icmp --  br52   br0     0.0.0.0/0            0.0.0.0/0            icmptype 8
+5        0     0 ACCEPT     tcp  --  br52   br0     0.0.0.0/0            192.168.0.8          tcp dpt:53
+6      383 26576 ACCEPT     udp  --  br52   br0     0.0.0.0/0            192.168.0.8          udp dpt:53

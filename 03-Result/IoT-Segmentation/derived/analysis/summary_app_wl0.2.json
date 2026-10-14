@@ -1,0 +1,103 @@
+{
+ "pcap": "20261011-134542_app_interaction/wl0.2_20261011-134542.pcap",
+ "iface": "wl0.2",
+ "packets": 2435,
+ "l2_sources": 6,
+ "thread_ula_pkts": 0,
+ "mdns_service_types_from_non_iot": {
+  "_services._dns-sd._udp": 147,
+  "_hap._tcp": 145,
+  "_matter._tcp": 131,
+  "_arris._tcp": 54,
+  "_raop._tcp": 36,
+  "_airplay-bds._tcp": 30,
+  "_airplay._tcp": 24,
+  "_hue._tcp": 20,
+  "_smb._tcp": 14,
+  "_webdavs._tcp": 12,
+  "_webdav._tcp": 12,
+  "_meshcop._udp": 10,
+  "_companion-link._tcp": 8,
+  "_remotepairing._tcp": 6,
+  "_continuity._tcp": 6,
+  "_adb-tls-pairing._tcp": 4,
+  "_adb._tcp": 4,
+  "_adb-tls-connect._tcp": 4,
+  "_remotepairing-manual-pairing._tcp": 4,
+  "_ipps._tcp": 4,
+  "_ipp._tcp": 4,
+  "_hap._udp": 4,
+  "_adisk._tcp": 4,
+  "_matterc._udp": 4,
+  "_rfb._tcp": 2,
+  "_afpovertcp._tcp": 2,
+  "_touch-remote._tcp": 2,
+  "_daap._tcp": 2,
+  "_printer._tcp": 2,
+  "_uscans._tcp": 2,
+  "_pdl-datastream._tcp": 2,
+  "_ptp._tcp": 2,
+  "_ippusb._tcp": 2,
+  "_scanner._tcp": 2,
+  "_uscan._tcp": 2,
+  "_rdlink._tcp": 2,
+  "_apple-pairable._tcp": 2,
+  "_apple-mobdev._tcp": 2
+ },
+ "mdns_non_iot_sources": 1,
+ "dns_queries": [],
+ "sni": [],
+ "odd_destinations": [
+  [
+   "SwitchBot Hub 2",
+   "dst 255.2.0.0",
+   17,
+   5353,
+   9
+  ]
+ ],
+ "mdns_iot_destinations": [
+  [
+   "Matter switch 0d6e",
+   "224.0.0.251",
+   5
+  ],
+  [
+   "Matter switch 0d6b",
+   "224.0.0.251",
+   5
+  ],
+  [
+   "Tapo smart plug",
+   "224.0.0.251",
+   5
+  ],
+  [
+   "SwitchBot Hub 2",
+   "255.2.0.0",
+   9
+  ],
+  [
+   "Matter switch 0d6e",
+   "ff02::fb",
+   5
+  ],
+  [
+   "Matter switch 0d6b",
+   "ff02::fb",
+   5
+  ],
+  [
+   "Tapo smart plug",
+   "ff02::fb",
+   5
+  ]
+ ],
+ "hourly_external_bytes_out": [
+  [
+   "SwitchBot Hub 2",
+   "10-11 13:00",
+   1531
+  ]
+ ]
+}

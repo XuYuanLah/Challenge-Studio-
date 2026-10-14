@@ -1,0 +1,8 @@
+# Nmap 7.991 scan initiated Sun Oct 11 23:56:10 2026 as: nmap -e en0 -n -Pn -sS -p 22,53,80,81,443,444,8200,8443,60000 --reason -oA r1_router_tcp 192.168.107.1 192.168.0.1 192.168.114.1
+Host: 192.168.107.1 ()	Status: Up
+Host: 192.168.107.1 ()	Ports: 22/filtered/tcp//ssh///, 53/open/tcp//domain///, 80/filtered/tcp//http///, 81/filtered/tcp//hosts2-ns///, 443/filtered/tcp//https///, 444/filtered/tcp//snpp///, 8200/filtered/tcp//trivnet1///, 8443/filtered/tcp//https-alt///, 60000/filtered/tcp/////
+Host: 192.168.0.1 ()	Status: Up
+Host: 192.168.0.1 ()	Ports: 22/filtered/tcp//ssh///, 53/open/tcp//domain///, 80/filtered/tcp//http///, 81/filtered/tcp//hosts2-ns///, 443/filtered/tcp//https///, 444/filtered/tcp//snpp///, 8200/filtered/tcp//trivnet1///, 8443/filtered/tcp//https-alt///, 60000/filtered/tcp/////
+Host: 192.168.114.1 ()	Status: Up
+Host: 192.168.114.1 ()	Ports: 22/filtered/tcp//ssh///, 53/open/tcp//domain///, 80/filtered/tcp//http///, 81/filtered/tcp//hosts2-ns///, 443/filtered/tcp//https///, 444/filtered/tcp//snpp///, 8200/filtered/tcp//trivnet1///, 8443/filtered/tcp//https-alt///, 60000/filtered/tcp/////
+# Nmap done at Sun Oct 11 23:56:14 2026 -- 3 IP addresses (3 hosts up) scanned in 3.53 seconds

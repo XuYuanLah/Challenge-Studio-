@@ -1,0 +1,13 @@
+# Nmap 7.991 scan initiated Sun Oct 11 21:57:16 2026 as: nmap -e en0 -n -sn -PE --reason -oA 1_lan_ping 192.168.0.0/24
+Host: 192.168.0.1 ()	Status: Up
+Host: 192.168.0.2 ()	Status: Up
+Host: 192.168.0.8 ()	Status: Up
+Host: 192.168.0.9 ()	Status: Up
+Host: 192.168.0.10 ()	Status: Up
+Host: 192.168.0.13 ()	Status: Up
+Host: 192.168.0.14 ()	Status: Up
+Host: 192.168.0.15 ()	Status: Up
+Host: 192.168.0.20 ()	Status: Up
+Host: 192.168.0.22 ()	Status: Up
+Host: 192.168.0.225 ()	Status: Up
+# Nmap done at Sun Oct 11 21:57:18 2026 -- 256 IP addresses (11 hosts up) scanned in 2.13 seconds

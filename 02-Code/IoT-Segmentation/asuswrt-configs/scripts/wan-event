@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# $1: WAN unit, $2: event (init, connecting, connected, disconnected, stopping, stopped)
+case "$2" in
+  connected)
+    # On WAN up the firmware restarts ntpd directly (refresh_ntpc), with no service event; resync
+    # the VLAN NTP servers and make sure their cron job exists (runs later in boot than services-start)
+    /jffs/scripts/ntpd_vlan.sh check
+    ;;
+esac

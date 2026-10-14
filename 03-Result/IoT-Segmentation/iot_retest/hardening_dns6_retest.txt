@@ -1,0 +1,39 @@
+  i0nTempests-MacBook-Pro  Admin  
+ ~  1  nslookup diag.meethue.com fd00:d:e:f::8
+Server:		fd00:d:e:f::8
+Address:	fd00:d:e:f::8#53
+
+Name:	diag.meethue.com
+Address: 0.0.0.0
+Name:	diag.meethue.com
+Address: ::
+
+  i0nTempests-MacBook-Pro-2  Admin  
+ ~  nslookup diag.meethue.com 2606:4700:4700::1111
+Server:		2606:4700:4700::1111
+Address:	2606:4700:4700::1111#53
+
+Name:	diag.meethue.com
+Address: 0.0.0.0
+Name:	diag.meethue.com
+Address: ::
+
+  i0nTempests-MacBook-Pro-2  Admin  
+ ~  nslookup diag.meethue.com fd00:d:e:f::1
+Server:		fd00:d:e:f::1
+Address:	fd00:d:e:f::1#53
+
+Name:	diag.meethue.com
+Address: 0.0.0.0
+Name:	diag.meethue.com
+Address: ::
+
+  i0nTempests-MacBook-Pro-2  Admin  
+ ~  nslookup diag.meethue.com fd00:d:e:f::1234
+Server:		fd00:d:e:f::1234
+Address:	fd00:d:e:f::1234#53
+
+Name:	diag.meethue.com
+Address: 0.0.0.0
+Name:	diag.meethue.com
+Address: ::

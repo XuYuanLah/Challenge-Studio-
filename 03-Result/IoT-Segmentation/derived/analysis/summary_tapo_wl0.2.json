@@ -1,0 +1,192 @@
+{
+ "pcap": "20261011-164338_tapo/wl0.2_20261011-164338.pcap",
+ "iface": "wl0.2",
+ "packets": 8694,
+ "l2_sources": 6,
+ "thread_ula_pkts": 0,
+ "mdns_service_types_from_non_iot": {
+  "_hap._tcp": 470,
+  "_services._dns-sd._udp": 390,
+  "_arris._tcp": 132,
+  "_raop._tcp": 82,
+  "_matter._tcp": 80,
+  "_airplay-bds._tcp": 78,
+  "_airplay._tcp": 63,
+  "_hap._udp": 49,
+  "_companion-link._tcp": 47,
+  "_rdlink._tcp": 47,
+  "_smb._tcp": 24,
+  "_webdavs._tcp": 24,
+  "_webdav._tcp": 24,
+  "_hue._tcp": 16,
+  "_ipps._tcp": 6,
+  "_ipp._tcp": 6,
+  "_trel._udp": 4,
+  "_sleep-proxy._udp": 4,
+  "_srpl-tls._tcp": 4,
+  "_continuity._tcp": 4,
+  "_apple-mobdev._tcp": 3,
+  "_adb-tls-pairing._tcp": 3,
+  "_adb._tcp": 3,
+  "_adb-tls-connect._tcp": 3,
+  "_remotepairing._tcp": 3,
+  "_remotepairing-manual-pairing._tcp": 3,
+  "_ippusb._tcp": 3,
+  "_printer._tcp": 3,
+  "_ptp._tcp": 3,
+  "_uscans._tcp": 3,
+  "_pdl-datastream._tcp": 3,
+  "_scanner._tcp": 3,
+  "_uscan._tcp": 3,
+  "_adisk._tcp": 3,
+  "_apple-pairable._tcp": 3,
+  "_afpovertcp._tcp": 2,
+  "_touch-remote._tcp": 2,
+  "_daap._tcp": 2
+ },
+ "mdns_non_iot_sources": 1,
+ "dns_queries": [
+  [
+   1791697468.236342,
+   "Tapo smart plug",
+   "192.168.0.8",
+   "ota-download.tplinkcloud.com",
+   1
+  ],
+  [
+   1791697516.525016,
+   "Tapo smart plug",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791697516.526102,
+   "Tapo smart plug",
+   "192.168.0.8",
+   "security.iot.i.tplinknbu.com",
+   1
+  ],
+  [
+   1791697518.073459,
+   "Tapo smart plug",
+   "192.168.0.8",
+   "aau1-device-cloudgateway.iot.i.tplinknbu.com",
+   1
+  ],
+  [
+   1791698420.720109,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "a2alhn2dfztqv9.iot.us-east-1.amazonaws.com",
+   1
+  ],
+  [
+   1791698421.407056,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "a2alhn2dfztqv9.iot.us-east-1.amazonaws.com",
+   1
+  ],
+  [
+   1791698422.406102,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "a2alhn2dfztqv9.iot.us-east-1.amazonaws.com",
+   1
+  ],
+  [
+   1791698424.40697,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "a2alhn2dfztqv9.iot.us-east-1.amazonaws.com",
+   1
+  ],
+  [
+   1791698429.424207,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "a2alhn2dfztqv9.iot.us-east-1.amazonaws.com",
+   1
+  ]
+ ],
+ "sni": [
+  [
+   "Tapo smart plug",
+   "ota-download.tplinkcloud.com",
+   443,
+   1
+  ],
+  [
+   "Tapo smart plug",
+   "security.iot.i.tplinknbu.com",
+   443,
+   1
+  ],
+  [
+   "Tapo smart plug",
+   "aau1-device-cloudgateway.iot.i.tplinknbu.com",
+   443,
+   1
+  ],
+  [
+   "SwitchBot Hub 2",
+   "a2alhn2dfztqv9.iot.us-east-1.amazonaws.com",
+   8883,
+   1
+  ]
+ ],
+ "odd_destinations": [
+  [
+   "SwitchBot Hub 2",
+   "dst 255.2.0.0",
+   17,
+   5353,
+   5
+  ]
+ ],
+ "mdns_iot_destinations": [
+  [
+   "Tapo smart plug",
+   "224.0.0.251",
+   23
+  ],
+  [
+   "SwitchBot Hub 2",
+   "224.0.0.251",
+   1
+  ],
+  [
+   "SwitchBot Hub 2",
+   "255.2.0.0",
+   5
+  ],
+  [
+   "Tapo smart plug",
+   "ff02::fb",
+   18
+  ]
+ ],
+ "hourly_external_bytes_out": [
+  [
+   "SwitchBot Hub 2",
+   "10-11 16:00",
+   1989
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-11 17:00",
+   3107
+  ],
+  [
+   "Tapo smart plug",
+   "10-11 16:00",
+   100988
+  ],
+  [
+   "Tapo smart plug",
+   "10-11 17:00",
+   654
+  ]
+ ]
+}

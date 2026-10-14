@@ -1,0 +1,4 @@
+# Nmap 7.991 scan initiated Mon Oct 12 00:02:16 2026 as: nmap -e en0 -n -Pn -sU -p 53,67,123,1900,5351,5353 --reason -oA r3_router_udp 192.168.107.1
+Host: 192.168.107.1 ()	Status: Up
+Host: 192.168.107.1 ()	Ports: 53/open/udp//domain///, 67/open/udp//dhcps///, 123/open/udp//ntp///, 1900/open|filtered/udp//upnp///, 5351/open|filtered/udp//nat-pmp///, 5353/open/udp//zeroconf///
+# Nmap done at Mon Oct 12 00:02:21 2026 -- 1 IP address (1 host up) scanned in 5.12 seconds

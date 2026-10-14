@@ -1,0 +1,31 @@
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1      426 81683 LOG        all  --  br52   eth1    0.0.0.0/0            0.0.0.0/0            state NEW limit: avg 30/min burst 60 LOG flags 0 level 4 prefix "IOT_TO_WAN_NEW "
+2        0     0 DROP       udp  --  br52   eth1    0.0.0.0/0            0.0.0.0/0            udp dpt:853
+3        3   192 DROP       tcp  --  br52   eth1    0.0.0.0/0            0.0.0.0/0            tcp dpt:853
+4      516 47764 ACCEPT     icmp --  br52   br0     0.0.0.0/0            0.0.0.0/0            icmptype 8
+5       38  1596 ACCEPT     tcp  --  br52   br0     0.0.0.0/0            192.168.0.8          tcp dpt:53
+6      873 60797 ACCEPT     udp  --  br52   br0     0.0.0.0/0            192.168.0.8          udp dpt:53
+7     1649  209K ACCEPT     all  --  br0    br52    0.0.0.0/0            0.0.0.0/0           
+8       47 17638 ACCEPT     all  --  br52   br0     0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+9       97  6128 LOG        all  --  br52   br0     0.0.0.0/0            0.0.0.0/0            limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_TO_LAN_DROP "
+10     673 42480 DROP       all  --  br52   br0     0.0.0.0/0            0.0.0.0/0           
+11      66  5544 ACCEPT     all  --  br0    *       0.0.0.0/0            192.168.255.0/30    
+12   40588 9803K NWFF       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+13   40588 9803K URLFF      all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+14   40588 9803K IPSEC_DROP_SUBNET_ICMP  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+15   40588 9803K IPSECSSDN  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+16   40588 9803K IPSEC_STRONGSWAN  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+17    2173  128K TCPMSS     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcpflags: 0x06/0x02 TCPMSS clamp to PMTU
+18   34773 8987K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+19    5815  816K WGSF       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+20    5815  816K OVPNSF     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+21       8   512 ACCEPT     all  --  br0    br0     0.0.0.0/0            0.0.0.0/0           
+22     112  5644 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            state INVALID
+23     359 21836 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate DNAT
+24    5336  788K WGCF       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+25    5336  788K OVPNCF     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+26    5336  788K VPNCF      all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+27    5336  788K SDN_FF     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+28       0     0 ACCEPT     all  --  br0    *       0.0.0.0/0            0.0.0.0/0           
+29       6   510 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           

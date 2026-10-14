@@ -1,0 +1,1227 @@
+{
+ "pcap": "20261011-164338_tapo/eth7_20261011-164338.pcap",
+ "iface": "eth7",
+ "packets": 17401,
+ "l2_sources": 7,
+ "thread_ula_pkts": 0,
+ "mdns_service_types_from_non_iot": {
+  "_hap._tcp": 1631,
+  "_services._dns-sd._udp": 1407,
+  "_arris._tcp": 448,
+  "_matter._tcp": 398,
+  "_airplay._tcp": 353,
+  "_raop._tcp": 332,
+  "_airplay-bds._tcp": 318,
+  "_hap._udp": 211,
+  "_companion-link._tcp": 193,
+  "_rdlink._tcp": 193,
+  "_smb._tcp": 114,
+  "_webdavs._tcp": 102,
+  "_webdav._tcp": 102,
+  "_ipps._tcp": 48,
+  "_ipp._tcp": 48,
+  "_adisk._tcp": 43,
+  "_apple-mobdev._tcp": 41,
+  "_apple-pairable._tcp": 41,
+  "_printer._tcp": 39,
+  "_uscans._tcp": 39,
+  "_pdl-datastream._tcp": 39,
+  "_ptp._tcp": 39,
+  "_ippusb._tcp": 39,
+  "_scanner._tcp": 39,
+  "_uscan._tcp": 39,
+  "_sleep-proxy._udp": 36,
+  "_meshcop._udp": 30,
+  "_afpovertcp._tcp": 23,
+  "_adb-tls-connect._tcp": 21,
+  "_adb-tls-pairing._tcp": 21,
+  "_adb._tcp": 21,
+  "_remotepairing._tcp": 21,
+  "_remotepairing-manual-pairing._tcp": 21,
+  "_trel._udp": 20,
+  "_srpl-tls._tcp": 20,
+  "_hue._tcp": 16,
+  "_atc._tcp": 14,
+  "_rfb._tcp": 12,
+  "_airport._tcp": 11,
+  "_continuity._tcp": 8,
+  "_alexa._tcp": 6,
+  "_touch-remote._tcp": 4,
+  "_daap._tcp": 4
+ },
+ "mdns_non_iot_sources": 1,
+ "dns_queries": [
+  [
+   1791697420.500637,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791697420.502635,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791697488.792661,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791697488.795658,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791697551.35727,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791697551.358269,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791697621.169615,
+   "Hue Bridge",
+   "192.168.0.8",
+   "ntp1.aliyun.com",
+   1
+  ],
+  [
+   1791697621.170692,
+   "Hue Bridge",
+   "192.168.0.8",
+   "ntp1.aliyun.com",
+   28
+  ],
+  [
+   1791697621.173613,
+   "Hue Bridge",
+   "192.168.0.8",
+   "ntp2.aliyun.com",
+   1
+  ],
+  [
+   1791697621.174113,
+   "Hue Bridge",
+   "192.168.0.8",
+   "ntp2.aliyun.com",
+   28
+  ],
+  [
+   1791697621.181115,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time.apple.com",
+   1
+  ],
+  [
+   1791697621.181615,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time.apple.com",
+   28
+  ],
+  [
+   1791697621.195615,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time.cloudflare.com",
+   1
+  ],
+  [
+   1791697621.196188,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time.cloudflare.com",
+   28
+  ],
+  [
+   1791697621.205615,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time1.google.com",
+   1
+  ],
+  [
+   1791697621.206115,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time1.google.com",
+   28
+  ],
+  [
+   1791697621.226115,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time2.google.com",
+   1
+  ],
+  [
+   1791697621.226614,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time2.google.com",
+   28
+  ],
+  [
+   1791697621.236615,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time3.google.com",
+   1
+  ],
+  [
+   1791697621.237114,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time3.google.com",
+   28
+  ],
+  [
+   1791697621.257125,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time4.google.com",
+   1
+  ],
+  [
+   1791697621.257376,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time4.google.com",
+   28
+  ],
+  [
+   1791697630.613231,
+   "Hue Bridge",
+   "192.168.0.8",
+   "broker-eu-03.iot.meethue.com",
+   1
+  ],
+  [
+   1791697630.613826,
+   "Hue Bridge",
+   "192.168.0.8",
+   "broker-eu-03.iot.meethue.com",
+   28
+  ],
+  [
+   1791697631.145736,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time.meethue.com",
+   1
+  ],
+  [
+   1791697631.195735,
+   "Hue Bridge",
+   "192.168.0.8",
+   "time.meethue.com",
+   28
+  ],
+  [
+   1791697634.051272,
+   "Hue Bridge",
+   "192.168.0.8",
+   "broker-eu-03.iot.meethue.com",
+   1
+  ],
+  [
+   1791697636.556799,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791697636.562297,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791697637.622811,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791697637.63081,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791697638.040819,
+   "Hue Bridge",
+   "192.168.0.8",
+   "ws.meethue.com",
+   1
+  ],
+  [
+   1791697638.043315,
+   "Hue Bridge",
+   "192.168.0.8",
+   "ws.meethue.com",
+   28
+  ],
+  [
+   1791697682.401948,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791697682.404447,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791697704.961731,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791697704.962318,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791697775.216031,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791697792.57632,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791697792.576904,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791697859.476763,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791697859.479261,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791697881.222517,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791697881.223604,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791697926.648218,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791697926.648717,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791697987.202131,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791697987.203131,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698052.615089,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698052.617586,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698060.281229,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791698060.284226,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791698117.390662,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698117.391661,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698158.417212,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791698158.426712,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791698165.53185,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791698179.941646,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698179.944642,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698240.767716,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698240.768715,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698300.952611,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698300.953611,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698368.026353,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698368.027105,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698373.544927,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791698373.54616,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791698429.944794,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698429.947788,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698499.852618,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698499.855091,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698564.7441,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698564.745095,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698633.229874,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698633.23237,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698671.553952,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791698671.555206,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791698705.754905,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698705.755902,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698798.376907,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698798.380396,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698906.001132,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698906.00313,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791698959.569234,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791698959.572235,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791698974.832398,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791698974.835397,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791699047.435113,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791699047.435809,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791699124.777093,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791699124.777951,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791699141.403365,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791699141.405357,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791699188.100074,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791699188.103069,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791699302.412072,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791699302.413068,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791699387.59335,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791699387.594629,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791699394.060713,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791699394.061794,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791699455.365486,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791699455.365984,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791699515.214885,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791699515.215534,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791699531.600116,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791699531.602366,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791699560.247005,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791699596.840976,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791699596.841973,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791699673.151423,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791699673.152411,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791699741.46061,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791699741.461607,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791699831.609515,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791699831.610496,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791699842.773654,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791699842.774283,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791699948.392081,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791699948.39458,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791699985.615756,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791699985.616256,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791700075.718243,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791700075.720741,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791700129.620049,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791700129.623048,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791700185.355714,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791700185.356713,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791700278.66545,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791700278.667947,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791700285.630068,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791700285.631255,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791700376.985032,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791700376.987528,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791700429.63501,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791700429.636007,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791700467.200263,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791700536.312049,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791700536.312694,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791700585.645389,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791700585.646598,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791700671.618719,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791700671.619424,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791700729.655321,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791700729.655772,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791700877.929359,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791700877.930356,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791700883.657921,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791700883.659192,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791701061.662715,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791701061.663714,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791701183.666783,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791701183.667862,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791701235.156408,
+   "Hue Bridge",
+   "192.168.0.8",
+   "broker-eu-03.iot.meethue.com",
+   1
+  ],
+  [
+   1791701235.157559,
+   "Hue Bridge",
+   "192.168.0.8",
+   "broker-eu-03.iot.meethue.com",
+   28
+  ],
+  [
+   1791701277.253406,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   1
+  ],
+  [
+   1791701277.254405,
+   "Hue Bridge",
+   "192.168.0.8",
+   "diag.meethue.com",
+   28
+  ],
+  [
+   1791701361.670871,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791701361.672109,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791701398.263779,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791701398.266777,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ]
+ ],
+ "sni": [
+  [
+   "Hue Bridge",
+   "data.meethue.com",
+   443,
+   28
+  ],
+  [
+   "Hue Bridge",
+   "broker-eu-03.iot.meethue.com",
+   443,
+   1
+  ],
+  [
+   "Hue Bridge",
+   "ws.meethue.com",
+   443,
+   1
+  ]
+ ],
+ "odd_destinations": [],
+ "mdns_iot_destinations": [
+  [
+   "Hue Bridge",
+   "224.0.0.251",
+   1349
+  ],
+  [
+   "Hue Bridge",
+   "ff02::fb",
+   1349
+  ]
+ ],
+ "hourly_external_bytes_out": [
+  [
+   "Hue Bridge",
+   "10-11 16:00",
+   144212
+  ],
+  [
+   "Hue Bridge",
+   "10-11 17:00",
+   300411
+  ]
+ ]
+}

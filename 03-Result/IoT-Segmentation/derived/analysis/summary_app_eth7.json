@@ -1,0 +1,120 @@
+{
+ "pcap": "20261011-134542_app_interaction/eth7_20261011-134542.pcap",
+ "iface": "eth7",
+ "packets": 3065,
+ "l2_sources": 7,
+ "thread_ula_pkts": 0,
+ "mdns_service_types_from_non_iot": {
+  "_services._dns-sd._udp": 147,
+  "_hap._tcp": 145,
+  "_matter._tcp": 131,
+  "_arris._tcp": 54,
+  "_raop._tcp": 36,
+  "_airplay-bds._tcp": 30,
+  "_airplay._tcp": 24,
+  "_hue._tcp": 20,
+  "_smb._tcp": 14,
+  "_webdavs._tcp": 12,
+  "_webdav._tcp": 12,
+  "_meshcop._udp": 10,
+  "_companion-link._tcp": 8,
+  "_remotepairing._tcp": 6,
+  "_continuity._tcp": 6,
+  "_adb-tls-pairing._tcp": 4,
+  "_adb._tcp": 4,
+  "_adb-tls-connect._tcp": 4,
+  "_remotepairing-manual-pairing._tcp": 4,
+  "_ipps._tcp": 4,
+  "_ipp._tcp": 4,
+  "_hap._udp": 4,
+  "_adisk._tcp": 4,
+  "_matterc._udp": 4,
+  "_rfb._tcp": 2,
+  "_afpovertcp._tcp": 2,
+  "_touch-remote._tcp": 2,
+  "_daap._tcp": 2,
+  "_printer._tcp": 2,
+  "_uscans._tcp": 2,
+  "_pdl-datastream._tcp": 2,
+  "_ptp._tcp": 2,
+  "_ippusb._tcp": 2,
+  "_scanner._tcp": 2,
+  "_uscan._tcp": 2,
+  "_rdlink._tcp": 2,
+  "_apple-pairable._tcp": 2,
+  "_apple-mobdev._tcp": 2
+ },
+ "mdns_non_iot_sources": 1,
+ "dns_queries": [
+  [
+   1791686771.556362,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791686771.56386,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791686777.678968,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791686777.679968,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ],
+  [
+   1791687113.6652,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   1
+  ],
+  [
+   1791687113.66661,
+   "Hue Bridge",
+   "192.168.0.8",
+   "data.meethue.com",
+   28
+  ]
+ ],
+ "sni": [
+  [
+   "Hue Bridge",
+   "data.meethue.com",
+   443,
+   3
+  ]
+ ],
+ "odd_destinations": [],
+ "mdns_iot_destinations": [
+  [
+   "Hue Bridge",
+   "224.0.0.251",
+   512
+  ],
+  [
+   "Hue Bridge",
+   "ff02::fb",
+   512
+  ]
+ ],
+ "hourly_external_bytes_out": [
+  [
+   "Hue Bridge",
+   "10-11 13:00",
+   91478
+  ]
+ ]
+}

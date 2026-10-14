@@ -1,0 +1,4 @@
+# Nmap 7.991 scan initiated Sun Oct 11 23:56:14 2026 as: nmap -e en0 -n -Pn -sS -p- --min-rate 1000 --max-retries 2 --reason -oA r2_router_alltcp 192.168.107.1
+Host: 192.168.107.1 ()	Status: Up
+Host: 192.168.107.1 ()	Ports: 53/open/tcp//domain///	Ignored State: filtered (65534)
+# Nmap done at Mon Oct 12 00:02:13 2026 -- 1 IP address (1 host up) scanned in 359.41 seconds

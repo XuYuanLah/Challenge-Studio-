@@ -1,0 +1,68 @@
+#!/bin/sh
+
+CONFIG=$1
+source /usr/sbin/helper.sh
+
+pc_append "" $CONFIG
+pc_append "### Custom config in jffs postconf script" $CONFIG
+pc_append "dhcp-rapid-commit" $CONFIG
+pc_append "strict-order" $CONFIG
+
+# VLAN IPv6 section
+. /jffs/scripts/vlan_config.env
+# Gets LAN_ULA_* (Pi-hole is ::8 on the main LAN ULA)
+. /jffs/scripts/lan_ula_config.env
+
+# Roommate VLAN: DHCPv6 only
+. /jffs/scripts/vlan_info.sh $RM_VLAN_ID
+#VLAN_BR_ADDR=$(/jffs/scripts/vlan_iface_assign_v6.sh -s $VLAN_ID | cut -d/ -f1)
+
+if [ "$2" = "$VLAN_SDN" ]; then
+    pc_append "" $CONFIG
+    pc_append "# Manual IPv6 for VLAN $VLAN_ID" $CONFIG
+    pc_append "enable-ra" $CONFIG
+    pc_append "quiet-ra" $CONFIG
+    #pc_append "listen-address=$VLAN_BR_ADDR" $CONFIG
+    #pc_append "listen-address=$VLAN_ULA_ADDR" $CONFIG
+    pc_append "interface=$VLAN_BR" $CONFIG
+    pc_append "except-interface=lo" $CONFIG
+    pc_append "ra-param=$VLAN_BR,10,600" $CONFIG
+    #pc_append "dhcp-range=$VLAN_BR,::,constructor:$VLAN_BR,ra-stateless,64,600" $CONFIG
+    pc_append "dhcp-range=set:ula6,"$VLAN_ULA_PREFIX"1,"$VLAN_ULA_PREFIX"20,64,1440m" $CONFIG
+    #pc_append "dhcp-option=$VLAN_BR,option6:23,[2606:4700:4700::1111],[2606:4700:4700::1001]" $CONFIG
+    #pc_append "dhcp-option=ula6,option6:23,[2606:4700:4700::1111],[2606:4700:4700::1001]" $CONFIG
+    pc_append "dhcp-option=ula6,option6:23,["$LAN_ULA_PREFIX"8]" $CONFIG
+    pc_append "" $CONFIG
+    # NTP server (option 42): the VLAN's own gateway address, served by ntpd_vlan.sh
+    pc_append "# NTP server (option 42): router's local ntpd on this VLAN" $CONFIG
+    pc_append "dhcp-option=$VLAN_BR,42,192.168.$VLAN_ID.1" $CONFIG
+    pc_append "" $CONFIG
+    pc_append "# Controls DNS-SD PTR query loop while using Pi-hole conditional forwarding" $CONFIG
+    pc_append "address=/_dns-sd._udp.0.$VLAN_ID.168.192.in-addr.arpa/" $CONFIG
+    pc_append "" $CONFIG
+    pc_append "# Static DHCP Leases" $CONFIG
+    pc_append "dhcp-host=02:00:00:00:01:14,set:02:00:00:00:01:14,192.168.$VLAN_ID.2,["$VLAN_ULA_PREFIX"2]" $CONFIG
+fi
+
+# IoT VLAN: SLAAC only, DNS via RDNSS
+. /jffs/scripts/vlan_info.sh $IOT_VLAN_ID
+
+if [ "$2" = "$VLAN_SDN" ]; then
+    pc_append "" $CONFIG
+    pc_append "# Manual IPv6 for VLAN $VLAN_ID" $CONFIG
+    pc_append "enable-ra" $CONFIG
+    pc_append "quiet-ra" $CONFIG
+    pc_append "interface=$VLAN_BR" $CONFIG
+    pc_append "except-interface=lo" $CONFIG
+    pc_append "ra-param=$VLAN_BR,10,600" $CONFIG
+    pc_append "dhcp-range=set:ula6,"$VLAN_ULA_PREFIX",ra-only,64,1440m" $CONFIG
+    # RDNSS in RA picks up option6:23 matching the dhcp-range tag
+    pc_append "dhcp-option=ula6,option6:23,["$LAN_ULA_PREFIX"8]" $CONFIG
+    pc_append "" $CONFIG
+    # NTP server (option 42): the VLAN's own gateway address, served by ntpd_vlan.sh
+    pc_append "# NTP server (option 42): router's local ntpd on this VLAN" $CONFIG
+    pc_append "dhcp-option=$VLAN_BR,42,192.168.$VLAN_ID.1" $CONFIG
+    pc_append "" $CONFIG
+    pc_append "# Controls DNS-SD PTR query loop while using Pi-hole conditional forwarding" $CONFIG
+    pc_append "address=/_dns-sd._udp.0.$VLAN_ID.168.192.in-addr.arpa/" $CONFIG
+fi

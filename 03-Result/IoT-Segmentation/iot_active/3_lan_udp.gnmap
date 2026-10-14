@@ -1,0 +1,12 @@
+# Nmap 7.991 scan initiated Sun Oct 11 21:58:41 2026 as: nmap -e en0 -n -Pn -sU -p 53,123,137,161,1900,5353,5540 --max-retries 1 --reason -oA 3_lan_udp 192.168.0.1,2,8,13,22
+Host: 192.168.0.1 ()	Status: Up
+Host: 192.168.0.1 ()	Ports: 53/open|filtered/udp//domain///, 123/open/udp//ntp///, 137/open|filtered/udp//netbios-ns///, 161/open|filtered/udp//snmp///, 1900/open|filtered/udp//upnp///, 5353/open|filtered/udp//zeroconf///, 5540/open|filtered/udp//sdxauthd///
+Host: 192.168.0.2 ()	Status: Up
+Host: 192.168.0.2 ()	Ports: 53/open|filtered/udp//domain///, 123/open|filtered/udp//ntp///, 137/open|filtered/udp//netbios-ns///, 161/open|filtered/udp//snmp///, 1900/open|filtered/udp//upnp///, 5353/open|filtered/udp//zeroconf///, 5540/open|filtered/udp//sdxauthd///
+Host: 192.168.0.8 ()	Status: Up
+Host: 192.168.0.8 ()	Ports: 53/open/udp//domain///, 123/open|filtered/udp//ntp///, 137/open|filtered/udp//netbios-ns///, 161/open|filtered/udp//snmp///, 1900/open|filtered/udp//upnp///, 5353/open|filtered/udp//zeroconf///, 5540/open|filtered/udp//sdxauthd///
+Host: 192.168.0.13 ()	Status: Up
+Host: 192.168.0.13 ()	Ports: 53/open|filtered/udp//domain///, 123/open|filtered/udp//ntp///, 137/open|filtered/udp//netbios-ns///, 161/open|filtered/udp//snmp///, 1900/open|filtered/udp//upnp///, 5353/open|filtered/udp//zeroconf///, 5540/open|filtered/udp//sdxauthd///
+Host: 192.168.0.22 ()	Status: Up
+Host: 192.168.0.22 ()	Ports: 53/open|filtered/udp//domain///, 123/open|filtered/udp//ntp///, 137/open|filtered/udp//netbios-ns///, 161/open|filtered/udp//snmp///, 1900/open|filtered/udp//upnp///, 5353/open|filtered/udp//zeroconf///, 5540/open|filtered/udp//sdxauthd///
+# Nmap done at Sun Oct 11 21:58:46 2026 -- 5 IP addresses (5 hosts up) scanned in 5.51 seconds

@@ -1,0 +1,8 @@
+Chain PREROUTING (policy ACCEPT 296 packets, 33701 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1        9   396 LOG        tcp  --  br52   *       0.0.0.0/0           !192.168.0.8          tcp dpt:53 limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_DNS_REDIRECT "
+2       19   836 DNAT       tcp  --  br52   *       0.0.0.0/0           !192.168.0.8          tcp dpt:53 to:192.168.0.8
+3        3   228 LOG        udp  --  br52   *       0.0.0.0/0           !192.168.0.8          udp dpt:53 limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_DNS_REDIRECT "
+4        3   228 DNAT       udp  --  br52   *       0.0.0.0/0           !192.168.0.8          udp dpt:53 to:192.168.0.8
+5     2049  150K GAME_VSERVER  all  --  *      *       0.0.0.0/0            198.51.100.55       
+6     2049  150K VSERVER    all  --  *      *       0.0.0.0/0            198.51.100.55       

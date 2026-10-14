@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///opt/local/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.991 scan initiated Mon Oct 12 00:02:21 2026 as: nmap -6 -e en0 -n -Pn -sS -p 22,53,80,8200 -&#45;reason -oA r4_v6 fd00:d:e:6b::1 -->
+<nmaprun scanner="nmap" args="nmap -6 -e en0 -n -Pn -sS -p 22,53,80,8200 -&#45;reason -oA r4_v6 fd00:d:e:6b::1" start="1791723741" startstr="Mon Oct 12 00:02:21 2026" version="7.991" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="4" services="22,53,80,8200"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="nd-response" reason_ttl="0"/>
+<address addr="fd00:d:e:6b::1" addrtype="ipv6"/>
+<address addr="92:28:AA:2B:39:62" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1791723741" endtime="1791723742"><status state="up" reason="nd-response" reason_ttl="0"/>
+<address addr="fd00:d:e:6b::1" addrtype="ipv6"/>
+<address addr="92:28:AA:2B:39:62" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="22"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="53"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8200"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="trivnet1" method="table" conf="3"/></port>
+</ports>
+<times srtt="14024" rttvar="14024" to="100000"/>
+</host>
+<runstats><finished time="1791723742" timestr="Mon Oct 12 00:02:22 2026" summary="Nmap done at Mon Oct 12 00:02:22 2026; 1 IP address (1 host up) scanned in 1.28 seconds" elapsed="1.28" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

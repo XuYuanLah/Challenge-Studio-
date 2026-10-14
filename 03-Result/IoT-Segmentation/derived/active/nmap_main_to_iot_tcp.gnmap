@@ -1,0 +1,12 @@
+# Nmap 7.95 scan initiated Sun Oct 11 04:29:33 2026 as: nmap -sT -Pn -T4 --top-ports 1000 -sV --version-light -oA derived/active/nmap_main_to_iot_tcp 192.168.107.15 192.168.107.17 192.168.107.20 192.168.107.23 192.168.107.26
+Host: 192.168.107.15 ()	Status: Up
+Host: 192.168.107.15 ()	Ports: 	Ignored State: closed (1000)
+Host: 192.168.107.17 ()	Status: Up
+Host: 192.168.107.17 ()	Ports: 3000/open/tcp//tcpwrapped///	Ignored State: closed (999)
+Host: 192.168.107.20 ()	Status: Up
+Host: 192.168.107.20 ()	Ports: 3000/open/tcp//tcpwrapped///	Ignored State: closed (999)
+Host: 192.168.107.23 ()	Status: Up
+Host: 192.168.107.23 ()	Ports: 80/open/tcp//tcpwrapped///	Ignored State: closed (999)
+Host: 192.168.107.26 ()	Status: Up
+Host: 192.168.107.26 ()	Ports: 80/open/tcp//http//nginx/, 443/open/tcp//ssl|http//nginx/, 668/filtered/tcp//mecomm///, 1049/filtered/tcp//td-postman///, 1056/filtered/tcp//vfo///, 1124/filtered/tcp//hpvmmcontrol///, 1972/filtered/tcp//intersys-cache///, 2030/filtered/tcp//device2///, 2288/filtered/tcp//netml///, 2366/filtered/tcp//qip-login///, 3766/filtered/tcp//sitewatch-s///, 5033/filtered/tcp//jtnetd-server///, 5850/filtered/tcp/////, 6792/filtered/tcp/////, 6901/filtered/tcp//jetstream///, 7938/filtered/tcp//lgtomapper///, 8080/open/tcp//http//Web-Based Enterprise Management CIM serverOpenPegasus WBEM httpd/	Ignored State: closed (983)
+# Nmap done at Sun Oct 11 04:31:16 2026 -- 5 IP addresses (5 hosts up) scanned in 102.86 seconds

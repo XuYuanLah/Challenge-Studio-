@@ -1,0 +1,22 @@
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1      710  244K ACCEPT     udp  --  br52   *       0.0.0.0/0            0.0.0.0/0            udp dpt:5353
+2        5   380 ACCEPT     udp  --  br52   *       0.0.0.0/0            0.0.0.0/0            udp dpt:123
+3        0     0 ACCEPT     udp  --  br56   *       0.0.0.0/0            0.0.0.0/0            udp dpt:123
+4        0     0 URLFI      udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53
+5     1392  376K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+6       78  7819 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            state INVALID
+7     2360  445K PTCSRVWAN  all  --  !br0   *       0.0.0.0/0            0.0.0.0/0           
+8     1127  347K PTCSRVLAN  all  --  br0    *       0.0.0.0/0            0.0.0.0/0           
+9        0     0 DROP       tcp  --  !lo    *       0.0.0.0/0            0.0.0.0/0            tcp dpt:5152
+10    1127  347K ACCEPT     all  --  br0    *       0.0.0.0/0            0.0.0.0/0            state NEW
+11    1250  328K ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0            state NEW
+12       0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:67 dpt:68
+13       1    44 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:22
+14      23  1449 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+15    1086  115K WGSI       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+16    1086  115K WGCI       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+17    1086  115K OVPNSI     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+18    1086  115K OVPNCI     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+19    1086  115K SDN_FI     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+20     904 88171 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           

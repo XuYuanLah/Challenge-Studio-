@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///opt/local/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.991 scan initiated Sun Oct 11 22:10:41 2026 as: nmap -6 -e en0 -n -Pn -sS -T4 -&#45;top-ports 100 -&#45;max-retries 1 -&#45;reason -oA 5_v6_tcp fd00:d:e:6b::1 fd00:d:e:f::1 fd00:d:e:f::2 fd00:d:e:f::8 fd00:d:e:f::13 -->
+<nmaprun scanner="nmap" args="nmap -6 -e en0 -n -Pn -sS -T4 -&#45;top-ports 100 -&#45;max-retries 1 -&#45;reason -oA 5_v6_tcp fd00:d:e:6b::1 fd00:d:e:f::1 fd00:d:e:f::2 fd00:d:e:f::8 fd00:d:e:f::13" start="1791717041" startstr="Sun Oct 11 22:10:41 2026" version="7.991" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="100" services="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="nd-response" reason_ttl="0"/>
+<address addr="fd00:d:e:6b::1" addrtype="ipv6"/>
+<address addr="92:28:AA:2B:39:62" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1791717041" endtime="1791717045"><status state="up" reason="nd-response" reason_ttl="0"/>
+<address addr="fd00:d:e:6b::1" addrtype="ipv6"/>
+<address addr="92:28:AA:2B:39:62" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="100">
+<extrareasons reason="no-response" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+<times srtt="21721" rttvar="21721" to="108605"/>
+</host>
+<host starttime="1791717045" endtime="1791717086"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="fd00:d:e:f::1" addrtype="ipv6"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="100">
+<extrareasons reason="no-response" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+</host>
+<host starttime="1791717045" endtime="1791717086"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="fd00:d:e:f::2" addrtype="ipv6"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="100">
+<extrareasons reason="no-response" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+</host>
+<host starttime="1791717045" endtime="1791717086"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="fd00:d:e:f::8" addrtype="ipv6"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="100">
+<extrareasons reason="no-response" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+</host>
+<host starttime="1791717045" endtime="1791717086"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="fd00:d:e:f::13" addrtype="ipv6"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="100">
+<extrareasons reason="no-response" count="100" proto="tcp" ports="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157"/>
+</extraports>
+</ports>
+</host>
+<runstats><finished time="1791717086" timestr="Sun Oct 11 22:11:26 2026" summary="Nmap done at Sun Oct 11 22:11:26 2026; 5 IP addresses (5 hosts up) scanned in 44.95 seconds" elapsed="44.95" exit="success"/><hosts up="5" down="0" total="5"/>
+</runstats>
+</nmaprun>

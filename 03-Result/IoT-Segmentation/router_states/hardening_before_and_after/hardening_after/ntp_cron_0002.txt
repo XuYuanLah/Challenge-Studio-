@@ -1,0 +1,2 @@
+
+* * * * * /jffs/scripts/ntpd_vlan.sh check #ntpd_vlan#

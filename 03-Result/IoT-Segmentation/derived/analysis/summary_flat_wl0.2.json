@@ -1,0 +1,622 @@
+{
+ "pcap": "20261006-215327_flat/wl0.2_20261006-215327.pcap",
+ "iface": "wl0.2",
+ "packets": 858199,
+ "l2_sources": 26,
+ "thread_ula_pkts": 4776,
+ "mdns_service_types_from_non_iot": {
+  "_hap._tcp": 37358,
+  "_services._dns-sd._udp": 34627,
+  "_smb._tcp": 17022,
+  "_raop._tcp": 15841,
+  "_airplay._tcp": 14938,
+  "_arris._tcp": 14328,
+  "_companion-link._tcp": 11466,
+  "_matter._tcp": 5913,
+  "_webdav._tcp": 3796,
+  "_webdavs._tcp": 3796,
+  "_hap._udp": 3402,
+  "_airplay-bds._tcp": 3044,
+  "_remotepairing._tcp": 2781,
+  "_rdlink._tcp": 2701,
+  "_apple-mobdev2._tcp": 2629,
+  "_rfb._tcp": 1293,
+  "_meshcop._udp": 1019,
+  "_sleep-proxy._udp": 701,
+  "_ipps._tcp": 621,
+  "_ipp._tcp": 614,
+  "_adisk._tcp": 558,
+  "_continuity._tcp": 344,
+  "_asquic._udp": 247,
+  "_adb._tcp": 216,
+  "_nearbypresence._tcp": 202,
+  "_adb-tls-connect._tcp": 180,
+  "_uscan._tcp": 178,
+  "_ptp._tcp": 178,
+  "_pdl-datastream._tcp": 178,
+  "_scanner._tcp": 178,
+  "_printer._tcp": 178,
+  "_ippusb._tcp": 178,
+  "_uscans._tcp": 178,
+  "_apple-mobdev._tcp": 178,
+  "_apple-pairable._tcp": 178,
+  "_daap._tcp": 155,
+  "_afpovertcp._tcp": 141,
+  "_adb-tls-pairing._tcp": 115,
+  "_remotepairing-manual-pairing._tcp": 107,
+  "_ssh._tcp": 73,
+  "_sftp-ssh._tcp": 73,
+  "_odproxy._tcp": 73,
+  "_rfb._udp": 73,
+  "_net-assistant._udp": 73,
+  "_srpl-tls._tcp": 70,
+  "_googlecast._tcp": 67,
+  "_touch-remote._tcp": 64,
+  "_trel._udp": 62,
+  "_dosvc._tcp": 58,
+  "_matterc._udp": 46,
+  "_altserver._tcp": 41,
+  "_nmea-0183._tcp": 12,
+  "_atc._tcp": 4
+ },
+ "mdns_non_iot_sources": 14,
+ "dns_queries": [
+  [
+   1791285515.79914,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791286458.549779,
+   "Tapo smart plug",
+   "192.168.0.8",
+   "time.nist.gov",
+   1
+  ],
+  [
+   1791289115.850096,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791292715.866319,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791296315.910709,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791299916.338985,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791303516.388453,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791307116.444406,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791308063.980147,
+   "Tapo smart plug",
+   "192.168.0.8",
+   "time.nist.gov",
+   1
+  ],
+  [
+   1791309708.093972,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "a2alhn2dfztqv9.iot.us-east-1.amazonaws.com",
+   1
+  ],
+  [
+   1791310219.073232,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "a2alhn2dfztqv9.iot.us-east-1.amazonaws.com",
+   1
+  ],
+  [
+   1791310239.284061,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "a2alhn2dfztqv9.iot.us-east-1.amazonaws.com",
+   1
+  ],
+  [
+   1791310716.471322,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791314316.48965,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791314652.49354,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "a2alhn2dfztqv9.iot.us-east-1.amazonaws.com",
+   1
+  ],
+  [
+   1791317916.516008,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791321516.553172,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791325116.57315,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791328716.592625,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791329669.405883,
+   "Tapo smart plug",
+   "192.168.0.8",
+   "time.nist.gov",
+   1
+  ],
+  [
+   1791332316.632319,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791335916.648435,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791339516.667501,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791343116.74921,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791346716.766238,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791347051.437948,
+   "Tapo smart plug",
+   "192.168.0.8",
+   "n-aps1-device-api.tplinkcloud.com",
+   1
+  ],
+  [
+   1791347051.661966,
+   "Tapo smart plug",
+   "192.168.0.8",
+   "n-aps1-device-api.tplinkcloud.com",
+   1
+  ],
+  [
+   1791350316.849265,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791351274.837856,
+   "Tapo smart plug",
+   "192.168.0.8",
+   "time.nist.gov",
+   1
+  ],
+  [
+   1791353916.861338,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791353916.865409,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791357516.889294,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791361116.92678,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791364716.942308,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ],
+  [
+   1791368316.971097,
+   "SwitchBot Hub 2",
+   "192.168.0.8",
+   "pool.ntp.org",
+   1
+  ]
+ ],
+ "sni": [
+  [
+   "SwitchBot Hub 2",
+   "a2alhn2dfztqv9.iot.us-east-1.amazonaws.com",
+   8883,
+   3
+  ],
+  [
+   "Tapo smart plug",
+   "n-aps1-device-api.tplinkcloud.com",
+   443,
+   1
+  ]
+ ],
+ "odd_destinations": [
+  [
+   "SwitchBot Hub 2",
+   "dst 255.2.0.0",
+   17,
+   5353,
+   7
+  ]
+ ],
+ "mdns_iot_destinations": [
+  [
+   "SwitchBot Hub 2",
+   "192.168.0.22",
+   75
+  ],
+  [
+   "SwitchBot Hub 2",
+   "254.128.0.0",
+   15
+  ],
+  [
+   "Tapo smart plug",
+   "fe80::1491:5d3e:91a9:266e",
+   193
+  ],
+  [
+   "Matter switch 0d6b",
+   "192.168.0.22",
+   1602
+  ],
+  [
+   "Matter switch 0d6e",
+   "192.168.0.22",
+   1364
+  ],
+  [
+   "Tapo smart plug",
+   "224.0.0.251",
+   634
+  ],
+  [
+   "Tapo smart plug",
+   "ff02::fb",
+   576
+  ],
+  [
+   "Matter switch 0d6e",
+   "224.0.0.251",
+   54
+  ],
+  [
+   "Matter switch 0d6b",
+   "224.0.0.251",
+   64
+  ],
+  [
+   "SwitchBot Hub 2",
+   "255.2.0.0",
+   7
+  ],
+  [
+   "SwitchBot Hub 2",
+   "224.0.0.251",
+   7
+  ],
+  [
+   "Matter switch 0d6e",
+   "fe80::14a6:f09a:f112:2ee1",
+   5
+  ],
+  [
+   "Matter switch 0d6b",
+   "fe80::14a6:f09a:f112:2ee1",
+   6
+  ],
+  [
+   "Tapo smart plug",
+   "fe80::14a6:f09a:f112:2ee1",
+   8
+  ],
+  [
+   "Tapo smart plug",
+   "192.168.0.221",
+   10
+  ],
+  [
+   "Matter switch 0d6b",
+   "192.168.0.221",
+   9
+  ],
+  [
+   "SwitchBot Hub 2",
+   "192.168.0.221",
+   8
+  ],
+  [
+   "Matter switch 0d6e",
+   "ff02::fb",
+   7
+  ],
+  [
+   "Matter switch 0d6e",
+   "192.168.0.221",
+   10
+  ],
+  [
+   "Matter switch 0d6b",
+   "ff02::fb",
+   6
+  ],
+  [
+   "Tapo smart plug",
+   "192.168.0.22",
+   1408
+  ],
+  [
+   "Tapo smart plug",
+   "fe80::1887:20b7:1b7:b54",
+   5
+  ],
+  [
+   "Matter switch 0d6b",
+   "fe80::1887:20b7:1b7:b54",
+   5
+  ],
+  [
+   "Matter switch 0d6e",
+   "fe80::1887:20b7:1b7:b54",
+   5
+  ],
+  [
+   "Matter switch 0d6b",
+   "fe80::4a:e64a:b7ef:9b3d",
+   2
+  ],
+  [
+   "Matter switch 0d6e",
+   "fe80::4a:e64a:b7ef:9b3d",
+   3
+  ],
+  [
+   "Tapo smart plug",
+   "fe80::4a:e64a:b7ef:9b3d",
+   2
+  ]
+ ],
+ "hourly_external_bytes_out": [
+  [
+   "SwitchBot Hub 2",
+   "10-06 21:00",
+   1954
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-06 22:00",
+   7841
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-06 23:00",
+   8669
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 00:00",
+   9365
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 01:00",
+   6949
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 02:00",
+   7541
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 03:00",
+   10155
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 04:00",
+   6949
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 05:00",
+   15145
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 06:00",
+   13190
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 07:00",
+   8866
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 08:00",
+   7541
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 09:00",
+   8277
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 10:00",
+   9861
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 11:00",
+   10004
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 12:00",
+   9946
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 13:00",
+   8929
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 14:00",
+   8456
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 15:00",
+   9942
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 16:00",
+   8227
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 17:00",
+   9348
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 18:00",
+   11317
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 19:00",
+   8077
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 20:00",
+   8704
+  ],
+  [
+   "SwitchBot Hub 2",
+   "10-07 21:00",
+   9089
+  ],
+  [
+   "Tapo smart plug",
+   "10-06 22:00",
+   76
+  ],
+  [
+   "Tapo smart plug",
+   "10-07 04:00",
+   76
+  ],
+  [
+   "Tapo smart plug",
+   "10-07 10:00",
+   76
+  ],
+  [
+   "Tapo smart plug",
+   "10-07 15:00",
+   2043
+  ],
+  [
+   "Tapo smart plug",
+   "10-07 16:00",
+   76
+  ]
+ ]
+}

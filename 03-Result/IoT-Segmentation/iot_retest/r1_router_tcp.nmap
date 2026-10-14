@@ -1,0 +1,45 @@
+# Nmap 7.991 scan initiated Sun Oct 11 23:56:10 2026 as: nmap -e en0 -n -Pn -sS -p 22,53,80,81,443,444,8200,8443,60000 --reason -oA r1_router_tcp 192.168.107.1 192.168.0.1 192.168.114.1
+Nmap scan report for 192.168.107.1
+Host is up, received arp-response (0.015s latency).
+
+PORT      STATE    SERVICE   REASON
+22/tcp    filtered ssh       no-response
+53/tcp    open     domain    syn-ack ttl 63
+80/tcp    filtered http      no-response
+81/tcp    filtered hosts2-ns no-response
+443/tcp   filtered https     no-response
+444/tcp   filtered snpp      no-response
+8200/tcp  filtered trivnet1  no-response
+8443/tcp  filtered https-alt no-response
+60000/tcp filtered unknown   no-response
+MAC Address: 92:28:AA:2B:39:62 (Unknown)
+
+Nmap scan report for 192.168.0.1
+Host is up, received user-set (0.064s latency).
+
+PORT      STATE    SERVICE   REASON
+22/tcp    filtered ssh       no-response
+53/tcp    open     domain    syn-ack ttl 63
+80/tcp    filtered http      no-response
+81/tcp    filtered hosts2-ns no-response
+443/tcp   filtered https     no-response
+444/tcp   filtered snpp      no-response
+8200/tcp  filtered trivnet1  no-response
+8443/tcp  filtered https-alt no-response
+60000/tcp filtered unknown   no-response
+
+Nmap scan report for 192.168.114.1
+Host is up, received user-set (0.064s latency).
+
+PORT      STATE    SERVICE   REASON
+22/tcp    filtered ssh       no-response
+53/tcp    open     domain    syn-ack ttl 63
+80/tcp    filtered http      no-response
+81/tcp    filtered hosts2-ns no-response
+443/tcp   filtered https     no-response
+444/tcp   filtered snpp      no-response
+8200/tcp  filtered trivnet1  no-response
+8443/tcp  filtered https-alt no-response
+60000/tcp filtered unknown   no-response
+
+# Nmap done at Sun Oct 11 23:56:14 2026 -- 3 IP addresses (3 hosts up) scanned in 3.53 seconds

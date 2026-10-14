@@ -1,0 +1,29 @@
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1      300 63233 LOG        all  --  br52   eth1    0.0.0.0/0            0.0.0.0/0            state NEW limit: avg 30/min burst 60 LOG flags 0 level 4 prefix "IOT_TO_WAN_NEW "
+2        0     0 ACCEPT     icmp --  br52   br0     0.0.0.0/0            0.0.0.0/0            icmptype 8
+3        0     0 ACCEPT     tcp  --  br52   br0     0.0.0.0/0            192.168.0.8          tcp dpt:53
+4      272 16916 ACCEPT     udp  --  br52   br0     0.0.0.0/0            192.168.0.8          udp dpt:53
+5      742 89624 ACCEPT     all  --  br0    br52    0.0.0.0/0            0.0.0.0/0           
+6      483  162K ACCEPT     all  --  br52   br0     0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+7        0     0 LOG        all  --  br52   br0     0.0.0.0/0            0.0.0.0/0            limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_TO_LAN_DROP "
+8        0     0 DROP       all  --  br52   br0     0.0.0.0/0            0.0.0.0/0           
+9     2254  189K ACCEPT     all  --  br0    *       0.0.0.0/0            192.168.255.0/30    
+10    505K  136M NWFF       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+11    505K  136M URLFF      all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+12    505K  136M IPSEC_DROP_SUBNET_ICMP  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+13    505K  136M IPSECSSDN  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+14    505K  136M IPSEC_STRONGSWAN  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+15   31142 1819K TCPMSS     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcpflags: 0x06/0x02 TCPMSS clamp to PMTU
+16    410K  125M ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+17   95303   11M WGSF       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+18   95303   11M OVPNSF     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+19      42  2688 ACCEPT     all  --  br0    br0     0.0.0.0/0            0.0.0.0/0           
+20    1621 75536 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            state INVALID
+21   17253 1464K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate DNAT
+22   76387 9521K WGCF       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+23   76387 9521K OVPNCF     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+24   76387 9521K VPNCF      all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+25   76387 9521K SDN_FF     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+26       1    80 ACCEPT     all  --  br0    *       0.0.0.0/0            0.0.0.0/0           
+27       0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           

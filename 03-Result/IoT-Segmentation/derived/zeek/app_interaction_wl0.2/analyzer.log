@@ -1,0 +1,2 @@
+{"ts":1791686788.975646,"analyzer_kind":"protocol","analyzer_name":"DNS","uid":"CYRpQY2pYUvMcq57Pb","id.orig_h":"192.168.107.1","id.orig_p":5353,"id.resp_h":"224.0.0.251","id.resp_p":5353,"proto":"udp","failure_reason":"DNS_Conn_count_too_large"}
+{"ts":1791686788.977915,"analyzer_kind":"protocol","analyzer_name":"DNS","uid":"C3UpBgm8anJyl0H8f","id.orig_h":"fd00:d:e:6b::1","id.orig_p":5353,"id.resp_h":"ff02::fb","id.resp_p":5353,"proto":"udp","failure_reason":"DNS_Conn_count_too_large"}

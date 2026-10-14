@@ -1,0 +1,62 @@
+# Nmap 7.991 scan initiated Sun Oct 11 21:58:41 2026 as: nmap -e en0 -n -Pn -sU -p 53,123,137,161,1900,5353,5540 --max-retries 1 --reason -oA 3_lan_udp 192.168.0.1,2,8,13,22
+Nmap scan report for 192.168.0.1
+Host is up, received user-set (0.015s latency).
+
+PORT     STATE         SERVICE    REASON
+53/udp   open|filtered domain     no-response
+123/udp  open          ntp        udp-response ttl 64
+137/udp  open|filtered netbios-ns no-response
+161/udp  open|filtered snmp       no-response
+1900/udp open|filtered upnp       no-response
+5353/udp open|filtered zeroconf   no-response
+5540/udp open|filtered sdxauthd   no-response
+
+Nmap scan report for 192.168.0.2
+Host is up, received user-set.
+
+PORT     STATE         SERVICE    REASON
+53/udp   open|filtered domain     no-response
+123/udp  open|filtered ntp        no-response
+137/udp  open|filtered netbios-ns no-response
+161/udp  open|filtered snmp       no-response
+1900/udp open|filtered upnp       no-response
+5353/udp open|filtered zeroconf   no-response
+5540/udp open|filtered sdxauthd   no-response
+
+Nmap scan report for 192.168.0.8
+Host is up, received user-set (0.036s latency).
+
+PORT     STATE         SERVICE    REASON
+53/udp   open          domain     udp-response ttl 63
+123/udp  open|filtered ntp        no-response
+137/udp  open|filtered netbios-ns no-response
+161/udp  open|filtered snmp       no-response
+1900/udp open|filtered upnp       no-response
+5353/udp open|filtered zeroconf   no-response
+5540/udp open|filtered sdxauthd   no-response
+
+Nmap scan report for 192.168.0.13
+Host is up, received user-set.
+
+PORT     STATE         SERVICE    REASON
+53/udp   open|filtered domain     no-response
+123/udp  open|filtered ntp        no-response
+137/udp  open|filtered netbios-ns no-response
+161/udp  open|filtered snmp       no-response
+1900/udp open|filtered upnp       no-response
+5353/udp open|filtered zeroconf   no-response
+5540/udp open|filtered sdxauthd   no-response
+
+Nmap scan report for 192.168.0.22
+Host is up, received user-set.
+
+PORT     STATE         SERVICE    REASON
+53/udp   open|filtered domain     no-response
+123/udp  open|filtered ntp        no-response
+137/udp  open|filtered netbios-ns no-response
+161/udp  open|filtered snmp       no-response
+1900/udp open|filtered upnp       no-response
+5353/udp open|filtered zeroconf   no-response
+5540/udp open|filtered sdxauthd   no-response
+
+# Nmap done at Sun Oct 11 21:58:46 2026 -- 5 IP addresses (5 hosts up) scanned in 5.51 seconds

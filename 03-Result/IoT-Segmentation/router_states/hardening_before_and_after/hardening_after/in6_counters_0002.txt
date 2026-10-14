@@ -1,0 +1,26 @@
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1     1647  376K IOT_INPUT  all      br52   *       ::/0                 ::/0                
+2        0     0 ACCEPT     udp      br56   *       ::/0                 ::/0                 udp dpt:547
+3        0     0 DROP       tcp      br52   *       ::/0                 ::/0                 tcp dpt:22
+4        0     0 DROP       tcp      br56   *       ::/0                 ::/0                 tcp dpt:22
+5        0     0 ACCEPT     udp      br52   *       ::/0                 ::/0                 udp dpt:123
+6        0     0 ACCEPT     udp      br56   *       ::/0                 ::/0                 udp dpt:123
+7        1   149 URLFI      udp      *      *       ::/0                 ::/0                 udp dpt:53
+8      261 34133 ACCEPT     all      *      *       ::/0                 ::/0                 state RELATED,ESTABLISHED
+9      910  305K ACCEPT     all      br0    *       ::/0                 ::/0                 state NEW
+10       0     0 ACCEPT     all      lo     *       ::/0                 ::/0                 state NEW
+11      20  1788 DROP       all      *      *       ::/0                 ::/0                 state INVALID
+12       0     0 ACCEPT     tcp      *      *       ::/0                 ::/0                 tcp dpt:22
+13    2273  252K WGSI       all      *      *       ::/0                 ::/0                
+14    2273  252K WGCI       all      *      *       ::/0                 ::/0                
+15    2273  252K OVPNSI     all      *      *       ::/0                 ::/0                
+16    2273  252K OVPNCI     all      *      *       ::/0                 ::/0                
+17    2273  252K SDN_FI     all      *      *       ::/0                 ::/0                
+18       0     0 ACCEPT     59       *      *       ::/0                 ::/0                 length 40
+19     877 94640 ACCEPT     all      br0    *       ::/0                 ::/0                
+20       0     0 ACCEPT     all      lo     *       ::/0                 ::/0                
+21       0     0 ACCEPT     udp      *      *       ::/0                 ::/0                 udp spt:547 dpt:546
+22    1331  145K ICMP_V6_LOCAL  icmpv6    *      *       ::/0                 ::/0                
+23     264 27040 ICMP_V6    icmpv6    *      *       ::/0                 ::/0                
+24      65 12318 DROP       all      *      *       ::/0                 ::/0                

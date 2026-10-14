@@ -1,0 +1,46 @@
+nc: connectx to 192.168.255.1 port 80 (tcp) failed: Operation timed out
+
+; <<>> DiG 9.20.29 <<>> +tcp AAAA @2606:4700:4700::1111 diag.meethue.com
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 45633
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; EDE: 15 (Blocked): (gravity)
+;; QUESTION SECTION:
+;diag.meethue.com.		IN	AAAA
+
+;; ANSWER SECTION:
+diag.meethue.com.	2	IN	AAAA	::
+
+;; Query time: 7 msec
+;; SERVER: 2606:4700:4700::1111#53(2606:4700:4700::1111) (TCP)
+;; WHEN: Mon Oct 12 01:00:09 AEDT 2026
+;; MSG SIZE  rcvd: 86
+
+
+; <<>> DiG 9.20.29 <<>> +tcp AAAA @fd00:d:e:6b::1 diag.meethue.com
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 36317
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; EDE: 15 (Blocked): (gravity)
+;; QUESTION SECTION:
+;diag.meethue.com.		IN	AAAA
+
+;; ANSWER SECTION:
+diag.meethue.com.	2	IN	AAAA	::
+
+;; Query time: 8 msec
+;; SERVER: fd00:d:e:6b::1#53(fd00:d:e:6b::1) (TCP)
+;; WHEN: Mon Oct 12 01:00:09 AEDT 2026
+;; MSG SIZE  rcvd: 86
+
+nc: connectx to 2606:4700:4700::1111 port 853 (tcp) failed: Operation timed out

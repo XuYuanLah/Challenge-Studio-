@@ -1,0 +1,12 @@
+# Nmap 7.991 scan initiated Mon Oct 12 00:02:21 2026 as: nmap -6 -e en0 -n -Pn -sS -p 22,53,80,8200 --reason -oA r4_v6 fd00:d:e:6b::1
+Nmap scan report for fd00:d:e:6b::1
+Host is up, received nd-response (0.014s latency).
+
+PORT     STATE    SERVICE  REASON
+22/tcp   filtered ssh      no-response
+53/tcp   filtered domain   no-response
+80/tcp   filtered http     no-response
+8200/tcp filtered trivnet1 no-response
+MAC Address: 92:28:AA:2B:39:62 (Unknown)
+
+# Nmap done at Mon Oct 12 00:02:22 2026 -- 1 IP address (1 host up) scanned in 1.28 seconds

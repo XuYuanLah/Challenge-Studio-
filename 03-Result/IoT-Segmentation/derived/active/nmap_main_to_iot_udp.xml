@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.95 scan initiated Sun Oct 11 04:31:33 2026 as: nmap -sU -Pn -p 123,1900,5353,5540,6666,6667,9999,20002 -oA derived/active/nmap_main_to_iot_udp 192.168.107.15 192.168.107.17 192.168.107.20 192.168.107.23 192.168.107.26 -->
+<nmaprun scanner="nmap" args="nmap -sU -Pn -p 123,1900,5353,5540,6666,6667,9999,20002 -oA derived/active/nmap_main_to_iot_udp 192.168.107.15 192.168.107.17 192.168.107.20 192.168.107.23 192.168.107.26" start="1791693093" startstr="Sun Oct 11 04:31:33 2026" version="7.95" xmloutputversion="1.05">
+<scaninfo type="udp" protocol="udp" numservices="8" services="123,1900,5353,5540,6666-6667,9999,20002"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1791693093" endtime="1791693095"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.107.15" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="123"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1900"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+<port protocol="udp" portid="5540"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="sdxauthd" method="table" conf="3"/></port>
+<port protocol="udp" portid="6666"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="ircu" method="table" conf="3"/></port>
+<port protocol="udp" portid="6667"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="ircu" method="table" conf="3"/></port>
+<port protocol="udp" portid="9999"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="distinct" method="table" conf="3"/></port>
+<port protocol="udp" portid="20002"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="commtact-http" method="table" conf="3"/></port>
+</ports>
+<times srtt="94169" rttvar="49338" to="291521"/>
+</host>
+<host starttime="1791693093" endtime="1791693095"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.107.17" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="123"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1900"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open" reason="udp-response" reason_ttl="62"/><service name="zeroconf" method="table" conf="3"/></port>
+<port protocol="udp" portid="5540"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="sdxauthd" method="table" conf="3"/></port>
+<port protocol="udp" portid="6666"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="ircu" method="table" conf="3"/></port>
+<port protocol="udp" portid="6667"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="ircu" method="table" conf="3"/></port>
+<port protocol="udp" portid="9999"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="distinct" method="table" conf="3"/></port>
+<port protocol="udp" portid="20002"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="commtact-http" method="table" conf="3"/></port>
+</ports>
+<times srtt="7966" rttvar="5069" to="100000"/>
+</host>
+<host starttime="1791693093" endtime="1791693095"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.107.20" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="123"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1900"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open" reason="udp-response" reason_ttl="62"/><service name="zeroconf" method="table" conf="3"/></port>
+<port protocol="udp" portid="5540"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="sdxauthd" method="table" conf="3"/></port>
+<port protocol="udp" portid="6666"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="ircu" method="table" conf="3"/></port>
+<port protocol="udp" portid="6667"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="ircu" method="table" conf="3"/></port>
+<port protocol="udp" portid="9999"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="distinct" method="table" conf="3"/></port>
+<port protocol="udp" portid="20002"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="commtact-http" method="table" conf="3"/></port>
+</ports>
+<times srtt="10059" rttvar="5888" to="100000"/>
+</host>
+<host starttime="1791693093" endtime="1791693095"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.107.23" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="123"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1900"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open" reason="udp-response" reason_ttl="62"/><service name="zeroconf" method="table" conf="3"/></port>
+<port protocol="udp" portid="5540"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="sdxauthd" method="table" conf="3"/></port>
+<port protocol="udp" portid="6666"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="ircu" method="table" conf="3"/></port>
+<port protocol="udp" portid="6667"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="ircu" method="table" conf="3"/></port>
+<port protocol="udp" portid="9999"><state state="closed" reason="port-unreach" reason_ttl="252"/><service name="distinct" method="table" conf="3"/></port>
+<port protocol="udp" portid="20002"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="commtact-http" method="table" conf="3"/></port>
+</ports>
+<times srtt="9707" rttvar="4326" to="100000"/>
+</host>
+<host starttime="1791693093" endtime="1791693095"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.107.26" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="123"><state state="closed" reason="port-unreach" reason_ttl="61"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1900"><state state="open" reason="udp-response" reason_ttl="62"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+<port protocol="udp" portid="5540"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="sdxauthd" method="table" conf="3"/></port>
+<port protocol="udp" portid="6666"><state state="closed" reason="port-unreach" reason_ttl="61"/><service name="ircu" method="table" conf="3"/></port>
+<port protocol="udp" portid="6667"><state state="closed" reason="port-unreach" reason_ttl="61"/><service name="ircu" method="table" conf="3"/></port>
+<port protocol="udp" portid="9999"><state state="closed" reason="port-unreach" reason_ttl="61"/><service name="distinct" method="table" conf="3"/></port>
+<port protocol="udp" portid="20002"><state state="closed" reason="port-unreach" reason_ttl="61"/><service name="commtact-http" method="table" conf="3"/></port>
+</ports>
+<times srtt="47008" rttvar="92185" to="415748"/>
+</host>
+<runstats><finished time="1791693095" timestr="Sun Oct 11 04:31:35 2026" summary="Nmap done at Sun Oct 11 04:31:35 2026; 5 IP addresses (5 hosts up) scanned in 1.61 seconds" elapsed="1.61" exit="success"/><hosts up="5" down="0" total="5"/>
+</runstats>
+</nmaprun>

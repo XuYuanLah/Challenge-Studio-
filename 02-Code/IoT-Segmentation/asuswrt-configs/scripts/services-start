@@ -1,0 +1,8 @@
+#!/bin/sh 
+
+nvram set wl1_auth_mode_x=sae
+nvram set wl0_auth_mode_x=sae
+service restart_wireless
+sh -c "while true; do /jffs/scripts/channel_check.sh; sleep 60; done" &
+# VLAN NTP servers follow the firmware ntpd; this also adds their cron job (re-added by later hooks too)
+/jffs/scripts/ntpd_vlan.sh check

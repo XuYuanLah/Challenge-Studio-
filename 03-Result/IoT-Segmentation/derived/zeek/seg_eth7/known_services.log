@@ -1,0 +1,4 @@
+{"ts":1791552520.522255,"host":"192.168.0.8","port_num":53,"port_proto":"udp","service":["DNS"]}
+{"ts":1791552573.814505,"host":"fd00:d:e:f:183e:4f13:4044:5684","port_num":51226,"port_proto":"udp","service":[""]}
+{"ts":1791553187.360787,"host":"fd00:d:e:6b:eeb5:faff:febc:5210","port_num":5540,"port_proto":"udp","service":[""]}
+{"ts":1791634389.58469,"host":"192.168.107.1","port_num":67,"port_proto":"udp","service":["DHCP"]}

@@ -1,0 +1,12 @@
+# Nmap 7.95 scan initiated Sun Oct 11 04:31:33 2026 as: nmap -sU -Pn -p 123,1900,5353,5540,6666,6667,9999,20002 -oA derived/active/nmap_main_to_iot_udp 192.168.107.15 192.168.107.17 192.168.107.20 192.168.107.23 192.168.107.26
+Host: 192.168.107.15 ()	Status: Up
+Host: 192.168.107.15 ()	Ports: 123/closed/udp//ntp///, 1900/closed/udp//upnp///, 5353/open|filtered/udp//zeroconf///, 5540/open|filtered/udp//sdxauthd///, 6666/closed/udp//ircu///, 6667/closed/udp//ircu///, 9999/closed/udp//distinct///, 20002/closed/udp//commtact-http///
+Host: 192.168.107.17 ()	Status: Up
+Host: 192.168.107.17 ()	Ports: 123/closed/udp//ntp///, 1900/closed/udp//upnp///, 5353/open/udp//zeroconf///, 5540/open|filtered/udp//sdxauthd///, 6666/closed/udp//ircu///, 6667/closed/udp//ircu///, 9999/closed/udp//distinct///, 20002/closed/udp//commtact-http///
+Host: 192.168.107.20 ()	Status: Up
+Host: 192.168.107.20 ()	Ports: 123/closed/udp//ntp///, 1900/closed/udp//upnp///, 5353/open/udp//zeroconf///, 5540/open|filtered/udp//sdxauthd///, 6666/closed/udp//ircu///, 6667/closed/udp//ircu///, 9999/closed/udp//distinct///, 20002/closed/udp//commtact-http///
+Host: 192.168.107.23 ()	Status: Up
+Host: 192.168.107.23 ()	Ports: 123/closed/udp//ntp///, 1900/closed/udp//upnp///, 5353/open/udp//zeroconf///, 5540/open|filtered/udp//sdxauthd///, 6666/closed/udp//ircu///, 6667/closed/udp//ircu///, 9999/closed/udp//distinct///, 20002/open|filtered/udp//commtact-http///
+Host: 192.168.107.26 ()	Status: Up
+Host: 192.168.107.26 ()	Ports: 123/closed/udp//ntp///, 1900/open/udp//upnp///, 5353/open|filtered/udp//zeroconf///, 5540/open|filtered/udp//sdxauthd///, 6666/closed/udp//ircu///, 6667/closed/udp//ircu///, 9999/closed/udp//distinct///, 20002/closed/udp//commtact-http///
+# Nmap done at Sun Oct 11 04:31:35 2026 -- 5 IP addresses (5 hosts up) scanned in 1.61 seconds

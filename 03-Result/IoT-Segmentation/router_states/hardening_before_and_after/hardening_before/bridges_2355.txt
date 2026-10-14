@@ -1,0 +1,40 @@
+bridge name	bridge id		STP enabled	interfaces
+br0		000a.cc28aa2b3960	yes		eth0
+							eth2
+							eth3
+							eth4
+							eth5
+							eth6
+							eth8
+							eth9
+							wl0.0
+							wl0.1
+							wl0.4
+							wl1.0
+							wl1.1
+							wl1.2
+br52		8000.9228aa2b3962	no		eth0.107
+							eth2.107
+							eth3.107
+							eth4.107
+							eth5.107
+							eth6.107
+							eth7
+							eth8.107
+							eth9.107
+							wl0.107
+							wl0.2
+							wl1.107
+br56		000a.cc28aa2b3960	yes		eth0.114
+							eth2.114
+							eth3.114
+							eth4.114
+							eth5.114
+							eth6.114
+							eth8.114
+							eth9.114
+							wl0.114
+							wl1.114
+br0 stp_state=1
+br52 stp_state=0
+br56 stp_state=1

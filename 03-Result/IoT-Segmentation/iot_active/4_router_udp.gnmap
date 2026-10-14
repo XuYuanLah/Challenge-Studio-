@@ -1,0 +1,6 @@
+# Nmap 7.991 scan initiated Sun Oct 11 22:10:07 2026 as: nmap -e en0 -n -Pn -sU -p 53,67,123,161,1900,5351,5353 --max-retries 1 --reason -oA 4_router_udp 192.168.107.1 192.168.0.1
+Host: 192.168.107.1 ()	Status: Up
+Host: 192.168.107.1 ()	Ports: 53/open/udp//domain///, 67/open/udp//dhcps///, 123/open/udp//ntp///, 161/closed/udp//snmp///, 1900/closed/udp//upnp///, 5351/closed/udp//nat-pmp///, 5353/open/udp//zeroconf///
+Host: 192.168.0.1 ()	Status: Up
+Host: 192.168.0.1 ()	Ports: 53/open|filtered/udp//domain///, 67/open|filtered/udp//dhcps///, 123/open/udp//ntp///, 161/open|filtered/udp//snmp///, 1900/open|filtered/udp//upnp///, 5351/open|filtered/udp//nat-pmp///, 5353/open|filtered/udp//zeroconf///
+# Nmap done at Sun Oct 11 22:10:08 2026 -- 2 IP addresses (2 hosts up) scanned in 1.38 seconds

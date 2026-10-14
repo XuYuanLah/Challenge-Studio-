@@ -1,0 +1,32 @@
+device,proto,remote,remote_class,remote_name,port,initiator_side,first,last,pkts_out,pkts_in,bytes_out,bytes_in,syn,sessions
+SwitchBot Hub 2,tcp,54.243.178.66,external,a2alhn2dfztqv9.iot.us-east-1.amazonaws.com,8883,in,1791697429.614251,1791698551.607906,0,45,0,5888,0,1
+SwitchBot Hub 2,tcp,54.243.178.66,external,a2alhn2dfztqv9.iot.us-east-1.amazonaws.com,8883,out,1791697429.425637,1791698551.937162,66,0,5096,0,1,1
+SwitchBot Hub 2,udp,192.168.0.22,mainlan,HomePod,58688,out,1791697624.474959,1791698409.453876,18,0,2269,0,0,4
+SwitchBot Hub 2,udp,192.168.0.22,mainlan,HomePod,5540,in,1791697624.346114,1791698224.746237,0,18,0,2196,0,3
+SwitchBot Hub 2,udp,255.2.0.0,other-nonpublic,,5353,out,1791697632.200029,1791697873.101855,5,0,1975,0,0,2
+SwitchBot Hub 2,udp,192.168.0.8,mainlan,Pi-hole (RPi),53,out,1791698420.720109,1791698429.424207,5,0,440,0,0,1
+SwitchBot Hub 2,udp,224.0.0.251,multicast/broadcast,,5353,out,1791697624.299619,1791697624.299619,1,0,200,0,0,1
+SwitchBot Hub 2,udp,192.168.0.8,mainlan,Pi-hole (RPi),53,in,1791698429.424963,1791698429.424963,0,1,0,104,0,1
+Tapo smart plug,tcp,18.67.93.58,external,ota-download.tplinkcloud.com,443,in,1791697468.318535,1791697501.97428,0,1127,0,1647950,0,1
+Tapo smart plug,tcp,54.206.12.92,external,aau1-device-cloudgateway.iot.i.tplinknbu.com,443,out,1791697432.001374,1791698564.873198,265,0,53250,0,1,3
+Tapo smart plug,tcp,18.67.93.58,external,ota-download.tplinkcloud.com,443,out,1791697468.296854,1791697501.986979,1145,0,46614,0,1,1
+Tapo smart plug,tcp,54.206.12.92,external,aau1-device-cloudgateway.iot.i.tplinknbu.com,443,in,1791697431.895729,1791698318.659504,0,245,0,45912,0,2
+Tapo smart plug,udp,192.168.0.22,mainlan,HomePod,58688,out,1791698117.076028,1791698377.30904,84,0,17021,0,0,1
+Tapo smart plug,udp,224.0.0.251,multicast/broadcast,,5353,out,1791697433.792008,1791698583.342305,23,0,11595,0,0,3
+Tapo smart plug,udp,ff02::fb,multicast/broadcast,,5353,out,1791698116.571806,1791698117.386,18,0,10420,0,0,1
+Tapo smart plug,tcp,13.251.69.179,external,security.iot.i.tplinknbu.com,443,in,1791697516.739463,1791697518.233715,0,10,0,4926,0,1
+Tapo smart plug,udp,192.168.0.22,mainlan,HomePod,5540,in,1791698116.883808,1791698364.594014,0,48,0,3873,0,1
+Tapo smart plug,tcp,13.251.69.179,external,security.iot.i.tplinknbu.com,443,out,1791697516.548132,1791697518.242217,11,0,1702,0,1,1
+Tapo smart plug,udp,255.255.255.255,multicast/broadcast,,67,out,1791697515.519509,1791697515.529998,2,0,672,0,0,1
+Tapo smart plug,udp,192.168.107.1,iot,,67,in,1791697515.520171,1791697515.530601,0,2,0,656,0,1
+Tapo smart plug,udp,192.168.0.8,mainlan,Pi-hole (RPi),53,in,1791697468.281144,1791697518.074077,0,4,0,653,0,1
+Tapo smart plug,icmpv6,ff02::1:ff10:3a0,multicast/broadcast,,0,out,1791697516.139078,1791698119.151337,8,0,552,0,0,2
+Tapo smart plug,icmpv6,fe80::9028:aaff:fe2b:3962,link-local,,0,in,1791697517.143514,1791698128.192556,0,6,0,536,0,2
+Tapo smart plug,icmpv6,ff02::2,multicast/broadcast,,0,out,1791697517.14081,1791698119.254785,5,0,328,0,0,2
+Tapo smart plug,udp,192.168.0.8,mainlan,Pi-hole (RPi),53,out,1791697468.236342,1791697518.073459,4,0,296,0,0,1
+Tapo smart plug,icmpv6,fe80::9028:aaff:fe2b:3962,link-local,,0,out,1791697522.259939,1791698128.192474,3,0,216,0,0,2
+Tapo smart plug,icmpv6,ff02::fb,multicast/broadcast,,0,out,1791698116.561426,1791698119.35504,3,0,216,0,0,1
+Tapo smart plug,udp,203.29.241.127,external,pool.ntp.org,123,out,1791697516.531307,1791697516.531307,1,0,76,0,0,1
+Tapo smart plug,udp,203.29.241.127,external,pool.ntp.org,123,in,1791697516.567285,1791697516.567285,0,1,0,76,0,1
+Tapo smart plug,icmpv6,ff02::1:ff2b:3962,multicast/broadcast,,0,out,1791697517.146776,1791697517.146776,1,0,72,0,0,1
+Tapo smart plug,2,224.0.0.251,multicast/broadcast,,0,out,1791697515.738166,1791697516.145149,2,0,64,0,0,1

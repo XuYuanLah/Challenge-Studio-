@@ -1,0 +1,21 @@
+#!/bin/sh
+
+CONFIG=$1
+source /usr/sbin/helper.sh
+
+# mDNS reflector between main LAN and IoT VLAN for HomeKit/Matter discovery
+. /jffs/scripts/vlan_config.env
+. /jffs/scripts/vlan_info.sh $IOT_VLAN_ID
+
+# Only main LAN and IoT VLAN, keeps roommate VLAN out of mDNS entirely
+pc_insert "[Server]" "allow-interfaces=br0,$VLAN_BR" $CONFIG
+# Matter needs AAAA records reflected, IoT VLAN has its ULA
+pc_replace "use-ipv6=no" "use-ipv6=yes" $CONFIG
+
+pc_append "" $CONFIG
+pc_append "[reflector]" $CONFIG
+pc_append "enable-reflector=yes" $CONFIG
+pc_append "reflect-ipv=no" $CONFIG
+# Only reflect what HomeKit, Matter and the Hue app need. PTR/SRV/TXT are filtered by
+# substring match, A/AAAA always pass so SRV targets still resolve
+pc_append "reflect-filters=_hap._tcp,_hap._udp,_matter._tcp,_matterc._udp,_matterd._udp,_hue._tcp" $CONFIG

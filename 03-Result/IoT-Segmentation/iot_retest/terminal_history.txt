@@ -1,0 +1,95 @@
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-11 23:56 +1100
+Nmap scan report for 192.168.107.1
+Host is up, received arp-response (0.015s latency).
+
+PORT      STATE    SERVICE   REASON
+22/tcp    filtered ssh       no-response
+53/tcp    open     domain    syn-ack ttl 63
+80/tcp    filtered http      no-response
+81/tcp    filtered hosts2-ns no-response
+443/tcp   filtered https     no-response
+444/tcp   filtered snpp      no-response
+8200/tcp  filtered trivnet1  no-response
+8443/tcp  filtered https-alt no-response
+60000/tcp filtered unknown   no-response
+MAC Address: 92:28:AA:2B:39:62 (Unknown)
+
+Nmap scan report for 192.168.0.1
+Host is up, received user-set (0.064s latency).
+
+PORT      STATE    SERVICE   REASON
+22/tcp    filtered ssh       no-response
+53/tcp    open     domain    syn-ack ttl 63
+80/tcp    filtered http      no-response
+81/tcp    filtered hosts2-ns no-response
+443/tcp   filtered https     no-response
+444/tcp   filtered snpp      no-response
+8200/tcp  filtered trivnet1  no-response
+8443/tcp  filtered https-alt no-response
+60000/tcp filtered unknown   no-response
+
+Nmap scan report for 192.168.114.1
+Host is up, received user-set (0.064s latency).
+
+PORT      STATE    SERVICE   REASON
+22/tcp    filtered ssh       no-response
+53/tcp    open     domain    syn-ack ttl 63
+80/tcp    filtered http      no-response
+81/tcp    filtered hosts2-ns no-response
+443/tcp   filtered https     no-response
+444/tcp   filtered snpp      no-response
+8200/tcp  filtered trivnet1  no-response
+8443/tcp  filtered https-alt no-response
+60000/tcp filtered unknown   no-response
+
+Nmap done: 3 IP addresses (3 hosts up) scanned in 3.53 seconds
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-11 23:56 +1100
+Nmap scan report for 192.168.107.1
+Host is up, received arp-response (0.031s latency).
+Not shown: 65534 filtered tcp ports (no-response)
+PORT   STATE SERVICE REASON
+53/tcp open  domain  syn-ack ttl 63
+MAC Address: 92:28:AA:2B:39:62 (Unknown)
+
+Nmap done: 1 IP address (1 host up) scanned in 359.41 seconds
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-12 00:02 +1100
+Nmap scan report for 192.168.107.1
+Host is up, received arp-response (0.14s latency).
+
+PORT     STATE         SERVICE  REASON
+53/udp   open          domain   udp-response ttl 63
+67/udp   open          dhcps    udp-response ttl 64
+123/udp  open          ntp      udp-response ttl 64
+1900/udp open|filtered upnp     no-response
+5351/udp open|filtered nat-pmp  no-response
+5353/udp open          zeroconf udp-response ttl 255
+MAC Address: 92:28:AA:2B:39:62 (Unknown)
+
+Nmap done: 1 IP address (1 host up) scanned in 5.12 seconds
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-12 00:02 +1100
+Nmap scan report for fd00:d:e:6b::1
+Host is up, received nd-response (0.014s latency).
+
+PORT     STATE    SERVICE  REASON
+22/tcp   filtered ssh      no-response
+53/tcp   filtered domain   no-response
+80/tcp   filtered http     no-response
+8200/tcp filtered trivnet1 no-response
+MAC Address: 92:28:AA:2B:39:62 (Unknown)
+
+Nmap done: 1 IP address (1 host up) scanned in 1.28 seconds
+0.0.0.0
+0.0.0.0
+::
+172.66.147.243
+104.20.23.154
+nc: connectx to 1.1.1.1 port 853 (tcp) failed: Operation timed out
+nc: connectx to 192.168.0.1 port 22 (tcp) failed: Operation timed out
++0.001001 +/- 0.003343 192.168.107.1 192.168.107.1
+PING 192.168.107.1 (192.168.107.1): 56 data bytes
+64 bytes from 192.168.107.1: icmp_seq=0 ttl=64 time=7.919 ms
+64 bytes from 192.168.107.1: icmp_seq=1 ttl=64 time=5.053 ms
+
+--- 192.168.107.1 ping statistics ---
+2 packets transmitted, 2 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 5.053/6.486/7.919/1.433 ms

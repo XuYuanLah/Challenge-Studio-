@@ -1,0 +1,21 @@
+# Nmap 7.991 scan initiated Sun Oct 11 21:59:11 2026 as: nmap -e en0 -n -Pn -sS -p- --min-rate 2000 --max-retries 1 -sV --version-light --reason -oA 4_router_tcp 192.168.107.1 192.168.0.1
+Warning: 192.168.107.1 giving up on port because retransmission cap hit (1).
+Nmap scan report for 192.168.107.1
+Host is up, received arp-response (0.072s latency).
+Not shown: 35905 closed tcp ports (reset), 29625 filtered tcp ports (no-response)
+PORT      STATE SERVICE    REASON         VERSION
+22/tcp    open  tcpwrapped syn-ack ttl 64
+53/tcp    open  tcpwrapped syn-ack ttl 64
+81/tcp    open  tcpwrapped syn-ack ttl 64
+8200/tcp  open  tcpwrapped syn-ack ttl 64
+60000/tcp open  tcpwrapped syn-ack ttl 64
+MAC Address: 92:28:AA:2B:39:62 (Unknown)
+
+Nmap scan report for 192.168.0.1
+Host is up, received user-set (0.012s latency).
+Not shown: 65534 filtered tcp ports (no-response)
+PORT   STATE SERVICE    REASON         VERSION
+22/tcp open  tcpwrapped syn-ack ttl 64
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Oct 11 22:09:54 2026 -- 2 IP addresses (2 hosts up) scanned in 643.21 seconds

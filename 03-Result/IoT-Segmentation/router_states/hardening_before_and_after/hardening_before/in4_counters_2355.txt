@@ -1,0 +1,24 @@
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1      380  106K IOT_INPUT  all  --  br52   *       0.0.0.0/0            0.0.0.0/0           
+2        0     0 DROP       tcp  --  br52   *       0.0.0.0/0            0.0.0.0/0            tcp dpt:22
+3        0     0 DROP       tcp  --  br56   *       0.0.0.0/0            0.0.0.0/0            tcp dpt:22
+4        0     0 ACCEPT     udp  --  br52   *       0.0.0.0/0            0.0.0.0/0            udp dpt:123
+5        0     0 ACCEPT     udp  --  br56   *       0.0.0.0/0            0.0.0.0/0            udp dpt:123
+6        0     0 URLFI      udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:53
+7      748  209K ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+8       28  2211 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            state INVALID
+9     1103  234K PTCSRVWAN  all  --  !br0   *       0.0.0.0/0            0.0.0.0/0           
+10     433  123K PTCSRVLAN  all  --  br0    *       0.0.0.0/0            0.0.0.0/0           
+11       0     0 DROP       tcp  --  !lo    *       0.0.0.0/0            0.0.0.0/0            tcp dpt:5152
+12     433  123K ACCEPT     all  --  br0    *       0.0.0.0/0            0.0.0.0/0            state NEW
+13     820  199K ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0            state NEW
+14       0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp spt:67 dpt:68
+15       0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:22
+16       0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+17     283 34380 WGSI       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+18     283 34380 WGCI       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+19     283 34380 OVPNSI     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+20     283 34380 OVPNCI     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+21     283 34380 SDN_FI     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+22     218 24364 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           

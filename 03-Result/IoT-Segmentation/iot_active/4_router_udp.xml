@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///opt/local/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.991 scan initiated Sun Oct 11 22:10:07 2026 as: nmap -e en0 -n -Pn -sU -p 53,67,123,161,1900,5351,5353 -&#45;max-retries 1 -&#45;reason -oA 4_router_udp 192.168.107.1 192.168.0.1 -->
+<nmaprun scanner="nmap" args="nmap -e en0 -n -Pn -sU -p 53,67,123,161,1900,5351,5353 -&#45;max-retries 1 -&#45;reason -oA 4_router_udp 192.168.107.1 192.168.0.1" start="1791717007" startstr="Sun Oct 11 22:10:07 2026" version="7.991" xmloutputversion="1.05">
+<scaninfo type="udp" protocol="udp" numservices="7" services="53,67,123,161,1900,5351,5353"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.107.1" addrtype="ipv4"/>
+<address addr="92:28:AA:2B:39:62" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1791717007" endtime="1791717007"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.107.1" addrtype="ipv4"/>
+<address addr="92:28:AA:2B:39:62" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="53"><state state="open" reason="udp-response" reason_ttl="64"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="udp" portid="67"><state state="open" reason="udp-response" reason_ttl="64"/><service name="dhcps" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="open" reason="udp-response" reason_ttl="64"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="161"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1900"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5351"><state state="closed" reason="port-unreach" reason_ttl="64"/><service name="nat-pmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open" reason="udp-response" reason_ttl="255"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+<times srtt="31216" rttvar="20657" to="113844"/>
+</host>
+<host starttime="1791717007" endtime="1791717008"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.0.1" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="53"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="udp" portid="67"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="dhcps" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="open" reason="udp-response" reason_ttl="64"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="161"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="snmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5351"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="nat-pmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+<times srtt="18375" rttvar="18375" to="100000"/>
+</host>
+<runstats><finished time="1791717008" timestr="Sun Oct 11 22:10:08 2026" summary="Nmap done at Sun Oct 11 22:10:08 2026; 2 IP addresses (2 hosts up) scanned in 1.38 seconds" elapsed="1.38" exit="success"/><hosts up="2" down="0" total="2"/>
+</runstats>
+</nmaprun>

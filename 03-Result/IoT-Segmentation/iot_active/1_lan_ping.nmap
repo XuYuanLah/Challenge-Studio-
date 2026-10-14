@@ -1,0 +1,24 @@
+# Nmap 7.991 scan initiated Sun Oct 11 21:57:16 2026 as: nmap -e en0 -n -sn -PE --reason -oA 1_lan_ping 192.168.0.0/24
+Nmap scan report for 192.168.0.1
+Host is up, received echo-reply ttl 64 (0.0055s latency).
+Nmap scan report for 192.168.0.2
+Host is up, received echo-reply ttl 63 (0.018s latency).
+Nmap scan report for 192.168.0.8
+Host is up, received echo-reply ttl 63 (0.018s latency).
+Nmap scan report for 192.168.0.9
+Host is up, received echo-reply ttl 63 (0.018s latency).
+Nmap scan report for 192.168.0.10
+Host is up, received echo-reply ttl 63 (0.018s latency).
+Nmap scan report for 192.168.0.13
+Host is up, received echo-reply ttl 63 (0.0060s latency).
+Nmap scan report for 192.168.0.14
+Host is up, received echo-reply ttl 127 (0.0059s latency).
+Nmap scan report for 192.168.0.15
+Host is up, received echo-reply ttl 63 (0.048s latency).
+Nmap scan report for 192.168.0.20
+Host is up, received echo-reply ttl 63 (0.015s latency).
+Nmap scan report for 192.168.0.22
+Host is up, received echo-reply ttl 63 (0.018s latency).
+Nmap scan report for 192.168.0.225
+Host is up, received echo-reply ttl 63 (0.13s latency).
+# Nmap done at Sun Oct 11 21:57:18 2026 -- 256 IP addresses (11 hosts up) scanned in 2.13 seconds

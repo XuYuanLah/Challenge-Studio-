@@ -1,0 +1,14 @@
+# Nmap 7.991 scan initiated Mon Oct 12 00:02:16 2026 as: nmap -e en0 -n -Pn -sU -p 53,67,123,1900,5351,5353 --reason -oA r3_router_udp 192.168.107.1
+Nmap scan report for 192.168.107.1
+Host is up, received arp-response (0.14s latency).
+
+PORT     STATE         SERVICE  REASON
+53/udp   open          domain   udp-response ttl 63
+67/udp   open          dhcps    udp-response ttl 64
+123/udp  open          ntp      udp-response ttl 64
+1900/udp open|filtered upnp     no-response
+5351/udp open|filtered nat-pmp  no-response
+5353/udp open          zeroconf udp-response ttl 255
+MAC Address: 92:28:AA:2B:39:62 (Unknown)
+
+# Nmap done at Mon Oct 12 00:02:21 2026 -- 1 IP address (1 host up) scanned in 5.12 seconds

@@ -1,0 +1,24 @@
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1     2430  896K ACCEPT     udp      br52   *       ::/0                 ::/0                 udp dpt:5353
+2        0     0 ACCEPT     udp      br56   *       ::/0                 ::/0                 udp dpt:547
+3        0     0 ACCEPT     udp      br52   *       ::/0                 ::/0                 udp dpt:123
+4        0     0 ACCEPT     udp      br56   *       ::/0                 ::/0                 udp dpt:123
+5        0     0 URLFI      udp      *      *       ::/0                 ::/0                 udp dpt:53
+6     1200  140K ACCEPT     all      *      *       ::/0                 ::/0                 state RELATED,ESTABLISHED
+7     3046 1045K ACCEPT     all      br0    *       ::/0                 ::/0                 state NEW
+8        0     0 ACCEPT     all      lo     *       ::/0                 ::/0                 state NEW
+9      401 25720 DROP       all      *      *       ::/0                 ::/0                 state INVALID
+10       0     0 ACCEPT     tcp      *      *       ::/0                 ::/0                 tcp dpt:22
+11    5574  616K WGSI       all      *      *       ::/0                 ::/0                
+12    5574  616K WGCI       all      *      *       ::/0                 ::/0                
+13    5574  616K OVPNSI     all      *      *       ::/0                 ::/0                
+14    5574  616K OVPNCI     all      *      *       ::/0                 ::/0                
+15    5574  616K SDN_FI     all      *      *       ::/0                 ::/0                
+16       0     0 ACCEPT     59       *      *       ::/0                 ::/0                 length 40
+17    1820  217K ACCEPT     all      br0    *       ::/0                 ::/0                
+18       0     0 ACCEPT     all      lo     *       ::/0                 ::/0                
+19       0     0 ACCEPT     udp      *      *       ::/0                 ::/0                 udp spt:547 dpt:546
+20    3128  338K ICMP_V6_LOCAL  icmpv6    *      *       ::/0                 ::/0                
+21     769 75044 ICMP_V6    icmpv6    *      *       ::/0                 ::/0                
+22     626 61364 DROP       all      *      *       ::/0                 ::/0                

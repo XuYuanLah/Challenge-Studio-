@@ -1,0 +1,1518 @@
+  i0nTempests-MacBook-Pro-2  Admin  
+ ~  Downloads  mkdir -p ~/iot_active && cd ~/iot_active
+date -u +%FT%T%z > iot2lan.started
+{ ifconfig en0; netstat -rn -f inet; netstat -rn -f inet6; scutil --dns | head -30; } > context.txt
+  i0nTempests-MacBook-Pro-2  Admin  
+ ~  iot_active  sudo nmap -e en0 -n -sn -PE --reason 192.168.0.0/24 -oA 1_lan_ping
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-11 21:57 +1100
+Nmap scan report for 192.168.0.1
+Host is up, received echo-reply ttl 64 (0.0055s latency).
+Nmap scan report for 192.168.0.2
+Host is up, received echo-reply ttl 63 (0.018s latency).
+Nmap scan report for 192.168.0.8
+Host is up, received echo-reply ttl 63 (0.018s latency).
+Nmap scan report for 192.168.0.9
+Host is up, received echo-reply ttl 63 (0.018s latency).
+Nmap scan report for 192.168.0.10
+Host is up, received echo-reply ttl 63 (0.018s latency).
+Nmap scan report for 192.168.0.13
+Host is up, received echo-reply ttl 63 (0.0060s latency).
+Nmap scan report for 192.168.0.14
+Host is up, received echo-reply ttl 127 (0.0059s latency).
+Nmap scan report for 192.168.0.15
+Host is up, received echo-reply ttl 63 (0.048s latency).
+Nmap scan report for 192.168.0.20
+Host is up, received echo-reply ttl 63 (0.015s latency).
+Nmap scan report for 192.168.0.22
+Host is up, received echo-reply ttl 63 (0.018s latency).
+Nmap scan report for 192.168.0.225
+Host is up, received echo-reply ttl 63 (0.13s latency).
+Nmap done: 256 IP addresses (11 hosts up) scanned in 2.13 seconds
+  i0nTempests-MacBook-Pro-2  Admin  
+ ~  iot_active  sudo nmap -e en0 -n -Pn -sS -T4 --top-ports 100 --max-retries 1 --min-rate 1000 \
+  --reason 192.168.0.0/24 -oA 2_lan_tcp
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-11 21:57 +1100
+Nmap scan report for 192.168.0.0
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.0 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.1
+Host is up, received user-set (0.011s latency).
+Not shown: 99 filtered tcp ports (no-response)
+PORT   STATE SERVICE REASON
+22/tcp open  ssh     syn-ack ttl 64
+
+Nmap scan report for 192.168.0.2
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.2 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.3
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.3 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.4
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.4 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.5
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.5 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.6
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.6 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.7
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.7 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.8
+Host is up, received user-set (0.014s latency).
+Not shown: 99 filtered tcp ports (no-response)
+PORT   STATE SERVICE REASON
+53/tcp open  domain  syn-ack ttl 63
+
+Nmap scan report for 192.168.0.9
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.9 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.10
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.10 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.11
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.11 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.12
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.12 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.13
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.13 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.14
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.14 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.15
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.15 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.16
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.16 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.17
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.17 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.18
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.18 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.19
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.19 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.20
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.20 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.21
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.21 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.22
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.22 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.23
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.23 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.24
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.24 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.25
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.25 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.26
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.26 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.27
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.27 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.28
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.28 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.29
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.29 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.30
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.30 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.31
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.31 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.32
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.32 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.33
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.33 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.34
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.34 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.35
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.35 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.36
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.36 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.37
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.37 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.38
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.38 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.39
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.39 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.40
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.40 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.41
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.41 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.42
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.42 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.43
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.43 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.44
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.44 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.45
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.45 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.46
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.46 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.47
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.47 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.48
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.48 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.49
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.49 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.50
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.50 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.51
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.51 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.52
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.52 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.53
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.53 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.54
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.54 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.55
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.55 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.56
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.56 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.57
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.57 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.58
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.58 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.59
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.59 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.60
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.60 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.61
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.61 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.62
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.62 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.63
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.63 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.64
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.64 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.65
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.65 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.66
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.66 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.67
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.67 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.68
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.68 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.69
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.69 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.70
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.70 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.71
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.71 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.72
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.72 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.73
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.73 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.74
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.74 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.75
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.75 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.76
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.76 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.77
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.77 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.78
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.78 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.79
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.79 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.80
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.80 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.81
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.81 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.82
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.82 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.83
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.83 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.84
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.84 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.85
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.85 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.86
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.86 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.87
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.87 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.88
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.88 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.89
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.89 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.90
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.90 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.91
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.91 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.92
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.92 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.93
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.93 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.94
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.94 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.95
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.95 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.96
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.96 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.97
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.97 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.98
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.98 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.99
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.99 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.100
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.100 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.101
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.101 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.102
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.102 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.103
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.103 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.104
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.104 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.105
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.105 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.106
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.106 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.107
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.107 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.108
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.108 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.109
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.109 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.110
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.110 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.111
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.111 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.112
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.112 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.113
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.113 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.114
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.114 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.115
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.115 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.116
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.116 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.117
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.117 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.118
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.118 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.119
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.119 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.120
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.120 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.121
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.121 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.122
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.122 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.123
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.123 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.124
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.124 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.125
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.125 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.126
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.126 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.127
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.127 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.128
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.128 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.129
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.129 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.130
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.130 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.131
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.131 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.132
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.132 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.133
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.133 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.134
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.134 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.135
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.135 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.136
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.136 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.137
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.137 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.138
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.138 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.139
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.139 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.140
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.140 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.141
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.141 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.142
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.142 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.143
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.143 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.144
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.144 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.145
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.145 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.146
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.146 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.147
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.147 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.148
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.148 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.149
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.149 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.150
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.150 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.151
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.151 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.152
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.152 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.153
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.153 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.154
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.154 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.155
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.155 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.156
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.156 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.157
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.157 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.158
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.158 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.159
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.159 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.160
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.160 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.161
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.161 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.162
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.162 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.163
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.163 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.164
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.164 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.165
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.165 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.166
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.166 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.167
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.167 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.168
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.168 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.169
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.169 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.170
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.170 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.171
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.171 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.172
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.172 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.173
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.173 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.174
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.174 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.175
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.175 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.176
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.176 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.177
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.177 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.178
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.178 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.179
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.179 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.180
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.180 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.181
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.181 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.182
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.182 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.183
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.183 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.184
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.184 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.185
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.185 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.186
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.186 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.187
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.187 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.188
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.188 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.189
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.189 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.190
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.190 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.191
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.191 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.192
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.192 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.193
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.193 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.194
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.194 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.195
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.195 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.196
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.196 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.197
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.197 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.198
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.198 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.199
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.199 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.200
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.200 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.201
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.201 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.202
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.202 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.203
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.203 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.204
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.204 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.205
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.205 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.206
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.206 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.207
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.207 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.208
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.208 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.209
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.209 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.210
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.210 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.211
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.211 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.212
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.212 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.213
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.213 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.214
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.214 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.215
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.215 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.216
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.216 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.217
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.217 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.218
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.218 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.219
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.219 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.220
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.220 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.221
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.221 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.222
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.222 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.223
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.223 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.224
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.224 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.225
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.225 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.226
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.226 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.227
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.227 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.228
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.228 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.229
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.229 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.230
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.230 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.231
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.231 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.232
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.232 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.233
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.233 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.234
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.234 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.235
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.235 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.236
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.236 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.237
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.237 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.238
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.238 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.239
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.239 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.240
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.240 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.241
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.241 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.242
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.242 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.243
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.243 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.244
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.244 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.245
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.245 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.246
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.246 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.247
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.247 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.248
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.248 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.249
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.249 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.250
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.250 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.251
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.251 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.252
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.252 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.253
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.253 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.254
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.254 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for 192.168.0.255
+Host is up, received user-set.
+All 100 scanned ports on 192.168.0.255 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap done: 256 IP addresses (256 hosts up) scanned in 55.60 seconds
+  i0nTempests-MacBook-Pro-2  Admin  
+ ~  iot_active  sudo nmap -e en0 -n -Pn -sU -p 53,123,137,161,1900,5353,5540 --max-retries 1 \
+  --reason 192.168.0.1,2,8,13,22 -oA 3_lan_udp
+dig +short @192.168.0.8 example.com          # allowed path
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-11 21:58 +1100
+Nmap scan report for 192.168.0.1
+Host is up, received user-set (0.015s latency).
+
+PORT     STATE         SERVICE    REASON
+53/udp   open|filtered domain     no-response
+123/udp  open          ntp        udp-response ttl 64
+137/udp  open|filtered netbios-ns no-response
+161/udp  open|filtered snmp       no-response
+1900/udp open|filtered upnp       no-response
+5353/udp open|filtered zeroconf   no-response
+5540/udp open|filtered sdxauthd   no-response
+
+Nmap scan report for 192.168.0.2
+Host is up, received user-set.
+
+PORT     STATE         SERVICE    REASON
+53/udp   open|filtered domain     no-response
+123/udp  open|filtered ntp        no-response
+137/udp  open|filtered netbios-ns no-response
+161/udp  open|filtered snmp       no-response
+1900/udp open|filtered upnp       no-response
+5353/udp open|filtered zeroconf   no-response
+5540/udp open|filtered sdxauthd   no-response
+
+Nmap scan report for 192.168.0.8
+Host is up, received user-set (0.036s latency).
+
+PORT     STATE         SERVICE    REASON
+53/udp   open          domain     udp-response ttl 63
+123/udp  open|filtered ntp        no-response
+137/udp  open|filtered netbios-ns no-response
+161/udp  open|filtered snmp       no-response
+1900/udp open|filtered upnp       no-response
+5353/udp open|filtered zeroconf   no-response
+5540/udp open|filtered sdxauthd   no-response
+
+Nmap scan report for 192.168.0.13
+Host is up, received user-set.
+
+PORT     STATE         SERVICE    REASON
+53/udp   open|filtered domain     no-response
+123/udp  open|filtered ntp        no-response
+137/udp  open|filtered netbios-ns no-response
+161/udp  open|filtered snmp       no-response
+1900/udp open|filtered upnp       no-response
+5353/udp open|filtered zeroconf   no-response
+5540/udp open|filtered sdxauthd   no-response
+
+Nmap scan report for 192.168.0.22
+Host is up, received user-set.
+
+PORT     STATE         SERVICE    REASON
+53/udp   open|filtered domain     no-response
+123/udp  open|filtered ntp        no-response
+137/udp  open|filtered netbios-ns no-response
+161/udp  open|filtered snmp       no-response
+1900/udp open|filtered upnp       no-response
+5353/udp open|filtered zeroconf   no-response
+5540/udp open|filtered sdxauthd   no-response
+
+Nmap done: 5 IP addresses (5 hosts up) scanned in 5.51 seconds
+172.66.147.243
+104.20.23.154
+  i0nTempests-MacBook-Pro-2  Admin  
+ ~  iot_active  sudo nmap -e en0 -n -Pn -sS -p- --min-rate 2000 --max-retries 1 -sV --version-light \
+  --reason 192.168.107.1 192.168.0.1 -oA 4_router_tcp
+sudo nmap -e en0 -n -Pn -sU -p 53,67,123,161,1900,5351,5353 --max-retries 1 \
+  --reason 192.168.107.1 192.168.0.1 -oA 4_router_udp
+sntp 192.168.107.1; sntp 192.168.0.1          # D″ NTP fix
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-11 21:59 +1100
+Stats: 0:03:13 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 59.74% done; ETC: 22:04 (0:02:10 remaining)
+Stats: 0:05:02 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 78.74% done; ETC: 22:05 (0:01:23 remaining)
+Warning: 192.168.107.1 giving up on port because retransmission cap hit (1).
+NSOCK ERROR [309.2600s] mksock_bind_addr(): Bind to 192.168.107.8:0 failed (IOD #1): Invalid argument (22)
+NSOCK ERROR [309.2600s] mksock_bind_addr(): Bind to 192.168.107.8:0 failed (IOD #2): Invalid argument (22)
+NSOCK ERROR [309.2600s] mksock_bind_addr(): Bind to 192.168.107.8:0 failed (IOD #3): Invalid argument (22)
+NSOCK ERROR [309.2600s] mksock_bind_addr(): Bind to 192.168.107.8:0 failed (IOD #4): Invalid argument (22)
+NSOCK ERROR [309.2600s] mksock_bind_addr(): Bind to 192.168.107.8:0 failed (IOD #5): Invalid argument (22)
+Nmap scan report for 192.168.107.1
+Host is up, received arp-response (0.072s latency).
+Not shown: 35905 closed tcp ports (reset), 29625 filtered tcp ports (no-response)
+PORT      STATE SERVICE    REASON         VERSION
+22/tcp    open  tcpwrapped syn-ack ttl 64
+53/tcp    open  tcpwrapped syn-ack ttl 64
+81/tcp    open  tcpwrapped syn-ack ttl 64
+8200/tcp  open  tcpwrapped syn-ack ttl 64
+60000/tcp open  tcpwrapped syn-ack ttl 64
+MAC Address: 92:28:AA:2B:39:62 (Unknown)
+
+Stats: 0:08:07 elapsed; 1 hosts completed (2 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 52.17% done; ETC: 22:10 (0:02:43 remaining)
+NSOCK ERROR [643.2060s] mksock_bind_addr(): Bind to 192.168.107.8:0 failed (IOD #1): Invalid argument (22)
+Nmap scan report for 192.168.0.1
+Host is up, received user-set (0.012s latency).
+Not shown: 65534 filtered tcp ports (no-response)
+PORT   STATE SERVICE    REASON         VERSION
+22/tcp open  tcpwrapped syn-ack ttl 64
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 2 IP addresses (2 hosts up) scanned in 643.21 seconds
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-11 22:10 +1100
+Nmap scan report for 192.168.107.1
+Host is up, received arp-response (0.031s latency).
+
+PORT     STATE  SERVICE  REASON
+53/udp   open   domain   udp-response ttl 64
+67/udp   open   dhcps    udp-response ttl 64
+123/udp  open   ntp      udp-response ttl 64
+161/udp  closed snmp     port-unreach ttl 64
+1900/udp closed upnp     port-unreach ttl 64
+5351/udp closed nat-pmp  port-unreach ttl 64
+5353/udp open   zeroconf udp-response ttl 255
+MAC Address: 92:28:AA:2B:39:62 (Unknown)
+
+Nmap scan report for 192.168.0.1
+Host is up, received user-set (0.018s latency).
+
+PORT     STATE         SERVICE  REASON
+53/udp   open|filtered domain   no-response
+67/udp   open|filtered dhcps    no-response
+123/udp  open          ntp      udp-response ttl 64
+161/udp  open|filtered snmp     no-response
+1900/udp open|filtered upnp     no-response
+5351/udp open|filtered nat-pmp  no-response
+5353/udp open|filtered zeroconf no-response
+
+Nmap done: 2 IP addresses (2 hosts up) scanned in 1.38 seconds
+-0.013061 +/- 0.003574 192.168.107.1 192.168.107.1
+-0.012939 +/- 0.003196 192.168.0.1 192.168.0.1
+  i0nTempests-MacBook-Pro-2  Admin  
+ ~  iot_active  sntp 192.168.107.1; sntp 192.168.0.1          # D″ NTP fix
+-0.012987 +/- 0.003433 192.168.107.1 192.168.107.1
+-0.012876 +/- 0.003529 192.168.0.1 192.168.0.1
+  i0nTempests-MacBook-Pro-2  Admin  
+ ~  iot_active  ping6 -c 2 fd00:d:e:f::8
+sudo nmap -6 -e en0 -n -Pn -sS -T4 --top-ports 100 --max-retries 1 --reason \
+  fd00:d:e:6b::1 fd00:d:e:f::1 fd00:d:e:f::2 fd00:d:e:f::8 fd00:d:e:f::13 -oA 5_v6_tcp
+PING6(56=40+8+8 bytes) fd00:d:e:6b:4b0:2628:1856:4090 --> fd00:d:e:f::8
+16 bytes from fd00:d:e:f::8, icmp_seq=0 hlim=63 time=12.334 ms
+16 bytes from fd00:d:e:f::8, icmp_seq=1 hlim=63 time=8.402 ms
+
+--- fd00:d:e:f::8 ping6 statistics ---
+2 packets transmitted, 2 packets received, 0.0% packet loss
+round-trip min/avg/max/std-dev = 8.402/10.368/12.334/1.966 ms
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-11 22:10 +1100
+Nmap scan report for fd00:d:e:6b::1
+Host is up, received nd-response (0.022s latency).
+All 100 scanned ports on fd00:d:e:6b::1 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+MAC Address: 92:28:AA:2B:39:62 (Unknown)
+
+Nmap scan report for fd00:d:e:f::1
+Host is up, received user-set.
+All 100 scanned ports on fd00:d:e:f::1 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for fd00:d:e:f::2
+Host is up, received user-set.
+All 100 scanned ports on fd00:d:e:f::2 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for fd00:d:e:f::8
+Host is up, received user-set.
+All 100 scanned ports on fd00:d:e:f::8 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap scan report for fd00:d:e:f::13
+Host is up, received user-set.
+All 100 scanned ports on fd00:d:e:f::13 are in ignored states.
+Not shown: 100 filtered tcp ports (no-response)
+
+Nmap done: 5 IP addresses (5 hosts up) scanned in 44.95 seconds
+  i0nTempests-MacBook-Pro-2  Admin  
+ ~  iot_active  sudo nmap -e en0 -n -Pn -sS --top-ports 100 --max-retries 1 --reason 192.168.114.1 -oA 6_rm_gw
+Starting Nmap 7.991 ( https://nmap.org ) at 2026-10-11 22:11 +1100
+Nmap scan report for 192.168.114.1
+Host is up, received user-set (0.0071s latency).
+Not shown: 96 closed tcp ports (reset)
+PORT    STATE SERVICE   REASON
+22/tcp  open  ssh       syn-ack ttl 64
+53/tcp  open  domain    syn-ack ttl 64
+81/tcp  open  hosts2-ns syn-ack ttl 64
+444/tcp open  snpp      syn-ack ttl 64
+
+Nmap done: 1 IP address (1 host up) scanned in 0.06 seconds
+  i0nTempests-MacBook-Pro-2  Admin  
+ ~  iot_active  dig +short @1.1.1.1 example.com               # plain DNS to the internet
+nc -vz -G 3 1.1.1.1 853                       # DoT reachability
+date -u +%FT%T%z > iot2lan.finished
+172.66.147.243
+104.20.23.154
+Connection to 1.1.1.1 port 853 [tcp/domain-s] succeeded!
+  i0nTempests-MacBook-Pro-2  Admin  
+ ~  iot_active 

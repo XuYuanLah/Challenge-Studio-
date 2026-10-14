@@ -1,0 +1,11 @@
+# Nmap 7.991 scan initiated Sun Oct 11 22:11:32 2026 as: nmap -e en0 -n -Pn -sS --top-ports 100 --max-retries 1 --reason -oA 6_rm_gw 192.168.114.1
+Nmap scan report for 192.168.114.1
+Host is up, received user-set (0.0071s latency).
+Not shown: 96 closed tcp ports (reset)
+PORT    STATE SERVICE   REASON
+22/tcp  open  ssh       syn-ack ttl 64
+53/tcp  open  domain    syn-ack ttl 64
+81/tcp  open  hosts2-ns syn-ack ttl 64
+444/tcp open  snpp      syn-ack ttl 64
+
+# Nmap done at Sun Oct 11 22:11:32 2026 -- 1 IP address (1 host up) scanned in 0.06 seconds

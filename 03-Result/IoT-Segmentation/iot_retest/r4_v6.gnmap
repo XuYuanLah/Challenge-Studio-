@@ -1,0 +1,4 @@
+# Nmap 7.991 scan initiated Mon Oct 12 00:02:21 2026 as: nmap -6 -e en0 -n -Pn -sS -p 22,53,80,8200 --reason -oA r4_v6 fd00:d:e:6b::1
+Host: fd00:d:e:6b::1 ()	Status: Up
+Host: fd00:d:e:6b::1 ()	Ports: 22/filtered/tcp//ssh///, 53/filtered/tcp//domain///, 80/filtered/tcp//http///, 8200/filtered/tcp//trivnet1///
+# Nmap done at Mon Oct 12 00:02:22 2026 -- 1 IP address (1 host up) scanned in 1.28 seconds

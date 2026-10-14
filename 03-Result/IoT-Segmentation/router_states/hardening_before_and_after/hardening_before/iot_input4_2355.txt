@@ -1,0 +1,10 @@
+Chain IOT_INPUT (1 references)
+num   pkts bytes target     prot opt in     out     source               destination         
+1       40  3360 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+2        2   152 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:123
+3      284 96717 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:5353
+4        7  2320 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:67
+5        2   168 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+6        2    64 ACCEPT     2    --  *      *       0.0.0.0/0            0.0.0.0/0           
+7       12   952 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_TO_ROUTER_DROP "
+8       43  3484 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           

@@ -1,0 +1,6 @@
+# Nmap 7.991 scan initiated Sun Oct 11 21:59:11 2026 as: nmap -e en0 -n -Pn -sS -p- --min-rate 2000 --max-retries 1 -sV --version-light --reason -oA 4_router_tcp 192.168.107.1 192.168.0.1
+Host: 192.168.107.1 ()	Status: Up
+Host: 192.168.107.1 ()	Ports: 22/open/tcp//tcpwrapped///, 53/open/tcp//tcpwrapped///, 81/open/tcp//tcpwrapped///, 8200/open/tcp//tcpwrapped///, 60000/open/tcp//tcpwrapped///
+Host: 192.168.0.1 ()	Status: Up
+Host: 192.168.0.1 ()	Ports: 22/open/tcp//tcpwrapped///	Ignored State: filtered (65534)
+# Nmap done at Sun Oct 11 22:09:54 2026 -- 2 IP addresses (2 hosts up) scanned in 643.21 seconds

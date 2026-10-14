@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///opt/local/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.991 scan initiated Sun Oct 11 23:56:10 2026 as: nmap -e en0 -n -Pn -sS -p 22,53,80,81,443,444,8200,8443,60000 -&#45;reason -oA r1_router_tcp 192.168.107.1 192.168.0.1 192.168.114.1 -->
+<nmaprun scanner="nmap" args="nmap -e en0 -n -Pn -sS -p 22,53,80,81,443,444,8200,8443,60000 -&#45;reason -oA r1_router_tcp 192.168.107.1 192.168.0.1 192.168.114.1" start="1791723370" startstr="Sun Oct 11 23:56:10 2026" version="7.991" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="9" services="22,53,80-81,443-444,8200,8443,60000"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.107.1" addrtype="ipv4"/>
+<address addr="92:28:AA:2B:39:62" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1791723370" endtime="1791723371"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.107.1" addrtype="ipv4"/>
+<address addr="92:28:AA:2B:39:62" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="22"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="81"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="hosts2-ns" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="444"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="snpp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8200"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="trivnet1" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8443"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="https-alt" method="table" conf="3"/></port>
+<port protocol="tcp" portid="60000"><state state="filtered" reason="no-response" reason_ttl="0"/></port>
+</ports>
+<times srtt="14671" rttvar="12775" to="100000"/>
+</host>
+<host starttime="1791723371" endtime="1791723374"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.0.1" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="22"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="81"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="hosts2-ns" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="444"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="snpp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8200"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="trivnet1" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8443"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="https-alt" method="table" conf="3"/></port>
+<port protocol="tcp" portid="60000"><state state="filtered" reason="no-response" reason_ttl="0"/></port>
+</ports>
+<times srtt="63928" rttvar="49171" to="260612"/>
+</host>
+<host starttime="1791723371" endtime="1791723374"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="192.168.114.1" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="22"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="ssh" method="table" conf="3"/></port>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="tcp" portid="80"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="81"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="hosts2-ns" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="444"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="snpp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8200"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="trivnet1" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8443"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="https-alt" method="table" conf="3"/></port>
+<port protocol="tcp" portid="60000"><state state="filtered" reason="no-response" reason_ttl="0"/></port>
+</ports>
+<times srtt="63921" rttvar="49270" to="261001"/>
+</host>
+<runstats><finished time="1791723374" timestr="Sun Oct 11 23:56:14 2026" summary="Nmap done at Sun Oct 11 23:56:14 2026; 3 IP addresses (3 hosts up) scanned in 3.53 seconds" elapsed="3.53" exit="success"/><hosts up="3" down="0" total="3"/>
+</runstats>
+</nmaprun>

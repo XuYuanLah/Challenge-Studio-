@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if ([ "$1" = "bound" ] || [ "$1" = "updated" ] || [ "$1" = "rebound" ]) && [ "$2" = "6" ]; then
+    #sleep 2
+    /jffs/scripts/ula_assign.sh
+fi

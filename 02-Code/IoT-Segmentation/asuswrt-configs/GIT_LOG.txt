@@ -1,0 +1,367 @@
+commit 904f54de74edd7c2f5bdc41527dbf6f724023db0
+Date: 2026-10-11 13:50:59 +0000
+
+    ONT: config in ont_config.env, block ONT management from every VLAN
+
+The ONT management subnet and the router's address in it move from
+ONT_Route.sh into ont_config.env. All ONT commands stay in ONT_Route.sh,
+which firewall-start runs once, first: route, secondary address, the main
+LAN accept, SNAT, and now a FORWARD drop to the ONT subnet from every VLAN
+bridge (vlan_ids.sh), like the router SSH drop. Because every later
+firewall-start rule is inserted above them, the drops end up below the
+IoT WAN LOG rule (IoT attempts are still logged as IOT_TO_WAN_NEW) and
+above the firmware's VLAN -> WAN accepts. IPv4 only: the ONT has no IPv6
+management address.
+
+
+ scripts/ONT_Route.sh   | 23 +++++++++++++++--------
+ scripts/firewall-start |  2 +-
+ scripts/ont_config.env | 11 +++++++++++
+ 3 files changed, 27 insertions(+), 9 deletions(-)
+commit 6aa7835db4f9f01d0cd89922838aeff988342049
+Date: 2026-10-11 12:35:47 +0000
+
+    bridge_stp: follow the web UI STP switch, only turn STP on
+
+bridge_stp.sh now exits unless nvram lan_stp=1, so switching STP off in the
+web UI keeps it off on every bridge. It only turns STP on, for br0 and the
+roommate bridge; bridges default to off, so the IoT bridge needs no entry.
+br0 is set here because the firmware applies lan_stp to br0 only when an
+external switch exists (rc/lan.c), which the RT-BE88U lacks, so the web UI
+switch never takes effect on it.
+
+
+ scripts/bridge_stp.sh | 20 +++++++++-----------
+ 1 file changed, 9 insertions(+), 11 deletions(-)
+commit ca50256bef92ed80b87da6acdef11e4a456861d2
+Date: 2026-10-11 12:19:43 +0000
+
+    firewall-start: derive the main-LAN DNS address, rename to LAN_DNS_*
+
+LAN_DNS_V4 takes its prefix from nvram lan_ipaddr (/24, host .8) instead
+of a hardcoded 192.168.0.8; PIHOLE_V4/PIHOLE_V6 are renamed LAN_DNS_V4/
+LAN_DNS_V6. Generated rules are unchanged.
+
+
+ scripts/firewall-start | 22 ++++++++++++----------
+ 1 file changed, 12 insertions(+), 10 deletions(-)
+commit 5b0e3912a3406911a69b841668c2e6c61c978cd4
+Date: 2026-10-11 11:57:14 +0000
+
+    firewall-start: restrict router access from VLANs, enforce IoT DNS
+
+- SSH dropped on every VLAN bridge (above the firmware's interface-less
+  accept for sshd_enable=1); main LAN and WAN unaffected.
+- IoT bridge INPUT goes through IOT_INPUT: established, NTP, mDNS, DHCP,
+  ICMP/IGMP (v4), ICMPv6 accepted; other multicast/broadcast dropped
+  silently; everything else logged (IOT_TO_ROUTER_DROP) and dropped
+  (router DNS, DLNA, haproxy 81/444/60000, ...).
+- DNS from the IoT VLAN to anything but Pi-hole is DNATed to Pi-hole
+  (v4 and v6), logged as IOT_DNS_REDIRECT.
+- DoT/DoQ (853) from the IoT VLAN to the WAN dropped, still logged as
+  IOT_TO_WAN_NEW.
+- Pi-hole addresses in one place (PIHOLE_V4/PIHOLE_V6).
+
+
+ scripts/firewall-start | 57 +++++++++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 50 insertions(+), 7 deletions(-)
+commit 44ec09db373bf3eb5e9af51e9f5bb9096742226d
+Date: 2026-10-11 11:57:14 +0000
+
+    STP: re-apply after bridge rebuilds (bridge_stp.sh)
+
+restart_wireless resets STP on the VLAN bridges (not br0). Move the STP
+settings into bridge_stp.sh, called from firewall-start and from
+service-event-end after network/wireless/lan restarts. "brctl stp br0 on"
+is commented out to test whether the web UI setting now applies to br0.
+
+
+ scripts/bridge_stp.sh     | 22 ++++++++++++++++++++++
+ scripts/firewall-start    | 12 ++----------
+ scripts/service-event-end |  2 ++
+ 3 files changed, 26 insertions(+), 10 deletions(-)
+commit 6d35945da57cb163040437c15b7300c33bac9ba7
+Date: 2026-10-11 11:28:09 +0000
+
+    dnsmasq-sdn: advertise each VLAN's gateway address as NTP server
+
+Option 42 is now 192.168.<VID>.1 on its own VLAN (107.1 for IoT, and new
+for the roommate VLAN, 114.1) instead of the main-LAN address. ntpd_vlan.sh
+serves every router address arriving on a VLAN bridge, so NTP behaviour is
+unchanged; clients just use their on-link gateway.
+
+
+ scripts/dnsmasq-sdn.postconf | 10 +++++++---
+ scripts/firewall-start       |  2 +-
+ 2 files changed, 8 insertions(+), 4 deletions(-)
+commit a86c9e24989d5bb0513736fed382412de1a69771
+Date: 2026-10-11 10:19:24 +0000
+
+    ntpd_vlan: self-healing cron job, also run from wan-event
+
+The cru entry added in services-start was gone after both test reboots
+(cru l empty). The open-source rc never edits or clears the crontab
+(only creates /var/spool/cron/crontabs in tmpfs), so the cause is outside
+it. ntpd_vlan.sh now (re)adds its own cron job on every run and logs it;
+services-start calls the script instead of cru, and a new wan-event hook
+runs it on 'connected', later in boot. On WAN up the firmware restarts
+ntpd directly (refresh_ntpc), with no service event, so that hook also
+resyncs the VLAN servers.
+
+
+ scripts/ntpd_vlan.sh   | 23 +++++++++++++++++++++--
+ scripts/services-start |  4 ++--
+ scripts/wan-event      | 10 ++++++++++
+ 3 files changed, 33 insertions(+), 4 deletions(-)
+commit a738f356996d341e17b86cd489308c19611c2577
+Date: 2026-10-11 09:49:26 +0000
+
+    NTP server for every VLAN, following the firmware ntpd
+
+The firmware ntpd serves only on br0 (-I lan_ifname binds the socket with
+SO_BINDTODEVICE); sntp from a client on the IoT SSID to 192.168.107.1 and
+192.168.0.1 both go unanswered. ntpd_vlan.sh runs an extra 'ntp -n -l -I
+<bridge>' for every VLAN in vlan_config.env (vlan_ids.sh: variables named
+*_VLAN_ID), never the main LAN bridge. No peers, so it serves the system
+clock and never sets it. It runs only while 'Enable local NTP server' is on
+(ntpd_enable=1), the firmware ntpd runs and the clock is set; stop_ntpd's
+killall stops it too (same name). A cron job (services-start) and
+service-event-end keep it in step, and restart it when its bridge is
+rebuilt. firewall-start accepts NTP on every VLAN bridge (replaces the
+IoT-only rule from 75807a2).
+
+
+ scripts/firewall-start    | 11 ++++--
+ scripts/ntpd_vlan.sh      | 98 +++++++++++++++++++++++++++++++++++++++++++++++
+ scripts/service-event-end |  6 +++
+ scripts/services-start    |  2 +
+ scripts/vlan_ids.sh       | 11 ++++++
+ 5 files changed, 125 insertions(+), 3 deletions(-)
+commit 9ad7a213616f330d3b2e005dfd252d2cc44e754e
+Date: 2026-10-11 09:17:32 +0000
+
+    Rename ula_config.env to lan_ula_config.env, use it for main LAN ULAs
+
+firewall-start (IPv6 port forwards, Pi-hole DNS rules) and
+dnsmasq-sdn.postconf (RDNSS/option 23 for both VLANs) now build main
+LAN ULA host addresses from LAN_ULA_PREFIX instead of hardcoding them.
+Generated rules and options are unchanged.
+
+
+ scripts/IPv6_PF.sh                             |  2 +-
+ scripts/dnsmasq-sdn.postconf                   |  6 ++-
+ scripts/firewall-start                         | 56 +++++++++++++-------------
+ scripts/{ula_config.env => lan_ula_config.env} |  0
+ scripts/ula_assign.sh                          |  2 +-
+ 5 files changed, 35 insertions(+), 31 deletions(-)
+commit 0416f8d980ff0278688a84d0f7dedb4033b5cc45
+Date: 2026-10-11 09:02:01 +0000
+
+    IoT VLAN: advertise the main-LAN router address as NTP server
+
+Option 42 now carries lan_ipaddr instead of the IoT gateway address,
+matching what the main LAN gets. The INPUT rule for UDP 123 on the IoT
+bridge already covers every router address.
+
+
+ scripts/dnsmasq-sdn.postconf | 5 +++--
+ scripts/firewall-start       | 2 +-
+ 2 files changed, 4 insertions(+), 3 deletions(-)
+commit d11963673d6ecfd9da6f52ec769e44881db0d884
+Date: 2026-10-11 09:01:25 +0000
+
+    firewall-start: no STP on the IoT VLAN bridge
+
+The IoT bridge only has Wi-Fi and single-device access ports, so no loop
+is possible. With STP on, a reconnecting port (Hue Bridge after a power
+cycle) stays in listening/learning for 30 s, the device gets no DHCP
+lease and falls back to a link-local address.
+
+
+ scripts/firewall-start | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+commit 1b36092682f6157e1b9b1fb81860fb2a0b54ceaf
+Date: 2026-10-11 09:01:15 +0000
+
+    ULA: reassign router ULAs after bridge rebuilds
+
+restart_wireless removes the static ULAs from br0, br56 and br52, which
+stops dnsmasq's RAs and DHCPv6 until the next dnsmasq restart. Move the
+assignment into an idempotent helper (ula_assign.sh, br0 ULA from
+ula_config.env, VLAN bridges via vlan_info.sh) and also call it from
+service-event-end after network/wireless/lan restarts.
+
+
+ scripts/dhcpc-event       |  8 +-------
+ scripts/service-event     |  8 ++------
+ scripts/service-event-end |  2 ++
+ scripts/ula_assign.sh     | 21 +++++++++++++++++++++
+ 4 files changed, 26 insertions(+), 13 deletions(-)
+commit d0c3085aaa46d4bd8a3916f639822c1d4470deba
+Date: 2026-10-11 05:28:33 +0000
+
+    avahi: reflect only HomeKit, Matter and Hue services
+
+reflect-filters=_hap._tcp,_hap._udp,_matter._tcp,_matterc._udp,_matterd._udp,_hue._tcp. Stops the main LAN's full service catalogue (ssh, smb, vnc, adb, ...) being re-advertised into the IoT VLAN. avahi filters PTR/SRV/TXT by substring; A/AAAA still pass so SRV targets resolve.
+
+
+ scripts/avahi-daemon.postconf | 3 +++
+ 1 file changed, 3 insertions(+)
+commit 75807a2379a731f23759894b651487d5c63f5ae4
+Date: 2026-10-11 05:28:33 +0000
+
+    IoT VLAN: NTP from the router
+
+Accept UDP 123 on the IoT bridge (INPUT, v4/v6) so devices can use the router's ntpd, including ones still pointing at the old main-LAN address 192.168.0.1 (Hue Bridge: 158 unanswered NTP requests/day). Hand out DHCP option 42 = 192.168.107.1 on the IoT VLAN, matching the main LAN.
+
+
+ scripts/dnsmasq-sdn.postconf | 3 +++
+ scripts/firewall-start       | 3 +++
+ 2 files changed, 6 insertions(+)
+commit e637e735cc58c911d608692850d6ba85fa062ae3
+Date: 2026-10-10 23:21:13 +0000
+
+    firewall-start: log new IoT VLAN -> WAN connections
+
+LOG-only rule (prefix IOT_TO_WAN_NEW, 30/min, burst 60) for NEW connections from the IoT bridge to the WAN interface, IPv4 and IPv6 (NAT6). Interface match instead of CIDRs so both address families and future prefix changes are covered. Inserted last so it sits at the top of FORWARD, before any accept rule; no verdict, policy unchanged. Gives phone-home visibility alongside IOT_TO_LAN_DROP.
+
+
+ scripts/firewall-start | 5 +++++
+ 1 file changed, 5 insertions(+)
+commit d38d5d1e16a911b0fc05fea4912f7e8ce5cd9819
+Date: 2026-10-10 19:18:24 +0000
+
+    Remove init-start: conntrack limits now managed via nvram
+
+nf_conntrack_max=81920 and nf_conntrack_expect_max=8192 were carried over from an older setup and conflicted with the firmware's nvram-driven values (ct_max=300000, ct_expect_max=4096) applied by setup_conntrack(). Connection tracking is now configured solely through nvram / Administration -> Tweaks, including ct_udp_timeout="30 1800" (UDP assured timeout raised from 180 s to fix dropped Matter subscription reports from the IoT VLAN).
+
+
+ scripts/init-start | 4 ----
+ 1 file changed, 4 deletions(-)
+commit 186e56b5092d83463cfa479c700700bdb2c6ce25
+Date: 2026-10-09 11:39:22 +0000
+
+    Drop executable bit from sourced .env files
+
+ula_config.env and vlan_config.env are only sourced (#!/bin/false), never executed.
+
+
+ scripts/ula_config.env  | 0
+ scripts/vlan_config.env | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+commit a3673d96d08983eafe8cdae5777d235397b21538
+Date: 2026-10-09 11:33:47 +0000
+
+    firewall-start: allow ping from IoT VLAN to main LAN
+
+ICMP/ICMPv6 echo-request only, for troubleshooting. Echo replies return via the existing main LAN -> IoT accept rule.
+
+
+ scripts/firewall-start | 3 +++
+ 1 file changed, 3 insertions(+)
+commit 36b6871f9b732bdc2dcc26e36f7b01f5cb1b3c83
+Date: 2026-10-09 10:15:09 +0000
+
+    Add .gitignore for macOS metadata and AppleDouble files
+
+
+
+ .gitignore | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+commit 8c01b889001f217ce78578b6454abf6eae150d72
+Date: 2026-10-09 10:09:58 +0000
+
+    firewall-start: one-way intranet access for IoT VLAN
+
+Main LAN -> IoT allowed (HomeKit/Matter controllers initiate). IoT -> main LAN limited to replies and Pi-hole DNS; everything else logged (IOT_TO_LAN_DROP) and dropped. Rules sit at the top of FORWARD so they take precedence over the sdn_access_rl intranet access. Also accept mDNS on the IoT bridge for the avahi reflector.
+
+
+ scripts/firewall-start | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+commit e9af7c1200be3b22c6a1e66f04c2f09b5b0c4702
+Date: 2026-10-09 09:39:21 +0000
+
+    Add avahi postconf: mDNS reflector between main LAN and IoT VLAN
+
+allow-interfaces limited to br0 and the IoT bridge (derived via vlan_info.sh), IPv6 enabled for Matter AAAA records.
+
+
+ scripts/avahi-daemon.postconf | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+commit f6dbc4248dff202f9fccd9bacb1a2c2467732f35
+Date: 2026-10-09 09:39:21 +0000
+
+    dnsmasq-sdn: SLAAC-only IPv6 with RDNSS for IoT VLAN
+
+ra-only on fd00:d:e:6b::/64, Pi-hole advertised via RDNSS, DNS-SD PTR loop guard as on roommate VLAN.
+
+
+ scripts/dnsmasq-sdn.postconf | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+commit 1b52b80990c22b1cef03d4f0bb94e50ef8fbe10c
+Date: 2026-10-09 09:39:21 +0000
+
+    Split VLAN config into roommate (114) and IoT (107) VLANs
+
+VLAN_ID -> RM_VLAN_ID, add IOT_VLAN_ID. Assign derived ULA to both bridges, enable STP and NAT6 for both. DHCPv6 INPUT rule stays roommate-only.
+
+
+ scripts/dhcpc-event          |  6 ++++--
+ scripts/dnsmasq-sdn.postconf |  4 +++-
+ scripts/firewall-start       | 22 +++++++++++++++-------
+ scripts/service-event        |  6 ++++--
+ scripts/vlan_config.env      |  3 ++-
+ 5 files changed, 28 insertions(+), 13 deletions(-)
+commit 961b3c66d0579d570d9755a3a1347f87be8781b5
+Date: 2026-10-09 09:39:21 +0000
+
+    vlan_info.sh: set VLAN_ID when sourced
+
+Lets callers loop over multiple VLANs while existing $VLAN_ID references keep working.
+
+
+ scripts/vlan_info.sh | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+commit c3684e6a871890d57c02d325a054dd7c669052aa
+Date: 2026-10-09 18:41:37 +1100
+
+    Init
+
+
+
+ configs/dnsmasq.conf.add        |  46 ++++++
+ configs/profile.add             |   3 +
+ configs/rfc6761.conf            |  11 ++
+ scripts/DDNS_Updater.sh         |  59 +++++++
+ scripts/IPv6_PF.sh              |  65 ++++++++
+ scripts/ONT_Route.sh            |  29 ++++
+ scripts/channel_check.sh        |  45 ++++++
+ scripts/channel_check_daemon.sh |  27 ++++
+ scripts/clear_dhcp_leases.sh    |   4 +
+ scripts/ddns-start              |  24 +++
+ scripts/dhcpc-event             |  10 ++
+ scripts/dnsmasq-sdn.postconf    |  37 +++++
+ scripts/firewall-start          |  71 +++++++++
+ scripts/init-start              |   4 +
+ scripts/iot-capture.sh          | 343 ++++++++++++++++++++++++++++++++++++++++
+ scripts/post-mount              |   4 +
+ scripts/service-event           |  19 +++
+ scripts/service-event-end       |  10 ++
+ scripts/services-start          |   6 +
+ scripts/services-stop           |   3 +
+ scripts/ula_config.env          |   5 +
+ scripts/unmount                 |   4 +
+ scripts/vlan_config.env         |   3 +
+ scripts/vlan_idx.sh             |  77 +++++++++
+ scripts/vlan_iface_assign_v6.sh |  69 ++++++++
+ scripts/vlan_info.sh            |  50 ++++++
+ 26 files changed, 1028 insertions(+)
+commit 611339a1ada7363763eb9471816d50dd6afe6a02
+Date: 2026-10-09 18:02:11 +1100
+
+    Initial commit
+
+
+
+ .gitattributes | 2 ++
+ 1 file changed, 2 insertions(+)

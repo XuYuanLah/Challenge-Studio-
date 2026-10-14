@@ -1,0 +1,175 @@
+1: lo: <LOOPBACK,MULTICAST,UP,LOWER_UP> mtu 65536 state UNKNOWN qlen 1000
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: blogtcp_local: <> mtu 10240 state DOWN qlen 1000
+    inet6 fe80::200:ff:fe00:0/64 scope link tentative 
+       valid_lft forever preferred_lft forever
+3: dummy0: <BROADCAST,NOARP> mtu 1500 state DOWN qlen 1000
+    inet6 fe80::3cc7:aff:fe71:f9ae/64 scope link 
+       valid_lft forever preferred_lft forever
+4: ifb0: <BROADCAST,NOARP> mtu 1500 state DOWN qlen 32
+    inet6 fe80::bc42:86ff:febd:b554/64 scope link 
+       valid_lft forever preferred_lft forever
+5: ifb1: <BROADCAST,NOARP> mtu 1500 state DOWN qlen 32
+    inet6 fe80::6c42:aeff:fe6e:4cc3/64 scope link 
+       valid_lft forever preferred_lft forever
+6: imq0: <NOARP> mtu 16000 state DOWN qlen 11000
+    inet6 fe80::200:ff:fe00:0/64 scope link 
+       valid_lft forever preferred_lft forever
+7: imq1: <NOARP> mtu 16000 state DOWN qlen 11000
+    inet6 fe80::200:ff:fe00:0/64 scope link 
+       valid_lft forever preferred_lft forever
+8: imq2: <NOARP> mtu 16000 state DOWN qlen 11000
+    inet6 fe80::200:ff:fe00:0/64 scope link 
+       valid_lft forever preferred_lft forever
+9: gre0@NONE: <NOARP> mtu 1476 state DOWN qlen 1000
+    inet6 fe80::200:ff:fe00:0/64 scope link 
+       valid_lft forever preferred_lft forever
+10: gretap0@NONE: <BROADCAST,MULTICAST> mtu 1462 state DOWN qlen 1000
+    inet6 fe80::200:ff:fe00:0/64 scope link tentative 
+       valid_lft forever preferred_lft forever
+11: erspan0@NONE: <BROADCAST,MULTICAST> mtu 1450 state DOWN qlen 1000
+    inet6 fe80::200:ff:fe00:0/64 scope link tentative 
+       valid_lft forever preferred_lft forever
+12: ip_vti0@NONE: <NOARP> mtu 1480 state DOWN qlen 1000
+    inet6 fe80::200:ff:fe00:0/64 scope link 
+       valid_lft forever preferred_lft forever
+13: ip6_vti0@NONE: <NOARP> mtu 1364 state DOWN qlen 1000
+    inet6 fe80::200:ff:fe00:0/64 scope link 
+       valid_lft forever preferred_lft forever
+14: sit0@NONE: <NOARP> mtu 1480 state DOWN qlen 1000
+    inet6 fe80::200:ff:fe00:0/64 scope link 
+       valid_lft forever preferred_lft forever
+15: ip6tnl0@NONE: <NOARP> mtu 1452 state DOWN qlen 1000
+    inet6 fe80::200:ff:fe00:0/64 scope link 
+       valid_lft forever preferred_lft forever
+16: ip6gre0@NONE: <NOARP> mtu 1448 state DOWN qlen 1000
+    inet6 fe80::200:ff:fe00:0/64 scope link 
+       valid_lft forever preferred_lft forever
+17: bcmsw: <BROADCAST,MULTICAST> mtu 1500 state DOWN qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link tentative 
+       valid_lft forever preferred_lft forever
+18: eth5: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+19: eth6: <NO-CARRIER,BROADCAST,MULTICAST,ALLMULTI,UP> mtu 10240 state DOWN qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link tentative 
+       valid_lft forever preferred_lft forever
+20: eth7: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+21: eth8: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+22: eth0: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+23: eth9: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+24: eth1: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 2001:db8:200:c:ce28:aaff:fe2b:3960/64 scope global deprecated mngtmpaddr dynamic 
+       valid_lft 7198sec preferred_lft 0sec
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+25: eth2: <NO-CARRIER,BROADCAST,MULTICAST,ALLMULTI,UP> mtu 10240 state DOWN qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link tentative 
+       valid_lft forever preferred_lft forever
+26: eth3: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+27: eth4: <NO-CARRIER,BROADCAST,MULTICAST,ALLMULTI,UP> mtu 10240 state DOWN qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link tentative 
+       valid_lft forever preferred_lft forever
+28: spu_us_dummy: <NOARP,UP,LOWER_UP> mtu 10240 state UNKNOWN qlen 100
+    inet6 fe80::adf1:6730:79b:6d68/64 scope link flags 800 
+       valid_lft forever preferred_lft forever
+29: spu_ds_dummy: <NOARP,UP,LOWER_UP> mtu 10240 state UNKNOWN qlen 100
+    inet6 fe80::fc96:5f85:78d4:c013/64 scope link flags 800 
+       valid_lft forever preferred_lft forever
+30: wl0: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+31: wl1: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3964/64 scope link 
+       valid_lft forever preferred_lft forever
+32: br0: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 fd00:d:e:f::1/64 scope global 
+       valid_lft forever preferred_lft forever
+    inet6 2001:db8:100::1/64 scope global 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+63: wl0.1: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 state UNKNOWN qlen 1000
+    inet6 fe80::9028:aaff:fe2b:3961/64 scope link 
+       valid_lft forever preferred_lft forever
+64: wl0.2: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 state UNKNOWN qlen 1000
+    inet6 fe80::9028:aaff:fe2b:3962/64 scope link 
+       valid_lft forever preferred_lft forever
+65: wl0.4: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 state UNKNOWN qlen 1000
+    inet6 fe80::9028:aaff:fe2b:3964/64 scope link 
+       valid_lft forever preferred_lft forever
+66: wl1.1: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 state UNKNOWN qlen 1000
+    inet6 fe80::b028:aaff:fe2b:3965/64 scope link 
+       valid_lft forever preferred_lft forever
+67: wl1.2: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 state UNKNOWN qlen 1000
+    inet6 fe80::b028:aaff:fe2b:3966/64 scope link 
+       valid_lft forever preferred_lft forever
+68: wl0.0: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+69: wl0.114: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+70: wl1.0: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3964/64 scope link 
+       valid_lft forever preferred_lft forever
+71: wl1.114: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3964/64 scope link 
+       valid_lft forever preferred_lft forever
+72: eth0.114@eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+74: eth3.114@eth3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+76: eth5.114@eth5: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+78: eth8.114@eth8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+79: eth9.114@eth9: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+80: br56: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 fd00:d:e:72::1/64 scope global 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+81: wl0.107: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+82: wl1.107: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3964/64 scope link 
+       valid_lft forever preferred_lft forever
+83: eth0.107@eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+85: eth3.107@eth3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+87: eth5.107@eth5: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+89: eth8.107@eth8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+90: eth9.107@eth9: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 10240 state UP qlen 1000
+    inet6 fe80::ce28:aaff:fe2b:3960/64 scope link 
+       valid_lft forever preferred_lft forever
+91: br52: <BROADCAST,MULTICAST,ALLMULTI,UP,LOWER_UP> mtu 1500 state UP qlen 1000
+    inet6 fd00:d:e:6b::1/64 scope global 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::9028:aaff:fe2b:3962/64 scope link 
+       valid_lft forever preferred_lft forever

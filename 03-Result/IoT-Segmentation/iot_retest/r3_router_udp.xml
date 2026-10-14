@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///opt/local/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.991 scan initiated Mon Oct 12 00:02:16 2026 as: nmap -e en0 -n -Pn -sU -p 53,67,123,1900,5351,5353 -&#45;reason -oA r3_router_udp 192.168.107.1 -->
+<nmaprun scanner="nmap" args="nmap -e en0 -n -Pn -sU -p 53,67,123,1900,5351,5353 -&#45;reason -oA r3_router_udp 192.168.107.1" start="1791723736" startstr="Mon Oct 12 00:02:16 2026" version="7.991" xmloutputversion="1.05">
+<scaninfo type="udp" protocol="udp" numservices="6" services="53,67,123,1900,5351,5353"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.107.1" addrtype="ipv4"/>
+<address addr="92:28:AA:2B:39:62" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1791723736" endtime="1791723741"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.107.1" addrtype="ipv4"/>
+<address addr="92:28:AA:2B:39:62" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="udp" portid="53"><state state="open" reason="udp-response" reason_ttl="63"/><service name="domain" method="table" conf="3"/></port>
+<port protocol="udp" portid="67"><state state="open" reason="udp-response" reason_ttl="64"/><service name="dhcps" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="open" reason="udp-response" reason_ttl="64"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="1900"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="upnp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5351"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="nat-pmp" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open" reason="udp-response" reason_ttl="255"/><service name="zeroconf" method="table" conf="3"/></port>
+</ports>
+<times srtt="136237" rttvar="144283" to="713369"/>
+</host>
+<runstats><finished time="1791723741" timestr="Mon Oct 12 00:02:21 2026" summary="Nmap done at Mon Oct 12 00:02:21 2026; 1 IP address (1 host up) scanned in 5.12 seconds" elapsed="5.12" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

@@ -1,0 +1,20 @@
+#!/bin/sh
+LOGGER_TAG=$(basename $0)
+
+logger -t "$LOGGER_TAG" -s "Called with $@" 2>&1
+case "$1:$2" in
+  *:network*|*:wireless*|*:lan*|*:all*)
+    # Temp fix for br0 isolation bug
+    for i in $(nvram get lan_ifnames); do [ "$i" != "wl1.2" ] && echo 0 > /sys/class/net/br0/brif/$i/isolated; done
+    # Bridge rebuilds (e.g. restart_wireless) drop the static ULAs from br0 and the VLAN bridges
+    /jffs/scripts/ula_assign.sh
+    # A rebuilt bridge also leaves its VLAN NTP server bound to a stale ifindex
+    /jffs/scripts/ntpd_vlan.sh check
+    # and resets STP on the VLAN bridges
+    /jffs/scripts/bridge_stp.sh
+    ;;
+  *:ntpd*|*:time*)
+    # Follow the firmware ntpd (also checked every minute from cron, see services-start)
+    /jffs/scripts/ntpd_vlan.sh check
+    ;;
+esac

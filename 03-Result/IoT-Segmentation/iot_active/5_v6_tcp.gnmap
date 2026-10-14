@@ -1,0 +1,12 @@
+# Nmap 7.991 scan initiated Sun Oct 11 22:10:41 2026 as: nmap -6 -e en0 -n -Pn -sS -T4 --top-ports 100 --max-retries 1 --reason -oA 5_v6_tcp fd00:d:e:6b::1 fd00:d:e:f::1 fd00:d:e:f::2 fd00:d:e:f::8 fd00:d:e:f::13
+Host: fd00:d:e:6b::1 ()	Status: Up
+Host: fd00:d:e:6b::1 ()	Ports: 	Ignored State: filtered (100)
+Host: fd00:d:e:f::1 ()	Status: Up
+Host: fd00:d:e:f::1 ()	Ports: 	Ignored State: filtered (100)
+Host: fd00:d:e:f::2 ()	Status: Up
+Host: fd00:d:e:f::2 ()	Ports: 	Ignored State: filtered (100)
+Host: fd00:d:e:f::8 ()	Status: Up
+Host: fd00:d:e:f::8 ()	Ports: 	Ignored State: filtered (100)
+Host: fd00:d:e:f::13 ()	Status: Up
+Host: fd00:d:e:f::13 ()	Ports: 	Ignored State: filtered (100)
+# Nmap done at Sun Oct 11 22:11:26 2026 -- 5 IP addresses (5 hosts up) scanned in 44.95 seconds
