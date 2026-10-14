@@ -1,5 +1,0 @@
-tcpdump: listening on wl0.2, link-type EN10MB (Ethernet), snapshot length 262144 bytes
-tcpdump: pcap_loop: The interface disappeared
-8694 packets captured
-8695 packets received by filter
-0 packets dropped by kernel
