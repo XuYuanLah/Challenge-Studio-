@@ -1,5 +1,3 @@
-- Kernel security and driver signature enforcement
-
 # Possible false Fails and Passes
 With a third-party antivirus installed, Defender normally goes passive, so "Defender not enabled" may be a false FAIL. Enabled does not mean effective with stuff like stale signatures, exclusions, Tamper Protection or Group Policy overrides. This could lead to alarming users who are protected, or reassuring users who are not. Suggesting to add signature age and Tamper Protection as extra checks. 
 
@@ -8,3 +6,9 @@ Python must be installed on a non-technical user's PC, which is against "lightwe
 
 # Baseline.json and Report Integrity
 Both are plain local files which means that anyone or any malware that edits the baseline can make the tool report PASS. A compromised host can also fake its own audit output. Consider signing or hashing the baseline and the report.
+
+# Missing Kernel-level Features and Detections
+
+So far all detections in the software are in the user land. No kernel-level detections are present. By relying purely on user land detections, kernel-level threats cannot be detected, and in worse cases, user land indicators can be hidden by kernel-level manipulations.
+
+Windows has a series of kernel switches, including driver signature enforcement, memory integrity, secure boot, virtualization based security, etc. These are trivial to detect and provide a good overview of possible kernel compromises.
