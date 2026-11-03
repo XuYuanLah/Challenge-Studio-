@@ -1,0 +1,2 @@
+wl0.2 rx_bytes 831430
+wl0.2 tx_bytes 3007838

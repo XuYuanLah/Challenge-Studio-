@@ -1,0 +1,13 @@
+mac,device,role,type,home_iface,local_only,baselined,notes
+ec:b5:fa:bc:52:10,Hue Bridge,iot,Matter bridge (Zigbee),eth7,false,true,
+0c:4e:a0:30:22:54,SwitchBot Hub 2,iot,Matter bridge (BLE),wl0.2,false,true,
+7c:f1:7e:10:03:a0,Tapo P110M plug,iot,smart plug (Matter),wl0.2,false,true,
+8c:87:d0:09:0d:6b,Matter switch 0d6b,iot,wall switch (Matter),wl0.2,true,true,
+8c:87:d0:09:0d:6e,Matter switch 0d6e,iot,wall switch (Matter),wl0.2,true,true,
+c4:e7:ae:20:54:57,Meross plug,iot,smart plug (Matter),wl0.2,false,false,joined after the analysis windows; not baselined
+d8:f1:5b:90:ee:b3,VFD clock,iot,clock (ESP8285),wl0.2,false,false,joined after the analysis windows; not baselined
+b2:1c:d7:ba:85:9d,Test MacBook (Oct 11),test,,wl0.2,false,false,"active tests from the IoT VLAN (analysis §14, §15)"
+42:e3:fe:60:6c:d9,Test MacBook (Oct 31),test,,wl0.2,false,false,volume-upload scenario (analysis §16)
+1e:b2:de:92:90:28,Owner's Apple device (.18),personal,,wl0.2,false,false,joined through iCloud Keychain (analysis §14.5)
+c2:c0:9a:ec:14:36,Owner's Apple device (.19),personal,,wl0.2,false,false,joined through iCloud Keychain (analysis §14.5)
+ac:bc:b5:d3:d1:dd,HomePod,controller,controller,,false,false,

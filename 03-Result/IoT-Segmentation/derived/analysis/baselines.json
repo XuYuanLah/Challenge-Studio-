@@ -8646,10 +8646,10 @@
   },
   "iface": {
    "wl0.2": {
-    "packets": 858199,
-    "l2_sources": 26,
-    "thread_ula_pkts": 4776,
-    "mdns_non_iot_sources": 14,
+    "packets": 444591,
+    "l2_sources": 11,
+    "thread_ula_pkts": 0,
+    "mdns_non_iot_sources": 2,
     "odd_destinations": [
      [
       "SwitchBot Hub 2",
@@ -8796,55 +8796,16 @@
       2
      ]
     ],
-    "mdns_types": 53,
+    "mdns_types": 1,
     "mdns_types_list": [
-     "_hap._tcp",
-     "_services._dns-sd._udp",
-     "_smb._tcp",
-     "_raop._tcp",
-     "_airplay._tcp",
-     "_arris._tcp",
-     "_companion-link._tcp",
-     "_matter._tcp",
-     "_webdav._tcp",
-     "_webdavs._tcp",
-     "_hap._udp",
-     "_airplay-bds._tcp",
-     "_remotepairing._tcp",
-     "_rdlink._tcp",
-     "_apple-mobdev2._tcp",
-     "_rfb._tcp",
-     "_meshcop._udp",
-     "_sleep-proxy._udp",
-     "_ipps._tcp",
-     "_ipp._tcp",
-     "_adisk._tcp",
-     "_continuity._tcp",
-     "_asquic._udp",
-     "_adb._tcp",
-     "_nearbypresence._tcp",
-     "_adb-tls-connect._tcp",
-     "_uscan._tcp",
-     "_ptp._tcp",
-     "_pdl-datastream._tcp",
-     "_scanner._tcp",
-     "_printer._tcp",
-     "_ippusb._tcp",
-     "_uscans._tcp",
-     "_apple-mobdev._tcp",
-     "_apple-pairable._tcp",
-     "_daap._tcp",
-     "_afpovertcp._tcp",
-     "_adb-tls-pairing._tcp",
-     "_remotepairing-manual-pairing._tcp",
-     "_ssh._tcp"
+     "_matter._tcp"
     ]
    },
    "eth7": {
-    "packets": 958030,
-    "l2_sources": 23,
-    "thread_ula_pkts": 4776,
-    "mdns_non_iot_sources": 14,
+    "packets": 455633,
+    "l2_sources": 13,
+    "thread_ula_pkts": 0,
+    "mdns_non_iot_sources": 2,
     "odd_destinations": [],
     "mdns_iot_destinations": [
      [
@@ -8873,48 +8834,9 @@
       1
      ]
     ],
-    "mdns_types": 53,
+    "mdns_types": 1,
     "mdns_types_list": [
-     "_hap._tcp",
-     "_services._dns-sd._udp",
-     "_smb._tcp",
-     "_raop._tcp",
-     "_airplay._tcp",
-     "_arris._tcp",
-     "_companion-link._tcp",
-     "_webdav._tcp",
-     "_webdavs._tcp",
-     "_hap._udp",
-     "_airplay-bds._tcp",
-     "_remotepairing._tcp",
-     "_rdlink._tcp",
-     "_apple-mobdev2._tcp",
-     "_rfb._tcp",
-     "_matter._tcp",
-     "_meshcop._udp",
-     "_sleep-proxy._udp",
-     "_ipps._tcp",
-     "_ipp._tcp",
-     "_adisk._tcp",
-     "_continuity._tcp",
-     "_asquic._udp",
-     "_adb._tcp",
-     "_nearbypresence._tcp",
-     "_adb-tls-connect._tcp",
-     "_uscan._tcp",
-     "_ptp._tcp",
-     "_pdl-datastream._tcp",
-     "_scanner._tcp",
-     "_printer._tcp",
-     "_ippusb._tcp",
-     "_uscans._tcp",
-     "_apple-mobdev._tcp",
-     "_apple-pairable._tcp",
-     "_daap._tcp",
-     "_afpovertcp._tcp",
-     "_adb-tls-pairing._tcp",
-     "_remotepairing-manual-pairing._tcp",
-     "_ssh._tcp"
+     "_matter._tcp"
     ]
    }
   }
@@ -10287,8 +10209,8 @@
   },
   "iface": {
    "wl0.2": {
-    "packets": 434540,
-    "l2_sources": 8,
+    "packets": 432447,
+    "l2_sources": 6,
     "thread_ula_pkts": 0,
     "mdns_non_iot_sources": 1,
     "odd_destinations": [
@@ -12556,8 +12478,8 @@
   },
   "iface": {
    "wl0.2": {
-    "packets": 8694,
-    "l2_sources": 6,
+    "packets": 8650,
+    "l2_sources": 4,
     "thread_ula_pkts": 0,
     "mdns_non_iot_sources": 1,
     "odd_destinations": [

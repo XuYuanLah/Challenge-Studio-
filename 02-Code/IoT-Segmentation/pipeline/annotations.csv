@@ -1,0 +1,27 @@
+time,capture,kind,label,text
+# Ground truth for the dashboard timeline. Sources: interaction_timeline.txt (E16), upload_run/timeline.txt (E108),
+# function_check/function_checklist_20261102.md (E110), analysis.md. Times are local (site timezone).
+2026-10-06 21:53:27,flat,capture,Capture start,24 h flat-network baseline starts
+2026-10-10 00:27:59,seg,capture,Capture start,24 h segmented baseline starts
+2026-10-10 12:34:27,seg,change,Matter fix,UDP assured timeout raised 180 s -> 1800 s (dropped Matter reports stop after 12:47:59)
+2026-10-11 13:45:51,app_interaction,action,Apple Home,App session: toggles and checks
+2026-10-11 13:47:55,app_interaction,action,Eve,App session
+2026-10-11 13:49:44,app_interaction,action,Hue,App session
+2026-10-11 13:51:08,app_interaction,action,SwitchBot,App session
+2026-10-11 16:43:50,tapo,action,Tapo update,Firmware update started in the app
+2026-10-11 16:45:36,tapo,action,Tapo update done,Update succeeded; plug reachable
+2026-10-11 16:46:04,tapo,action,Hue power cycle,Hue Bridge power-cycled
+2026-10-11 17:03:11,tapo,event,Wireless restart,Not in the action log: Wi-Fi interface rebuilt; IoT IPv6 adverts stop
+2026-10-11 17:12:29,tapo,action,Switch power cycle,Matter switches power-cycled (failed to reconnect after a router restart)
+2026-10-11 21:57:08,,test,Active test (D),Scan from a test laptop on the IoT Wi-Fi: lateral scan and DNS bypass
+2026-10-11 23:55:10,,test,Re-test (E),Router hardening re-test from the IoT Wi-Fi
+2026-10-31 17:27:08,upload,capture,Capture start,Upload scenario capture: quiet period
+2026-10-31 17:37:33,upload,test,Run A start,Bulk upload: 100 MiB to cloud storage
+2026-10-31 17:41:31,upload,test,Run A end,Bulk upload transfer finished (from the capture)
+2026-10-31 17:41:44,upload,event,VFD clock power cycle,Not in the run log: clock re-associated; DHCP then fails
+2026-10-31 17:46:07,upload,test,Run B start,Slow upload: 30 x 16 KiB, one per minute
+2026-10-31 18:17:02,upload,test,Run B end,Slow upload finished
+2026-10-31 18:43:53,vfd,action,VFD clock boot,Clock power-cycled for a boot capture
+2026-11-02 00:17:00,,check,Function checklist,28-point function check starts
+2026-11-02 00:54:00,,check,Wireless restart,Checklist D1: Tapo needed a power cycle afterwards
+2026-11-02 00:59:30,,check,Router reboot,Checklist D2: all devices back by 01:02:59

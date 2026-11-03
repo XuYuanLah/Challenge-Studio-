@@ -1,0 +1,33 @@
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination         
+1      188 45960 LOG        all  --  br52   eth1    0.0.0.0/0            0.0.0.0/0            state NEW limit: avg 30/min burst 60 LOG flags 0 level 4 prefix "IOT_TO_WAN_NEW "
+2        0     0 DROP       udp  --  br52   eth1    0.0.0.0/0            0.0.0.0/0            udp dpt:853
+3        0     0 DROP       tcp  --  br52   eth1    0.0.0.0/0            0.0.0.0/0            tcp dpt:853
+4        0     0 ACCEPT     icmp --  br52   br0     0.0.0.0/0            0.0.0.0/0            icmptype 8
+5        0     0 ACCEPT     tcp  --  br52   br0     0.0.0.0/0            192.168.0.8          tcp dpt:53
+6      300 20531 ACCEPT     udp  --  br52   br0     0.0.0.0/0            192.168.0.8          udp dpt:53
+7     1181  123K ACCEPT     all  --  br0    br52    0.0.0.0/0            0.0.0.0/0           
+8      856  180K ACCEPT     all  --  br52   br0     0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+9       23  1497 LOG        all  --  br52   br0     0.0.0.0/0            0.0.0.0/0            limit: avg 10/min burst 5 LOG flags 0 level 4 prefix "IOT_TO_LAN_DROP "
+10      49  3161 DROP       all  --  br52   br0     0.0.0.0/0            0.0.0.0/0           
+11       0     0 DROP       all  --  br52   *       0.0.0.0/0            192.168.255.0/30    
+12       0     0 DROP       all  --  br56   *       0.0.0.0/0            192.168.255.0/30    
+13       0     0 ACCEPT     all  --  br0    *       0.0.0.0/0            192.168.255.0/30    
+14    169K   47M NWFF       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+15    169K   47M URLFF      all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+16    169K   47M IPSEC_DROP_SUBNET_ICMP  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+17    169K   47M IPSECSSDN  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+18    169K   47M IPSEC_STRONGSWAN  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+19    9579  564K TCPMSS     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcpflags: 0x06/0x02 TCPMSS clamp to PMTU
+20    146K   44M ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+21   22314 3460K WGSF       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+22   22314 3460K OVPNSF     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+23       2    96 ACCEPT     all  --  br0    br0     0.0.0.0/0            0.0.0.0/0           
+24     216 14495 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0            state INVALID
+25    1375 81590 ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ctstate DNAT
+26   20721 3363K WGCF       all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+27   20721 3363K OVPNCF     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+28   20721 3363K VPNCF      all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+29   20721 3363K SDN_FF     all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+30      15  1176 ACCEPT     all  --  br0    *       0.0.0.0/0            0.0.0.0/0           
+31       9   660 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           

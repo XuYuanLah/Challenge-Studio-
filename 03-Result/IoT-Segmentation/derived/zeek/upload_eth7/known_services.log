@@ -1,0 +1,3 @@
+{"ts":1793428094.212702,"host":"192.168.0.8","port_num":53,"port_proto":"udp","service":["DNS"]}
+{"ts":1793428366.017122,"host":"192.168.107.1","port_num":123,"port_proto":"udp","service":["NTP"]}
+{"ts":1793429025.595185,"host":"192.168.0.22","port_num":49626,"port_proto":"udp","service":[""]}

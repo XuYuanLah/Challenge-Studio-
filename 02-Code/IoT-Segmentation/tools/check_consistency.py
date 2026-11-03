@@ -26,9 +26,9 @@ for p, s in docs.items():
         miss.add(m)
     print(p, sorted(miss))
 print('== E-IDs cited vs manifest')
-man_ids = set(re.findall(r'^\| (E\d\d) \|', docs['evidence_manifest.md'], re.M))
+man_ids = set(re.findall(r'^\| (E\d+) \|', docs['evidence_manifest.md'], re.M))
 for p in ('segmentation_report.md', 'analysis.md'):
-    cited = set(re.findall(r'\bE\d\d\b', docs[p]))
+    cited = set(re.findall(r'\bE\d{2,}\b', docs[p]))
     print(p, 'cited', len(cited), 'missing from manifest:', sorted(cited - man_ids))
 print('== section refs')
 def heads(s): return set(re.findall(r'^#{2,4} (\d+(?:\.\d+)*)[ .]', s, re.M))
@@ -43,6 +43,8 @@ print('== recommendation refs in analysis')
 a = docs['analysis.md']
 recs = re.findall(r'^(\d+)\. ', a[a.index('## 10. Recommendations'):a.index('## 11.')], re.M)
 print('recs defined:', recs, 'refs:', sorted(set(re.findall(r'[Rr]ecommendations? (\d+)', a)), key=int))
+sec = a[a.index('## 10. Recommendations'):a.index('## 11.')]
+print('recs done but not struck through:', [m.group(1) for m in re.finditer(r'^(\d+)\. (.*)$', sec, re.M) if re.search(r'\*\*(Done|Resolved)', m.group(2)) and not m.group(2).startswith('~~')])
 print('== leftovers')
 for p, s in docs.items():
     print(p, 'D-substates:', len(re.findall('D[′″]', s)), 'strikethrough:', s.count('~~') if p == 'segmentation_report.md' else '-')

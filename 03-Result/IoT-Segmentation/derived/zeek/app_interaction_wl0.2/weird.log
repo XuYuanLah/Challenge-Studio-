@@ -1,2 +1,2 @@
-{"ts":1791686788.975646,"uid":"CYRpQY2pYUvMcq57Pb","id.orig_h":"192.168.107.1","id.orig_p":5353,"id.resp_h":"224.0.0.251","id.resp_p":5353,"name":"DNS_Conn_count_too_large","notice":false,"peer":"zeek","source":"DNS"}
-{"ts":1791686788.977915,"uid":"C3UpBgm8anJyl0H8f","id.orig_h":"fd00:d:e:6b::1","id.orig_p":5353,"id.resp_h":"ff02::fb","id.resp_p":5353,"name":"DNS_Conn_count_too_large","notice":false,"peer":"zeek","source":"DNS"}
+{"ts":1791686788.975646,"uid":"C11hg44KKFjQl29tri","id.orig_h":"192.168.107.1","id.orig_p":5353,"id.resp_h":"224.0.0.251","id.resp_p":5353,"name":"DNS_Conn_count_too_large","addl":"29 > 25","notice":false,"peer":"zeek","source":"DNS"}
+{"ts":1791686788.977915,"uid":"CiORZe1YN4dfpQG0Vg","id.orig_h":"fd00:d:e:6b::1","id.orig_p":5353,"id.resp_h":"ff02::fb","id.resp_p":5353,"name":"DNS_Conn_count_too_large","addl":"29 > 25","notice":false,"peer":"zeek","source":"DNS"}

@@ -1,0 +1,318 @@
+{
+ "capture": "20261031-172658_upload",
+ "first_packet": 1793428018.367812,
+ "last_packet": 1793431701.863584,
+ "mega_addresses": [
+  "185.206.25.11",
+  "185.206.25.61",
+  "2a0b:e41:1::11",
+  "2a0b:e41:1::61",
+  "2a0b:e46:1:100::11",
+  "2a0b:e46:1:100::12",
+  "2a0b:e46:1:100::13",
+  "2a0b:e46:1:100::14",
+  "2a0b:e46:1:100::15",
+  "2a0b:e46:1:100::16",
+  "66.203.125.11",
+  "66.203.125.12",
+  "66.203.125.13",
+  "66.203.125.14",
+  "66.203.125.15",
+  "66.203.125.16"
+ ],
+ "thresholds_B_per_h": {
+  "R3_seg": 2063090,
+  "R3_dev_tapo": 760
+ },
+ "l2_bytes_from_wifi_clients": 154032934,
+ "windows": {
+  "quiet": {
+   "start": 1793428020,
+   "end": 1793428620,
+   "minutes": 10,
+   "rows": {
+    "Hue Bridge|all": {
+     "bytes": 77570,
+     "rate_B_per_h": 465420
+    },
+    "SwitchBot Hub 2|all": {
+     "bytes": 1394,
+     "rate_B_per_h": 8364
+    },
+    "Tapo smart plug|all": {
+     "bytes": 333,
+     "rate_B_per_h": 1998
+    },
+    "Meross smart plug|all": {
+     "bytes": 745,
+     "rate_B_per_h": 4470
+    },
+    "Test host (MacBook)|all": {
+     "bytes": 276333,
+     "rate_B_per_h": 1657998
+    },
+    "Test host (MacBook)|mega": {
+     "bytes": 9063,
+     "rate_B_per_h": 54378
+    }
+   }
+  },
+  "run_A": {
+   "start": 1793428620,
+   "end": 1793428920,
+   "minutes": 5,
+   "rows": {
+    "Hue Bridge|all": {
+     "bytes": 50254,
+     "rate_B_per_h": 603048
+    },
+    "SwitchBot Hub 2|all": {
+     "bytes": 977,
+     "rate_B_per_h": 11724
+    },
+    "Tapo smart plug|all": {
+     "bytes": 111,
+     "rate_B_per_h": 1332
+    },
+    "Meross smart plug|all": {
+     "bytes": 298,
+     "rate_B_per_h": 3576
+    },
+    "Test host (MacBook)|all": {
+     "bytes": 144175565,
+     "rate_B_per_h": 1730106780
+    },
+    "Test host (MacBook)|mega": {
+     "bytes": 143395278,
+     "rate_B_per_h": 1720743336
+    }
+   }
+  },
+  "gap": {
+   "start": 1793428920,
+   "end": 1793429160,
+   "minutes": 4,
+   "rows": {
+    "Hue Bridge|all": {
+     "bytes": 21188,
+     "rate_B_per_h": 317820
+    },
+    "SwitchBot Hub 2|all": {
+     "bytes": 728,
+     "rate_B_per_h": 10920
+    },
+    "Tapo smart plug|all": {
+     "bytes": 293,
+     "rate_B_per_h": 4395
+    },
+    "Meross smart plug|all": {
+     "bytes": 298,
+     "rate_B_per_h": 4470
+    },
+    "Test host (MacBook)|all": {
+     "bytes": 78610,
+     "rate_B_per_h": 1179150
+    },
+    "Test host (MacBook)|mega": {
+     "bytes": 1704,
+     "rate_B_per_h": 25560
+    }
+   }
+  },
+  "run_B": {
+   "start": 1793429160,
+   "end": 1793431020,
+   "minutes": 31,
+   "rows": {
+    "Hue Bridge|all": {
+     "bytes": 176621,
+     "rate_B_per_h": 341847
+    },
+    "SwitchBot Hub 2|all": {
+     "bytes": 5099,
+     "rate_B_per_h": 9869
+    },
+    "Tapo smart plug|all": {
+     "bytes": 999,
+     "rate_B_per_h": 1934
+    },
+    "Meross smart plug|all": {
+     "bytes": 2384,
+     "rate_B_per_h": 4614
+    },
+    "Test host (MacBook)|all": {
+     "bytes": 2068233,
+     "rate_B_per_h": 4003032
+    },
+    "Test host (MacBook)|mega": {
+     "bytes": 1099249,
+     "rate_B_per_h": 2127579
+    }
+   }
+  },
+  "tail": {
+   "start": 1793431020,
+   "end": 1793431740,
+   "minutes": 12,
+   "rows": {
+    "Hue Bridge|all": {
+     "bytes": 69842,
+     "rate_B_per_h": 349210
+    },
+    "SwitchBot Hub 2|all": {
+     "bytes": 1896,
+     "rate_B_per_h": 9480
+    },
+    "Tapo smart plug|all": {
+     "bytes": 333,
+     "rate_B_per_h": 1665
+    },
+    "Meross smart plug|all": {
+     "bytes": 861,
+     "rate_B_per_h": 4305
+    },
+    "Test host (MacBook)|all": {
+     "bytes": 270113,
+     "rate_B_per_h": 1350565
+    },
+    "Test host (MacBook)|mega": {
+     "bytes": 8123,
+     "rate_B_per_h": 40615
+    }
+   }
+  },
+  "slow_hour": {
+   "start": 1793429160,
+   "end": 1793431740,
+   "minutes": 43,
+   "rows": {
+    "Hue Bridge|all": {
+     "bytes": 246463,
+     "rate_B_per_h": 343902
+    },
+    "SwitchBot Hub 2|all": {
+     "bytes": 6995,
+     "rate_B_per_h": 9760
+    },
+    "Tapo smart plug|all": {
+     "bytes": 1332,
+     "rate_B_per_h": 1859
+    },
+    "Meross smart plug|all": {
+     "bytes": 3245,
+     "rate_B_per_h": 4528
+    },
+    "Test host (MacBook)|all": {
+     "bytes": 2338346,
+     "rate_B_per_h": 3262808
+    },
+    "Test host (MacBook)|mega": {
+     "bytes": 1107372,
+     "rate_B_per_h": 1545170
+    }
+   }
+  }
+ },
+ "clock_hours": {
+  "17:00": {
+   "Hue Bridge|all": 212282,
+   "SwitchBot Hub 2|all": 5079,
+   "Tapo smart plug|all": 1181,
+   "Meross smart plug|all": 2384,
+   "Test host (MacBook)|all": 145561063,
+   "Test host (MacBook)|mega": 143934977
+  },
+  "18:00": {
+   "Hue Bridge|all": 183193,
+   "SwitchBot Hub 2|all": 5015,
+   "Tapo smart plug|all": 888,
+   "Meross smart plug|all": 2202,
+   "Test host (MacBook)|all": 1307791,
+   "Test host (MacBook)|mega": 578440
+  }
+ },
+ "rolling_60min_max": {
+  "Hue Bridge|all": {
+   "bytes": 387789,
+   "window_start": 1793428020
+  },
+  "SwitchBot Hub 2|all": {
+   "bytes": 9872,
+   "window_start": 1793428140
+  },
+  "Tapo smart plug|all": {
+   "bytes": 2069,
+   "window_start": 1793428080
+  },
+  "Meross smart plug|all": {
+   "bytes": 4586,
+   "window_start": 1793428020
+  },
+  "Test host (MacBook)|all": {
+   "bytes": 146815024,
+   "window_start": 1793428080
+  },
+  "Test host (MacBook)|mega": {
+   "bytes": 144512841,
+   "window_start": 1793428020
+  }
+ },
+ "devices": {
+  "Hue Bridge": {
+   "mac": "ec:b5:fa:bc:52:10",
+   "baselined": true,
+   "baseline_median_B_per_h": 206309,
+   "max_clock_hour_B": 212282,
+   "R3_dev_fires": false
+  },
+  "SwitchBot Hub 2": {
+   "mac": "0c:4e:a0:30:22:54",
+   "baselined": true,
+   "baseline_median_B_per_h": 8716,
+   "max_clock_hour_B": 5079,
+   "R3_dev_fires": false
+  },
+  "Matter switch 0d6b": {
+   "mac": "8c:87:d0:09:0d:6b",
+   "baselined": true,
+   "baseline_median_B_per_h": 0,
+   "max_clock_hour_B": 0,
+   "R3_dev_fires": null
+  },
+  "Matter switch 0d6e": {
+   "mac": "8c:87:d0:09:0d:6e",
+   "baselined": true,
+   "baseline_median_B_per_h": 0,
+   "max_clock_hour_B": 0,
+   "R3_dev_fires": null
+  },
+  "Tapo smart plug": {
+   "mac": "7c:f1:7e:10:03:a0",
+   "baselined": true,
+   "baseline_median_B_per_h": 76,
+   "max_clock_hour_B": 1181,
+   "R3_dev_fires": true
+  },
+  "Meross smart plug": {
+   "mac": "c4:e7:ae:20:54:57",
+   "baselined": false,
+   "baseline_median_B_per_h": null,
+   "max_clock_hour_B": 2384,
+   "R3_dev_fires": null
+  },
+  "VFD clock": {
+   "mac": "d8:f1:5b:90:ee:b3",
+   "baselined": false,
+   "baseline_median_B_per_h": null,
+   "max_clock_hour_B": 0,
+   "R3_dev_fires": null
+  },
+  "Test host (MacBook)": {
+   "mac": "42:e3:fe:60:6c:d9",
+   "baselined": false,
+   "baseline_median_B_per_h": null,
+   "max_clock_hour_B": 145561063,
+   "R3_dev_fires": null
+  }
+ }
+}

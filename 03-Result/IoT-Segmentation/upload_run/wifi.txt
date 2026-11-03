@@ -1,0 +1,18 @@
+en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+	options=6460<TSO4,TSO6,CHANNEL_IO,PARTIAL_CSUM,ZEROINVERT_CSUM>
+	ether 02:00:00:00:00:00
+	inet6 fe80::c5:c10d:e8c6:19df%en0 prefixlen 64 secured scopeid 0x11 
+	inet6 fd00:d:e:6b:44e:444d:a1f5:d496 prefixlen 64 autoconf secured 
+	inet 192.168.107.13 netmask 0xffffffe0 broadcast 192.168.107.31
+	nd6 options=201<PERFORMNUD,DAD>
+	media: autoselect
+	status: active
+DHCP Configuration
+IP address: 192.168.107.13
+Subnet mask: 255.255.255.224
+Router: 192.168.107.1
+Client ID: 
+IPv6: Automatic
+IPv6 IP address: none
+IPv6 Router: none
+Wi-Fi ID: 34:b1:eb:e8:f7:3a
