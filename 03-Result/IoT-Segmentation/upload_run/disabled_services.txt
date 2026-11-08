@@ -1,0 +1,22 @@
+iCloud Keychain disabled
+Low power mode enabled (disables some background tasks)
+Background tasks quit:
+	Adobe Creative Cloud
+	AutoMounter (SMB auto mounting)
+	iMazing Mini
+	CleanMyMac Menu
+Launchd jobs unloaded:
+    com.macpaw.CleanMyMac5.Updater
+    com.logi.ghub
+    com.realvnc.vncagent.peruser
+    com.microsoft.update.agent
+    com.oracle.java.Java-Updater
+    org.openvpn.client.app.ovpnuseragent
+    com.adobe.acc.installer.v2
+    com.macpaw.CleanMyMac5.Agent
+    com.microsoft.autoupdate.helper
+    com.realvnc.vncserver
+    com.wacom.UpdateHelper
+    org.macports.ollama
+    org.macports.filebrowser
+    com.bjango.istatmenus.daemon.sm (the ping monitor)

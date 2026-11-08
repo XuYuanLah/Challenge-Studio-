@@ -1,0 +1,24 @@
+{"ts":1791284007.000000,"capture":"flat","kind":"capture","label":"Capture start","text":"24 h flat-network baseline starts"}
+{"ts":1791552479.000000,"capture":"seg","kind":"capture","label":"Capture start","text":"24 h segmented baseline starts"}
+{"ts":1791596067.000000,"capture":"seg","kind":"change","label":"Matter fix","text":"UDP assured timeout raised 180 s -> 1800 s (dropped Matter reports stop after 12:47:59)"}
+{"ts":1791686751.000000,"capture":"app_interaction","kind":"action","label":"Apple Home","text":"App session: toggles and checks"}
+{"ts":1791686875.000000,"capture":"app_interaction","kind":"action","label":"Eve","text":"App session"}
+{"ts":1791686984.000000,"capture":"app_interaction","kind":"action","label":"Hue","text":"App session"}
+{"ts":1791687068.000000,"capture":"app_interaction","kind":"action","label":"SwitchBot","text":"App session"}
+{"ts":1791697430.000000,"capture":"tapo","kind":"action","label":"Tapo update","text":"Firmware update started in the app"}
+{"ts":1791697536.000000,"capture":"tapo","kind":"action","label":"Tapo update done","text":"Update succeeded; plug reachable"}
+{"ts":1791697564.000000,"capture":"tapo","kind":"action","label":"Hue power cycle","text":"Hue Bridge power-cycled"}
+{"ts":1791698591.000000,"capture":"tapo","kind":"event","label":"Wireless restart","text":"Not in the action log: Wi-Fi interface rebuilt; IoT IPv6 adverts stop"}
+{"ts":1791699149.000000,"capture":"tapo","kind":"action","label":"Switch power cycle","text":"Matter switches power-cycled (failed to reconnect after a router restart)"}
+{"ts":1791716228.000000,"capture":"","kind":"test","label":"Active test (D)","text":"Scan from a test laptop on the IoT Wi-Fi: lateral scan and DNS bypass"}
+{"ts":1791723310.000000,"capture":"","kind":"test","label":"Re-test (E)","text":"Router hardening re-test from the IoT Wi-Fi"}
+{"ts":1793428028.000000,"capture":"upload","kind":"capture","label":"Capture start","text":"Upload scenario capture: quiet period"}
+{"ts":1793428653.000000,"capture":"upload","kind":"test","label":"Run A start","text":"Bulk upload: 100 MiB to cloud storage"}
+{"ts":1793428891.000000,"capture":"upload","kind":"test","label":"Run A end","text":"Bulk upload transfer finished (from the capture)"}
+{"ts":1793428904.000000,"capture":"upload","kind":"event","label":"VFD clock power cycle","text":"Not in the run log: clock re-associated; DHCP then fails"}
+{"ts":1793429167.000000,"capture":"upload","kind":"test","label":"Run B start","text":"Slow upload: 30 x 16 KiB"}
+{"ts":1793431022.000000,"capture":"upload","kind":"test","label":"Run B end","text":"Slow upload finished"}
+{"ts":1793432633.000000,"capture":"vfd","kind":"action","label":"VFD clock boot","text":"Clock power-cycled for a boot capture"}
+{"ts":1793539020.000000,"capture":"","kind":"check","label":"Function checklist","text":"28-point function check starts"}
+{"ts":1793541240.000000,"capture":"","kind":"check","label":"Wireless restart","text":"Checklist D1: Tapo needed a power cycle afterwards"}
+{"ts":1793541570.000000,"capture":"","kind":"check","label":"Router reboot","text":"Checklist D2: all devices back by 01:02:59"}

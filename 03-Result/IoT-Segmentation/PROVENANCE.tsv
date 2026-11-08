@@ -34,38 +34,68 @@ bundle_path	source	source_sha256	source_kind	transformation
 02-Code/IoT-Segmentation/asuswrt-configs/scripts/vlan_iface_assign_v6.sh	asuswrt-configs@904f54de74ed:scripts/vlan_iface_assign_v6.sh	d5f8879d4c43c0e177af81cf9ca0946515e0a2e9722f141bf54a7ab9de538b62	git blob	copied from git HEAD
 02-Code/IoT-Segmentation/asuswrt-configs/scripts/vlan_info.sh	asuswrt-configs@904f54de74ed:scripts/vlan_info.sh	a9871549e6ca1217b27650d87293ed76d0f2b040e9ea5a15a88c81d2e614f906	git blob	copied from git HEAD
 02-Code/IoT-Segmentation/asuswrt-configs/scripts/wan-event	asuswrt-configs@904f54de74ed:scripts/wan-event	f94cfd17fb250fb26ff3bfe3a8da91308c17e43ce7bdefa83919c725dfe53739	git blob	copied from git HEAD
+02-Code/IoT-Segmentation/pipeline/annotations.csv	pipeline/annotations.csv	fc2621129794f0858abc544ea50df8734282b7f9c81b6540da5807686d1b25d9	hashed evidence	copied (text, nothing to redact)
+02-Code/IoT-Segmentation/pipeline/dashboard.py	pipeline/dashboard.py	21498332ec094960298ea3b78d623a37f33bdf3ec7444d4bb5646521c09b9e73	hashed evidence	copied (text, nothing to redact)
+02-Code/IoT-Segmentation/pipeline/guide_images/01a_full_page_top.png	pipeline/guide_images/01a_full_page_top.png	34a1de47f0b5e52d95591d0ad7a1ed4c0f440e5f981e391dd845a288c8e1c92a	hashed evidence	copied (binary)
+02-Code/IoT-Segmentation/pipeline/guide_images/01b_full_page_bottom.png	pipeline/guide_images/01b_full_page_bottom.png	ca7e69dfc0ffff282ace88c36a257e08383d0ef457efd80dffc800cc7f45c18e	hashed evidence	copied (binary)
+02-Code/IoT-Segmentation/pipeline/guide_images/02_header_filters_counters.png	pipeline/guide_images/02_header_filters_counters.png	68cd5c44c77ab4e80b715dc8f958a065d4bc146ff74ad28d184f05fdcd9d8ac7	hashed evidence	copied (binary)
+02-Code/IoT-Segmentation/pipeline/guide_images/03_detections.png	pipeline/guide_images/03_detections.png	f445187d190825a04be9603aa7f716599cc187942a17dbd11687cae4cd2b2a74	hashed evidence	copied (binary)
+02-Code/IoT-Segmentation/pipeline/guide_images/04_detection_details_baselines.png	pipeline/guide_images/04_detection_details_baselines.png	b88819bdc216ffc955a351b3c061d4fab2c4bf7ffee61d89b7a94f03149513ae	hashed evidence	copied (binary)
+02-Code/IoT-Segmentation/pipeline/guide_images/05_profiles_separation.png	pipeline/guide_images/05_profiles_separation.png	36acd19584bb17d6ec0eeb6116aee7efa7d6cebd44d759c14d25ec7378438d8c	hashed evidence	copied (binary)
+02-Code/IoT-Segmentation/pipeline/guide_images/06_blocked_attempts_device_functions.png	pipeline/guide_images/06_blocked_attempts_device_functions.png	d51d911e4af508ffd610eb84f6675473c37d65969a206abe2cb976707e568445	hashed evidence	copied (binary)
+02-Code/IoT-Segmentation/pipeline/guide_images/07_data_quality_rules.png	pipeline/guide_images/07_data_quality_rules.png	b33624faf9422a79376d53bc61112c767b57a7da9df5d791a51fbcf294cfec82	hashed evidence	copied (binary)
+02-Code/IoT-Segmentation/pipeline/guide_images/08_example_upload_detections.png	pipeline/guide_images/08_example_upload_detections.png	8b1c3814e25103b278281c8841cc98763402735c7ab0f105f84e049ae15522ff	hashed evidence	copied (binary)
+02-Code/IoT-Segmentation/pipeline/guide_images/09_example_upload_details.png	pipeline/guide_images/09_example_upload_details.png	fd99de149380143042bebe76ec1aea262933c681bd1a7b4b2f8c5fc2f27cc33c	hashed evidence	copied (binary)
+02-Code/IoT-Segmentation/pipeline/guide_images/10_example_vfd_real_only.png	pipeline/guide_images/10_example_vfd_real_only.png	72f677638e7d612976392b60a66ebded2d637f222d7b29e5dea73b41e32d3bca	hashed evidence	copied (binary)
+02-Code/IoT-Segmentation/pipeline/iotpipe.py	pipeline/iotpipe.py	a85d963d1a06f0ffc23c25a78eb10d1aab32f1ccf86595f8da74b76b713af97a	hashed evidence	copied (text, nothing to redact)
+02-Code/IoT-Segmentation/pipeline/site.example.toml	pipeline/site.example.toml	b2cff3a14d0eb538381099f7ff9dfec7d9dc69840f5efc6ffed517d0e95307c8	hashed evidence	copied (text, nothing to redact)
+02-Code/IoT-Segmentation/pipeline/site.toml	pipeline/site.toml	e91abfef52442c389529875d88b536129bb4005a5e2473a1f31735f351a98cec	hashed evidence	copied (text, nothing to redact)
+02-Code/IoT-Segmentation/pipeline/zeek/iot-local.zeek	pipeline/zeek/iot-local.zeek	12133308ecbcf27a9f8732448c32528621d6b6b78e100688e1c59c45e29e3c1a	hashed evidence	copied (text, nothing to redact)
+02-Code/IoT-Segmentation/pipeline_guide.md	pipeline_guide.md	66d46c75333becb0cddc58844a33c351a2b485f4b915dafb531ffcf5dbd3c1e4	report / regenerable / document	copied (text, nothing to redact)
 02-Code/IoT-Segmentation/tools/analyze_pcaps.py	tools/analyze_pcaps.py	0c115a5f01f9b27f278d291481d91267903437e17d0255b47303be4928fa8a4d	hashed evidence	text-redacted (1 replacements)
-02-Code/IoT-Segmentation/tools/build_manifest.py	tools/build_manifest.py	f4664fdf9dc5bc81f80d7c85600ef3d8968c5860ccfbb99c4cd92295fa76861a	report/regenerable	copied (text, nothing to redact)
-02-Code/IoT-Segmentation/tools/check_consistency.py	tools/check_consistency.py	6129e119e7518496b08fb22d611caa4f565da874d67dedddd6a72347ebb4a0ac	report/regenerable	copied (text, nothing to redact)
+02-Code/IoT-Segmentation/tools/build_manifest.py	tools/build_manifest.py	1715931c93e2b6ca99f3e1c790b47a0f7b992c1956be8ab13a9f475ba1ca5817	report / regenerable / document	copied (text, nothing to redact)
+02-Code/IoT-Segmentation/tools/build_results_table.py	tools/build_results_table.py	f163ec5f473318ba7d5c3ff3a1171f73d8bf8d6219303523a5bf7be0bcee37b2	report / regenerable / document	copied (text, nothing to redact)
+02-Code/IoT-Segmentation/tools/check_consistency.py	tools/check_consistency.py	1bf69eb2543344936afb0d42ed7ba741839c24ff872129fd653a2e328ba29133	report / regenerable / document	copied (text, nothing to redact)
 02-Code/IoT-Segmentation/tools/pcap_inventory.py	tools/pcap_inventory.py	b9e23cec04bc86935fe50b9447cba8ee6b9b0c9419de0737262fc8b5d6244e55	hashed evidence	copied (text, nothing to redact)
 02-Code/IoT-Segmentation/tools/run_zeek.sh	tools/run_zeek.sh	30b816674f431c323dc857c20fc45e8486c6046a8f07f82761223877289bf8a6	hashed evidence	copied (text, nothing to redact)
 02-Code/IoT-Segmentation/tools/setup_env.sh	tools/setup_env.sh	31fba5358c540e5d46781508006e5012ef1edb06fa9a5391e14f86851a70749c	hashed evidence	copied (text, nothing to redact)
 02-Code/IoT-Segmentation/tools/summarize_flows.py	tools/summarize_flows.py	a8da9d0c57d756a0fa272ea6ec7d0ba348aee2e272d3ead0bfe3762d2403cd80	hashed evidence	copied (text, nothing to redact)
 02-Code/IoT-Segmentation/tools/tls_fingerprints.sh	tools/tls_fingerprints.sh	4209b2365c200ac82bad9ff8ac06f042ca93e53810cd3d978ad488f42b1f915c	hashed evidence	copied (text, nothing to redact)
 02-Code/IoT-Segmentation/tools/trim_pihole.py	tools/trim_pihole.py	e1a8490f2c2c5548bf763dd12a0dde471655cf087da2ae1491dbb11bf3b687c6	hashed evidence	copied (text, nothing to redact)
+02-Code/IoT-Segmentation/tools/volume_eval.py	tools/volume_eval.py	4e70620caef5390915b9ad309b018b9148815c93bb1015edad76feee6cb768ce	hashed evidence	copied (text, nothing to redact)
 02-Code/IoT-Segmentation/tools/zeek/iot-local.zeek	tools/zeek/iot-local.zeek	3a62544e67abe5dcf3cf92f133744ebbab9fc6999be9e144572b9b6ef6711ede	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/20261006-215327_flat/eth7.log	20261006-215327_flat/eth7.log	c8b3350e0ba17f5d5f5ae82a94d57d21c5e1e171e5d5f8555cd49964d32e22d7	hashed evidence	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/20261006-215327_flat/eth7_20261006-215327.pcap	20261006-215327_flat/eth7_20261006-215327.pcap	e64ae52115b3c30f0137e38687e4afe6bc2e3e613b3a3677d7363cc1365a96df	hashed evidence	pcap-sanitised: pkts=958030, vlan_dropped=89336, modified=185468, token=4, csum_skipped=0
+03-Result/IoT-Segmentation/20261006-215327_flat/eth7_20261006-215327.pcap	20261006-215327_flat/eth7_20261006-215327.pcap	e64ae52115b3c30f0137e38687e4afe6bc2e3e613b3a3677d7363cc1365a96df	hashed evidence	pcap-sanitised: pkts=958030, kept=455633, vlan_dropped=89336, other_hosts_dropped=409907, router_discovery_dropped=3154, modified=168042, token=4, csum_skipped=0
 03-Result/IoT-Segmentation/20261006-215327_flat/run.log	20261006-215327_flat/run.log	4dc4c87985baa7f98e90f3fa178e4c6aa79c46ca0dcdbf7fce51d86978e4f9fb	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/20261006-215327_flat/wl0.2.log	20261006-215327_flat/wl0.2.log	a48e61d665f044ea281d9964126e71e6abf20fbb377f746f9fa3336113d9e651	hashed evidence	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/20261006-215327_flat/wl0.2_20261006-215327.pcap	20261006-215327_flat/wl0.2_20261006-215327.pcap	88be144e5f5727887bfb8e60544624d663fd1aa0ea73fa6fcddafeb79b74e492	hashed evidence	pcap-sanitised: pkts=858199, vlan_dropped=0, modified=190091, token=0, csum_skipped=0
+03-Result/IoT-Segmentation/20261006-215327_flat/wl0.2_20261006-215327.pcap	20261006-215327_flat/wl0.2_20261006-215327.pcap	88be144e5f5727887bfb8e60544624d663fd1aa0ea73fa6fcddafeb79b74e492	hashed evidence	pcap-sanitised: pkts=858199, kept=444591, vlan_dropped=0, other_hosts_dropped=410454, router_discovery_dropped=3154, modified=172665, token=0, csum_skipped=0
 03-Result/IoT-Segmentation/20261010-002759_seg/eth7.log	20261010-002759_seg/eth7.log	f24a72a2bcb51a5ddf75b1569307fdb8c1e6e67f1ac8e23a8116d9b85c28343d	hashed evidence	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/20261010-002759_seg/eth7_20261010-002759.pcap	20261010-002759_seg/eth7_20261010-002759.pcap	de3b9eacbb0a58edd7725765d4ddca6dd8b7287dd36da5fd9ade3c9f6fd2f109	hashed evidence	pcap-sanitised: pkts=508423, vlan_dropped=0, modified=8280, token=4, csum_skipped=0
+03-Result/IoT-Segmentation/20261010-002759_seg/eth7_20261010-002759.pcap	20261010-002759_seg/eth7_20261010-002759.pcap	de3b9eacbb0a58edd7725765d4ddca6dd8b7287dd36da5fd9ade3c9f6fd2f109	hashed evidence	pcap-sanitised: pkts=508423, kept=508423, vlan_dropped=0, other_hosts_dropped=0, router_discovery_dropped=0, modified=8280, token=4, csum_skipped=0
 03-Result/IoT-Segmentation/20261010-002759_seg/run.log	20261010-002759_seg/run.log	8432ebb9500aa1c5823391135c992cd76ca161a9f5c8fd97b58996a77a960a2d	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/20261010-002759_seg/wl0.2.log	20261010-002759_seg/wl0.2.log	318dff6d2e3c2b3a0d91d748e5ded5213a9effbfd44279c852ad266a263aebde	hashed evidence	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/20261010-002759_seg/wl0.2_20261010-002759.pcap	20261010-002759_seg/wl0.2_20261010-002759.pcap	a5b3131c4bb484151af48b8b5cb23ff1d511188d0911f1bc617cbe946ab0c63a	hashed evidence	pcap-sanitised: pkts=434540, vlan_dropped=0, modified=8264, token=0, csum_skipped=0
+03-Result/IoT-Segmentation/20261010-002759_seg/wl0.2_20261010-002759.pcap	20261010-002759_seg/wl0.2_20261010-002759.pcap	a5b3131c4bb484151af48b8b5cb23ff1d511188d0911f1bc617cbe946ab0c63a	hashed evidence	pcap-sanitised: pkts=434540, kept=432447, vlan_dropped=0, other_hosts_dropped=2093, router_discovery_dropped=0, modified=8264, token=0, csum_skipped=0
 03-Result/IoT-Segmentation/20261011-134542_app_interaction/eth7.log	20261011-134542_app_interaction/eth7.log	1869c22b81884efe7bbdda1e28f4e74d43080905964ce556b2c479af014bb819	hashed evidence	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/20261011-134542_app_interaction/eth7_20261011-134542.pcap	20261011-134542_app_interaction/eth7_20261011-134542.pcap	2a0c9219ce754ce1d4373a045db6858fec5cf92701a6e0d84a3745143526a972	hashed evidence	pcap-sanitised: pkts=3065, vlan_dropped=0, modified=20, token=0, csum_skipped=0
+03-Result/IoT-Segmentation/20261011-134542_app_interaction/eth7_20261011-134542.pcap	20261011-134542_app_interaction/eth7_20261011-134542.pcap	2a0c9219ce754ce1d4373a045db6858fec5cf92701a6e0d84a3745143526a972	hashed evidence	pcap-sanitised: pkts=3065, kept=3065, vlan_dropped=0, other_hosts_dropped=0, router_discovery_dropped=0, modified=20, token=0, csum_skipped=0
 03-Result/IoT-Segmentation/20261011-134542_app_interaction/run.log	20261011-134542_app_interaction/run.log	07ad4528b0f78c073a0c33def01ae11da48614f12a8b092b1d0f382dc2d9dde9	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/20261011-134542_app_interaction/wl0.2.log	20261011-134542_app_interaction/wl0.2.log	3e39edecae24e244b07a0de418af3eeaa17f7af4dba92a5dd05d671aa0dcbf08	hashed evidence	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/20261011-134542_app_interaction/wl0.2_20261011-134542.pcap	20261011-134542_app_interaction/wl0.2_20261011-134542.pcap	1111d5f856d138e29a9bd436a074c8cf62d16a73489d576367a4021b6cdcecd9	hashed evidence	pcap-sanitised: pkts=2435, vlan_dropped=0, modified=20, token=0, csum_skipped=0
+03-Result/IoT-Segmentation/20261011-134542_app_interaction/wl0.2_20261011-134542.pcap	20261011-134542_app_interaction/wl0.2_20261011-134542.pcap	1111d5f856d138e29a9bd436a074c8cf62d16a73489d576367a4021b6cdcecd9	hashed evidence	pcap-sanitised: pkts=2435, kept=2435, vlan_dropped=0, other_hosts_dropped=0, router_discovery_dropped=0, modified=20, token=0, csum_skipped=0
 03-Result/IoT-Segmentation/20261011-164338_tapo/eth7.log	20261011-164338_tapo/eth7.log	85006ea310461820dc8db4ba0a6e5bbef177a7835b458e713fd086e1574984e0	hashed evidence	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/20261011-164338_tapo/eth7_20261011-164338.pcap	20261011-164338_tapo/eth7_20261011-164338.pcap	8d264317c428c8a5f2d7d3ec8eef9261796fcbb88aac88fe32fa1d9eb71d0d78	hashed evidence	pcap-sanitised: pkts=17401, vlan_dropped=0, modified=655, token=0, csum_skipped=0
+03-Result/IoT-Segmentation/20261011-164338_tapo/eth7_20261011-164338.pcap	20261011-164338_tapo/eth7_20261011-164338.pcap	8d264317c428c8a5f2d7d3ec8eef9261796fcbb88aac88fe32fa1d9eb71d0d78	hashed evidence	pcap-sanitised: pkts=17401, kept=17401, vlan_dropped=0, other_hosts_dropped=0, router_discovery_dropped=0, modified=655, token=0, csum_skipped=0
 03-Result/IoT-Segmentation/20261011-164338_tapo/run.log	20261011-164338_tapo/run.log	ccf1e0d8fa3be34a51abdc3fa5192ef000cf079501e58db464ce879600bb93aa	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/20261011-164338_tapo/wl0.2.log	20261011-164338_tapo/wl0.2.log	64da1d9d4dd0e3c7e16de0ed42ceb782918960b573c19a7e4accf95d089bf187	hashed evidence	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/20261011-164338_tapo/wl0.2_20261011-164338.pcap	20261011-164338_tapo/wl0.2_20261011-164338.pcap	ba3877d247a6ebb58870833f98bce59722f15bf0c128d968dd27e042403f58de	hashed evidence	pcap-sanitised: pkts=8694, vlan_dropped=0, modified=136, token=0, csum_skipped=0
+03-Result/IoT-Segmentation/20261011-164338_tapo/wl0.2_20261011-164338.pcap	20261011-164338_tapo/wl0.2_20261011-164338.pcap	ba3877d247a6ebb58870833f98bce59722f15bf0c128d968dd27e042403f58de	hashed evidence	pcap-sanitised: pkts=8694, kept=8650, vlan_dropped=0, other_hosts_dropped=44, router_discovery_dropped=0, modified=136, token=0, csum_skipped=0
+03-Result/IoT-Segmentation/20261031-172658_upload/eth7.log	20261031-172658_upload/eth7.log	c0f312c9cd3c51db53a5dcee96da84281620f4b52446b37fd887bebed017223a	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/20261031-172658_upload/eth7_20261031-172658.pcap	20261031-172658_upload/eth7_20261031-172658.pcap	0dfa4e742065e1c2323a51c0a8951891d7ee65782801ee542ab616549e34fab7	hashed evidence	pcap-sanitised: pkts=24364, kept=24364, vlan_dropped=0, other_hosts_dropped=0, router_discovery_dropped=0, modified=1418, token=0, csum_skipped=0
+03-Result/IoT-Segmentation/20261031-172658_upload/run.log	20261031-172658_upload/run.log	e5fd5d77720743192ee740cef53e53d77e4e0e209e2110980248756b84d4d3fe	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/20261031-172658_upload/wl0.2.log	20261031-172658_upload/wl0.2.log	91d9269ef550ca2c1eec1c7ad8f54292b5891b8ec20658ab1ae0542184f9e49d	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/20261031-172658_upload/wl0.2_20261031-172658.pcap	20261031-172658_upload/wl0.2_20261031-172658.pcap	fcad949847cfe29bc3736070728a60f41bb25cfd71a723633cee6285736867e1	hashed evidence	pcap-sanitised: pkts=206146, kept=205933, vlan_dropped=0, other_hosts_dropped=213, router_discovery_dropped=0, modified=1499, token=0, csum_skipped=0
+03-Result/IoT-Segmentation/20261031-184353_vfd/eth7.log	20261031-184353_vfd/eth7.log	ba5021b0266b79d4f637428ddb8d5b18fe109156ec3c40ea421f40d64379de8b	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/20261031-184353_vfd/eth7_20261031-184353.pcap	20261031-184353_vfd/eth7_20261031-184353.pcap	f45dc0109500f0720f2c0fa8d2ac3d86d8472f54b264a71684eec9868a5e1126	hashed evidence	pcap-sanitised: pkts=292, kept=292, vlan_dropped=0, other_hosts_dropped=0, router_discovery_dropped=0, modified=0, token=0, csum_skipped=0
+03-Result/IoT-Segmentation/20261031-184353_vfd/run.log	20261031-184353_vfd/run.log	5b5e4cae44be67ede295e1bb80690c58cda25a2ded4c2b1ca5ceaab593137fd6	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/20261031-184353_vfd/wl0.2.log	20261031-184353_vfd/wl0.2.log	d6c00d20c582228f95a58c7c5470036caf1ab163d1fb9118be48f5dd5b234624	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/20261031-184353_vfd/wl0.2_20261031-184353.pcap	20261031-184353_vfd/wl0.2_20261031-184353.pcap	5044ba85e681a425613c74581d7a3c6b783b8caa5eceb776e7d980f8ae80e1f2	hashed evidence	pcap-sanitised: pkts=153, kept=126, vlan_dropped=0, other_hosts_dropped=27, router_discovery_dropped=0, modified=0, token=0, csum_skipped=0
 03-Result/IoT-Segmentation/README.md	-	-	generated	generated
-03-Result/IoT-Segmentation/analysis.md	analysis.md	9f7d30bdc4068c5aa5a53c9425aff7d65ca78d87462c2d19fdd108276ef87c27	report/regenerable	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/analysis.md	analysis.md	d25ed0648f0334ad7a9b528b1ef13fe587ffdd5844449b95229fa1c3584b2afa	report / regenerable / document	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/derived/active/hue_api0_config.json	derived/active/hue_api0_config.json	50c3423448a6b744f422455e25df5683228231f95228a00ce721f6d5a4571ca9	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/derived/active/nmap_main_to_iot.finished	derived/active/nmap_main_to_iot.finished	d74d4f5eab23878e82b54cc0e3b671470c0944e9bb6140def61ac95725768fa0	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/derived/active/nmap_main_to_iot.started	derived/active/nmap_main_to_iot.started	24922fd60b11f244050164c0147e821d85e67c45d40cfb232e6b31a425a80e03	hashed evidence	copied (text, nothing to redact)
@@ -75,129 +105,163 @@ bundle_path	source	source_sha256	source_kind	transformation
 03-Result/IoT-Segmentation/derived/active/nmap_main_to_iot_udp.gnmap	derived/active/nmap_main_to_iot_udp.gnmap	73d44aacb2e1a7287b1a1238ac73325c4a0c5b4dfad0ff72afcef6b777b3d769	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/derived/active/nmap_main_to_iot_udp.nmap	derived/active/nmap_main_to_iot_udp.nmap	afcfa4e7b5f5c50c75dd110996627d216eeb4f30f9438d77005e349e75c10ebf	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/derived/active/nmap_main_to_iot_udp.xml	derived/active/nmap_main_to_iot_udp.xml	6cf7915466ba894df12174bb1dfba7baa9284fb9e99f0d59d9f2f9287587371a	hashed evidence	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/baselines.json	derived/analysis/baselines.json	dd4af0e28dfa92900d4a603687d8c3fed859690702e239573217ac2c01f31c7f	report/regenerable	text-redacted (4 replacements)
-03-Result/IoT-Segmentation/derived/analysis/flows_app_eth7.csv	derived/analysis/flows_app_eth7.csv	5ba09ca31fa62db9afe0e84838259bf78150edd83017c6e70c752bc3c7752c0d	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/flows_app_wl0.2.csv	derived/analysis/flows_app_wl0.2.csv	7a4d2d040ccffde47709e434ff51076616bef574892f7f4730ebe3532eccc29d	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/flows_flat_eth7.csv	derived/analysis/flows_flat_eth7.csv	3fbb245b6bd37f780c0e0f9702d4d12805431290908fb827c5742249269720d1	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/flows_flat_wl0.2.csv	derived/analysis/flows_flat_wl0.2.csv	0a6aca8f4fdd6f23df070979f35d33b90c4b0771bbb9d5bef15247331d4b717c	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/flows_seg_eth7.csv	derived/analysis/flows_seg_eth7.csv	f2fe4ec5c325bf4c62d3517d370b76c2bb1a3d23b7f705ef2220ba822e265e4f	report/regenerable	text-redacted (2 replacements)
-03-Result/IoT-Segmentation/derived/analysis/flows_seg_wl0.2.csv	derived/analysis/flows_seg_wl0.2.csv	d02047b21376b8beaa7a32ce1a0d731b9a0279a432da73b0ccaa38dbee8ee28b	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/flows_tapo_eth7.csv	derived/analysis/flows_tapo_eth7.csv	b1a171dc1aa3383c449d47ceb3f983e837d7d4ebcf0b6e2cc9e480e92c62c00d	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/flows_tapo_wl0.2.csv	derived/analysis/flows_tapo_wl0.2.csv	4132af008d3b8cae5b34e8a5474f1506900ac1d8d3f4e5c07f1d2c084510ed65	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/summary_app_eth7.json	derived/analysis/summary_app_eth7.json	bbe3acdfb4b6457fbfacac0740d4fc7d1435d0c38c00ddf781c6bb5b05237aa3	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/summary_app_wl0.2.json	derived/analysis/summary_app_wl0.2.json	f619eb44b27a4bdf7f817e3065c917f6ba26e8b4e7b2d896145875331f59413b	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/summary_flat_eth7.json	derived/analysis/summary_flat_eth7.json	a69c7cde83e26a4579721e039b4d6812a0786a1ec019d7a0ab359b726250fb01	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/summary_flat_wl0.2.json	derived/analysis/summary_flat_wl0.2.json	9f7f7cee881295fd7fa3bde1861d3b896f724288b10ce609d01404d7bde0bdea	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/summary_seg_eth7.json	derived/analysis/summary_seg_eth7.json	e8b0c345e26d49744f642c8e9fcd3b61dcfe790b8f82d24be9a0f1c1d56d7443	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/summary_seg_wl0.2.json	derived/analysis/summary_seg_wl0.2.json	4921407c1ba047b546494464ecde32738b9a1b0e6165121982b31cd3a47bf581	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/summary_tapo_eth7.json	derived/analysis/summary_tapo_eth7.json	c36deece21e27302ac47cb72e21c19058267e49ce026c77eb9e6fc4019372599	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/analysis/summary_tapo_wl0.2.json	derived/analysis/summary_tapo_wl0.2.json	09c8500262f3e1c063d95f2c9bac6aa44d7bed6c651a106441e023502e317411	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/pcap_inventory.json	derived/pcap_inventory.json	8064b1345e7a26d61b3452a46beb20e841331888ebde374fd3ba8cbddb16e0a0	report/regenerable	text-redacted (46 replacements)
+03-Result/IoT-Segmentation/derived/analysis/baselines.json	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/flows_app_eth7.csv	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/flows_app_wl0.2.csv	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/flows_flat_eth7.csv	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/flows_flat_wl0.2.csv	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/flows_seg_eth7.csv	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/flows_seg_wl0.2.csv	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/flows_tapo_eth7.csv	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/flows_tapo_wl0.2.csv	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/summary_app_eth7.json	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/summary_app_wl0.2.json	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/summary_flat_eth7.json	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/summary_flat_wl0.2.json	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/summary_seg_eth7.json	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/summary_seg_wl0.2.json	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/summary_tapo_eth7.json	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/summary_tapo_wl0.2.json	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/analysis/upload_eval.json	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/pcap_inventory.json	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
 03-Result/IoT-Segmentation/derived/pihole_iot_trimmed.csv	derived/pihole_iot_trimmed.csv	8e25b85f1280d80ba931a8c94767978ffc0d07d1760d8ff1055209326043c344	hashed evidence	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/tls/clienthello_fingerprints.tsv	derived/tls/clienthello_fingerprints.tsv	6bf5af61a74a986dbab3e0da59d142297373f021d576920c196597055d231d61	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/analyzer.log	derived/zeek/app_interaction_eth7/analyzer.log	bb228178948e6e14e920f49cf1f44515798e45de64ed2d857adf15f6349c464e	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/conn.log	derived/zeek/app_interaction_eth7/conn.log	9747d348a9ee8042a5784258c784647cfd0eb6e34f3e33be4b1ab8a809ad3d74	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/dns.log	derived/zeek/app_interaction_eth7/dns.log	428770ea00a40d4ca2531542096d8e59027acec8565337324c0f6d3eaacc0b34	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/known_certs.log	derived/zeek/app_interaction_eth7/known_certs.log	f0bd3825342cfed6a12f2cd1cfffe7a95a180639b0b5cb4b7445e7642ca54cff	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/known_hosts.log	derived/zeek/app_interaction_eth7/known_hosts.log	fa643128c9e2b176ee6eab3c0eb2c335769e773841a3b9b92722938e3c19de4a	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/known_services.log	derived/zeek/app_interaction_eth7/known_services.log	1a80efcf12cb66975da0eb72fa9d6f79823ea815414cf4e963e8ad3d9b22c1b7	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/notice.log	derived/zeek/app_interaction_eth7/notice.log	a09b5092d9966a444fe0a5fdacbb9098cbfacfdc74759592583d355eacaa6daf	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/ntp.log	derived/zeek/app_interaction_eth7/ntp.log	3485fd1caf6b3109b174d3d02d38ebba8d81d2558fcb6cd9d18523ffdfa9f452	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/packet_filter.log	derived/zeek/app_interaction_eth7/packet_filter.log	75679d4a13fd10e2061de067e9f8fa24712f72e30006af46310d6ed1c0708fbb	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/ssl.log	derived/zeek/app_interaction_eth7/ssl.log	e7a281f42a1b2b60c90851e1a78f2c549c1da8291f99d80a42c2e2d38d751087	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/weird.log	derived/zeek/app_interaction_eth7/weird.log	137e8dde2b5418dd47a2a4a9bb16e36f0d3feefb71bf7a2c2c634fd28d3e93e5	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/x509.log	derived/zeek/app_interaction_eth7/x509.log	9e0325b9dfa1b56dbac2f44a90f7677d438c00c12562148b6f0d82aa54605b93	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/zeek_stderr.txt	derived/zeek/app_interaction_eth7/zeek_stderr.txt	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/analyzer.log	derived/zeek/app_interaction_wl0.2/analyzer.log	bd8599b73728a2436bda22f6c401c62e972ba9d80f8e093c2379e53c6df14bfd	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/conn.log	derived/zeek/app_interaction_wl0.2/conn.log	fd5af2560f9ca0bee10c108cac2c693ec3a8696d4bb71781949bd6071345b5b2	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/dns.log	derived/zeek/app_interaction_wl0.2/dns.log	9f91b334e7d8b6ad187e545bc2978b9a30acf36c174405d29f70529e672eff25	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/known_services.log	derived/zeek/app_interaction_wl0.2/known_services.log	6484ac500f493da74cb2ff8780d5c995f7ac6eb209a43e21fef7a0b78b2ed456	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/packet_filter.log	derived/zeek/app_interaction_wl0.2/packet_filter.log	0f1281be81d3436e9323764d7b97fe8000c106af9e0fe029efad798e7ecc7ad8	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/weird.log	derived/zeek/app_interaction_wl0.2/weird.log	bfd9538c9eeafa7cff9ae7f8bbd803d2cfff7875dd6f90ad3e742051c8897d32	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/zeek_stderr.txt	derived/zeek/app_interaction_wl0.2/zeek_stderr.txt	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/analyzer.log	derived/zeek/flat_eth7/analyzer.log	2f69173572e627eb9f67fa05ccce1e561f2185065805012a9ccf6cd6ab18a0a2	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/conn.log	derived/zeek/flat_eth7/conn.log	d130eb25d2cf7439a3c27dce9a770bca44c5c4ee0df0eef755db5ee2870f795f	report/regenerable	text-redacted (222 replacements)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/dhcp.log	derived/zeek/flat_eth7/dhcp.log	a981a6e797d9e4916bc55652e9a4d8cef29845c9cb7524e8469912cc66576774	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/dns.log	derived/zeek/flat_eth7/dns.log	23ed025ea0bf0a4628ec8937ebefca89952a6693af3c59297084707f91e55b47	report/regenerable	text-redacted (84725 replacements)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/files.log	derived/zeek/flat_eth7/files.log	29f6e2eb3c4e3726bb110e06aacc4251381ecea5890785f7afcba93d1315ff54	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/http.log	derived/zeek/flat_eth7/http.log	5412cae3c8c5b2ed4ea9b3ef71b0fb2697c9d28a4ffa50545d449c81351d86a4	report/regenerable	text-redacted (4 replacements)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/known_hosts.log	derived/zeek/flat_eth7/known_hosts.log	f2b810d55a5434d4044e781a31f427cb45b72c5d25c3cebec58aa37c8350e241	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/known_services.log	derived/zeek/flat_eth7/known_services.log	5f35a0f2a4727acefe0232780d7b9bbd42970c597455cea87d3ba39476b47951	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/notice.log	derived/zeek/flat_eth7/notice.log	f37006f91beaece977682375f12411fabfe27b1f3b5927519a3fe4e4a0e30cf6	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/ntp.log	derived/zeek/flat_eth7/ntp.log	488699f6697ba7831baa36dd261f23cb697427009d5a88395a77dd8b8bd22757	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/packet_filter.log	derived/zeek/flat_eth7/packet_filter.log	ee3e935a5937587cf67bdca83820c59f232d9f9157562d993ca3e516f82c0856	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/ssl.log	derived/zeek/flat_eth7/ssl.log	71c4dc9991bc490ae019486a515dfa13b2443aa30173f1177477c31d293287ce	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/weird.log	derived/zeek/flat_eth7/weird.log	d059c3d3dad4bb96bf8a9474a9a9a4195db78f7789c06439f4098756a41502fc	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/x509.log	derived/zeek/flat_eth7/x509.log	856cd871bbb44bc97dd6ea4b2e6058aab5ed80302bd55f705aa19e81ae5d6693	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_eth7/zeek_stderr.txt	derived/zeek/flat_eth7/zeek_stderr.txt	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/analyzer.log	derived/zeek/flat_wl0.2/analyzer.log	0c575b10b7df5c850ff18959d428349122f3ae0f58e293eb87f42bf25b455371	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/conn.log	derived/zeek/flat_wl0.2/conn.log	e50e70e21462e11b7a77f3ac6617e3d8084a38924b57ca37afa813d2ee697f86	report/regenerable	text-redacted (222 replacements)
-03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/dhcp.log	derived/zeek/flat_wl0.2/dhcp.log	84fd0e08866a855865dfcc4e65ff1b50d8c6e3a0fad98e08f59cf382fb8d771a	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/dns.log	derived/zeek/flat_wl0.2/dns.log	9e5a0440c0c40a8cab733945b78bf632306bc0b416e2f559962c2fc031a34218	report/regenerable	text-redacted (84736 replacements)
-03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/known_hosts.log	derived/zeek/flat_wl0.2/known_hosts.log	a0864dce0fbfd230dcc8c29505b42c6b0102d1cc4d5bde4553d1791014afbe43	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/known_services.log	derived/zeek/flat_wl0.2/known_services.log	e161f32ebf4b111841e7c32b6b219ed6647b71134c0b601380276eb2c7f5b5bf	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/notice.log	derived/zeek/flat_wl0.2/notice.log	1862da54ed69706359ef960e8258c7d89c2f966f5ca4e69b5f49b7078b8bb381	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/ntp.log	derived/zeek/flat_wl0.2/ntp.log	7a0744ece7ac57e05ae5a3cfb4e6109276f7bb65ad31ff0529a22779b3c4e19d	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/packet_filter.log	derived/zeek/flat_wl0.2/packet_filter.log	3ee85d082c9c65bed3db8afa17e18ae3bbf46fdb5c6542009b0255e5ad5e16dd	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/ssl.log	derived/zeek/flat_wl0.2/ssl.log	df4fdbd7afe13020bfc433d906bbe3dff747abd0eb65d334c51547cb4af38186	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/weird.log	derived/zeek/flat_wl0.2/weird.log	618112831133db65f35c76615b92c087a145fd2f2da953522491829b99d73c2d	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/x509.log	derived/zeek/flat_wl0.2/x509.log	b1b102eb94f2f31402a8d5831727489d93ff07da330091a09ad14746b9c3f27d	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/zeek_stderr.txt	derived/zeek/flat_wl0.2/zeek_stderr.txt	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/analyzer.log	derived/zeek/seg_eth7/analyzer.log	94c95247fab0a346089c578b47e12663314555b6f31a9fae483468cebd9126c8	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/conn.log	derived/zeek/seg_eth7/conn.log	3dbacdf5339d3b5fdd62390a3d549c491d5a214c8e00f5379d80cd53a4d340d1	report/regenerable	text-redacted (1 replacements)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/dhcp.log	derived/zeek/seg_eth7/dhcp.log	334161914ea6a38514edb05e160d691f5b0923ea8efdc4a4dcfc4506812d44b8	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/dns.log	derived/zeek/seg_eth7/dns.log	452269ef8774c4014f26e9bdaa66c947946da979ccfb016d6d7ebe1318107542	report/regenerable	text-redacted (3558 replacements)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/files.log	derived/zeek/seg_eth7/files.log	a17462846a2e89e6f29d953db479f03e25a290bfa1e234b8b9b740c48258cdd8	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/http.log	derived/zeek/seg_eth7/http.log	d807e4fd7af8f5a03d2270a11c72f51df0351f8f0e8c50c1ead800c88092c4d5	report/regenerable	text-redacted (4 replacements)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/known_hosts.log	derived/zeek/seg_eth7/known_hosts.log	437950a33ef8fb11dcdaf6d198f9789914ad5ef95c9e883a7f42402763b9c8e2	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/known_services.log	derived/zeek/seg_eth7/known_services.log	b39f4fc49ab3c68d34c75d2683153326697c87383222f3c09672cd7bddf01711	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/notice.log	derived/zeek/seg_eth7/notice.log	785a24c27a1e25003535343d609533cb6dd5d9b5264fb3eea381ec11f93520b6	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/ntp.log	derived/zeek/seg_eth7/ntp.log	ded1593b3dcb445ea08050057538aefbcca77905ef221b89f80514283e235459	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/packet_filter.log	derived/zeek/seg_eth7/packet_filter.log	8c6b19119141aae3b6e7c2505e6efa019e22ef943ccfead8160b03f828da1976	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/ssl.log	derived/zeek/seg_eth7/ssl.log	925e367e70fda70c2b5f63821b9ce4866ccc7e6b355c9344677f03909da15301	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/weird.log	derived/zeek/seg_eth7/weird.log	57129af09093cbacf284abf32c1343c6da33a54982cbcf1537e67ffaa5588207	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/x509.log	derived/zeek/seg_eth7/x509.log	1e81912c13ca875e06aa7080e732b4a672689b7f2fe8d880fd49db441efd6a5d	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_eth7/zeek_stderr.txt	derived/zeek/seg_eth7/zeek_stderr.txt	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/analyzer.log	derived/zeek/seg_wl0.2/analyzer.log	56adbd29a014bb48778f3a1d359c6716787ce7f63f9f4e4c8ddeec05b2be2789	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/conn.log	derived/zeek/seg_wl0.2/conn.log	a485f10205419a8f118b8586d1126bd651315245f97fc188a2b18ff625802a9b	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/dhcp.log	derived/zeek/seg_wl0.2/dhcp.log	de8d2a07f185b52b0c63ad60bf204cf5bc98758d075a6fc36dd5edb1103cc6ff	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/dns.log	derived/zeek/seg_wl0.2/dns.log	4eb4e5549187118685be8cd98677aa48b3b7a37687bdabe4362350c1bd7dde99	report/regenerable	text-redacted (3558 replacements)
-03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/known_hosts.log	derived/zeek/seg_wl0.2/known_hosts.log	517c45b0a70d096ad67f4050420b437910188469bd8d811cf59c7a11b50ff48a	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/known_services.log	derived/zeek/seg_wl0.2/known_services.log	7a9b5e9d3e29e1d2c210ef839dbe033d8918314471f01d8f3c25bd58cf1bacdf	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/notice.log	derived/zeek/seg_wl0.2/notice.log	3786f10638bb8ba05fa51b46cb6167437138c169e58446e966f1f5c031fd15e9	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/ntp.log	derived/zeek/seg_wl0.2/ntp.log	1c586de9455900cc3de3fc4fb78040ab0bb9b878e977f0ad93400ee3fe503b3a	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/packet_filter.log	derived/zeek/seg_wl0.2/packet_filter.log	48931df7fd317c200b78c75f0c11ecc09cc0bb2272ebdbeb840ae681b5ab664c	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/ssl.log	derived/zeek/seg_wl0.2/ssl.log	4bbe48aa764d60148dcaeeaf3e6e2d6925b8c9bb18065b05f63968d4de4e28c7	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/weird.log	derived/zeek/seg_wl0.2/weird.log	b18ec963153e626e52ec9a6e10f9a5c3796c16037104ea50743c605471636ee3	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/x509.log	derived/zeek/seg_wl0.2/x509.log	672908f93a03415260fc581639471e9a2acb2b687d998e1e63f7330dda46b5a4	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/zeek_stderr.txt	derived/zeek/seg_wl0.2/zeek_stderr.txt	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/analyzer.log	derived/zeek/tapo_eth7/analyzer.log	c96a65a1a3298ec5aca957b8ea6d249373cdf67bf2c84a7fd369f68af026a911	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/conn.log	derived/zeek/tapo_eth7/conn.log	b2f44616169db31fd4846bbfb7bd1f74a053c26cae4ca588b7cc3a71f1274a83	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/dhcp.log	derived/zeek/tapo_eth7/dhcp.log	8df3b5578befd7b617e29f53916f3c7483f0f4f94e5cee084f7150bcd4e233ae	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/dns.log	derived/zeek/tapo_eth7/dns.log	8355b2dbffbab5d875e57db91ba5bbe584f5b0e2a4b5e44741e50a8aea255224	report/regenerable	text-redacted (484 replacements)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/known_certs.log	derived/zeek/tapo_eth7/known_certs.log	4985885e2669f49107c88871baa322a7f890fbce55b457646ad44bf716d9493e	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/known_hosts.log	derived/zeek/tapo_eth7/known_hosts.log	c043a9562cea05a2c3c72855199ee95286f6d062947c7965a674ab59e23c7668	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/known_services.log	derived/zeek/tapo_eth7/known_services.log	e4d817d020e055f3c686ce0416cff00e738e2e2e8ed3a535a66a25b88ef61f1f	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/notice.log	derived/zeek/tapo_eth7/notice.log	f354df140073b2a6c3f9d875449a102b05ccc23f6e0634336e78386259f464f0	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/ntp.log	derived/zeek/tapo_eth7/ntp.log	aaf5be199ea2facfa7a27df1259e66fdd931090afa02c7082b49701f805b3988	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/packet_filter.log	derived/zeek/tapo_eth7/packet_filter.log	4ccfdee9ebe17ff1b8ab817ea8d4c12b8a49a587a034251ead9ed1750d199e76	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/ssl.log	derived/zeek/tapo_eth7/ssl.log	4d53bf760d39df162edf7ad366d387b77cfa83692543259d6df7a0c8abedc697	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/weird.log	derived/zeek/tapo_eth7/weird.log	296ed1d14f47be02ebf0b5887936d255219454fe5c86edd2b73944652d896c78	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/x509.log	derived/zeek/tapo_eth7/x509.log	ea1901002f4dea90a820019965a95e471e5048f293677cc0acd3d55b9eff4be4	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/zeek_stderr.txt	derived/zeek/tapo_eth7/zeek_stderr.txt	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/conn.log	derived/zeek/tapo_wl0.2/conn.log	54291d66f770a3a0750fa3c9bfadbf7638393c0075e78672eb12617a61d68010	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/dhcp.log	derived/zeek/tapo_wl0.2/dhcp.log	cf9419ae8ce96927d56e95083e49b89bf08d39d8c2e872f6e8abad9ca5eca705	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/dns.log	derived/zeek/tapo_wl0.2/dns.log	6014b72d2ebc2c5bbd805474f62d6846f58fc042aa2239c9575c1a705efa2eb4	report/regenerable	text-redacted (104 replacements)
-03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/known_hosts.log	derived/zeek/tapo_wl0.2/known_hosts.log	7168462320223b8c89ccb04c923fe8905e75720da9376cd2abed062d958be153	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/known_services.log	derived/zeek/tapo_wl0.2/known_services.log	e8a7e0c433c4042d21ebea9718083a8c5cf4590e2fbd7c878338acf6bb8f9844	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/notice.log	derived/zeek/tapo_wl0.2/notice.log	3b659dcbc06e8d70f03926afc6fd3d21b0b076561165d38cc7a960857cfa4fe0	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/ntp.log	derived/zeek/tapo_wl0.2/ntp.log	5d6b706ecfdf00484096b31bc13738d2033ec70b901ce7582838c64f1991674a	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/packet_filter.log	derived/zeek/tapo_wl0.2/packet_filter.log	544baa083a8021bc2e5c574f4c12babaef1e79913cd35aada33082a570d35bc1	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/ssl.log	derived/zeek/tapo_wl0.2/ssl.log	0837e7d9ac4f6c091e499fcb9202bacf5446338e1e2f0e967f1327ef0e3e3b9b	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/weird.log	derived/zeek/tapo_wl0.2/weird.log	da4e0aa6971673d1a22c72d5ec9ba4660087606148b3f9002349448a2699a2db	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/x509.log	derived/zeek/tapo_wl0.2/x509.log	4ac061795d802b9a37705bfbca681904bf75e45fcab3dab08d35ff0035e2ba68	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/zeek_stderr.txt	derived/zeek/tapo_wl0.2/zeek_stderr.txt	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	report/regenerable	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/evidence_manifest.md	evidence_manifest.md	d3e371a2823860bf4a23991c75521e9d1a917b0585dd9a43c7b1a0fd77bc82d1	report/regenerable	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/derived/tls/clienthello_fingerprints.tsv	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/analyzer.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/conn.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/dns.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/known_certs.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/known_hosts.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/known_services.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/notice.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/ntp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/packet_filter.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/ssl.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/weird.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/x509.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/analyzer.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/conn.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/dns.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/known_services.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/packet_filter.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/weird.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/conn.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/dhcp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/dns.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/files.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/http.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/known_hosts.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/known_services.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/notice.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/ntp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/packet_filter.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/ssl.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/x509.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/conn.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/dhcp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/dns.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/known_hosts.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/known_services.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/notice.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/ntp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/packet_filter.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/ssl.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/x509.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/analyzer.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/conn.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/dhcp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/dns.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/files.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/http.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/known_hosts.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/known_services.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/notice.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/ntp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/packet_filter.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/ssl.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/weird.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/x509.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/analyzer.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/conn.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/dhcp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/dns.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/known_hosts.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/known_services.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/notice.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/ntp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/packet_filter.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/ssl.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/weird.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/x509.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/analyzer.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/conn.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/dhcp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/dns.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/known_certs.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/known_hosts.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/known_services.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/notice.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/ntp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/packet_filter.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/ssl.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/weird.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/x509.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/conn.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/dhcp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/dns.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/known_hosts.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/known_services.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/notice.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/ntp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/packet_filter.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/ssl.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/weird.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/x509.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_eth7/analyzer.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_eth7/conn.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_eth7/dhcp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_eth7/dns.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_eth7/known_hosts.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_eth7/known_services.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_eth7/notice.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_eth7/ntp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_eth7/packet_filter.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_eth7/ssl.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_eth7/weird.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_eth7/x509.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/analyzer.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/conn.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/dhcp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/dns.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/files.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/http.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/known_hosts.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/known_services.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/ntp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/ocsp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/packet_filter.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/quic.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/ssl.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/tunnel.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/weird.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/upload_wl0.2/x509.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_eth7/conn.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_eth7/dhcp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_eth7/dns.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_eth7/known_services.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_eth7/ntp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_eth7/packet_filter.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_eth7/weird.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_wl0.2/conn.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_wl0.2/dhcp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_wl0.2/dns.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_wl0.2/files.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_wl0.2/http.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_wl0.2/known_hosts.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_wl0.2/known_services.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_wl0.2/ntp.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_wl0.2/packet_filter.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/derived/zeek/vfd_wl0.2/weird.log	regenerated from the sanitised pcaps	-	regenerable	tools/ run inside the bundle
+03-Result/IoT-Segmentation/evidence_manifest.md	evidence_manifest.md	4828b6b68c528c9b32308eecdf569b177cb41f46b08d900642e066d11ee56477	report / regenerable / document	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/firewall_logs/FW_hardening.log	firewall_logs/FW_hardening.log	fd851583a8f11400f34d99b1b2c7becce82759153b0743f51c5bad37e2c6d991	hashed evidence	text-redacted (48 replacements)
 03-Result/IoT-Segmentation/firewall_logs/FW_hardening_dns6_ont_retest_2.txt	firewall_logs/FW_hardening_dns6_ont_retest_2.txt	8fa6db33f60d1c15db2fe2e0e7ec8b7cd6ff26bb61a171206c03287857736af0	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/firewall_logs/FW_iot_active.log	firewall_logs/FW_iot_active.log	df88c04c257cfa94dbf71a6b7d1a0c273be511a2d61f06fea460fe8ab0043c62	hashed evidence	text-redacted (1 replacements)
@@ -205,6 +269,18 @@ bundle_path	source	source_sha256	source_kind	transformation
 03-Result/IoT-Segmentation/firewall_logs/FW_log_app_interaction.log	firewall_logs/FW_log_app_interaction.log	e548b20c515f079dc7ceb7384951ec366f222a9f21a2aa1a6cfba62f8f810eda	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/firewall_logs/FW_matter-5540-iot-lan-drop.log	firewall_logs/FW_matter-5540-iot-lan-drop.log	eb7fc30c9075b35806bf22c19976a77c8b9368adc6f26a2e599869460f715e9a	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/firewall_logs/FW_tapo_capture.log	firewall_logs/FW_tapo_capture.log	33db6f96e6c18f52210953bd6768677d42e25a4a461aa31a377ec69d8bedcdd9	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/firewall_logs/FW_upload.log	firewall_logs/FW_upload.log	56e0593985348b18f65c67924aa395bec6c5405fa833e3c4d021f4537e2e0e05	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/function_check/function_checklist_20261102.md	function_check/function_checklist_20261102.md	fe906c7bf874399cd0978d0d31e383b7e6cdd8134807e0b462d0a923a93442e5	hashed evidence	text-redacted (5 replacements)
+03-Result/IoT-Segmentation/function_check/screenshots/A1_home_app_hue.png	function_check/screenshots/A1_home_app_hue.png	8b4f240b371c616ce8402f05c77275ffb45425ed865c4dc3f2bd3a481c721f09	hashed evidence	copied (binary)
+03-Result/IoT-Segmentation/function_check/screenshots/A7_homekit_scene.png	function_check/screenshots/A7_homekit_scene.png	5db2741d59788fb7781c5fa59358d357ec37d99984870a57799585d3a6395091	hashed evidence	copied (binary)
+03-Result/IoT-Segmentation/function_check/screenshots/A8_homekit_automation.png	function_check/screenshots/A8_homekit_automation.png	53463800ce625726ab049fb63974b6f399defec6001863c6f9e89bb777d54706	hashed evidence	copied (binary)
+03-Result/IoT-Segmentation/function_check/screenshots/A9_eve_room.png	function_check/screenshots/A9_eve_room.png	27469572e73a9495c2d6fd08e3e0843f358cd182f5b06775f0cdebd0b55abc02	hashed evidence	copied (binary)
+03-Result/IoT-Segmentation/function_check/screenshots/B1_hue_app_local.png	function_check/screenshots/B1_hue_app_local.png	7f948ddb4b5fcdcd9e0acfeda62198402a9449f5b3def1b8fa158269576bb535	hashed evidence	copied (binary)
+03-Result/IoT-Segmentation/function_check/screenshots/B2_hue_bridge_status.png	function_check/screenshots/B2_hue_bridge_status.png	552167691d5eadf1f90dabf17dea6d4233724d9c71cb8413bae1b536df04926f	hashed evidence	copied (binary)
+03-Result/IoT-Segmentation/function_check/screenshots/B3_tapo_app.png	function_check/screenshots/B3_tapo_app.png	2846460e8d4eb5ce58d485297422faaefaa063f8af045e2a0604220186ee35aa	hashed evidence	copied (binary)
+03-Result/IoT-Segmentation/function_check/screenshots/B4_switchbot_app.png	function_check/screenshots/B4_switchbot_app.png	010a7218a590b517a3b2e2f62d708a9e565980f36dd642c46523d6a40d2a78df	hashed evidence	copied (binary)
+03-Result/IoT-Segmentation/function_check/screenshots/C1_home_hubs_remote.png	function_check/screenshots/C1_home_hubs_remote.png	bfc33266da3cb24290c39aed71e1ae2c90b4e459aec25aad679157b5efb63caf	hashed evidence	copied (binary)
+03-Result/IoT-Segmentation/function_check/screenshots/E2_pihole_query_log.png	function_check/screenshots/E2_pihole_query_log.png	39b17ca8c30fd41306fd9a1ce216d48c8e7a2b7320c81b7b39c8e3d4c6d4e8de	hashed evidence	copied (binary)
 03-Result/IoT-Segmentation/interaction_timeline.txt	interaction_timeline.txt	c980a6072040c6bcb769687bb4b7906843cccadaf5a6622aae85cf4335817dd6	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/iot_active/1_lan_ping.gnmap	iot_active/1_lan_ping.gnmap	b4d69b5407fbd4779465534bcf84e91681e5efcb9d2635b930e683d36dfa90bb	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/iot_active/1_lan_ping.nmap	iot_active/1_lan_ping.nmap	44aa861fe0ffdef7d4a880fbfc5832c7cdb50a374f21f9303caff174ab052c8c	hashed evidence	copied (text, nothing to redact)
@@ -250,6 +326,40 @@ bundle_path	source	source_sha256	source_kind	transformation
 03-Result/IoT-Segmentation/iot_retest/retest.started	iot_retest/retest.started	7d8156096115f9df92fe2825b69bd5b53fa62976de5c793dd0772e0de41eadb9	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/iot_retest/router_term_out.txt	iot_retest/router_term_out.txt	02fa56c655ee0f31a307c5be5e7a33c0fdb0c6e82655a76cb01174ed6c7bd1b8	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/iot_retest/terminal_history.txt	iot_retest/terminal_history.txt	948021ca340b91a10a6095162f17dcd517fdecd749e7fb20bfe34a887b0de3fe	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/nvram_extract/nvram.txt	nvram.txt	a6a4a5218ffe8bff7168c75984aacf1df11fe2795763caa3a9c942f17f067a32	hashed evidence	allow-listed extract (70 keys, 3 replacements)
+03-Result/IoT-Segmentation/nvram_extract/nvram_flat.txt	nvram_flat.txt	834d7243b5cb54852bd0a34167ee28642b4d3d1fa830abef95a3aa9513eae819	hashed evidence	allow-listed extract (64 keys, 3 replacements)
+03-Result/IoT-Segmentation/nvram_extract/nvram_seg.txt	nvram_seg.txt	fe0380973c00830df450e7822386ef60e84c59420a1f43d171fb3c9f1cd63748	hashed evidence	allow-listed extract (70 keys, 2 replacements)
+03-Result/IoT-Segmentation/nvram_extract/nvram_tweak.txt	nvram_tweak.txt	b0bdd63aec0aa9c91992f26692c6df58fd670a278de7f527a4ebef1f2fc24362	hashed evidence	allow-listed extract (70 keys, 2 replacements)
+03-Result/IoT-Segmentation/pipeline_out/iot_segmentation.tgz	pipeline_out/iot_segmentation.tgz	ab61e821b20af020c6c2c9023d2ab9e2406073a9628eae827789e7e2869a1734	report / regenerable / document	copied (binary)
+03-Result/IoT-Segmentation/pipeline_out/lookups/iot_captures.csv	pipeline_out/lookups/iot_captures.csv	fe0a72ad708bb9c132c2e6fb195fcbb7f3e63972ac5953716cda89bb570b9eb3	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/lookups/iot_controllers.csv	pipeline_out/lookups/iot_controllers.csv	cff07ac38d2ae59cb826a9b47cfacea572025cc194a09558ece0d4b32b4b6e04	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/lookups/iot_devices.csv	pipeline_out/lookups/iot_devices.csv	f39a2f7621c28b6e1a8fc663c97583e781648528742ac68d8c1530beeccd1b93	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/prepare_report.json	pipeline_out/prepare_report.json	afb8cb9e3719133bec02ef208c657134265c95d70ba97a98fb33d82cb4180f18	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk/iot_annotation.ndjson	pipeline_out/splunk/iot_annotation.ndjson	2e05784a7029428e16121029a8aab67d64bc9e7b88c1d2238886c89a741a949f	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk/iot_conn.ndjson	pipeline_out/splunk/iot_conn.ndjson	b6be7e5a787d1234e4db0d370a6571f452ddd8a6d34d251af142855ff8625abf	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk/iot_dhcp.ndjson	pipeline_out/splunk/iot_dhcp.ndjson	034138b96aa54527b4670fc52a6ba70b758c08bb4d93a89ff85a9aba6daebaa3	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk/iot_dns.ndjson	pipeline_out/splunk/iot_dns.ndjson	28d071e6d6027dd75547539f92dfe54c4ac5219f4a86c3dd7cb9734f9c68787e	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk/iot_fw.ndjson	pipeline_out/splunk/iot_fw.ndjson	ea93c7bcfb283a023987a7408f30ead02259755c1088e04d9c36ab23da8f4110	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk/iot_health.ndjson	pipeline_out/splunk/iot_health.ndjson	3124119d700c95e888f06df67f97c31e1be5cc1ff1b106da7b969851bc24b752	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk/iot_http.ndjson	pipeline_out/splunk/iot_http.ndjson	316142615585636244c1ab4736f61a6ac9db4abc167c05692b1af800191958af	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk/iot_pihole.ndjson	pipeline_out/splunk/iot_pihole.ndjson	403d94e876bfadb8f094654745b04fce23cd166fba95fc6d7e7d4afd623f3bf5	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk/iot_tls.ndjson	pipeline_out/splunk/iot_tls.ndjson	5e8cb7faf70f5d3d0ea52e8e01b05c987833fdda065eda566bcba71e3fa876e6	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk/iot_tls_hello.ndjson	pipeline_out/splunk/iot_tls_hello.ndjson	83f65715c19266fe05e4bb909cbefe8e0b42904edabd59a4596b1390f9b567ab	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk/iot_volume.ndjson	pipeline_out/splunk/iot_volume.ndjson	7e61c2c7ebd403f7ec659d76ac684e2557b5f4e8774fee5803b956ceab20e34c	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk_app/iot_segmentation/default/app.conf	pipeline_out/splunk_app/iot_segmentation/default/app.conf	6bd5321270bc2a6d7da2a8a40e2b65836629c39a7b4120bd1de0ee7116bbbecc	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk_app/iot_segmentation/default/data/ui/nav/default.xml	pipeline_out/splunk_app/iot_segmentation/default/data/ui/nav/default.xml	5d7efca256fa14e64bc16c9a6d56cadb917a2e24c9237f47ea3e49733756e8bf	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk_app/iot_segmentation/default/data/ui/views/iot_overview.xml	pipeline_out/splunk_app/iot_segmentation/default/data/ui/views/iot_overview.xml	172d831b18bc19306f71d7b3b684243efe807c3a6679c980e6c6fbf25a5c8168	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk_app/iot_segmentation/default/indexes.conf	pipeline_out/splunk_app/iot_segmentation/default/indexes.conf	28d38dadb5b7a38021840aaa048ed0cf0ae479f19ea110afb624d3e66243eacc	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk_app/iot_segmentation/default/macros.conf	pipeline_out/splunk_app/iot_segmentation/default/macros.conf	19846da906b160e60c9b5f42c07546386b0874397f6aeacf070aff4c4a94bbe6	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk_app/iot_segmentation/default/props.conf	pipeline_out/splunk_app/iot_segmentation/default/props.conf	7b943e4c20fd05bbf950096af117b4681e6e35e388855521cb140892cb23667f	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk_app/iot_segmentation/default/transforms.conf	pipeline_out/splunk_app/iot_segmentation/default/transforms.conf	d1c7d9d0edcfdbef958d43ac1d131f3cac7827357ce2bd2feb9f48b6e03fe8e3	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk_app/iot_segmentation/lookups/iot_captures.csv	pipeline_out/splunk_app/iot_segmentation/lookups/iot_captures.csv	fe0a72ad708bb9c132c2e6fb195fcbb7f3e63972ac5953716cda89bb570b9eb3	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk_app/iot_segmentation/lookups/iot_controllers.csv	pipeline_out/splunk_app/iot_segmentation/lookups/iot_controllers.csv	cff07ac38d2ae59cb826a9b47cfacea572025cc194a09558ece0d4b32b4b6e04	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk_app/iot_segmentation/lookups/iot_devices.csv	pipeline_out/splunk_app/iot_segmentation/lookups/iot_devices.csv	f39a2f7621c28b6e1a8fc663c97583e781648528742ac68d8c1530beeccd1b93	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/pipeline_out/splunk_app/iot_segmentation/metadata/default.meta	pipeline_out/splunk_app/iot_segmentation/metadata/default.meta	8e0c1f78b2c3e4414fa4f50f758b886f74570c880cd91f0b12cd1dba251aa8ea	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/planning/function_checklist_template.md	planning/function_checklist_template.md	ae347794397431d141ebed6dec41478494637627a078902765c4797cd12c898a	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/planning/volume_upload_runsheet.md	planning/volume_upload_runsheet.md	2efff8fb5259860c6f12fcd7b2f37ba92addafcf39aa075d26857580de93e9cd	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/results_to_evidence.md	results_to_evidence.md	c2d0fa05a4924a426e07943b3d21e00cb8646a0b968bcea274c01ae091a5252c	report / regenerable / document	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/router_states/after_app/conntrack_iot_1401.txt	router_states/after_app/conntrack_iot_1401.txt	a65198aebb6eff2530dc3d3b51ec41495ddc10e65331cb0aad1e3f08a292532e	hashed evidence	text-redacted (3 replacements)
 03-Result/IoT-Segmentation/router_states/after_app/fw4_counters_1401.txt	router_states/after_app/fw4_counters_1401.txt	733a29ef5124dad336929fabb6b95bef811d2119bae6fdd66b75fde1e1336073	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/router_states/after_app/fw6_counters_1401.txt	router_states/after_app/fw6_counters_1401.txt	8a9fdba993d4c8e4dea47ca687cf30f6ef0642304b386bf9d5c9a999263f503a	hashed evidence	copied (text, nothing to redact)
@@ -305,4 +415,23 @@ bundle_path	source	source_sha256	source_kind	transformation
 03-Result/IoT-Segmentation/router_states/iot_lan_before_and_after/in4_counters_2212.txt	router_states/iot_lan_before_and_after/in4_counters_2212.txt	837b55e18430742d01ee93c744682890bef0b0565cae1c576d1f0d172f6ff0e9	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/router_states/iot_lan_before_and_after/in6_counters_2157.txt	router_states/iot_lan_before_and_after/in6_counters_2157.txt	2e27a0a13a565172e52739e53ce53aa1c47df9af935e8b3822d68184ef3eb9c4	hashed evidence	copied (text, nothing to redact)
 03-Result/IoT-Segmentation/router_states/iot_lan_before_and_after/in6_counters_2212.txt	router_states/iot_lan_before_and_after/in6_counters_2212.txt	f1a79f51ad1c96626da205d692c1e6413ffbc35f904336d5573b366d44e6da16	hashed evidence	copied (text, nothing to redact)
-03-Result/IoT-Segmentation/segmentation_report.md	segmentation_report.md	50ce908af52ab02eeaa5fae8c7ca85917d67869f35e03020567dacd1299961df	report/regenerable	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/router_states/upload_before_and_after/upload_after/conntrack_iot_1828.txt	router_states/upload_before_and_after/upload_after/conntrack_iot_1828.txt	dca076eec4b101aecc297fdf4b7f8fa2351b7ffc5259126d08580c8e10805484	hashed evidence	text-redacted (62 replacements)
+03-Result/IoT-Segmentation/router_states/upload_before_and_after/upload_after/fw4_1828.txt	router_states/upload_before_and_after/upload_after/fw4_1828.txt	7411f1a25fe1bc5e038f4f039f35a4ea7f73c2e78779b998a3b49ad5b64d503d	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/router_states/upload_before_and_after/upload_after/fw6_1828.txt	router_states/upload_before_and_after/upload_after/fw6_1828.txt	29ddd278a63f1d29f46a5966b8341ea545cdad1e2e0500bd37bcc786efb9afbe	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/router_states/upload_before_and_after/upload_after/iot_input4_1828.txt	router_states/upload_before_and_after/upload_after/iot_input4_1828.txt	67a95fe41d293cef70bb396c6efc4cf8ab64977b913368c60d6a12a081b7e8a3	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/router_states/upload_before_and_after/upload_after/time_1828.txt	router_states/upload_before_and_after/upload_after/time_1828.txt	68381ab11f1a643d0c9fa7604b52a76e94dc217a218b3092c2d6f692bed9b953	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/router_states/upload_before_and_after/upload_after/wl02_1828.txt	router_states/upload_before_and_after/upload_after/wl02_1828.txt	0221a2bb55844da18f8c6d848b8719f936bceb06ddc1b69cc6258b189da04706	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/router_states/upload_before_and_after/upload_before/conntrack_iot_1725.txt	router_states/upload_before_and_after/upload_before/conntrack_iot_1725.txt	69162db67c838f989a6d423ccfab407f03b82ffef42ccede8b82f39641b94da2	hashed evidence	text-redacted (39 replacements)
+03-Result/IoT-Segmentation/router_states/upload_before_and_after/upload_before/fw4_1725.txt	router_states/upload_before_and_after/upload_before/fw4_1725.txt	2e8e2c8bdeb9d279e030e7ad43b130e85e8b42c5461deafd1caa0880059f98e9	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/router_states/upload_before_and_after/upload_before/fw6_1725.txt	router_states/upload_before_and_after/upload_before/fw6_1725.txt	4f2a4cfd1beca3b9ce958a406e0b5b4d9383531621ddb6ca4c7bee830a29fdd7	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/router_states/upload_before_and_after/upload_before/iot_input4_1725.txt	router_states/upload_before_and_after/upload_before/iot_input4_1725.txt	6b142113c607d770a37c33d31b372b66c8e5750bbc09c4440167b843ccc369b3	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/router_states/upload_before_and_after/upload_before/time_1725.txt	router_states/upload_before_and_after/upload_before/time_1725.txt	3d4c3759bddc80074b44aff2d09a663ad143174b0915dc919f199baf02379474	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/router_states/upload_before_and_after/upload_before/wl02_1725.txt	router_states/upload_before_and_after/upload_before/wl02_1725.txt	eeb4a912309866333c47586a990585fa76548b598f5cbba016f56707bb0ed268	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/segmentation_report.md	segmentation_report.md	d0b45980da6ef5a057f96d75b9d1017141aa2d40e7fe2956466222e1a9845700	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/submission_bundle.obsolete.txt	submission_bundle.obsolete.txt	62d166e263973beddb5f0ea077cf3610be3aa626c3f4dd3a5d1316176b4fcad1	report / regenerable / document	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/upload_run/disabled_services.txt	upload_run/disabled_services.txt	45bf239e9b99e6b9d94264bd0b3bf8fcf28bf293231abaa70398ef4f140c86ce	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/upload_run/dnsmasq-1.leases	upload_run/dnsmasq-1.leases	1418f41efedae483fd8f18cabaf804357ad54e7d9eaa28ff3b499060ac219eb5	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/upload_run/mega-ls.txt	upload_run/mega-ls.txt	5235b074f69af93b442bbb8472527701ea0a746416981cda58a263f9cc61cf99	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/upload_run/pihole_upload_window.csv	upload_run/pihole_upload_window.csv	49d9a7e980b99563bc572e4829dc1c23dfde22e44588615f772f4be959419e7f	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/upload_run/timeline.txt	upload_run/timeline.txt	7a91c319a19ebbe05277eb653970f952bef03b304699b083b8e6cda7611e14d5	hashed evidence	copied (text, nothing to redact)
+03-Result/IoT-Segmentation/upload_run/wifi.txt	upload_run/wifi.txt	369ba7bb9d6c7692a48b0bdfebd17cb634211b970458b44f407d64bec31c3b9e	hashed evidence	copied (text, nothing to redact)

@@ -1,0 +1,8 @@
+ip,controller
+192.168.0.2,Mac Studio
+192.168.0.22,HomePod
+192.168.0.221,iPhone
+fd00:d:e:f:183e:4f13:4044:5684,HomePod
+fd00:d:e:f:1c6b:3f9c:ab3a:5e30,iPhone
+fd00:d:e:f::2,Mac Studio
+fd00:d:e:f::61,HomePod

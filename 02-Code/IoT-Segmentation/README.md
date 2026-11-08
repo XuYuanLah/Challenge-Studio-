@@ -1,4 +1,4 @@
 # IoT-Segmentation: code
 
-Tools and router configuration for the IoT segmentation part. The README, hashes and provenance
-for this part are in `03-Result/IoT-Segmentation/`.
+Tools, the Splunk pipeline and the router configuration for the IoT segmentation part.
+Start with `../../03-Result/IoT-Segmentation/README.md`; the Splunk pipeline is explained in `pipeline_guide.md`.

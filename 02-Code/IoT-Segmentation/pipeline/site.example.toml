@@ -1,0 +1,99 @@
+# iotpipe site description: copy to site.toml and fill in your own network.
+# Everything the pipeline needs to know about *your* home lives here; the code has no addresses built in.
+# Paths are relative to [paths] root, which is relative to this file.
+
+[site]
+name = "myhome"                     # becomes the Splunk "host" field
+timezone = "Europe/London"          # the timezone your router logs in (syslog lines carry no zone)
+
+[paths]
+root = ".."                         # folder that holds the capture folders and logs
+out  = "pipeline_out"               # everything iotpipe writes goes here (safe to delete and rebuild)
+# zeek = "pipeline_out/zeek"        # where Zeek logs go (default: <out>/zeek)
+
+[splunk]
+index = "iot"                       # the Splunk index the events go to
+
+# ---------------------------------------------------------------- your networks
+[networks]
+iot      = ["192.168.50.0/24", "fd00:50::/64"]      # the IoT segment (VLAN), IPv4 and IPv6
+main_lan = ["192.168.1.0/24", "fd00:1::/64"]        # the trusted LAN with the controllers
+out_of_scope = []                                   # networks you must not analyse (e.g. a flatmate's VLAN)
+router_ips  = ["192.168.1.1", "192.168.50.1", "fd00:1::1", "fd00:50::1"]
+router_macs = ["aa:bb:cc:00:00:01"]                 # the router's MAC on each bridge (for IPv6 router adverts)
+dns_servers = ["192.168.1.53"]                      # your DNS filter (Pi-hole), so DNS shows up as its own class
+# Your own public addresses (delegated IPv6 prefix, WAN address) go into site.private.toml next to this file,
+# which is never shared. They are classified as "own_public" and masked to documentation ranges in all output:
+#   [[networks.own_public]]
+#   prefix = "2a01:db8:1234::/48"     # your real delegated prefix
+#   mask   = "2001:db8:100::/48"      # what it becomes in the output (same length; host bits are kept)
+
+# ---------------------------------------------------------------- captures
+# Capture folders are found automatically: <root>/<YYYYMMDD-HHMMSS>_<label>/<iface>_*.pcap  (iot-capture.sh layout).
+[captures]
+pattern = "[0-9]*-[0-9]*_*"
+default_iface = "wl0.2"             # where devices without a home_iface are counted; unattributed traffic too
+skip_vlan_tagged = true             # drop 802.1Q-tagged frames (other VLANs that happen to cross the port)
+keep_unattributed = false           # true: also keep connections of hosts that are neither a device nor in the IoT network
+
+# Optional per-capture metadata, keyed by the folder label (the part after the timestamp):
+[capture.baseline]
+state = "before"                    # free text: which configuration was live
+baseline = true                     # use this capture to learn "normal" (rules compare against it)
+description = "24 h before segmentation"
+
+# ---------------------------------------------------------------- devices (one block each)
+# Attribution is by MAC address, never by IP (addresses get reused).
+[[device]]
+mac = "aa:bb:cc:11:22:33"
+name = "Hue Bridge"
+type = "bridge"                     # free text
+home_iface = "eth7"                 # capture interface where this device is counted (no double counting)
+baselined = true
+local_only = false                  # true = must never talk to the internet (rule R8)
+ips = ["192.168.50.26"]             # optional static address, used only when a log has no MAC
+
+[[device]]
+mac = "aa:bb:cc:44:55:66"
+name = "Smart plug"
+baselined = true
+
+# A host you plug in for tests (e.g. a laptop standing in for a compromised device):
+[[device]]
+mac = "aa:bb:cc:77:88:99"
+name = "Test laptop"
+role = "test"
+
+# ---------------------------------------------------------------- controllers on the main LAN
+# Hosts that legitimately start connections into the IoT segment (hub, phone with the app). Matched by IP in
+# firewall logs, which only show the source MAC.
+[[controller]]
+name = "Home hub"
+ips = ["192.168.1.20"]
+
+# ---------------------------------------------------------------- other inputs
+[zeek]
+# binary = "/opt/zeek/bin/zeek"     # found automatically in the usual places
+# script = "pipeline/zeek/iot-local.zeek"
+bpf = "not vlan"                    # same idea as skip_vlan_tagged
+include_mdns = false                # mDNS is extremely chatty; leave it out of iot:dns
+
+[tls]
+ja4 = true                          # needs tshark; gives iot:tls_hello (TLS client fingerprints)
+
+[firewall]
+files = ["firewall_logs/*.log", "firewall_logs/*.txt"]   # saved router syslog lines (grep of your LOG prefixes)
+# year = 2026                       # syslog has no year; default: from each file's modification time
+skip_unsynced = true                # drop lines dated 1 Jan (written before the router clock was set)
+# prefixes = ["IOT_TO_WAN_NEW", "IOT_TO_LAN_DROP"]   # optional allow-list
+
+[pihole]
+export = "pihole_export.csv"        # sqlite3 -header -csv pihole-FTL.db "SELECT * FROM queries;"
+window = "captures"                 # "captures": only queries during a capture (± margin); "all": everything
+window_margin_s = 600
+
+[annotations]
+files = ["pipeline/annotations.csv"]   # time,capture,kind,label,text: what you did and when
+
+[privacy]
+redact_url_params = ["sso", "auth", "token", "key", "password", "secret"]

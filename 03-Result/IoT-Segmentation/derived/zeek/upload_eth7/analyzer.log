@@ -1,0 +1,1 @@
+{"ts":1793430514.857836,"analyzer_kind":"protocol","analyzer_name":"DNS","uid":"CeL36a4C2kko8OaWx1","id.orig_h":"fd00:d:e:6b::1","id.orig_p":5353,"id.resp_h":"ff02::fb","id.resp_p":5353,"proto":"udp","failure_reason":"DNS_Conn_count_too_large"}

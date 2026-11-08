@@ -1,0 +1,151 @@
+# iotpipe site description for the IoT Segmentation project (ASUS RT-BE88U, IoT VLAN 107).
+# No secrets in here: the HEC token comes from the environment (SPLUNK_HEC_TOKEN).
+
+[site]
+name = "i0n-home"
+timezone = "Australia/Sydney"
+
+[paths]
+root = ".."
+out  = "pipeline_out"
+
+[splunk]
+index = "iot"
+
+[networks]
+iot      = ["192.168.107.0/27", "fd00:d:e:6b::/64"]
+main_lan = ["192.168.0.0/24", "fd00:d:e:f::/64"]
+out_of_scope = ["192.168.114.0/27", "fd00:d:e:72::/64", "192.168.255.0/30"]   # roommate VLAN; ONT management
+router_ips  = ["192.168.0.1", "192.168.107.1", "192.168.114.1", "fd00:d:e:f::1", "fd00:d:e:6b::1", "fd00:d:e:72::1"]
+router_macs = ["cc:28:aa:2b:39:60", "92:28:aa:2b:39:62"]
+dns_servers = ["192.168.0.8", "fd00:d:e:f::8"]
+
+[captures]
+pattern = "[0-9]*-[0-9]*_*"
+default_iface = "wl0.2"
+skip_vlan_tagged = true
+
+[capture.flat]
+state = "A"
+baseline = true
+description = "24 h, flat network (before segmentation)"
+[capture.seg]
+state = "C/D"
+baseline = true
+description = "24 h, segmented; Matter timeout fix during the window"
+[capture.app_interaction]
+state = "D"
+description = "7 min of app use with an action log"
+[capture.tapo]
+state = "D"
+description = "Tapo firmware update, Hue and switch power cycles"
+[capture.upload]
+state = "E"
+description = "Simulated data theft: bulk and slow upload to cloud storage from a test laptop"
+[capture.vfd]
+state = "E"
+description = "VFD clock boot"
+
+# ---- IoT devices (attribution by MAC)
+[[device]]
+mac = "ec:b5:fa:bc:52:10"
+name = "Hue Bridge"
+type = "Matter bridge (Zigbee)"
+home_iface = "eth7"
+baselined = true
+ips = ["192.168.107.26"]
+[[device]]
+mac = "0c:4e:a0:30:22:54"
+name = "SwitchBot Hub 2"
+type = "Matter bridge (BLE)"
+baselined = true
+ips = ["192.168.107.15"]
+[[device]]
+mac = "7c:f1:7e:10:03:a0"
+name = "Tapo P110M plug"
+type = "smart plug (Matter)"
+baselined = true
+ips = ["192.168.107.23"]
+[[device]]
+mac = "8c:87:d0:09:0d:6b"
+name = "Matter switch 0d6b"
+type = "wall switch (Matter)"
+baselined = true
+local_only = true
+ips = ["192.168.107.17"]
+[[device]]
+mac = "8c:87:d0:09:0d:6e"
+name = "Matter switch 0d6e"
+type = "wall switch (Matter)"
+baselined = true
+local_only = true
+ips = ["192.168.107.20"]
+[[device]]
+mac = "c4:e7:ae:20:54:57"
+name = "Meross plug"
+type = "smart plug (Matter)"
+notes = "joined after the analysis windows; not baselined"
+ips = ["192.168.107.2"]
+[[device]]
+mac = "d8:f1:5b:90:ee:b3"
+name = "VFD clock"
+type = "clock (ESP8285)"
+notes = "joined after the analysis windows; not baselined"
+ips = ["192.168.107.22"]
+
+# ---- test hosts and personal devices that showed up on the IoT SSID
+[[device]]
+mac = "b2:1c:d7:ba:85:9d"
+name = "Test MacBook (Oct 11)"
+role = "test"
+notes = "active tests from the IoT VLAN (analysis §14, §15)"
+[[device]]
+mac = "42:e3:fe:60:6c:d9"
+name = "Test MacBook (Oct 31)"
+role = "test"
+notes = "volume-upload scenario (analysis §16)"
+[[device]]
+mac = "1e:b2:de:92:90:28"
+name = "Owner's Apple device (.18)"
+role = "personal"
+notes = "joined through iCloud Keychain (analysis §14.5)"
+[[device]]
+mac = "c2:c0:9a:ec:14:36"
+name = "Owner's Apple device (.19)"
+role = "personal"
+notes = "joined through iCloud Keychain (analysis §14.5)"
+
+# ---- controllers on the main LAN
+[[controller]]
+name = "HomePod"
+mac = "ac:bc:b5:d3:d1:dd"
+ips = ["192.168.0.22", "fd00:d:e:f::61", "fd00:d:e:f:183e:4f13:4044:5684"]
+[[controller]]
+name = "iPhone"
+ips = ["192.168.0.221", "fd00:d:e:f:1c6b:3f9c:ab3a:5e30"]
+[[controller]]
+name = "Mac Studio"
+ips = ["192.168.0.2", "fd00:d:e:f::2"]
+
+[zeek]
+bpf = "not vlan"
+include_mdns = false
+
+[tls]
+ja4 = true
+
+[firewall]
+files = ["firewall_logs/*.log", "firewall_logs/*.txt"]
+year = 2026
+skip_unsynced = true
+
+[pihole]
+export = "pihole_export.csv"
+window = "captures"
+window_margin_s = 600
+
+[annotations]
+files = ["pipeline/annotations.csv"]
+
+[privacy]
+redact_url_params = ["sso", "auth", "token", "key", "password", "secret"]

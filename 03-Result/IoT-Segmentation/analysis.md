@@ -2,14 +2,17 @@
 
 **Project:** *A Low-Cost Workflow for Detecting and Visualizing Suspicious Network Behaviour in Smart-Home IoT Devices* (Industry Stream, Topic A)
 **Scope of this document:** analysis of the raw evidence catalogued in `evidence_manifest.md` (captures, firewall logs, Pi-hole extract, router state), structured along the Learning Contract's research questions and evaluation metrics.
-**Companion documents:** `segmentation_report.md` (configuration and change record, states A–E), `evidence_manifest.md` (artefacts and hashes).
-**Status:** analysis of raw evidence, fifth pass. The first pass used dependency-free Python tools. The second pass added **Zeek 8.0**, **tshark 4.4 (JA4/JA3)** and **active main-LAN → IoT tests (nmap, HTTP)** (§12). The third pass covers the **state D verification capture**: a Tapo firmware update and two power cycles, recorded after the NTP and mDNS-reflector changes (§13). The fourth pass is the **active test from the IoT VLAN** (§14), which also ran two of the simulated scenarios (lateral scan, DNS bypass). The fifth pass is the **state E re-test** from the same host after the router hardening (§15). Splunk dashboards and the volume-upload scenario aren't done yet (see §9).
+**Companion documents:** `results_to_evidence.md` (one-page map from each result to its evidence, with a glossary), `segmentation_report.md` (configuration and change record, states A–E), `evidence_manifest.md` (artefacts and hashes).
+**How to read this document:** each section starts with an *In short* box in plain language. The detail below it is for checking and reproducing the work.
+**Status:** analysis of raw evidence, seventh pass. The first pass used dependency-free Python tools. The second pass added **Zeek 8.0**, **tshark 4.4 (JA4/JA3)** and **active main-LAN → IoT tests (nmap, HTTP)** (§12). The third pass covers the **state D verification capture**: a Tapo firmware update and two power cycles, recorded after the NTP and mDNS-reflector changes (§13). The fourth pass is the **active test from the IoT VLAN** (§14), which also ran two of the simulated scenarios (lateral scan, DNS bypass). The fifth pass is the **state E re-test** from the same host after the router hardening (§15). The sixth pass is the **simulated volume-upload scenario** (exfiltration to cloud storage, §16). The seventh pass is the owner's **function checklist** in state E, which closes metric 4 (§17). The eighth pass is the **Splunk pipeline and dashboard**, which rebuilds every result from the raw evidence and closes metric 5 (§18).
 
 Times are AEDT (UTC+11). Addresses are internal ones, or public cloud endpoints; the WAN address and delegated prefix are redacted throughout.
 
 ---
 
 ## 1. Method
+
+> **In short:** We recorded the IoT devices' traffic at the router in several sessions between 6 October and 2 November 2026: 24-hour recordings before and after segmentation, plus shorter test runs. Router firewall logs and the Pi-hole DNS log were saved alongside. Free tools (our own Python scripts, Zeek, tshark) turned the recordings into per-device summaries. No recording lost packets, and independent tools agreed on the counts.
 
 ### 1.1 Data used
 
@@ -25,8 +28,13 @@ Times are AEDT (UTC+11). Addresses are internal ones, or public cloud endpoints;
 | Router counters and conntrack (E20–E22, E76–E81) | 10-11 14:01; 16:43 and 17:51 (before/after the tapo capture) | Firewall rule hit counts, live session state |
 | `derived/pihole_iot_trimmed.csv` (E24) | W1–W4 (export ends 10-11 17:51:28) | Domain-level DNS evidence, blocked queries |
 | Active test from the IoT VLAN (E90), router counters (E89), `firewall_logs/FW_iot_active.log` (E88) | 10-11 21:57 → 22:12 | IoT → main-LAN/router reachability; simulated lateral scan and DNS bypass |
+| Re-test from the IoT VLAN, state E (E91–E95) | 10-11 23:55 → 10-12 01:01 | Router containment, DNS enforcement, ONT (§15) |
+| Upload capture (E96–E100), router counters (E107), `firewall_logs/FW_upload.log` (E106), run files (E108) | 10-31 17:26:58 → 18:28:22 (log from 17:59:45) | Simulated volume upload (§16) |
+| VFD clock boot capture (E101–E105) | 10-31 18:43:53 → 18:44:33 | New device, first observation (§16.6) |
+| Function checklist (E110) with screenshots (E111) | 11-02 00:17 → 01:21 | Required device functions in state E, incl. remote access, wireless restart and router reboot (§17) |
+| Splunk pipeline (E112–E117) run over all of the above; dashboard screenshots (E118–E119) | 11-03 | Events, detection rules and dashboard in Splunk (§18) |
 
-All eight pcaps recorded **0 kernel drops**, and hardware offload (`fc`, `runner`) was disabled for each run (`run.log`). The tapo capture's `wl0.2` tcpdump ended early when its interface disappeared (§13.1). The packet counts can therefore be treated as complete for traffic that passes through the capture interfaces.
+All twelve pcaps recorded **0 kernel drops**, and hardware offload (`fc`, `runner`) was disabled for each run (`run.log`). The tapo capture's `wl0.2` tcpdump ended early when its interface disappeared (§13.1). The packet counts can therefore be treated as complete for traffic that passes through the capture interfaces.
 
 ### 1.2 Tooling
 
@@ -58,6 +66,8 @@ The tool outputs under `derived/` are regenerable from the hashed captures and t
 
 ## 2. Device inventory
 
+> **In short:** Five smart-home devices are analysed: a Philips Hue Bridge, a SwitchBot Hub 2, a Tapo smart plug and two Matter wall switches. A HomePod and an iPhone on the main network control them. Two devices that joined later (a Meross plug and a VFD clock) are observed but not baselined.
+
 | Device | MAC | Transport / ecosystem | Cloud | Local control path |
 |---|---|---|---|---|
 | Hue Bridge | `ec:b5:fa:bc:52:10` | Ethernet (`eth7`), Zigbee to bulbs; Matter bridge + HomeKit | Philips/Signify (`*.meethue.com`) | Matter (UDP 5540), local HTTPS API (TCP 443) |
@@ -68,9 +78,13 @@ The tool outputs under `derived/` are regenerable from the hashed captures and t
 
 **Controllers on the main LAN:** the HomePod (`192.168.0.22`, home hub) and the iPhone (`192.168.0.221`, a direct Matter controller while the Home app is open).
 
+**Joined after the analysis windows** (not in any analysed data so far): Meross smart plug `c4:e7:ae:20:54:57` (`192.168.107.2`) and LGL VFD clock VCK 0658-L `d8:f1:5b:90:ee:b3` (`192.168.107.22`). First observed in the upload-scenario capture (§16.6); not baselined.
+
 ---
 
 ## 3. Device baselines (contract: at least two)
+
+> **In short:** For each device we recorded what "normal" looks like over 24 hours: which internet services it talks to, how often and how much. The Hue Bridge is the chattiest (a cloud check-in about every 3.4 minutes); the Matter switches never contact the internet at all. The detection rules compare against these baselines.
 
 The contract defines a baseline as destinations and domains, protocols and ports, connection frequency, volume, duration, and DNS/TLS metadata [1]. Five devices are baselined below. The Hue Bridge and SwitchBot Hub 2 are the primary baselines (richest cloud behaviour); the Tapo plug and Matter switches are secondary.
 
@@ -123,6 +137,8 @@ The contract defines a baseline as destinations and domains, protocols and ports
 
 ## 4. Which characteristics still work when the payload is encrypted? (RQ 2)
 
+> **In short:** Almost all device traffic is encrypted, so its contents can't be read. The "envelope" still tells a lot: which name a device looks up, which server it connects to, when, how often and how much. Every finding in this document was made from that metadata alone.
+
 All cloud traffic observed is TLS (443/8883) apart from NTP, Hue's short TCP-80 sessions and DNS. Without decryption, the following characteristics were enough to build every finding in this document:
 
 | Characteristic | Source | What it gave us |
@@ -141,6 +157,8 @@ All cloud traffic observed is TLS (443/8883) apart from NTP, Hue's short TCP-80 
 ---
 
 ## 5. Findings and detections
+
+> **In short:** The baselines turned up real, unstaged problems. The SwitchBot hub leaks Matter identifiers to the internet because of a firmware bug; the Hue Bridge keeps retrying a blocked diagnostics domain; the Hue downloaded a 14 MB update from a new server. Each was caught by a simple, documented rule. One problem, dropped Matter status messages, was caused by our own firewall and was fixed.
 
 ### 5.1 SwitchBot Hub 2 leaks Matter mDNS records to the internet via a bogus destination (**anomaly, real**)
 
@@ -216,6 +234,8 @@ The flat DHCP lease gave the Hue Bridge **option 42 = `192.168.0.1`**. The IoT V
 
 ## 6. Visibility and exposure before vs after segmentation (RQ 3)
 
+> **In short:** Before segmentation the IoT devices shared a network with every household computer: they could see 26 other devices and two Windows PCs probed them. Afterwards they see only the router and the controllers, the roommate's traffic is gone from their port, and every attempt to reach the main network is blocked and logged. What was left over (the mDNS service list) was later cut from 38 to 5–7 service types.
+
 ### 6.1 What an IoT device could see and reach
 
 | Indicator (24 h) | Flat (A) | Segmented (C/D) | Change |
@@ -259,6 +279,8 @@ The IPv6 counters follow the same pattern: 593 controller-initiated packets, 661
 
 ## 7. Scenario execution: app interaction (13:45–13:52)
 
+> **In short:** We used each vendor app for a few minutes while recording, with a written log of every action. All controls worked across the network boundary, because commands go straight from the HomePod or iPhone to the device. No device contacted anything new. "Check for updates" happens in the phone apps, not on the devices.
+
 Ground truth comes from `interaction_timeline.txt` (E16; app-session start times). Actions in each app: version/update checks (no updates were available), "add new device" page, and toggling devices (Apple Home).
 
 | App window | IoT-side traffic observed | Interpretation |
@@ -277,45 +299,51 @@ Ground truth comes from `interaction_timeline.txt` (E16; app-session start times
 
 ## 8. Transparent rule set
 
+> **In short:** Twelve simple rules (R1–R12), each a one-sentence condition with a fixed threshold, cover everything we detected. Each is computed from router logs, Pi-hole or the traffic summaries, so it can be rebuilt in Splunk. The table records what each rule fired on, and whether that was a real problem (true positive) or a false alarm (false positive).
+
 All rules are documented, threshold-based and computable from router logs, Pi-hole or flow summaries, so they can be implemented directly as SPL searches in Splunk.
 
 | ID | Rule | Data source | Threshold / logic | Fired on | Classification |
 |---|---|---|---|---|---|
-| R1 | New destination domain/SNI for a device | Pi-hole, SNI | domain ∉ device baseline (flat + first 24 h) | `otau.meethue.com` (§5.3); Tapo `ota-download.tplinkcloud.com`, `security.iot.i.tplinknbu.com`, `aau1-device-cloudgateway…` (§13.2); Hue boot-time NTP/time names (§13.3) | TP (change), benign; Hue reboot = FP |
+| R1 | New destination domain/SNI for a device | Pi-hole, SNI | domain ∉ device baseline (flat + first 24 h) | `otau.meethue.com` (§5.3); Tapo `ota-download.tplinkcloud.com`, `security.iot.i.tplinknbu.com`, `aau1-device-cloudgateway…` (§13.2); Hue boot-time NTP/time names (§13.3); MEGA cloud storage in the upload scenario (§16) | TP (change), benign; Hue reboot = FP; **TP** (simulated) |
 | R2 | IoT-initiated connection to the main LAN | `IOT_TO_LAN_DROP` | any | Matter reports (§5.4); simulated lateral scan from the IoT VLAN (§14.2) | FP (policy), tuned; **TP** (simulated) |
-| R3 | Volume spike | flows | hourly in/out > 10× device median | Hue, 10-10 15:00 (§5.3); Tapo 1.59 MB OTA, 10-11 16:44 (§13.2) | TP (change), benign |
+| R3 | Volume spike | flows | hourly in/out > 10× device median | Hue, 10-10 15:00 (§5.3); Tapo 1.59 MB OTA, 10-11 16:44 (§13.2); simulated 100 MiB upload to MEGA (§16, TP); Tapo plug at ~2 kB/h vs a pre-update 76 B/h median (§16, FP) | TP (change), benign; **TP** (simulated); FP (Tapo, stale baseline) |
 | R4 | IoT → WAN to a non-routable/reserved destination | `IOT_TO_WAN_NEW` | DST in 0/8, 127/8, 224/3, RFC 1918 | SwitchBot 255.2.0.0 (§5.1); still 23 of 247 entries in the tapo capture (§13.5); vendor bug, router workaround documented but not deployed (`segmentation_report.md` open item 6) | **TP, anomaly** |
 | R5 | Blocked-domain retry storm | Pi-hole status 1 | per hour > 5× device baseline median | Hue `diag.meethue.com` (§5.2) | **TP, anomaly** (benign intent) |
-| R6 | Connection-attempt burst | flows (SYN) | > 10 SYNs to one destination in 10 min | SwitchBot MQTT, flat (§5.5) | Anomaly, cause unknown |
+| R6 | Connection-attempt burst | flows (SYN) | > 10 SYNs to one destination in 10 min | SwitchBot MQTT, flat (§5.5); slow upload: ~13 connections per 16 KiB file, up to 63 SYNs per 10 min to one storage node (§16, TP) | Anomaly, cause unknown; **TP** (simulated slow upload) |
 | R7 | DNS bypass | flows / firewall | DNS/853 to anything other than Pi-hole | none from IoT devices; simulated `1.1.1.1` UDP 53 and TCP 853 from the test host (§14.4). State E: DNS is redirected (`IOT_DNS_REDIRECT`), and DoT attempts are still logged before the drop (§15.4) | TN (devices); **TP** (simulated) |
 | R8 | Any WAN traffic from a local-only device | `IOT_TO_WAN_NEW` | Matter switch MACs | none | TN |
 | R9 | New TLS client fingerprint for a device | tshark / Zeek (JA4) | JA4 ∉ device's baseline set (§12.2) | none across states A/C/D (the OTA download reused the `data.meethue.com` JA4). After the Hue's power cycle: 2 new JA4s (TLS 1.0 boot handshake, first-seen broker handshake, §13.3). The Tapo kept its JA4 through a firmware update | TN; Hue reboot = FP |
-| R10 | Cleartext HTTP from an IoT device to the internet | Zeek `http.log` | any request to a non-RFC 1918 host | Hue `POST /v2/diagnostics/report` (§12.3) | **TP, weakness** |
+| R10 | Cleartext HTTP from an IoT device to the internet | Zeek `http.log` | any request to a non-RFC 1918 host | Hue `POST /v2/diagnostics/report` (§12.3); VFD clock looks up its time zone and location from `ip-api.com` over HTTP (§16.6) | **TP, weakness** |
 | R11 | Router stops advertising the IoT prefix | pcap (ICMPv6 RA), router state | no RA for > 3× the normal interval (~8 s), or router ULA absent | RAs and the router's ULA stop at 17:03:11 (§13.6) | **TP, config defect** |
 | R12 | Legacy TLS from an IoT device | Zeek `ssl.log` | negotiated version < TLS 1.2 | Hue boot handshake to `time.meethue.com`, TLS 1.0 (§13.3) | **TP, weakness** |
 
-**Metric 2 (≥ 3 suspicious-behaviour scenarios detected by transparent rules [1]):** met with **real, unstaged** behaviour: R4 (bogus-destination leak), R5 (blocked telemetry storm), R1 + R3 (new destination + volume after a change) and R10 (cleartext telemetry carrying a persistent token). R2 adds a policy-related detection and R6 an availability anomaly. The tapo capture adds a second, independent *change* detection (Tapo firmware update: R1 + R3) and two new detections: R11 (lost IPv6 prefix after a wireless restart) and R12 (TLS 1.0 at boot). Two of the planned **simulated** scenarios were executed from a test host on the IoT SSID (§14): the lateral scan (R2 and the DROP counters) and the DNS bypass (R7), both detected. The volume-upload scenario (R3) is still to do.
+**Metric 2 (≥ 3 suspicious-behaviour scenarios detected by transparent rules [1]):** met with **real, unstaged** behaviour: R4 (bogus-destination leak), R5 (blocked telemetry storm), R1 + R3 (new destination + volume after a change) and R10 (cleartext telemetry carrying a persistent token). R2 adds a policy-related detection and R6 an availability anomaly. The tapo capture adds a second, independent *change* detection (Tapo firmware update: R1 + R3) and two new detections: R11 (lost IPv6 prefix after a wireless restart) and R12 (TLS 1.0 at boot). Two of the planned **simulated** scenarios were executed from a test host on the IoT SSID (§14): the lateral scan (R2 and the DROP counters) and the DNS bypass (R7), both detected. The volume-upload scenario (§16) was then run as well: bulk upload caught by R3 and R1, slow upload by the per-device R3, R1 and R6.
 
 ---
 
 ## 9. Evaluation against the Learning Contract metrics [1]
 
+> **In short:** All five Learning Contract metrics are met. The table gives the evidence for each and the remaining caveats; for example, hosts in the roommate's network were deliberately not tested. `results_to_evidence.md` maps every result to its evidence IDs on one page.
+
 | # | Metric | Status | Evidence | Gap |
 |---|---|---|---|---|
-| 1 | All documented test scenarios executed at least once | **Largely met** | Baseline captures A/C (24 h each); segmentation change; Matter fix; app interaction; WAN logging window; the state D verification capture with a **firmware update** and **power-cycle recovery** (§13); **active tests in both directions** (§12.4, §14); simulated **lateral scan** and **DNS bypass** (§14); **state E re-test** of router access, DNS enforcement and bridge rebuilds (§15) | Simulated volume upload not yet run |
-| 2 | ≥ 3 suspicious-behaviour scenarios detected by transparent rules | **Met** (real events) | §5.1–5.3, §8 (R4, R5, R1+R3; R2); tapo capture: R1+R3 on the Tapo update, R11, R12 (§13) | Controlled simulations would strengthen it |
+| 1 | All documented test scenarios executed at least once | **Met** | Baseline captures A/C (24 h each); segmentation change; Matter fix; app interaction; WAN logging window; the state D verification capture with a **firmware update** and **power-cycle recovery** (§13); **active tests in both directions** (§12.4, §14); simulated **lateral scan** and **DNS bypass** (§14); **state E re-test** of router access, DNS enforcement and bridge rebuilds (§15); **simulated volume upload** (bulk and slow, §16) | — |
+| 2 | ≥ 3 suspicious-behaviour scenarios detected by transparent rules | **Met** (real events) | §5.1–5.3, §8 (R4, R5, R1+R3; R2); tapo capture: R1+R3 on the Tapo update, R11, R12 (§13); simulated scenarios all detected: lateral scan (R2), DNS bypass (R7), volume upload (R3, R1, R6; §16) | — |
 | 3 | All unauthorised inter-segment reachability tests blocked after segmentation | **Met** (within scope) | **IoT → main-LAN hosts blocked** (v4 and v6) apart from the documented DNS and echo exceptions (§14.2), also via hairpin NAT (§15.5); **IoT → router contained in state E**: only DHCP, NTP, mDNS and ICMP answer on every router address, SSH dropped (§15.3); **IoT → ONT management blocked** (`904f54d`, §15.6); DNS forced to Pi-hole on both address families (§15.4); passive evidence (§6.1, §13.8); main LAN → IoT open by design (§12.4) | VLAN 114 hosts not tested (scope); the roommate VLAN's SSH and ONT drops are in place but can't be exercised without an owned host there |
-| 4 | All documented required device functions continue after segmentation | **Largely met** | Matter control from the HomePod and iPhone to all 5 IP devices (§7); Hue app local API works; Matter report drops fixed (§5.4); time sync via fallback (§5.6); Tapo firmware update completed through the segment, plug reachable; Hue back in Matter and the app ~2 min after power-on; HomePod sessions to all 5 devices at 17:51 (§13) | The Matter switches' outage at the start of the tapo capture is explained: a wireless restart before the capture, no recurrence after a power cycle (§13.7). IPv6 on the IoT VLAN was silently lost after a wireless restart (§13.6; functions carried on over IPv4); fixed in D (`1b36092`) and confirmed after a wireless restart in state E (§15.2): all five devices were present, and the owner confirmed that every app still works (§15.6). The HomePod was found on the IoT SSID and moved back (configuration drift, rec. 17). A written function checklist (incl. remote access via the HomePod while away) to close it formally |
-| 5 | Every result backed by reproducible evidence | **Met for this analysis** | Hash-verified raw evidence and first-order extracts (`SHA256SUMS`), dependency-free tools; Zeek logs, JA4 table, flow CSV/JSON regenerable with the commands in `evidence_manifest.md`; nmap output | Splunk searches and screenshots still to come |
+| 4 | All documented required device functions continue after segmentation | **Met** | **Written function checklist in state E (§17, E110–E111): 28 of 28 checks passed**, covering local Matter/HomeKit control of every IP device, scenes, automations, the Eve Room via the HomePod, all vendor apps, **remote control through the HomePod over cellular**, recovery after a wireless restart and a router reboot, NTP, DNS and firmware-update checks. Earlier evidence: Matter control from the HomePod and iPhone to all 5 IP devices (§7); Matter report drops fixed (§5.4); Tapo firmware update through the segment and power-cycle recovery (§13); functions after the state E bridge rebuild (§15.2, §15.6) | Two remarks, neither a lost function: the Tapo plug stopped switching once after the wireless restart until it was power-cycled (device side, like the switches in §13.7), and Matter reports were briefly dropped right after the router reboot and once more 10 min later (self-healing, R2 policy false positives; §17.3). Single run |
+| 5 | Every result backed by reproducible evidence | **Met** | Hash-verified raw evidence and first-order extracts (`SHA256SUMS`), dependency-free tools; Zeek logs, JA4 table, flow CSV/JSON regenerable with the commands in `evidence_manifest.md`; nmap output. **Splunk stage (§18):** the pipeline (E112–E117) regenerates all 64,721 events from the hashed raw evidence and reproduces the analysis' numbers; the dashboard shows every detection with its source (E118–E119); `results_to_evidence.md` maps each result to its evidence | — |
 ---
 
 ## 10. Recommendations
 
+> **In short:** 23 concrete follow-ups. Struck-through items are done, with where they were implemented and verified. Of the rest, 5 and 20–22 belong to the Splunk stage (how the rules should be tuned), and the others are documented options, tooling improvements or vendor issues.
+
 1. **Egress-filter reserved/bogon destinations from the IoT VLAN** (stops the §5.1 leak at the router) and keep R4 as a detection rule. **Workaround documented, not deployed** (`segmentation_report.md` open item 6, closed); R4 stays the detection.
 2. ~~Restrict the mDNS reflector~~ **Done in D (`d0c3085`):** reflected answer types 38 → 5–7 (§13.5). Queries are still reflected, so recommendation 1 is still needed for the SwitchBot leak.
-3. **Provide NTP on the IoT VLAN. Done in D.** The INPUT rule is in place (`75807a2`), and option 42 now advertises the main-LAN router address `192.168.0.1` (`0416f8d`). `ntpd` is bound to `br0`, and `sntp` from a laptop on `I0N_IoT` confirmed neither address answers. **`a738f35`** therefore adds a serve-only `ntp -l -I <bridge>` on every VLAN bridge, including `br52`. It starts and stops with the firmware ntpd and its "Enable local NTP server" switch (`segmentation_report.md` §1.10). It's confirmed running on the router (the extra instances start with the firmware ntpd). The §5.2 hypothesis (Hue diag rate back to ~2/h with working local NTP) needs a new capture or Pi-hole window to test.
-4. **Run the active reachability matrix and the three simulated scenarios** to close metrics 1 and 3.
-5. **Ingest into Splunk:** the Zeek JSON logs (`derived/zeek/`), `flows_*.csv`, the JA4 table, Pi-hole and firewall logs. Rules R1–R10 map directly onto SPL searches for the dashboard deliverable [1].
+3. ~~Provide NTP on the IoT VLAN~~ **Done in D.** The INPUT rule is in place (`75807a2`), and option 42 now advertises the main-LAN router address `192.168.0.1` (`0416f8d`). `ntpd` is bound to `br0`, and `sntp` from a laptop on `I0N_IoT` confirmed neither address answers. **`a738f35`** therefore adds a serve-only `ntp -l -I <bridge>` on every VLAN bridge, including `br52`. It starts and stops with the firmware ntpd and its "Enable local NTP server" switch (`segmentation_report.md` §1.10). It's confirmed running on the router (the extra instances start with the firmware ntpd). The §5.2 hypothesis (Hue diag rate back to ~2/h with working local NTP) needs a new capture or Pi-hole window to test.
+4. ~~Run the active reachability matrix and the three simulated scenarios~~ **Done:** reachability in both directions (§12.4, §14, §15) and all three simulated scenarios: lateral scan (§14.2), DNS bypass (§14.4) and volume upload (§16). Metrics 1 and 3 are met.
+5. ~~Ingest into Splunk~~ **Done (§18):** the pipeline (`pipeline/iotpipe.py`, E112) turns the captures, Zeek logs, JA4 fingerprints, firewall logs and Pi-hole export into 11 sourcetypes, loaded over HEC. R1–R12 run as SPL macros behind the dashboard deliverable [1].
 6. **Snapshot router counters before and after** each experiment window (done for the tapo capture), record end times as well as start times, and log unplanned events too: the two wireless restarts at 17:03 and ~17:10 aren't in the timeline.
 7. Report the SwitchBot IPv6→IPv4 mDNS bug to the vendor. **The owner will contact SwitchBot after the project** (evidence: §5.1, `FW_log_3h.log`, the segmented capture).
 8. **Narrow main LAN → IoT to the controllers.** The current `br0 → br52 ACCEPT` lets *any* main-LAN host reach the IoT services found in §12.4, including the unauthenticated Hue `/api/0/config` and the Matter switches' unidentified TCP 3000 service. Restrict it to the HomePod and iPhone (DHCP reservations; MAC or IP match), plus anything else that truly needs it (e.g. a Hue integration on the homelab), and log everything else.
@@ -323,17 +351,23 @@ All rules are documented, threshold-based and computable from router logs, Pi-ho
 10. ~~Re-add the ULA addresses after wireless restarts~~ **Done in D (`1b36092`, §13.6).** Keep R11 as a health check.
 11. ~~Remove the STP delay on the IoT bridge~~ **Done in D (`d119636`):** STP is off on the IoT bridge (§13.3).
 12. **Supervise each tcpdump in `iot-capture.sh`** and restart it when its interface disappears (§13.1).
-13. ~~Find the cause of the Matter switch outage~~ **Resolved (§13.7)** from the router syslog (association/deauth events, service restarts) before relying on metric 4 for the switches.
-14. **Restrict router access from the VLANs (§14.3). Done in state E (`5b0e391`), verified (§15.3).** In `firewall-start`, for each VLAN bridge, accept only what clients need on INPUT (DHCP 67, NTP 123, mDNS 5353 on the IoT bridge; DHCPv6 547 on the roommate bridge) and drop the rest: SSH, router DNS, DLNA 8200, 81/444/60000. Identify those last three first (`netstat -tlnp`).
-15. **SSH from the VLANs:** dropped on every VLAN bridge in state E (`5b0e391`), verified from the IoT VLAN (§15.3); the roommate bridge's rule is in place but can't be exercised (no owned host). WAN SSH stays enabled on purpose; the owner keeps it secured.
-16. **Enforce DNS (§14.4). Done in state E (`5b0e391`), verified for IPv4 and IPv6, UDP and TCP, and DoT on both families (§15.4):** DNAT IoT-bridge UDP/TCP 53 that isn't addressed to Pi-hole over to Pi-hole, and drop TCP 853 from the IoT bridge to the WAN. Keep R7 as the detection for anything that gets past it (DoH can't be blocked by port).
-17. ~~Account for the unidentified clients on `I0N_IoT`~~ **Resolved (§14.5):** the owner's own Apple devices. In the state E re-test the **HomePod** itself had joined `I0N_IoT` (§15.6). **Remove the IoT network from iCloud Keychain** (or give it a passphrase that isn't synced), and alert when a controller MAC shows up on `br52`.
+13. ~~Find the cause of the Matter switch outage before relying on metric 4 for the switches~~ **Resolved (§13.7):** the owner had restarted wireless before the capture and the switches didn't rejoin until a later restart; no recurrence after a power cycle. The function checklist later confirmed both switches (§17).
+14. ~~Restrict router access from the VLANs (§14.3)~~ **Done in state E (`5b0e391`), verified (§15.3):** in `firewall-start`, for each VLAN bridge, accept only what clients need on INPUT (DHCP 67, NTP 123, mDNS 5353 on the IoT bridge; DHCPv6 547 on the roommate bridge) and drop the rest: SSH, router DNS, DLNA 8200, 81/444/60000. Identify those last three first (`netstat -tlnp`).
+15. ~~Drop SSH from the VLANs~~ **Done in state E (`5b0e391`), verified from the IoT VLAN (§15.3):** dropped on every VLAN bridge; the roommate bridge's rule is in place but can't be exercised (no owned host). WAN SSH stays enabled on purpose; the owner keeps it secured.
+16. ~~Enforce DNS (§14.4)~~ **Done in state E (`5b0e391`), verified for IPv4 and IPv6, UDP and TCP, and DoT on both families (§15.4):** DNAT IoT-bridge UDP/TCP 53 that isn't addressed to Pi-hole over to Pi-hole, and drop TCP 853 from the IoT bridge to the WAN. Keep R7 as the detection for anything that gets past it (DoH can't be blocked by port).
+17. ~~Account for the unidentified clients on `I0N_IoT`~~ **Resolved (§14.5):** the owner's own Apple devices. In the state E re-test the **HomePod** itself had joined `I0N_IoT` (§15.6). **Remove the IoT network from iCloud Keychain** (or give it a passphrase that isn't synced), and alert when a controller MAC shows up on `br52`. **Done 2026-10-28:** `I0N_IoT` removed from iCloud Keychain; no Apple device on the IoT SSID.
 18. ~~Check the IPv6 TCP DNS redirect~~ **Done (§15.4):** `dig +tcp` over IPv6 to Cloudflare and to the router got Pi-hole's block answer (v6 TCP DNAT +2), and DoT over IPv6 timed out.
 19. ~~Block IoT → ONT management~~ **Done (`904f54d`), verified (§15.6):** the ONT was reachable from the IoT VLAN; now `nc` times out and the `br52` drop counts, while the main LAN keeps access. The roommate VLAN gets the same drop.
+20. **Give the per-device R3 a floor and re-baseline after firmware updates (§16.4).** The Tapo plug's 76 B/h median (5 active hours, pre-update) makes 10× meaningless: use e.g. `max(10 × median, 10 kB/h)`, or a high percentile instead of the median, and rebuild a device's baseline after every firmware change (R1/R3 already flag the change itself). *Status:* the floor is built into the dashboard's R3 (§18.3), which removes the Tapo false positive; re-baselining after a firmware change is still a manual step.
+21. ~~Run volume and connection-count rules together~~ **Done in the dashboard (§18.3):** R3 and R6 both run per device, attributed by MAC, and their findings sit side by side in the detail table (§16.5). Scheduled alerts weren't set up; the dashboard is the review tool.
+22. ~~Classify Matter reports in R2~~ **Done in the dashboard (§18.3):** a blocked message from source port 5540 to a known controller is labelled *info* ("Matter status message blocked (expected)"); every other R2 hit stays critical (§17.3).
+23. **Treat a wireless restart as a maintenance event (§17.2).** Twice now a device didn't come back cleanly from one (the Matter switches in §13.7, the Tapo plug in §17.2), while the router side was fine. After any `restart_wireless` or router change, re-run checks A1–A5 of the function checklist and power-cycle any device that misbehaves.
 
 ---
 
 ## 11. Limitations
+
+> **In short:** What the evidence can't show: encrypted contents, traffic between two devices on the same Wi-Fi, weekly patterns (the recordings are 24 h), and a few gaps where the router's log rotated. Each test pass lists its own caveats here.
 
 - **Visibility:** unicast between two Wi-Fi clients on the same SSID can be bridged inside the Wi-Fi driver and miss the capture. Thread devices (the Eve Room) are never on the IoT VLAN. Phone-side cloud traffic (update checks) is outside the IoT captures.
 - **Encryption:** TLS and Matter payloads weren't decrypted; findings are metadata-based (§4).
@@ -346,11 +380,15 @@ All rules are documented, threshold-based and computable from router logs, Pi-ho
 - **Router state:** the conntrack snapshots contain IPv4 entries only. `FW_tapo_capture.log` lost ~19 entries to a syslog rotation gap (§13.8). The Pi-hole export ends at 17:51:28, 2 min before the tapo capture.
 - **Active test from the IoT VLAN (§14):** `--min-rate 2000` with one retry left 29,625 router ports `filtered` that a slower scan would probably show as closed. UDP `open|filtered` means no answer, so it can't distinguish dropped from silent. The firmware INPUT sub-chains (`SDN_FI`, `PTCSRVWAN`) weren't dumped, so the exact rule behind each router result is inferred.
 - **State E re-test (§15):** the saved log starts at 23:58:01, so r1 and the first ~2 min of r2 are covered only by nmap output and counters (most likely a syslog rotation after the wireless restart; cf. §13.8). LOG rules are rate-limited, so some probes (e.g. r4 TCP 22/53/80) have no log line. `terminal_history.txt` holds outputs only; the commands come from the nmap XML and the re-test plan. The owner's app check is a statement without an artefact. The IPv6 DNS follow-up has no router counters or timestamps beyond the file time. In the second follow-up (E94, E95) the IPv6 TCP 853 DROP counter fell outside the dumped lines; the log and the timeout cover it.
-- **The volume-upload scenario hasn't been performed yet** (§9).
+- **Volume-upload scenario (§16):** one run with one test host, a laptop that's noisier than any IoT device even when quieted; the MEGA folder listing was recorded after the run, not during it; the firewall log lost its first 33 minutes to syslog rotation; Run A's end time comes from the capture, not the timeline. The thresholds were fixed beforehand, but R6 was evaluated after the fact.
+- **Splunk stage (§18):** the dashboard was reviewed by the owner on Splunk Enterprise 10.6.1.1. The expected result of every rule was computed separately in Python from the same events (`pipeline_guide.md` section 7.5). It was compared with the dashboard's counters and visible findings, not row by row. Three rules deliberately differ from §8 (§18.3): R1 only covers baselined devices, R3 has a floor, and R5 compares with the first baseline recording.
+- **Function checklist (§17):** one run, by the owner; most results are visual confirmations, backed by screenshots for 10 rows. The counter rise in check E1 is the owner's reading (final value 21), and the `IOT_INPUT` snapshot was taken a little after the run. The FORWARD snapshot was taken just before the last drop burst (15 v4 drops counted, 20 v4 entries logged). A8 used the existing occupancy automation rather than a time-based one; it is executed by the HomePod either way.
 
 ---
 
 ## 12. Second pass: Zeek, tshark and active tests
+
+> **In short:** We re-ran the recordings through Zeek and tshark to confirm the counts, examined the quality of each device's encryption, and scanned the devices from the main network. Each device has a stable encryption "fingerprint"; the Tapo uses weak encryption without forward secrecy; the Hue sends a fixed token over unencrypted HTTP. The scan showed that every main-network computer, not just the controllers, can reach the devices' services (recommendation 8).
 
 ### 12.1 Zeek corroboration
 
@@ -420,6 +458,8 @@ Results are in `derived/active/`.
 ---
 
 ## 13. Third pass: state D verification capture at `d0c3085` (firmware update and power cycles)
+
+> **In short:** A 70-minute recording during a Tapo firmware update and two device restarts, after the time-server and mDNS changes. The rules caught the update as a change (new domains plus a 1.59 MB download), and the Hue worked again within 2 minutes of a restart. The recording also exposed two router defects, IPv6 lost after a Wi-Fi restart and a 30-second delay for wired devices, both fixed afterwards.
 
 ### 13.1 Capture, timeline and coverage
 
@@ -573,6 +613,8 @@ After 17:03:11, the Wi-Fi devices are visible only through broadcast/multicast f
 
 ## 14. Fourth pass: active test from the IoT VLAN
 
+> **In short:** A laptop on the IoT Wi-Fi played a compromised device and scanned the network. Household computers were unreachable apart from DNS and ping, and the scan was logged. But the router itself was too open (SSH and other services answered), and a device could bypass Pi-hole by asking another DNS server. Both were fixed in state E.
+
 ### 14.1 Setup
 
 - **Test host:** a MacBook joined to `I0N_IoT` (E90, `wifi.txt`): `192.168.107.8`, ULA `fd00:d:e:6b:4b0:2628:1856:4090`, private MAC `b2:1c:d7:ba:85:9d`. It got Pi-hole as its DNS server for both address families (`context.txt`).
@@ -658,6 +700,8 @@ Traffic to the router's own addresses goes through the INPUT chain, which the FO
 ---
 
 ## 15. Fifth pass: state E re-test from the IoT VLAN
+
+> **In short:** The same laptop repeated the tests after the router was locked down (state E). The router now answers only the four services devices need, every DNS query is forced through Pi-hole over IPv4 and IPv6, and the fibre modem's admin page can't be reached from the IoT network. No real device was affected.
 
 ### 15.1 Setup
 
@@ -796,3 +840,244 @@ Traffic to the router's own addresses goes through the INPUT chain, which the FO
 | Real IoT devices | – | None in any drop or redirect log; all five present after the rebuild; apps work (owner) |
 
 **Metric 3 is met within scope:** every unauthorised inter-segment path tested from the IoT VLAN is blocked. The IoT → ONT path found afterwards is closed too (`904f54d`), and DNS is enforced on both address families.
+
+---
+
+## 16. Sixth pass: simulated volume-upload scenario (exfiltration to cloud storage)
+
+> **In short:** We simulated data theft: the laptop uploaded 100 MB to a cloud-storage account in one go, then 30 small files slowly. The bulk upload was caught at once, 70× over the volume threshold. The slow drip stayed under the network-wide volume threshold, as predicted, but the per-device volume rule and the connection-count rule caught it. The cloud folder listing confirms exactly what was sent.
+
+### 16.1 Setup and deviations from the run sheet
+
+The run sheet (`planning/volume_upload_runsheet.md`) fixed the method and the detection criteria before the run.
+
+- **Test host:** the MacBook on `I0N_IoT`, standing in for a compromised IoT device.
+  - It now has a **new private MAC, `42:e3:fe:60:6c:d9`**, IPv4 **`192.168.107.13`** and ULA `fd00:d:e:6b:44e:444d:a1f5:d496` (E108 `wifi.txt`, `dnsmasq-1.leases`).
+  - In §15, `.13` was the HomePod, so everything here is attributed **by MAC**.
+- **Target:** the owner's own MEGA account (MEGAcmd `mega-put`), carrying random data only. Cloud storage such as MEGA is a documented staging point for stolen data, which makes the target realistic.
+- **Start state:** clean. The IoT network was out of iCloud Keychain, and no Apple device other than the test host was on it. The lease file lists exactly the five baselined devices, the Meross plug (`.2`), the VFD clock (`.22`) and the test host.
+- **Quieting:** iCloud Keychain off, Low Power Mode on, and 4 background apps and 14 launchd jobs stopped, including the iStat ping monitor (E108 `disabled_services.txt`).
+- **Capture:** E96–E100, 17:26:58 → 18:28:22, `wl0.2` 206,146 and `eth7` 24,364 packets, **0 kernel drops**, offload disabled.
+  - It was started in the foreground and stopped by hand, so not with `-d 60m`. The window is the same.
+- **Timeline** (E108 `timeline.txt`):
+  - quiet period 17:27:08–17:37:33;
+  - Run A 17:37:33 → transfer end 17:41:31 (the logged "Run A end" of 17:40:50 came 41 s before the transfer finished; Zeek `conn.log` gives the real end);
+  - Run B 17:46:07–18:17:02.
+- **Deviations:**
+  - The MEGA folder listing (E108 `mega-ls.txt`, `mega-ls -l`) was recorded after the run, not during it. It is checked against the capture in 16.2.
+  - **The firewall log (E106) starts at 17:59:45.** Another syslog rotation; the quiet period, Run A and the first 13 minutes of Run B aren't in it. The counters (E107) cover the whole window.
+  - The VFD clock was power-cycled at about 17:41:44 (no timeline entry; seen from its Wi-Fi re-association) and again in a separate capture (E101–E105, 18:43:53–18:44:33). Both are covered in 16.6.
+- **Tools:**
+  - New tool `tools/volume_eval.py` (E109): IP-layer bytes per device per minute from the pcaps, counted on each device's home interface. MEGA flows are matched by every address a `*mega*` name resolved to, or that carried a MEGA SNI, in this capture's Zeek logs (16 addresses). Output: `derived/analysis/upload_eval.json`.
+  - Zeek 8.0.11 (the toolchain was re-installed with `tools/setup_env.sh`).
+
+### 16.2 What was actually sent (ground truth from the capture)
+
+| Run | Connections | IP bytes on the wire | Of which | Payload check |
+|---|---|---|---|---|
+| **A: bulk** (100 MiB file) | **8 parallel TLS connections** over IPv6 to one storage node (`gfs302n501.userstorage.mega.co.nz`, `2a0b:e41:1::11`), 17:37:50 → 17:41:31 (221 s) | **143.39 MB** | **30.72 MB TCP retransmissions** (23,856 segments; the 2.4 GHz uplink was the bottleneck) | unique TCP payload **104,985,483 B** = the 104,857,600 B file + 0.12 % TLS/HTTP overhead |
+| **B: slow** (30 × 16 KiB) | an upload roughly every 62 s, each using **~13 short TCP connections** (329 to storage nodes, 12 to the API) | **1.10 MB** MEGA-attributed | — | 491,520 B of payload, so **2.2× wire overhead**: the planned 0.96 MB/h became 2.1 MB/h on the wire |
+
+- **Cross-check:** the frames sent by Wi-Fi clients in the capture total 154.11 MB. The router's `wl0.2` receive counter rose 149.86 MB between its snapshots. Those agree within 3 %; the capture counts Ethernet framing, and the windows differ by about a minute.
+- **Listing (E108 `mega-ls.txt`):** the account's `upload_run/` folder holds exactly the planned 31 files, so every upload landed and nothing extra did.
+  - **Sizes:** `bulk.bin` is 104,857,600 B, the same figure the payload reconstruction arrived at independently. `s_1.bin` … `s_30.bin` are 16,384 B each, 491,520 B in total.
+  - **Times:** the dates of `s_1` … `s_30` run 17:46:11 → 18:15:52, about 61 s apart. Each file's upload data shows up in the capture **0.3–1.5 s after its listed time**, so all 30 slow uploads can be matched one to one. 24 used a fresh set of 8–9 parallel connections. The other 6 (`s_9`, `s_12`, `s_15`, `s_18`, `s_22`, `s_30`) went over only 1–3 connections, mostly ones that were already open.
+  - `bulk.bin` is dated 02:37:00. That is the file's own modification time (MEGA keeps it), i.e. when the test file was generated, not when it was uploaded; Run A's transfer starts at 17:37:50 in the capture.
+- **MEGA in DNS** (Pi-hole, E108): `g.api.mega.co.nz` and the storage nodes `gfs302n501` / `gfs302n551.userstorage.mega.co.nz`, all from the test host. MEGA's telemetry host `reqstat.api.mega.co.nz` is **blocked by gravity**; it didn't affect the upload.
+
+### 16.3 Volumes per window (test host; `upload_eval.json`)
+
+| Window | Minutes | Host total | MEGA-attributed | Host rate | MEGA rate |
+|---|---|---|---|---|---|
+| quiet (17:27–17:37) | 10 | 283 kB | 9 kB (MEGAcmd session) | **1.70 MB/h** | 0.05 MB/h |
+| Run A (17:37–17:42) | 5 | 144.18 MB | 143.40 MB | — | — |
+| gap (17:42–17:46) | 4 | 79 kB | 2 kB | 1.18 MB/h | 0.03 MB/h |
+| Run B (17:46–18:17) | 31 | 2.07 MB | 1.10 MB | 4.00 MB/h | **2.13 MB/h** |
+| tail (18:17–18:28) | 12 | 270 kB | 8 kB | 1.35 MB/h | 0.04 MB/h |
+| **after Run A (17:46–18:28)** | 43 | **2.34 MB** | **1.11 MB** | — | — |
+| clock hour 17:00 (33 min captured) | | 145.57 MB | 143.93 MB | | |
+| clock hour 18:00 (28 min captured) | | 1.31 MB | 0.58 MB | | |
+
+**Background:** with the laptop quieted, its own traffic still ran at **1.35–1.70 MB/h**, i.e. 66–82 % of the R3-seg threshold. DNS shows the same thing: 2,044 queries in 61 minutes (48 % blocked), led by Datadog browser telemetry, Microsoft, Adobe and Apple.
+
+### 16.4 Detection results against the pre-registered criteria
+
+| Run | Rule | Pre-registered expectation | Result | Verdict |
+|---|---|---|---|---|
+| A | **R3-seg** (> 2.06 MB/h) | fires | 143.4 MB MEGA-attributed in one 60-minute window (70× the threshold) | ✅ **TP** |
+| A | **R3-dev** (> 760 B/h) | fires | ~189,000× | ✅ **TP** |
+| A | **R1** (new domain/SNI) | fires | `*.mega.co.nz` appears in no earlier IoT capture, Zeek log or Pi-hole extract | ✅ **TP** |
+| A | `IOT_TO_WAN_NEW` | logged | in the counters (v4 LOG +699, v6 +267 over the window) but **not in the saved log** (rotation) | ⚠️ counted, entries lost |
+| B | **R3-seg**, MEGA-attributed | **doesn't fire** | **1.11 MB** in the 43 minutes after Run A, < 2.06 MB for any 60-minute window | ✅ as predicted |
+| B | R3-seg, MEGA, as a rate | — | extrapolating the 31-minute run gives 2.13 MB/h, **just above** 2.06 MB/h, because of MEGA's 2.2× per-upload overhead | ⚠️ thin margin |
+| B | **R3-dev** | fires | ~1,450× | ✅ **TP** |
+| B | **R6** (> 10 SYNs to one destination in 10 min) | not pre-registered | up to **63 per 10 min** to one storage-node address (≈ 120 per 10 min to the node over IPv4 and IPv6 together) | ✅ **TP**: the slow drip is louder in connections than in bytes |
+| B | R3-seg, **host total** | — | **2.34 MB** in 43 min > 2.06 MB | fires: background plus the drip |
+| B | R1, `IOT_TO_WAN_NEW` | logged | 165 new MEGA connections logged from 18:01:32 (E106) | ✅ |
+
+**Controls** (the five baselined devices, same window, extrapolated hourly rates):
+
+| Device | Baseline median (B/h) | This window | Ratio | R3-dev |
+|---|---|---|---|---|
+| Hue Bridge | 206,309 | ~385,000 | 1.9× | silent |
+| SwitchBot Hub 2 | 8,716 | ~9,800 | 1.1× | silent |
+| Matter switches ×2 | 0 | 0 | — | silent (R8 silent too) |
+| **Tapo plug** | **76** | **~2,000** | **26×** | ❌ **fires: false positive** |
+
+- **The Tapo false positive:** its baseline comes from only 5 non-zero hours in the segmented capture (10-10), *before* its firmware update (§13.2). Now it holds a TLS session to `54.253.6.87` (AWS) and sends about 2 kB/h, which is harmless but 26× its old median.
+- **Lesson:** for very quiet devices, a 10× median has no headroom. A per-device R3 needs a **floor**, and devices need **re-baselining after firmware updates** (recommendation 20).
+- **Meross plug** (`c4:e7:ae:20:54:57`): no baseline yet, ~4.5 kB/h. It uses one TLS session to `52.2.244.206` (AWS), and NTP to `time.windows.com` (`52.148.114.188`) instead of the router: it ignores DHCP option 42.
+
+### 16.5 Interpretation
+
+- **Bulk exfiltration is caught easily,** by volume (R3-seg/R3-dev), destination novelty (R1) and the connection log. 100 MiB stands out from even the busiest IoT device by two orders of magnitude.
+- **Slow exfiltration evades the segment-wide volume rule, as designed,** but only by a thin margin, because real upload tools add overhead. It's still caught by the per-device volume rule, by R1, and by **R6**: a tool that opens many short connections per small upload is very visible in connection counts. Layered rules are needed; volume alone isn't enough.
+- **General-purpose hosts don't belong on an IoT VLAN, from a detection point of view too.** The quieted laptop alone came close to R3-seg, and its host total crossed it during the slow run. An IoT-tuned volume rule therefore flags laptops more or less permanently. This supports keeping them off the IoT SSID (recommendation 17, done 2026-10-28) and ties in with the Keychain finding (§14.5, §15.6).
+- **Per-device baselines are fragile for quiet devices** (the Tapo false positive). A floor and re-baselining after firmware changes are needed.
+- **Segmentation still contained the test host towards the main LAN.** It retried SMB to the Mac mini (`192.168.0.13` and its ULAs, TCP 445/139, 81 SYNs each) and a few connections to the iPhone. These are the +184 `IOT_TO_LAN_DROP` packets in the counters (E107); the log entries fell into the rotation gap.
+
+### 16.6 New devices: first observations (outside the analysis scope)
+
+- **VFD clock** (`d8:f1:5b:90:ee:b3`):
+  - **Failed DHCP in the upload capture.** After its power cycle at ~17:41:44, it sent **46 DHCP Discovers** in two rounds (17:41–17:52, 18:01–18:27). The router answered **every one with an Offer** (`192.168.107.22`, option 42 = `192.168.107.1`), but the clock never sent a Request and fell back to link-local `169.254.180.238`, so it had no traffic beyond mDNS and ARP.
+  - The power cycle at 18:43 (E101–E105) worked first time, with identical Offers. The cause isn't established (possibly Wi-Fi delivery to the ESP8285, or its DHCP client).
+  - **Boot behaviour (E101–E105):**
+    - DHCP, then NTP to **`192.168.107.1`**, which honours option 42. The router answered with **stratum 1**, confirming the side discovery in `segmentation_report.md` section 5.
+    - Then a **cleartext HTTP GET to `ip-api.com`** (`/json?fields=status,message,timezone,offset,lat,lon`) to look up its time zone and **approximate location**. That fires **R10** (cleartext HTTP to the internet). Anyone on the path can read the household's coarse location, and could spoof the time-zone offset.
+    - It also advertises `_http._tcp` over mDNS and serves NTP itself (stratum 2, reference `192.168.107.1`). The owner's Mac Studio (`192.168.0.2`, main LAN) queried it during the boot capture.
+- **Meross plug:** see 16.4. It uses its own public NTP server rather than the router.
+
+### 16.7 Assessment
+
+**Metric 1 is met:** every planned scenario, including the simulated volume upload, has now been executed. **Metric 2 is strengthened:** all three simulated scenarios (lateral scan, DNS bypass, volume upload) were detected by the transparent rules, and the slow variant showed why the rules have to work in layers.
+
+---
+
+## 17. Seventh pass: function checklist (state E)
+
+> **In short:** The owner ran a 28-point checklist of everything the smart home must still do in the final state, including control from outside the house and recovery after a router reboot. All 28 checks passed. One plug needed a power cycle after a Wi-Fi restart, and some status messages were briefly blocked right after the reboot; neither stopped anything working.
+
+### 17.1 Setup
+
+- **What:** the written function checklist from the run sheet (`planning/function_checklist_template.md`), filled in by the owner during the run (**E110**) with 10 screenshots (**E111**, named after the row IDs). The owner completed it afterwards with the counter reading for check E1, the `IOT_INPUT` snapshot and the overall result ("metric 4 met").
+- **When:** 2026-11-02 00:17 → 01:21, router uptime 113,154 s at the start (no reboot since the upload scenario), state E (`904f54d`).
+- **Preconditions (P1–P4), all passed:**
+  - the HomePod is on the main LAN (`192.168.0.22`, ULA `fd00:d:e:f::61`);
+  - all seven IoT devices hold their usual IoT leases: Hue `.26`, SwitchBot `.15`, Tapo `.23`, switches `.17` / `.20`, Meross `.2`, VFD clock `.22`;
+  - no other personal device is on `I0N_IoT`;
+  - `IOT_INPUT` is present, with 2 `IOT_DNS_REDIRECT` rules.
+- **Phone:** the iPhone was on the main Wi-Fi, except in section C (Wi-Fi off, cellular only; the C1 screenshot shows 5G).
+
+### 17.2 Results
+
+| Section | Checks | Result | Key evidence |
+|---|---|---|---|
+| **A: local control** (Apple Home / Matter) | Hue, SwitchBot Bot, Tapo, both Matter switches; status reports with the app closed ≥ 5 min (the §5.4 fix); a scene; an automation; the Eve Room (Thread, via the HomePod) | **9/9 pass** | Visual confirmation; A6: **0** `IOT_TO_LAN_DROP` entries for port 5540 in its window; screenshots A1, A7–A9 |
+| **B: vendor apps** | Hue local control and bridge status; Tapo control and energy data; SwitchBot hub and Bot | **4/4 pass** | Screenshots B1–B4. The Hue Bridge reports software **6.3.1978545030**, i.e. it has updated since the earlier captures |
+| **C: remote access** (the gap named in §9) | Home app control of a Hue light, the Tapo plug and a Matter switch over cellular, via the HomePod; remote status; Hue, Tapo and SwitchBot apps remotely | **4/4 pass** | Screenshot C1: the HomePod listed as the home hub, Hue Bridge and SwitchBot Hub as bridges, phone on 5G |
+| **D: resilience** | D1 `service restart_wireless`; D2 router reboot; D3 Matter sessions afterwards | **3/3 pass, D1 with a remark** | D1: STP `br0` 1 / `br52` 0 / `br56` 1 and the IoT ULA present after the rebuild. D2: reboot at 00:59:30, web UI back at 01:01:38, **all seven devices leased again by 01:02:59** (3.5 min after the reboot). D3: 12 Matter conntrack entries (≥ 5 expected) |
+| **E: background services** | VLAN NTP daemon; DNS through Pi-hole; firmware-update checks in the Hue, Tapo and SwitchBot apps; the newer devices | **4/4 pass** | Check E1: `ntp -n -l -I br52` running, and the `IOT_INPUT` NTP accept counter rose (21 at 01:07, 22 in the end snapshot). Check E2 (screenshot): 1,955 queries from `192.168.107.` in the Pi-hole log, the Hue and Tapo cloud names answered (forwarded or cached), `diag.meethue.com` blocked as before (§12.3). Check E3: all apps report up to date. Check E4: Meross plug works, VFD clock synced |
+
+**Total: 28 of 28 checks passed** (P 4, A 9, B 4, C 4, D 3, E 4).
+
+**Remark on D1 (Tapo plug):**
+- After the wireless restart the plug first answered, then stopped switching. The Home app kept showing it as responding, and the relay didn't click.
+- A power cycle cleared it, and it didn't recur, including after the router reboot in D2.
+- The router side was fine at the same moment: STP, the ULA and the other three devices in the check worked. So this is a **device-side recovery fault**, the same kind as the Matter switches' failure to rejoin after a wireless restart (§13.7). Recommendation 23.
+
+### 17.3 Firewall evidence during the run
+
+The run's `IOT_TO_LAN_DROP` entries (25: 20 IPv4, 5 IPv6) are all **Matter reports** (UDP source port 5540) from IoT devices to the two Apple controllers. Nothing else from the IoT VLAN was dropped, and there are no `IOT_TO_ROUTER_DROP` entries.
+
+| Time | From | To | Entries |
+|---|---|---|---|
+| 01:02:31–01:02:35 | Hue Bridge `.26` | HomePod `192.168.0.22:62864` | 5 |
+| 01:02:50–01:02:54 | Matter switch `.17` (`…0d:6b`) | HomePod `192.168.0.22:62864` | 5 |
+| 01:12:32–01:12:48 | Matter switch `.17` | iPhone `192.168.0.221:59430` and the iPhone's ULA, port 55414, alternating | 5 + 5 |
+| 01:13:03–01:13:07 | Matter switch `.20` (`…0d:6e`) | HomePod `192.168.0.22:62864` | 5 |
+
+- **Cause:** the same mechanism as §5.4, but triggered by **lost router state** instead of a timeout. The reboot at 00:59:30 emptied the conntrack table, while the HomePod and the devices kept their Matter sessions. The devices' next reports reached the router before the controller had sent anything new, so they counted as new IoT → main-LAN connections and were dropped. The 01:12–01:13 bursts are the same pattern for sessions that hadn't been refreshed yet since the reboot. They coincide with check E3 (firmware-update checks in the apps), which doesn't involve the switches.
+- **Effect: none on function.** Each burst lasted 5–17 s and ended once the controller refreshed the session, and A1–A5 passed after the reboot. Each burst logged exactly 5 entries, the LOG rule's burst size. Up to the FORWARD snapshot the LOG and DROP counters agree (15 / 15), so the log is complete for that period.
+- **Detection:** R2 fires, and these are **policy false positives**, as in §5.4. Recommendation 22 labels this pattern instead of alerting on it.
+
+**`IOT_INPUT` at the end** (counters since the reboot at 00:59:30): NTP 22 packets, mDNS 7,401, DHCP 0, `IOT_TO_ROUTER_DROP` LOG/DROP **0**. So no IoT device tried a blocked router service after the reboot. The DHCP counter is 0 although all seven devices took new leases at about 01:02. The likely reason is that those exchanges happened before `firewall-start` created the chain, so its counters started later.
+
+### 17.4 Other observations
+
+- **Matter controllers seen in conntrack at the end:**
+  - The HomePod holds sessions to the Hue, the SwitchBot and the switch `.20`.
+  - The iPhone holds sessions to the Hue, the switch `.20` and the **Meross plug** (`.2`), so the Meross is commissioned into Apple Home over Matter.
+  - The owner's **Mac Studio** (`192.168.0.2`, main LAN) holds a Matter session to the **Tapo plug**: the owner had the Home app open on it briefly. Like the iPhone, a Mac acts as a Matter controller directly while the Home app is in use. It is also the host that queried the VFD clock's NTP service in §16.6.
+- **WAN sessions at the end:** the Meross to AWS (`:443`), the Hue to its cloud (2 TLS sessions) and NTP to `162.159.200.123`, the SwitchBot to MQTT (`:8883`). These are all known destinations from earlier passes.
+- **Hue firmware:** the bridge reports **6.3.1978545030**, newer than in the earlier evidence. By recommendation 20, the Hue baseline should be rebuilt before its R3 threshold is used again.
+
+### 17.5 Assessment
+
+**Metric 4 is met.** Every documented required function works in the final state E. That includes the gap named in §9, remote access through the HomePod while away, plus recovery from a wireless restart and a full router reboot. Neither remark is a lost function. The Tapo's stuck relay was device-side and cleared by a power cycle. The Matter report drops after the reboot were self-healing and are R2 policy false positives, which recommendation 22 removes from the alert stream.
+
+---
+
+## 18. Eighth pass: Splunk pipeline and dashboard
+
+> **In short:** a general, configurable pipeline turns the raw evidence into device-labelled events for Splunk, and a dashboard shows every result in plain words. Rebuilt independently from the raw files, it reproduces the analysis' numbers and finds the same events. Building it uncovered four data-handling traps, all fixed and documented. Metric 5 is met.
+
+### 18.1 What was built
+
+- **Pipeline:** `pipeline/iotpipe.py` (E112), `iotpipe` 0.1, Python standard library only. Everything site-specific (networks, devices by MAC, controllers, which recordings are baselines) lives in `pipeline/site.toml` (E115); `site.example.toml` (E116) is a template for other homes. The household's real public prefixes sit in a separate `site.private.toml`, which is never hashed or shared.
+- **From raw files to events:** `zeek` runs Zeek (E114) over every capture. `prepare` reads the pcaps, the Zeek logs, the firewall logs and the Pi-hole export, plus the operator's notes (E117), and writes 11 sourcetypes: connections, DNS, TLS, TLS fingerprints, HTTP, DHCP, per-minute volume, capture health, firewall, Pi-hole and annotations. That is **64,721 events**, all attributed to devices by MAC.
+- **Into Splunk:** `app` builds a Splunk app (parsing rules, lookups, the detection macros and the dashboard from `pipeline/dashboard.py`, E113); `send` loads the events over HEC. Both were used on Splunk Enterprise 10.6.1.1.
+- **Dashboard:** *IoT Segmentation: Smart-Home Network Overview*, with filters for recording, device, minimum severity and the test host. Screenshots: E118 (cropped, used in the guide) and E119 (originals).
+- **Guide:** `pipeline_guide.md`, written for readers with a networking background. It covers collecting the evidence, describing the network, running the pipeline, both ways into Splunk, a guided tour of the dashboard with the screenshots, a field reference, pitfalls and privacy.
+- **Reproducibility:** run from scratch (`iotpipe all`, including Zeek), the pipeline regenerates exactly the same event counts.
+
+### 18.2 The pipeline reproduces the analysis
+
+These numbers were produced separately by the analysis tools in `tools/`, and the pipeline arrives at them on its own:
+
+| Check | Pipeline | Analysis |
+|---|---|---|
+| Hue Bridge DNS queries, flat / segmented recording | 935 / 1,966 | 935 / 1,966 (§1.2) |
+| Hue Bridge median internet upload per hour, segmented | 206,309 B | 206,309 B (§16.4) |
+| Test laptop upload, bulk run / after it | 144,175,565 B / 2,338,346 B | 144.18 MB / 2.34 MB (§16.3) |
+| SwitchBot flows to `255.2.0.0`, segmented | 931 | 949 packets (§5.1) |
+| IPv6 router adverts after the 17:03 Wi-Fi restart | 0 for 50 min | stopped (§13.6) |
+| Hue Bridge TLS fingerprints | 5 | 5 (§12.2, §13.3) |
+
+### 18.3 The rules in Splunk
+
+Each rule of §8 is a Splunk macro with the same output columns (`pipeline_guide.md` section 7.4). Two extra macros cover router-service drops (FW) and unexpected devices on the IoT side (DEV). With all recordings selected, they find:
+
+| Rule | Findings | Matches |
+|---|---|---|
+| R1 | the Hue's 9 boot-time time servers; the Tapo's 5 update and cloud domains | §13.3, §13.2 |
+| R2 | 20 blocked lateral attempts (test hosts, a Keychain-joined Apple device); the 60 Matter drops of 10 October as *info* | §14.2, §15.5, §5.4 |
+| R3 | Hue firmware download, Tapo update, both upload hours; **no Tapo false positive** | §5.3, §13.2, §16.4 |
+| R4 | the SwitchBot leak in five recordings (984 flows) | §5.1 |
+| R5 | the Hue's retry storm (segmented and tapo recordings) | §5.2 |
+| R6 | the slow upload (two storage servers); the SwitchBot reconnect burst | §16.4, §5.5 |
+| R7 | the simulated DNS bypass, before and after state E | §14.4, §15.4 |
+| R8, R9 | none (correct negatives) | §5.7, §12.2 |
+| R10 | Hue diagnostics, the VFD clock's location lookup, the test laptop's own HTTP | §12.3, §16.6 |
+| R11 | the 50-minute IPv6 advert gap | §13.6 |
+| R12 | the Hue's TLS 1.0 at boot | §13.3 |
+| FW, DEV | the state E router probes; the Keychain-joined devices and the HomePod on the IoT side | §15.3, §14.5, §15.6 |
+
+**Deliberate differences from §8**, all from the recommendations or for clarity:
+- **R3** has a floor of 10 kB/h (recommendation 20). That's what removes the Tapo false positive of §16.4.
+- **R2** labels Matter messages to a controller as *info* (recommendation 22).
+- **R3 and R6** run per device, attributed by MAC (recommendation 21).
+- **R1** only covers devices with a baseline: a test host has none, so every domain would be "new". In §16 R1 fired on the MEGA domains; the dashboard catches that upload with R3 (critical, 724×) and R6 instead.
+- **R5** compares with the first baseline recording, so the post-change storm isn't hidden by its own baseline.
+
+### 18.4 Data-handling traps found while building it
+
+All four were found by checking the pipeline's output against the analysis, and all are fixed in the pipeline (`pipeline_guide.md`, sections 5.1 and 9):
+
+1. **Zeek sometimes reverses a connection.** For UDP from 5353 to 5353 it guessed the wrong side (history flag `^`), so the SwitchBot appeared to *receive* its leaked packets. The flips are undone.
+2. **A flat network records the whole household.** In state A, 36,000 connections belonged to other household computers, which is noise and private. Hosts that are neither a listed device nor in the IoT network are dropped, including their DHCP.
+3. **Special addresses mislead attribution.** Pi-hole logs its own lookups as client `::`, and IPv6 devices send from `::` while checking their address. So 1,051 of Pi-hole's own lookups were briefly credited to the Tapo plug, ad-tech domains included. Such addresses are never used to identify a device now.
+4. **The household's own public addresses turn up in the data:** 37 connections from the flat recording, when devices had public IPv6, and 49 firewall entries of the hairpin test. They're classified separately and masked to documentation ranges in every output.
+
+### 18.5 Assessment
+
+**Metric 5 is met.** Every result now comes with reproducible evidence at two levels. The analysis tools and hashed extracts produced the numbers in this document, and the Splunk pipeline rebuilds them from the same raw files and shows them on a dashboard. `results_to_evidence.md` links each result to its evidence IDs, and the guide explains the workflow so that someone else can repeat it on their own network.

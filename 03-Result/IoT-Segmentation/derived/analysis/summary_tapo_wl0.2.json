@@ -1,8 +1,8 @@
 {
  "pcap": "20261011-164338_tapo/wl0.2_20261011-164338.pcap",
  "iface": "wl0.2",
- "packets": 8694,
- "l2_sources": 6,
+ "packets": 8650,
+ "l2_sources": 4,
  "thread_ula_pkts": 0,
  "mdns_service_types_from_non_iot": {
   "_hap._tcp": 470,

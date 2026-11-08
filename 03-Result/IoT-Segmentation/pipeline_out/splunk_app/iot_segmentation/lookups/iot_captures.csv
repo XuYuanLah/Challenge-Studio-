@@ -1,0 +1,7 @@
+capture,state,baseline,start,end,start_local,end_local,description
+flat,A,true,1791284007,1791370408,2026-10-06 21:53:27,2026-10-07 21:53:28,"24 h, flat network (before segmentation)"
+seg,C/D,true,1791552480,1791638881,2026-10-10 00:28:00,2026-10-11 00:28:00,"24 h, segmented; Matter timeout fix during the window"
+app_interaction,D,false,1791686743,1791687166,2026-10-11 13:45:42,2026-10-11 13:52:46,7 min of app use with an action log
+tapo,D,false,1791697419,1791701623,2026-10-11 16:43:39,2026-10-11 17:53:42,"Tapo firmware update, Hue and switch power cycles"
+upload,E,false,1793428018,1793431702,2026-10-31 17:26:58,2026-10-31 18:28:21,Simulated data theft: bulk and slow upload to cloud storage from a test laptop
+vfd,E,false,1793432633,1793432672,2026-10-31 18:43:53,2026-10-31 18:44:31,VFD clock boot

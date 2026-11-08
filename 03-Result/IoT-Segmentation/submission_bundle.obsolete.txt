@@ -1,0 +1,14 @@
+# Files of the team bundle that the submission bundle does not contain (delete them from the repo before
+# or after copying the submission bundle over it). Paths relative to the repo root.
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_eth7/zeek_stderr.txt
+03-Result/IoT-Segmentation/derived/zeek/app_interaction_wl0.2/zeek_stderr.txt
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/analyzer.log
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/weird.log
+03-Result/IoT-Segmentation/derived/zeek/flat_eth7/zeek_stderr.txt
+03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/analyzer.log
+03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/weird.log
+03-Result/IoT-Segmentation/derived/zeek/flat_wl0.2/zeek_stderr.txt
+03-Result/IoT-Segmentation/derived/zeek/seg_eth7/zeek_stderr.txt
+03-Result/IoT-Segmentation/derived/zeek/seg_wl0.2/zeek_stderr.txt
+03-Result/IoT-Segmentation/derived/zeek/tapo_eth7/zeek_stderr.txt
+03-Result/IoT-Segmentation/derived/zeek/tapo_wl0.2/zeek_stderr.txt

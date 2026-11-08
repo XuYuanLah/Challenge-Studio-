@@ -1,0 +1,48 @@
+{
+ "iotpipe": "0.1",
+ "config": "pipeline/site.toml",
+ "generated": "2026-11-03T23:07:54+11:00",
+ "captures": {
+  "flat": [
+   1791284007.448,
+   1791370408.042
+  ],
+  "seg": [
+   1791552480.121,
+   1791638880.886
+  ],
+  "app_interaction": [
+   1791686742.501,
+   1791687166.164
+  ],
+  "tapo": [
+   1791697419.085,
+   1791701622.897
+  ],
+  "upload": [
+   1793428018.368,
+   1793431701.864
+  ],
+  "vfd": [
+   1793432633.458,
+   1793432671.581
+  ]
+ },
+ "events": {
+  "iot:annotation": 24,
+  "iot:conn": 28666,
+  "iot:dhcp": 1812,
+  "iot:dns": 5299,
+  "iot:fw": 2452,
+  "iot:health": 6002,
+  "iot:http": 104,
+  "iot:pihole": 3375,
+  "iot:tls": 1426,
+  "iot:tls_hello": 1450,
+  "iot:volume": 14111
+ },
+ "notes": [
+  "firewall: 20 line(s) dated 1 Jan skipped (router clock not yet set)",
+  "pihole: kept 3375 IoT queries, dropped 26016420 (other clients or outside the capture windows)"
+ ]
+}

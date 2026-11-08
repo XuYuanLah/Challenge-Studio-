@@ -1,0 +1,637 @@
+<form version="1.1" theme="dark">
+  <label>IoT Segmentation: Smart-Home Network Overview</label>
+  <description>Device behaviour, detections and firewall evidence for the segmented smart-home network. Counters and charts follow all filters; the severity filter applies to the detection panels only.</description>
+  <search id="det">
+    <query><![CDATA[`iot_detections`
+| where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+| where sev_num >= $min_sev$]]></query>
+    <earliest>$tr.earliest$</earliest>
+    <latest>$tr.latest$</latest>
+  </search>
+  <fieldset submitButton="false" autoRun="true">
+    <input type="time" token="tr" searchWhenChanged="true">
+      <label>Time range</label>
+      <default>
+        <earliest>0</earliest>
+        <latest></latest>
+      </default>
+    </input>
+    <input type="dropdown" token="cap" searchWhenChanged="true">
+      <label>Recording</label>
+      <choice value="__all">All recordings</choice>
+      <search>
+        <query><![CDATA[| inputlookup iot_captures | eval label=capture." (state ".state.", ".start_local.")" | sort start | table capture label]]></query>
+      </search>
+      <fieldForLabel>label</fieldForLabel>
+      <fieldForValue>capture</fieldForValue>
+      <default>__all</default>
+    </input>
+    <input type="dropdown" token="dev" searchWhenChanged="true">
+      <label>Device</label>
+      <choice value="__all">All devices</choice>
+      <search>
+        <query><![CDATA[| inputlookup iot_devices | where role!="controller" | sort role device | table device]]></query>
+      </search>
+      <fieldForLabel>device</fieldForLabel>
+      <fieldForValue>device</fieldForValue>
+      <default>__all</default>
+    </input>
+    <input type="dropdown" token="min_sev" searchWhenChanged="true">
+      <label>Minimum severity for detection panels</label>
+      <choice value="1">Info and above (everything)</choice>
+      <choice value="2">Low and above</choice>
+      <choice value="3">Medium and above</choice>
+      <choice value="4">High and above</choice>
+      <choice value="5">Critical only</choice>
+      <default>2</default>
+    </input>
+    <input type="radio" token="tests" searchWhenChanged="true">
+      <label>Test host (simulated attacks)</label>
+      <choice value="yes">Include</choice>
+      <choice value="no">Real devices only</choice>
+      <default>yes</default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <html>
+        <h2>What this dashboard shows</h2>
+        <p>The smart-home devices live on their own network segment (the <b>IoT network</b>), separated from the household's computers (the <b>main network</b>).
+        Their traffic was recorded at the router before and after the separation, together with the router's firewall log and the Pi-hole DNS log.
+        Each recording is one <b>capture</b>; the configuration that was live is its <b>state</b> (A = one flat network … E = final, router locked down).</p>
+        <p><b>Read it top to bottom:</b> the counters give the big picture; <b>Detections</b> lists everything the 12 transparent rules flagged;
+        <b>What is normal</b> shows each device's usual behaviour; <b>Is the separation working</b> shows what the firewall stopped;
+        <b>Do the devices still work</b> shows the controllers reaching them; <b>Data quality</b> shows what the evidence covers.
+        Grey dashed markers on the time charts are the operator's notes (what was done, when).</p>
+        <p>Severity: <span style="background:#DC4E41;color:#111;padding:2px 8px;border-radius:3px;font-weight:bold">CRITICAL</span> <span style="background:#F1813F;color:#111;padding:2px 8px;border-radius:3px;font-weight:bold">HIGH</span> <span style="background:#F8BE34;color:#111;padding:2px 8px;border-radius:3px;font-weight:bold">MEDIUM</span> <span style="background:#1182F3;color:#111;padding:2px 8px;border-radius:3px;font-weight:bold">LOW</span> <span style="background:#53A051;color:#111;padding:2px 8px;border-radius:3px;font-weight:bold">INFO</span> &#160; Simulated attacks come from a <b>test host</b> standing in for a compromised device; switch them off with the filter above.</p>
+      </html>
+    </panel>
+    <panel>
+      <html>
+        <h2>Learning Contract metrics</h2>
+        <table class="table table-chrome">
+          <tr><th>#</th><th>Metric</th><th>Status</th><th>Where to look</th></tr>
+          <tr><td>1</td><td>Every planned test scenario was run</td><td><b style="color:#53A051">Met</b></td><td>Data quality: recordings and notes</td></tr>
+          <tr><td>2</td><td>At least 3 suspicious behaviours detected by transparent rules</td><td><b style="color:#53A051">Met</b></td><td>Detections (real devices and test host)</td></tr>
+          <tr><td>3</td><td>Unauthorised access between the networks is blocked</td><td><b style="color:#53A051">Met</b></td><td>Is the separation working</td></tr>
+          <tr><td>4</td><td>Required device functions still work</td><td><b style="color:#53A051">Met</b></td><td>Do the devices still work; function checklist 28/28 (E110)</td></tr>
+          <tr><td>5</td><td>Every result backed by reproducible evidence</td><td><b style="color:#53A051">Met</b></td><td>results_to_evidence.md; evidence_manifest.md</td></tr>
+        </table>
+        <p style="font-size:11px;color:#999">Status from analysis.md §9. The evidence IDs (E01 … E111) are listed in evidence_manifest.md.</p>
+      </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <single>
+        <title>IoT devices seen</title>
+      <search>
+        <query><![CDATA[`iot_index` sourcetype=iot:conn device_role=iot
+| where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+| stats dc(device) AS devices]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="colorMode">block</option>
+      <option name="useColors">1</option>
+      <option name="rangeValues">[0]</option>
+      <option name="rangeColors">["0x3c444d","0x5a6b7d"]</option>
+      <option name="drilldown">none</option>
+      <option name="showSparkline">0</option>
+      <option name="showTrendIndicator">0</option>
+      </single>
+    </panel>
+    <panel>
+      <single>
+        <title>Recordings</title>
+      <search>
+        <query><![CDATA[| inputlookup iot_captures | where "$cap$"="__all" OR capture="$cap$" | stats count]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="colorMode">block</option>
+      <option name="useColors">1</option>
+      <option name="rangeValues">[0]</option>
+      <option name="rangeColors">["0x3c444d","0x5a6b7d"]</option>
+      <option name="drilldown">none</option>
+      <option name="showSparkline">0</option>
+      <option name="showTrendIndicator">0</option>
+      </single>
+    </panel>
+    <panel>
+      <single>
+        <title>Events analysed</title>
+      <search>
+        <query><![CDATA[`iot_index`
+| where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+| stats count]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="colorMode">block</option>
+      <option name="useColors">1</option>
+      <option name="rangeValues">[0]</option>
+      <option name="rangeColors">["0x3c444d","0x5a6b7d"]</option>
+      <option name="drilldown">none</option>
+      <option name="showSparkline">0</option>
+      <option name="showTrendIndicator">0</option>
+      </single>
+    </panel>
+    <panel>
+      <single>
+        <title>Detections</title>
+      <search base="det">
+        <query><![CDATA[| stats sum(count) AS findings dc(rule) AS rules | fields findings]]></query>
+      </search>
+      <option name="colorMode">none</option>
+      <option name="useColors">1</option>
+      <option name="rangeValues">[0]</option>
+      <option name="rangeColors">["0x53A051","0xF8BE34"]</option>
+      <option name="drilldown">none</option>
+      <option name="showSparkline">0</option>
+      <option name="showTrendIndicator">0</option>
+      <option name="underLabel">at the selected severity</option>
+      </single>
+    </panel>
+    <panel>
+      <single>
+        <title>High or critical</title>
+      <search base="det">
+        <query><![CDATA[| where sev_num >= 4 | stats sum(count) AS n]]></query>
+      </search>
+      <option name="colorMode">block</option>
+      <option name="useColors">1</option>
+      <option name="rangeValues">[0]</option>
+      <option name="rangeColors">["0x53A051","0xF1813F"]</option>
+      <option name="drilldown">none</option>
+      <option name="showSparkline">0</option>
+      <option name="showTrendIndicator">0</option>
+      <option name="underLabel">need a closer look</option>
+      </single>
+    </panel>
+    <panel>
+      <single>
+        <title>Blocked by the firewall</title>
+      <search>
+        <query><![CDATA[`iot_index` sourcetype=iot:fw action=blocked
+| where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+| stats count]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="colorMode">block</option>
+      <option name="useColors">1</option>
+      <option name="rangeValues">[0]</option>
+      <option name="rangeColors">["0x53A051","0xDC4E41"]</option>
+      <option name="drilldown">none</option>
+      <option name="showSparkline">0</option>
+      <option name="showTrendIndicator">0</option>
+      <option name="underLabel">stopped at the boundary</option>
+      </single>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <html>
+        <h2 style="margin:0">Detections</h2>
+        <p style="margin:0">Everything the transparent rules flagged. Each row of the detail table says in plain words what happened.</p>
+      </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Detections by severity</title>
+      <search base="det">
+        <query><![CDATA[| stats sum(count) AS count BY severity]]></query>
+      </search>
+      <option name="charting.chart">pie</option>
+      <option name="charting.drilldown">none</option>
+      <option name="charting.legend.placement">bottom</option>
+      <option name="height">380</option>
+      <option name="charting.fieldColors">{"critical":0xDC4E41,"high":0xF1813F,"medium":0xF8BE34,"low":0x1182F3,"info":0x53A051}</option>
+      <option name="charting.chart.showPercent">true</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Detections by rule</title>
+      <search base="det">
+        <query><![CDATA[| chart sum(count) AS count over rule_short by severity]]></query>
+      </search>
+      <option name="charting.chart">bar</option>
+      <option name="charting.drilldown">none</option>
+      <option name="charting.legend.placement">bottom</option>
+      <option name="height">380</option>
+      <option name="charting.axisLabelsX.majorLabelVisibility">show</option>
+      <option name="charting.fieldColors">{"critical":0xDC4E41,"high":0xF1813F,"medium":0xF8BE34,"low":0x1182F3,"info":0x53A051}</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.axisTitleX.text">Rule</option>
+      <option name="charting.axisTitleY.text">Flagged events</option>
+      <option name="charting.chart.showDataLabels">minmax</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Devices with the most detections</title>
+      <search base="det">
+        <query><![CDATA[| chart sum(count) AS count over device by severity | addtotals | sort - Total | fields - Total | head 10]]></query>
+      </search>
+      <option name="charting.chart">bar</option>
+      <option name="charting.drilldown">none</option>
+      <option name="charting.legend.placement">bottom</option>
+      <option name="height">380</option>
+      <option name="charting.axisLabelsX.majorLabelVisibility">show</option>
+      <option name="charting.fieldColors">{"critical":0xDC4E41,"high":0xF1813F,"medium":0xF8BE34,"low":0x1182F3,"info":0x53A051}</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.axisTitleX.text">Device</option>
+      <option name="charting.axisTitleY.text">Flagged events</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Detections per recording</title>
+        <description>Which recording each finding comes from (state in brackets). "(no recording)" = firewall log only, e.g. the active tests.</description>
+      <search base="det">
+        <query><![CDATA[| lookup iot_captures capture OUTPUT state start | eval recording=if(isnull(state), capture, capture." (".state.")") | chart sum(count) AS count over recording by severity | sort recording]]></query>
+      </search>
+      <option name="charting.chart">column</option>
+      <option name="charting.drilldown">none</option>
+      <option name="charting.legend.placement">bottom</option>
+      <option name="charting.fieldColors">{"critical":0xDC4E41,"high":0xF1813F,"medium":0xF8BE34,"low":0x1182F3,"info":0x53A051}</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.text">Flagged events</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Real devices vs simulated attacks</title>
+        <description>Simulated = the test host playing a compromised device.</description>
+      <search base="det">
+        <query><![CDATA[| chart sum(count) AS count over origin by severity]]></query>
+      </search>
+      <option name="charting.chart">bar</option>
+      <option name="charting.drilldown">none</option>
+      <option name="charting.legend.placement">bottom</option>
+      <option name="charting.fieldColors">{"critical":0xDC4E41,"high":0xF1813F,"medium":0xF8BE34,"low":0x1182F3,"info":0x53A051}</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.text">Flagged events</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Detection details</title>
+        <description>Highest severity first. Click a column header to sort.</description>
+      <search base="det">
+        <query><![CDATA[| sort - sev_num - count
+| eval When=strftime(_time, "%Y-%m-%d %H:%M")
+| rename severity AS Severity, rule_label AS Rule, detail AS "What happened", device AS Device, origin AS Source, capture AS Recording, count AS Count
+| table When Severity Rule "What happened" Device Source Recording Count]]></query>
+      </search>
+      <option name="count">15</option>
+      <option name="drilldown">none</option>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      <format type="color" field="Severity">
+        <colorPalette type="map">{"critical":#DC4E41,"high":#F1813F,"medium":#F8BE34,"low":#1182F3,"info":#53A051}</colorPalette>
+      </format>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <html>
+        <h2 style="margin:0">What is normal for each device</h2>
+        <p style="margin:0">The baseline: who each device talks to and how much. Rules R1, R3, R5 and R9 compare new traffic with the baseline recordings.</p>
+      </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Internet upload per device (bytes per hour, log scale)</title>
+        <description>Data each device sent to the internet. Spikes are uploads; flat lines are routine check-ins.</description>
+      <search>
+        <query><![CDATA[`iot_index` sourcetype=iot:volume
+| where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+| timechart span=1h sum(out_wan) BY device]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <search type="annotation">
+        <query><![CDATA[`iot_index` sourcetype=iot:annotation | eval annotation_label=label.": ".text, annotation_category=kind]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="charting.chart">line</option>
+      <option name="charting.drilldown">none</option>
+      <option name="charting.legend.placement">bottom</option>
+      <option name="charting.axisY.scale">log</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.text">Bytes per hour</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Who each device talks to (share of its traffic)</title>
+        <description>By bytes. "Local discovery" is multicast that never leaves the house.</description>
+      <search>
+        <query><![CDATA[`iot_index` sourcetype=iot:conn
+| where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+| `iot_peer_label`
+| eval bytes=bytes_out+bytes_in
+| chart sum(bytes) over device by talks_to]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="charting.chart">bar</option>
+      <option name="charting.drilldown">none</option>
+      <option name="charting.legend.placement">bottom</option>
+      <option name="charting.chart.stackMode">stacked100</option>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.text">% of bytes</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Device profiles</title>
+        <description>One line per device: its normal footprint. "Started by others" are connections a controller or another host opened to the device.</description>
+      <search>
+        <query><![CDATA[`iot_index` sourcetype=iot:conn
+| where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+| stats dc(eval(if(peer_class="wan", peer_ip, null()))) AS internet_servers count AS connections count(eval(initiated_by="peer")) AS started_by_others values(capture) AS recordings BY device device_mac device_role
+| join type=left device [ search `iot_index` sourcetype=iot:volume
+    | where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+    | bin _time span=1h | stats sum(out_wan) AS up sum(in_wan) AS down BY _time device
+    | stats median(up) AS med_up median(down) AS med_down BY device ]
+| join type=left device [ search `iot_index` (sourcetype=iot:pihole OR sourcetype=iot:dns)
+    | where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+    | stats dc(query) AS domains BY device ]
+| lookup iot_devices mac AS device_mac OUTPUT type local_only baselined
+| eval up_txt=if(isnull(med_up), "none", round(med_up/1000, 1)." kB"), down_txt=if(isnull(med_down), "none", round(med_down/1000, 1)." kB")
+| eval Recordings=mvjoin(recordings, ", "), lo=if(local_only="true", "yes", "no"), Baselined=if(baselined="true", "yes", "no")
+| fillnull value=0 domains
+| rename device AS Device, type AS Type, internet_servers AS "Internet servers", domains AS "Domains looked up", connections AS Connections, started_by_others AS "Started by others", device_role AS Role, up_txt AS "Internet upload / h (median)", down_txt AS "Internet download / h (median)", lo AS "Local only"
+| table Device Type Role "Local only" Baselined "Internet servers" "Domains looked up" "Internet upload / h (median)" "Internet download / h (median)" Connections "Started by others" Recordings]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="count">12</option>
+      <option name="drilldown">none</option>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <html>
+        <h2 style="margin:0">Is the separation working?</h2>
+        <p style="margin:0">What the router's firewall stopped, and who could reach the devices before and after the separation.</p>
+      </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>What the firewall did</title>
+        <description>Logged = allowed but recorded. Blocked and redirected = stopped at the boundary. Log scale.</description>
+      <search>
+        <query><![CDATA[`iot_index` sourcetype=iot:fw
+| where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+| `iot_fw_label`
+| eval origin=case(device_role="iot", "Real device", device_role="test", "Test host", true(), "Other host")
+| chart count over what by origin]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="charting.chart">bar</option>
+      <option name="charting.drilldown">none</option>
+      <option name="charting.legend.placement">bottom</option>
+      <option name="height">320</option>
+      <option name="charting.axisY.scale">log</option>
+      <option name="charting.axisLabelsX.majorLabelVisibility">show</option>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.text">Log entries</option>
+      <option name="charting.chart.showDataLabels">minmax</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>Hosts that started connections to IoT devices</title>
+        <description>Before the separation (state A) many household hosts reached the devices; afterwards only the controllers.</description>
+      <search>
+        <query><![CDATA[`iot_index` sourcetype=iot:conn initiated_by=peer
+| where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+| `iot_peer_label`
+| eval recording=capture." (".state.")"
+| chart dc(peer_ip) AS hosts over recording by talks_to]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="charting.chart">column</option>
+      <option name="charting.drilldown">none</option>
+      <option name="charting.legend.placement">bottom</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.text">Distinct hosts</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Blocked attempts by destination</title>
+        <description>Every blocked or redirected attempt from the IoT side, grouped by target.</description>
+      <search>
+        <query><![CDATA[`iot_index` sourcetype=iot:fw action!=logged
+| where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+| `iot_fw_label`
+| fillnull value="" dest_name
+| eval Destination=if(dest_name!="", dest_name." (".dest_ip.")", dest_ip), port=coalesce(dest_port, "-")
+| stats count AS Attempts values(port) AS Ports min(_time) AS first max(_time) AS last BY device device_role what Destination
+| eval Ports=mvjoin(mvindex(Ports, 0, 7), ", ").if(mvcount(Ports)>8, " …", ""), first_txt=strftime(first, "%Y-%m-%d %H:%M"), last_txt=strftime(last, "%Y-%m-%d %H:%M")
+| sort - Attempts
+| rename device AS Device, device_role AS Role, what AS What, first_txt AS "First seen", last_txt AS "Last seen"
+| table Device Role What Destination Ports Attempts "First seen" "Last seen"]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="count">10</option>
+      <option name="drilldown">none</option>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <html>
+        <h2 style="margin:0">Do the devices still work?</h2>
+        <p style="margin:0">Controllers (HomePod, iPhone, Mac) reach the devices over Matter (UDP 5540), and the devices get their DNS answers from Pi-hole.
+        The full 28-point function checklist passed in the final state (evidence E110, E111).</p>
+      </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Controller sessions per device (Matter)</title>
+        <description>Matter connections a controller opened to each device, across the selected recordings.</description>
+      <search>
+        <query><![CDATA[`iot_index` sourcetype=iot:conn initiated_by=peer (dest_port=5540 OR src_port=5540)
+| where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+| eval controller=if(isnull(peer_name) OR peer_name="", peer_ip, peer_name)
+| chart count over device by controller]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="charting.chart">bar</option>
+      <option name="charting.drilldown">none</option>
+      <option name="charting.legend.placement">bottom</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.text">Sessions</option>
+      </chart>
+    </panel>
+    <panel>
+      <chart>
+        <title>DNS answers for the devices (Pi-hole)</title>
+        <description>Blocked lookups are telemetry domains on the block list, e.g. the Hue diagnostics host.</description>
+      <search>
+        <query><![CDATA[`iot_index` sourcetype=iot:pihole
+| where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+| eval answer=if(blocked="true", "Blocked (tracking / telemetry)", "Answered")
+| chart count over device by answer]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="charting.chart">bar</option>
+      <option name="charting.drilldown">none</option>
+      <option name="charting.legend.placement">bottom</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.fieldColors">{"Answered":0x53A051,"Blocked (tracking / telemetry)":0xDC4E41}</option>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.text">Queries</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <html>
+        <h2 style="margin:0">Data quality and coverage</h2>
+        <p style="margin:0">What the evidence covers: the recordings, the operator's notes and the health of the capture.</p>
+      </html>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Recordings</title>
+      <search>
+        <query><![CDATA[| inputlookup iot_captures
+| where "$cap$"="__all" OR capture="$cap$"
+| eval Baseline=if(baseline="true", "yes", "no"), Hours=round((end-start)/3600, 1)
+| rename capture AS Recording, state AS State, start_local AS Start, end_local AS End, description AS "What it is"
+| table Recording State Baseline Start End Hours "What it is"]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="count">8</option>
+      <option name="drilldown">none</option>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      </table>
+    </panel>
+    <panel>
+      <table>
+        <title>Operator notes (ground truth)</title>
+      <search>
+        <query><![CDATA[`iot_index` sourcetype=iot:annotation
+| where "$cap$"="__all" OR capture="$cap$" OR isnull(capture) OR capture=""
+| sort _time
+| eval When=strftime(_time, "%Y-%m-%d %H:%M")
+| rename kind AS Kind, label AS What, text AS Details, capture AS Recording
+| table When Recording Kind What Details]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="count">8</option>
+      <option name="drilldown">none</option>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>IPv6 router advertisements (capture health, R11)</title>
+        <description>About 7 per minute is normal. A run of zeros during a recording means the router stopped advertising IPv6.</description>
+      <search>
+        <query><![CDATA[`iot_index` sourcetype=iot:health
+| where "$cap$"="__all" OR capture="$cap$"
+| timechart span=5m sum(router_adverts) BY iface]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <search type="annotation">
+        <query><![CDATA[`iot_index` sourcetype=iot:annotation | eval annotation_label=label.": ".text, annotation_category=kind]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="charting.chart">column</option>
+      <option name="charting.drilldown">none</option>
+      <option name="charting.legend.placement">bottom</option>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.text">Adverts per 5 min</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      </chart>
+    </panel>
+    <panel>
+      <table>
+        <title>Events per data source</title>
+        <description>Totals should match pipeline_out/prepare_report.json when no filter is set.</description>
+      <search>
+        <query><![CDATA[`iot_index`
+| where ("$cap$"="__all" OR capture="$cap$") AND ("$dev$"="__all" OR device="$dev$") AND ("$tests$"="yes" OR isnull(device_role) OR device_role!="test")
+| stats count BY sourcetype
+| eval Source=case(sourcetype="iot:conn", "Connections (Zeek)", sourcetype="iot:dns", "DNS on the wire (Zeek)", sourcetype="iot:tls", "TLS sessions (Zeek)", sourcetype="iot:tls_hello", "TLS fingerprints (tshark)", sourcetype="iot:http", "Plain HTTP (Zeek)", sourcetype="iot:dhcp", "DHCP (Zeek)", sourcetype="iot:volume", "Volume per device-minute (pcap)", sourcetype="iot:health", "Capture health per minute (pcap)", sourcetype="iot:fw", "Router firewall log", sourcetype="iot:pihole", "Pi-hole DNS log", sourcetype="iot:annotation", "Operator notes", true(), sourcetype)
+| rename sourcetype AS Sourcetype, count AS Events
+| table Source Sourcetype Events]]></query>
+        <earliest>$tr.earliest$</earliest>
+        <latest>$tr.latest$</latest>
+      </search>
+      <option name="count">11</option>
+      <option name="drilldown">none</option>
+      <option name="wrap">true</option>
+      <option name="rowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <html>
+        <h2>The rules</h2>
+        <p>Each rule is one plain condition with a fixed threshold, so anyone can check why it fired. Full definitions: analysis.md §8; one-line versions: results_to_evidence.md.
+        The searches are the macros <code>iot_det_r1</code> … <code>iot_det_r12</code>, <code>iot_det_fw</code>, <code>iot_det_dev</code> in this app.</p>
+        <table class="table table-chrome"><tr><th>Rule</th><th>Name</th><th>Severity</th><th>Fires when</th></tr><tr><td><b>R1</b></td><td>New domain for a device</td><td>low</td><td>a domain the device never looked up during a baseline recording</td></tr><tr><td><b>R2</b></td><td>Tried to reach the main network</td><td>critical / info</td><td>blocked by the firewall; info when it is a Matter status message to a controller (policy, rec. 22)</td></tr><tr><td><b>R3</b></td><td>Unusual data volume</td><td>medium to critical</td><td>more than 10x the device's normal hourly internet traffic (floor 10 kB/h, rec. 20); severity grows with the ratio</td></tr><tr><td><b>R4</b></td><td>Traffic to an impossible address</td><td>high</td><td>sent to an address that cannot exist on the internet (e.g. the SwitchBot leak to 255.2.0.0)</td></tr><tr><td><b>R5</b></td><td>Keeps retrying a blocked domain</td><td>medium</td><td>blocked DNS lookups per hour above 5x the first baseline</td></tr><tr><td><b>R6</b></td><td>Burst of connections</td><td>medium</td><td>more than 10 new connections to one internet server within 10 minutes</td></tr><tr><td><b>R7</b></td><td>Asked a DNS server other than Pi-hole</td><td>high / medium</td><td>high if it reached an outside resolver, medium if the router redirected it to Pi-hole</td></tr><tr><td><b>R8</b></td><td>Local-only device talked to the internet</td><td>critical</td><td>a device marked local_only (the Matter switches) contacted the internet</td></tr><tr><td><b>R9</b></td><td>New encryption fingerprint</td><td>low</td><td>a TLS client fingerprint (JA4) not seen during a baseline: new software or a reboot</td></tr><tr><td><b>R10</b></td><td>Unencrypted web traffic to the internet</td><td>high</td><td>plain HTTP to the internet: anyone on the path can read it</td></tr><tr><td><b>R11</b></td><td>Router stopped advertising IPv6</td><td>medium</td><td>no IPv6 router advertisement for 3 minutes or more during a recording</td></tr><tr><td><b>R12</b></td><td>Outdated encryption</td><td>medium</td><td>TLS older than 1.2</td></tr><tr><td><b>FW</b></td><td>Tried a blocked router service</td><td>high</td><td>an IoT-side host tried a router service it may not use (state E hardening)</td></tr><tr><td><b>DEV</b></td><td>Unexpected device on the IoT network</td><td>high / medium</td><td>a device not in the inventory, a controller or a personal device joined the IoT segment</td></tr></table>
+      </html>
+    </panel>
+  </row>
+</form>

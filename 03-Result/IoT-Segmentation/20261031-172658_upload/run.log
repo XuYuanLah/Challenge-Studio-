@@ -1,0 +1,31 @@
+2026-10-31 17:26:58 +1100 run id:     20261031-172658 (PID 32038, foreground)
+2026-10-31 17:26:58 +1100 duration:   24h (86400s)
+2026-10-31 17:26:58 +1100 rotation:   none (one file per interface)
+2026-10-31 17:26:58 +1100 interfaces: wl0.2 eth7
+2026-10-31 17:26:58 +1100 filter:     <none>
+2026-10-31 17:26:58 +1100 tcpdump:    /opt/bin/tcpdump (tcpdump version 4.99.5)
+2026-10-31 17:26:58 +1100 storage:    /tmp/mnt/opt/captures/20261031-172658 (110397 MiB free at start)
+2026-10-31 17:26:58 +1100 runner status (before): Usage: runner enable; runner disable 
+Broadcom Packet Flow Cache HW acceleration <DISABLED>
+CPU Speed (*) ==> Disable
+Changing power settings. Forcing cpu to max frequency.
+   Set cpuspeed to on(pwr config --cpuspeed on) to make it adaptive again
+2026-10-31 17:26:58 +1100 runner disabled (/bin/runner)
+2026-10-31 17:26:58 +1100 fc status (before): 	Flow Refresh Timer Interval  = 10000 millisecs 	TCP Flow Idle Timer          = 60 s 	UDP Flow Idle Timer          = 120 s 	L2 Flow Idle Timer           = 120 s 	Mcast Flow Idle Timer        = 120 s 	Other Flow Idle Timer        = 120 s 	Pkt-HW Activate Deferral rate = 1 	Pkt-HW Idle Deactivate = 0 	Pkt-SW Activate Deferral count = 0 	Flow Low Pkt Rate = 10 	Acceleration Mode: <L2 & L3> 	MCast Acceleration IPv4<Enabled> IPv6<Enabled> 	IPv6 Learning <Enabled> 	L2TP Learning <Enabled> 	GRE Learning <Enabled> 	4o6 Fragmentation <Enabled> 	TCP Ack Prioritization <Enabled>  	ToS Multi Flow <Enabled>  	Notify Processing Mode <Hybrid>  	Rx Pkt Length Mode <Enabled> 	OVS Flow Learning <Disabled>  	HW Acceleration <Disabled>  	Tx Thread <Enabled>  	Tx Thread Idle Delay <8> yield loops  	Flow Ucast Learning Enabled  : Max<16383>, Active<123>, Cumulative [ 4169 - 4046 ] 	Flow Mcast Learning Enabled  : Max<1152>, Active<0>, Cumulative [ 0 - 0 ] 	Pure LLC Acceleration: <Disabled> 
+Broadcom Packet Flow Cache learning via BLOG disabled.
+
+Broadcom Packet Flow Cache flushing the flows
+2026-10-31 17:26:58 +1100 flow cache disabled + flushed (/bin/fc)
+2026-10-31 17:26:58 +1100 [wl0.2] tcpdump started (PID 32170)
+2026-10-31 17:26:58 +1100 [eth7] tcpdump started (PID 32176)
+2026-10-31 17:27:00 +1100 capturing until 2026-11-01 17:27:00
+Broadcom Packet Flow Cache learning via BLOG enabled.
+2026-10-31 18:28:22 +1100 flow cache re-enabled
+Broadcom Packet Flow Cache HW acceleration <ENABLED>
+CPU Speed (*) ==> Enable
+Changing power settings. Setting cpu frequency setting to adaptive.
+2026-10-31 18:28:22 +1100 runner re-enabled
+2026-10-31 18:28:22 +1100 capture stopped
+2026-10-31 18:28:22 +1100 [wl0.2] 206146 packets captured 206163 packets received by filter 0 packets dropped by kernel 
+2026-10-31 18:28:22 +1100 [eth7] 24364 packets captured 24367 packets received by filter 0 packets dropped by kernel 
+2026-10-31 18:28:22 +1100 files: 2 pcap(s), total 172M

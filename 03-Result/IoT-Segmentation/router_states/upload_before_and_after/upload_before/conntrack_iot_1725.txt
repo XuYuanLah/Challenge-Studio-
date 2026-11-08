@@ -1,0 +1,79 @@
+ipv4     2 udp      17 13 src=192.168.107.13 dst=192.168.0.8 sport=60586 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=60586 mark=25928 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 686 ESTABLISHED src=192.168.107.26 dst=35.233.55.222 sport=34852 dport=443 src=35.233.55.222 dst=198.51.100.55 sport=443 dport=34852 [ASSURED] mark=8008 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1715 src=192.168.107.13 dst=17.248.219.15 sport=56524 dport=443 src=17.248.219.15 dst=198.51.100.55 sport=443 dport=56524 [ASSURED] mark=18912 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2322 ESTABLISHED src=192.168.107.13 dst=52.98.140.18 sport=53563 dport=443 src=52.98.140.18 dst=198.51.100.55 sport=443 dport=53563 [ASSURED] mark=13088 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2322 ESTABLISHED src=192.168.107.13 dst=52.98.140.18 sport=53563 dport=443 src=52.98.140.18 dst=198.51.100.55 sport=443 dport=53563 [ASSURED] mark=13088 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 28 src=192.168.107.13 dst=192.168.0.8 sport=64555 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=64555 mark=28168 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 38 TIME_WAIT src=192.168.107.13 dst=192.178.226.109 sport=56051 dport=993 src=192.178.226.109 dst=198.51.100.55 sport=993 dport=56051 [ASSURED] mark=18608 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 36 TIME_WAIT src=192.168.107.13 dst=112.19.142.236 sport=53587 dport=443 src=112.19.142.236 dst=198.51.100.55 sport=443 dport=53587 [ASSURED] mark=18944 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1712 src=192.168.107.13 dst=17.250.64.5 sport=58962 dport=443 src=17.250.64.5 dst=198.51.100.55 sport=443 dport=58962 [ASSURED] mark=16376 iqprio=0 swaccel=2 hwaccel=2 use=2
+ipv4     2 udp      17 13 src=192.168.107.13 dst=192.168.0.8 sport=49650 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=49650 mark=25968 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 28 src=192.168.107.13 dst=192.168.0.8 sport=52086 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=52086 mark=28192 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 28 src=192.168.107.13 dst=192.168.0.8 sport=59240 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=59240 mark=28280 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2398 ESTABLISHED src=192.168.107.13 dst=17.156.216.37 sport=56054 dport=993 src=17.156.216.37 dst=198.51.100.55 sport=993 dport=56054 [ASSURED] mark=18672 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1711 src=192.168.107.13 dst=192.168.0.8 sport=65416 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=65416 [ASSURED] mark=13504 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1711 src=192.168.107.13 dst=192.168.0.8 sport=65416 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=65416 [ASSURED] mark=13504 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1711 src=192.168.107.13 dst=192.168.0.8 sport=65416 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=65416 [ASSURED] mark=13504 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 28 src=192.168.107.13 dst=192.168.0.8 sport=65000 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=65000 mark=28264 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 28 src=192.168.107.13 dst=192.168.0.8 sport=60946 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=60946 mark=28256 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 29 src=192.168.107.26 dst=192.168.0.8 sport=36921 dport=53 src=192.168.0.8 dst=192.168.107.26 sport=53 dport=36921 mark=28368 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1740 src=192.168.107.13 dst=17.248.219.67 sport=60857 dport=443 src=17.248.219.67 dst=198.51.100.55 sport=443 dport=60857 [ASSURED] mark=13192 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 13 src=192.168.107.13 dst=192.168.0.8 sport=64670 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=64670 mark=25872 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1725 src=192.168.107.13 dst=17.248.219.23 sport=60251 dport=443 src=17.248.219.23 dst=198.51.100.55 sport=443 dport=60251 [ASSURED] mark=13560 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1714 src=192.168.107.13 dst=17.248.252.45 sport=61709 dport=443 src=17.248.252.45 dst=198.51.100.55 sport=443 dport=61709 [ASSURED] mark=18568 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 60 TIME_WAIT src=192.168.107.13 dst=23.1.240.131 sport=56078 dport=80 src=23.1.240.131 dst=198.51.100.55 sport=80 dport=56078 [ASSURED] mark=20392 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1715 src=192.168.107.13 dst=17.250.64.68 sport=65051 dport=443 src=17.250.64.68 dst=198.51.100.55 sport=443 dport=65051 [ASSURED] mark=19016 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1431 src=192.168.0.22 dst=192.168.107.15 sport=49626 dport=5540 src=192.168.107.15 dst=192.168.0.22 sport=5540 dport=49626 [ASSURED] mark=196296 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 13 src=192.168.107.13 dst=192.168.0.8 sport=51399 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=51399 mark=26008 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2376 ESTABLISHED src=192.168.107.26 dst=35.233.55.222 sport=34942 dport=443 src=35.233.55.222 dst=198.51.100.55 sport=443 dport=34942 [ASSURED] mark=115520 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2386 ESTABLISHED src=192.168.107.13 dst=54.80.219.230 sport=53589 dport=443 src=54.80.219.230 dst=198.51.100.55 sport=443 dport=53589 [ASSURED] mark=21520 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 28 src=192.168.107.13 dst=192.168.0.8 sport=63637 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=63637 mark=28200 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 28 src=192.168.107.13 dst=192.168.0.8 sport=62800 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=62800 mark=28216 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 25 src=192.168.107.13 dst=192.168.0.8 sport=60066 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=60066 mark=27648 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 13 src=192.168.107.13 dst=192.168.0.8 sport=55834 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=55834 mark=25896 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2381 ESTABLISHED src=192.168.107.23 dst=54.253.6.87 sport=52467 dport=443 src=54.253.6.87 dst=198.51.100.55 sport=443 dport=52467 [ASSURED] mark=129144 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 29 src=192.168.107.26 dst=192.168.0.8 sport=44056 dport=53 src=192.168.0.8 dst=192.168.107.26 sport=53 dport=44056 mark=28088 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 18 src=192.168.107.20 dst=224.0.0.251 sport=5353 dport=5353 [UNREPLIED] src=224.0.0.251 dst=192.168.107.20 sport=5353 dport=5353 mark=29360129 iqprio=1 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 31 TIME_WAIT src=192.168.107.13 dst=23.46.179.202 sport=56020 dport=80 src=23.46.179.202 dst=198.51.100.55 sport=80 dport=56020 [ASSURED] mark=12184 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1715 src=192.168.107.13 dst=17.248.252.234 sport=61173 dport=443 src=17.248.252.234 dst=198.51.100.55 sport=443 dport=61173 [ASSURED] mark=18536 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2312 ESTABLISHED src=192.168.107.13 dst=184.84.238.121 sport=53580 dport=443 src=184.84.238.121 dst=198.51.100.55 sport=443 dport=53580 [ASSURED] mark=17336 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1715 src=192.168.107.13 dst=17.248.219.39 sport=60819 dport=443 src=17.248.219.39 dst=198.51.100.55 sport=443 dport=60819 [ASSURED] mark=18976 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 18 src=192.168.107.2 dst=224.0.0.251 sport=5353 dport=5353 [UNREPLIED] src=224.0.0.251 dst=192.168.107.2 sport=5353 dport=5353 mark=16777217 iqprio=1 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2312 ESTABLISHED src=192.168.107.13 dst=52.68.21.102 sport=53570 dport=443 src=52.68.21.102 dst=198.51.100.55 sport=443 dport=53570 [ASSURED] mark=13536 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1715 src=192.168.107.13 dst=17.248.252.37 sport=51193 dport=443 src=17.248.252.37 dst=198.51.100.55 sport=443 dport=51193 [ASSURED] mark=18680 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 28 src=192.168.107.13 dst=192.168.0.8 sport=58810 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=58810 mark=28184 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1338 src=192.168.0.22 dst=192.168.107.26 sport=49626 dport=5540 src=192.168.107.26 dst=192.168.0.22 sport=5540 dport=49626 [ASSURED] mark=125800 iqprio=0 swaccel=2 hwaccel=2 use=2
+ipv4     2 tcp      6 2398 ESTABLISHED src=192.168.107.13 dst=43.163.178.76 sport=56027 dport=993 src=43.163.178.76 dst=198.51.100.55 sport=993 dport=56027 [ASSURED] mark=13168 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 13 src=192.168.107.13 dst=192.168.0.8 sport=55875 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=55875 mark=25936 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1711 src=192.168.107.13 dst=17.248.219.8 sport=56386 dport=443 src=17.248.219.8 dst=198.51.100.55 sport=443 dport=56386 [ASSURED] mark=13144 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1715 src=192.168.107.13 dst=17.248.219.39 sport=54109 dport=443 src=17.248.219.39 dst=198.51.100.55 sport=443 dport=54109 [ASSURED] mark=18968 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 18 src=192.168.107.13 dst=192.168.0.8 sport=51166 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=51166 mark=26960 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2283 ESTABLISHED src=192.168.107.2 dst=52.2.244.206 sport=58514 dport=443 src=52.2.244.206 dst=198.51.100.55 sport=443 dport=58514 [ASSURED] mark=120200 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 13 src=192.168.107.13 dst=192.168.0.8 sport=55817 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=55817 mark=25856 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1533 src=192.168.0.22 dst=192.168.107.2 sport=49626 dport=5540 src=192.168.107.2 dst=192.168.0.22 sport=5540 dport=49626 [ASSURED] mark=126672 iqprio=0 swaccel=2 hwaccel=2 use=2
+ipv4     2 udp      17 1711 src=192.168.107.13 dst=192.168.0.8 sport=56515 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=56515 [ASSURED] mark=13512 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1725 src=192.168.107.13 dst=17.248.219.67 sport=59081 dport=443 src=17.248.219.67 dst=198.51.100.55 sport=443 dport=59081 [ASSURED] mark=13256 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2312 ESTABLISHED src=192.168.107.13 dst=52.68.21.102 sport=53577 dport=443 src=52.68.21.102 dst=198.51.100.55 sport=443 dport=53577 [ASSURED] mark=16944 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2361 ESTABLISHED src=192.168.107.13 dst=52.98.140.18 sport=53562 dport=443 src=52.98.140.18 dst=198.51.100.55 sport=443 dport=53562 [ASSURED] mark=13080 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 13 src=192.168.107.13 dst=192.168.0.8 sport=58802 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=58802 mark=25440 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1714 src=192.168.107.13 dst=17.248.219.67 sport=53479 dport=443 src=17.248.219.67 dst=198.51.100.55 sport=443 dport=53479 [ASSURED] mark=18488 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 28 src=192.168.107.13 dst=192.168.0.8 sport=65070 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=65070 mark=28208 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 28 src=192.168.107.13 dst=192.168.0.8 sport=61339 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=61339 mark=28232 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1715 src=192.168.107.13 dst=17.248.219.15 sport=56665 dport=443 src=17.248.219.15 dst=198.51.100.55 sport=443 dport=56665 [ASSURED] mark=18200 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1729 src=192.168.107.13 dst=192.168.0.8 sport=52485 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=52485 [ASSURED] mark=12944 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2398 ESTABLISHED src=192.168.107.13 dst=192.178.226.109 sport=56025 dport=993 src=192.178.226.109 dst=198.51.100.55 sport=993 dport=56025 [ASSURED] mark=13120 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1755 src=192.168.107.13 dst=17.248.252.38 sport=53882 dport=443 src=17.248.252.38 dst=198.51.100.55 sport=443 dport=53882 [ASSURED] mark=23224 iqprio=0 swaccel=3 hwaccel=2 use=2
+ipv4     2 tcp      6 2313 ESTABLISHED src=192.168.107.13 dst=54.199.107.1 sport=53581 dport=443 src=54.199.107.1 dst=198.51.100.55 sport=443 dport=53581 [ASSURED] mark=17720 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 53 src=192.168.107.22 dst=192.168.0.8 sport=50405 dport=53 src=192.168.0.8 dst=192.168.107.22 sport=53 dport=50405 [ASSURED] mark=2216 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2398 ESTABLISHED src=192.168.107.13 dst=192.178.226.109 sport=56024 dport=993 src=192.178.226.109 dst=198.51.100.55 sport=993 dport=56024 [ASSURED] mark=13112 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2348 ESTABLISHED src=192.168.107.15 dst=13.223.215.128 sport=51651 dport=8883 src=13.223.215.128 dst=198.51.100.55 sport=8883 dport=51651 [ASSURED] mark=122112 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 13 src=192.168.107.13 dst=192.168.0.8 sport=55030 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=55030 mark=25920 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 13 src=192.168.107.13 dst=192.168.0.8 sport=57358 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=57358 mark=25912 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 18 src=192.168.107.17 dst=224.0.0.251 sport=5353 dport=5353 [UNREPLIED] src=224.0.0.251 dst=192.168.107.17 sport=5353 dport=5353 mark=50331649 iqprio=1 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 28 src=192.168.107.13 dst=192.168.0.8 sport=58487 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=58487 mark=28288 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 13 src=192.168.107.13 dst=192.168.0.8 sport=65181 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=65181 mark=25848 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 1715 src=192.168.107.13 dst=17.248.252.42 sport=58310 dport=443 src=17.248.252.42 dst=198.51.100.55 sport=443 dport=58310 [ASSURED] mark=18616 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 40 TIME_WAIT src=192.168.107.13 dst=192.178.226.109 sport=56050 dport=993 src=192.178.226.109 dst=198.51.100.55 sport=993 dport=56050 [ASSURED] mark=18584 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 28 src=192.168.107.13 dst=192.168.0.8 sport=53944 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=53944 mark=28240 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 udp      17 13 src=192.168.107.13 dst=192.168.0.8 sport=62808 dport=53 src=192.168.0.8 dst=192.168.107.13 sport=53 dport=62808 mark=25720 iqprio=0 swaccel=0 hwaccel=0 use=2
+ipv4     2 tcp      6 2376 ESTABLISHED src=192.168.107.26 dst=34.117.13.189 sport=48290 dport=443 src=34.117.13.189 dst=198.51.100.55 sport=443 dport=48290 [ASSURED] mark=115128 iqprio=0 swaccel=4 hwaccel=4 use=2
